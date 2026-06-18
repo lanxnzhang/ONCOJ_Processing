@@ -9,7 +9,8 @@ Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](http
 ```
 data/
   dict/dictionary.txt   — ~7,000-entry lexical dictionary
-  text/                 — corpus text files (one per source text)
+  text/                 — texts still needing editing (EN and SM)
+  trees/                — texts already uploaded to the corpus
 scripts/
   lemmas_processor_2.0.4.py         — standard lemma processor
   compound_lemma_processor_1.0.1.py — compound noun processor
@@ -72,13 +73,12 @@ See [`notebooks/oncoj_usage.ipynb`](notebooks/oncoj_usage.ipynb) for a fully exe
 Comma-separated root-to-leaf tree paths, one per syntactic node:
 
 ```
-IP-MAT,NP,N,LOG,kamu
 IP-MAT,NP,N,L000006a,LOG,nu
 ```
 
 - Last field: romanised phonemic word form
-- Penultimate field: writing-mode tag (`LOG`, `PHON`, `NLOG`, `PHON-ON`, `BPHON`, …)
-- Optional lemma ID (e.g. `L000006a`) inserted between the syntactic path and the tag
+- Penultimate field: script type tag (`LOG`, `PHON`, `NLOG`, `PHON-ON`, `BPHON`, …)
+- Lemma ID (e.g. `L000006a`) inserted between the syntactic path and the tag
 - Tags may carry a `;@N` disambiguation suffix (e.g. `N;@2`) — strip with `tags.strip_disambig()`
 
 Utterances are separated by blank lines; headers follow the pattern `=N("…")`.
