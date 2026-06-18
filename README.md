@@ -1,6 +1,6 @@
 # ONCOJ Processing
 
-Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](https://oncoj.ninjal.ac.jp/) — a parsed corpus of 7th–8th century Japanese texts (Man'yōshū, Kojiki kayō, Nihon shoki kayō, Senmyō, and others) totalling ~100,000 lexical items. Licensed CC BY 4.0.
+Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](https://oncoj.ninjal.ac.jp/) — a parsed corpus of mainly 7th–8th century Japanese texts (_Man'yōshū_, _Kojiki kayō_, _Nihon shoki kayō_, and others) totalling ~100,000 lexical items. Licensed CC BY 4.0.
 
 ---
 
@@ -11,9 +11,9 @@ data/
   dict/dictionary.txt   — ~7,000-entry lexical dictionary
   text/                 — corpus text files (one per source text)
 scripts/
-  lemmas_processor_2.0.4.py         — standard lemma annotator
-  compound_lemma_processor_1.0.1.py — compound noun inserter
-  mk_lemma_processor_1.0.1.py       — makura-kotoba processor
+  lemmas_processor_2.0.4.py         — standard lemma processor
+  compound_lemma_processor_1.0.1.py — compound noun processor
+  mk_lemma_processor_1.0.1.py       — makura kotoba processor
 src/oncoj/              — Python package: core data model
 notebooks/
   oncoj_usage.ipynb     — interactive usage examples
@@ -141,14 +141,14 @@ python3 -m pytest tests/
 
 | Code | Text |
 |---|---|
-| MYS | Man'yōshū |
-| KK | Kojiki kayō |
-| NSK | Nihon shoki kayō |
-| SM | Senmyō |
-| EN | Engi-shiki Norito |
-| FK | Fudoki |
-| BS | Buddha's Footprints Stones |
-| KH | Kaifūsō |
-| JSHT | — |
-| SNK | — |
+| MYS | _Man'yōshū_ 万葉集 |
+| KK | _Kojiki kayō_ 古事記歌謡 |
+| NSK | _Nihon shoki kayō_ 日本書紀歌謡 |
+| FK | _Fudoki kayō_ 風土記歌謡 |
+| BS | _Bussokuseki-ka_ 仏足石歌 |
+| KH | _Kakyō hyōshiki_ 歌経標式 |
+| JSHT | _Jōgū shōtoku hōō teisetsu_ 上宮聖徳法王帝説 |
+| SNK | _Shoku nihongi kayō_ 続日本紀歌謡 |
+| SM | _Senmyō_ 宣命 |
+| EN | _Engishiki Norito_ 延喜式祝詞 |
 
