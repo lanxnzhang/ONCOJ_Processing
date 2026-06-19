@@ -2,7 +2,7 @@
 import pytest
 from oncoj.dictionary import DictEntry, Dictionary, ENTRY_SEP
 from oncoj.lemma_id import LemmaID
-from oncoj.tags import REQUIRED_FIELDS, MULTI_VALUE_FIELDS
+from oncoj.tags import REQUIRED_FIELDS
 
 
 # ── minimal entry text used across tests ──────────────────────────────────────

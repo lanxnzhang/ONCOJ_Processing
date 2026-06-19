@@ -8,17 +8,24 @@ Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](http
 
 ```
 data/
-  dict/dictionary.txt   — ~7,000-entry lexical dictionary
-  text/                 — texts still needing editing (EN and SM)
-  trees/                — texts already uploaded to the corpus
+  dict/dictionary.txt             — ~7,000-entry lexical dictionary
+  text/                           — texts still needing editing (EN and SM)
+  trees/                          — texts already uploaded to the corpus
 scripts/
-  lemmas_processor_2.0.4.py         — standard lemma processor
-  compound_lemma_processor_1.0.1.py — compound noun processor
-  mk_lemma_processor_1.0.1.py       — makura kotoba processor
+  lemmas_processor.py             — standard lemma annotator (package-based)
+  compound_lemma_processor.py     — compound noun inserter (package-based)
+  mk_lemma_processor.py           — makura-kotoba processor (package-based)
+  lemmas_processor_standalone.py             — same scripts, zero extra deps
+  compound_lemma_processor_standalone.py
+  mk_lemma_processor_standalone.py
 src/oncoj/              — Python package: core data model
 notebooks/
-  oncoj_usage.ipynb     — interactive usage examples
-tests/                  — pytest test suite
+  oncoj_usage.ipynb               — src/oncoj package walkthrough
+  lemmas_processor.ipynb          — demo of the lemma annotator algorithm
+  compound_lemma_processor.ipynb  — demo of the compound noun algorithm
+  mk_lemma_processor.ipynb        — demo of the makura-kotoba algorithm
+tests/                  — pytest test suite (150 tests)
+pyproject.toml          — ruff linter configuration
 ```
 
 ---
@@ -111,29 +118,37 @@ Examples: `L000006a`, `N000001`, `T050877`
 
 ## Processing scripts
 
-All three scripts in `scripts/` are standalone Python 3 files with no external dependencies. Configurable paths and behaviour flags are in a `# USER SETTINGS` block near the top of each file. Run directly:
+Each processing task has two script editions:
+
+- **Package-based** (`lemmas_processor.py`, `compound_lemma_processor.py`, `mk_lemma_processor.py`): imports `src/oncoj`; recommended for developers extending the tools.
+- **Standalone** (`*_standalone.py`): self-contained with no external dependencies beyond the Python standard library; intended for linguist users.
+
+Both editions share the same `# USER SETTINGS` block interface and produce identical output. Run directly — no build step required:
 
 ```bash
-python3 scripts/lemmas_processor_2.0.4.py
-python3 scripts/compound_lemma_processor_1.0.1.py
-python3 scripts/mk_lemma_processor_1.0.1.py
+python3 scripts/lemmas_processor.py
+python3 scripts/compound_lemma_processor.py
+python3 scripts/mk_lemma_processor.py
 ```
 
 | Script | Purpose |
 |---|---|
-| `lemmas_processor_2.0.4.py` | Two-pass annotator: look up forms in dictionary (pass 1), assign new IDs to unknowns (pass 2) |
-| `compound_lemma_processor_1.0.1.py` | Detects adjacent N+N compound pairs and inserts new compound entries |
-| `mk_lemma_processor_1.0.1.py` | Replaces `L099999` sentinel IDs with real IDs for makura-kotoba entries |
+| `lemmas_processor` | Two-pass annotator: look up forms in dictionary (pass 1), assign new IDs to unknowns (pass 2) |
+| `compound_lemma_processor` | Detects adjacent N+N compound groups, pairs them in layers, inserts compound IDs |
+| `mk_lemma_processor` | Replaces `L099999` sentinel IDs with real IDs for makura-kotoba entries |
+
+See `notebooks/` for a runnable demonstration of each script's algorithm against real corpus data.
 
 ---
 
-## Tests
+## Tests and linting
 
 ```bash
-python3 -m pytest tests/
+python3 -m pytest tests/    # 150 unit and integration tests
+ruff check .                # lint (config in pyproject.toml)
 ```
 
-138 unit and integration tests across all five `oncoj` modules. Requires only the Python standard library and `pytest`.
+Requires only the Python standard library, `pytest`, and `ruff`.
 
 ---
 

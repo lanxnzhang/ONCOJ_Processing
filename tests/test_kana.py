@@ -1,5 +1,4 @@
 """Tests for oncoj.kana — phonemic_to_kana conversion."""
-import pytest
 from oncoj.kana import phonemic_to_kana
 
 

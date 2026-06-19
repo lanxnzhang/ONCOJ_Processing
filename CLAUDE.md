@@ -4,15 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running the Scripts
 
-No build system. Each script is a standalone Python 3 file with no external dependencies:
+No build system. All scripts are standalone Python 3 files. There are no CLI arguments; all configurable paths and behaviour flags are in a clearly marked `# USER SETTINGS` block near the top of each file.
+
+Two editions exist for each script:
+
+| Edition | Files | Who uses it |
+|---|---|---|
+| Package-based (recommended) | `lemmas_processor.py`, `compound_lemma_processor.py`, `mk_lemma_processor.py` | Developers — imports `src/oncoj` |
+| Standalone | `lemmas_processor_standalone.py`, `compound_lemma_processor_standalone.py`, `mk_lemma_processor_standalone.py` | Linguists — zero non-stdlib dependencies |
 
 ```bash
-python3 src/lemmas_processor_2.0.4.py
-python3 src/compound_lemma_processor_1.0.1.py
-python3 src/mk_lemma_processor_1.0.1.py
+# Package-based (requires src/ on the path, handled internally)
+python3 scripts/lemmas_processor.py
+python3 scripts/compound_lemma_processor.py
+python3 scripts/mk_lemma_processor.py
+
+# Standalone (no imports beyond stdlib)
+python3 scripts/lemmas_processor_standalone.py
+python3 scripts/compound_lemma_processor_standalone.py
+python3 scripts/mk_lemma_processor_standalone.py
 ```
 
-All configurable paths and behaviour flags are defined in a clearly marked `# USER SETTINGS` block near the top of each file. There are no CLI arguments.
+## Tests
+
+```bash
+python3 -m pytest tests/                        # all 150 tests
+python3 -m pytest tests/test_dictionary.py      # single file
+python3 -m pytest tests/test_corpus.py::TestCorpusLine  # single class
+```
+
+`conftest.py` adds `src/` to `sys.path` and exposes session-scoped fixtures: `dict_file` (`data/dict/dictionary.txt`), `text_dir` (`data/text/`), `sample_corpus_file` (`data/text/EN_01.txt`).
 
 ## Data Format
 
@@ -35,23 +56,23 @@ IP-MAT,NP,N,L000006a,LOG,nu
 
 ## Architecture
 
-All three scripts follow the same pattern: parse the dictionary into an in-memory structure, scan corpus text files, mutate lines, then write output and report files.
+All scripts follow the same pattern: load the dictionary, scan corpus text files, mutate lines, then write output and report files. The package-based editions delegate all I/O to `src/oncoj`; the standalone editions embed the same logic locally.
 
-### `lemmas_processor_2.0.4.py` — Standard Lemma Annotator
+### `lemmas_processor` — Standard Lemma Annotator
 
 Two-pass processing per corpus file:
 1. **Pass 1** (`process_file_standard`): look up each unannotated token in the dictionary and insert the matching lemma ID.
 2. **Pass 2** (`process_unknown_words`): assign new IDs (prefixed `N`) to tokens absent from the dictionary.
 
-Key internals: `load_dictionary()` builds `form_to_lemma` and `form_to_candidates` maps. `disambiguate()` uses a 0–3 scoring heuristic against the preceding syntactic tag when multiple dictionary entries share a `.FORM`. `normalize_dictionary()` rewrites dictionary entries in-place to ensure canonical field order.
+Key internals: `disambiguate()` uses a 0–3 scoring heuristic against the preceding syntactic tag when multiple dictionary entries share a `.FORM`. `dictionary.normalise_all()` rewrites dictionary entries to canonical field order.
 
-### `compound_lemma_processor_1.0.1.py` — Compound Noun Inserter
+### `compound_lemma_processor` — Compound Noun Inserter
 
-Detects adjacent line pairs representing two-part N+N compound nouns. Three pattern matchers (`match_core_pair`, `match_expanded1_pair`, `match_expanded2_pair`) handle structural variations. `build_new_entry()` creates a new dictionary block by concatenating component `.GLOSS`/`.MEANING`/`.FORM`/`.KANA` fields and adding `.COMPOUND` back-references.
+Detects groups of adjacent `N` / `N;@2` / `N;@3` … sibling lines sharing a bare marker-`N` column, then pairs their component lemma IDs left-to-right in layers. `build_compound_entry()` creates a new dictionary block by concatenating component `.GLOSS`/`.MEANING`/`.FORM`/`.KANA` fields and adding `.COMPOUND` back-references. Optional `NP_EXPANSION` pre-pass detects NP-grouped N-at siblings and inserts a grouping bare `N` before running the main detector.
 
-### `mk_lemma_processor_1.0.1.py` — Makura-kotoba Processor
+### `mk_lemma_processor` — Makura-kotoba Processor
 
-Handles Old Japanese poetic pillow words marked with the sentinel `L099999`. Replaces each sentinel with a real unique ID, creates a dictionary entry with `.POS makura kotoba`. Optional second pass (`NORMALISE_EXISTING=True`) fills missing `.COMPOUND`/`.RELATED` cross-references in existing MK entries by re-scanning the full corpus.
+Handles Old Japanese poetic pillow words marked with the sentinel `L099999`. Replaces each sentinel with a real unique ID, creates a dictionary entry with `.POS makura kotoba`. Optional second pass (`NORMALISE_EXISTING=True`) fills missing `.COMPOUND`/`.MKTARGETNEW` cross-references in existing MK entries by re-scanning the full corpus.
 
 ## Core Data Model (`src/oncoj/`)
 
@@ -68,5 +89,9 @@ A shared Python package formalising the domain objects. Use `sys.path.insert(0, 
 ## Shared Conventions
 
 - **Lemma ID format**: `<PREFIX><zero-padded-6-digit-number>[optional-letter-suffix]` — e.g., `L000006a`, `N000001`
-- **Phonemic-to-katakana**: `phonemic_to_kana()` in `src/oncoj/kana.py`; previously duplicated in all three scripts
-- **Output mode**: controlled by `OVERWRITE_SOURCE` — either overwrite corpus files in place or write `*_processed.txt` files to `OUTPUT_FOLDER`; report files are always produced separately
+- **Phonemic-to-katakana**: `phonemic_to_kana()` in `src/oncoj/kana.py`; the standalone scripts embed an identical copy locally (package postdates them).
+- **Output mode**: controlled by `OVERWRITE_SOURCE` — either overwrite corpus files in place or write `*_processed.txt` files to `OUTPUT_FOLDER`; report files are always produced separately.
+- **Sentinel IDs**: `L099999` = makura-kotoba placeholder (replaced by `mk_lemma_processor`); `L099997` is also reserved and excluded from normalisation.
+- **Script/package split**: `*_standalone.py` scripts embed all logic locally and have zero non-stdlib dependencies. The package-based scripts (`lemmas_processor.py`, etc.) import `src/oncoj` via `sys.path.insert` at the top. The `src/oncoj` package is the clean API used by `tests/` and `notebooks/`. New code and refactors should use `src/oncoj`.
+- **Import path**: `sys.path.insert(0, 'src')` before `from oncoj.X import Y` (or use the scripts' own `sys.path.insert` relative to `__file__`).
+- **Linting**: `ruff` is configured in `pyproject.toml`. Run `ruff check .` to lint; E402/E741/E501 are suppressed globally (intentional `sys.path` pattern, corpus loop variables, and long data-table lines respectively).

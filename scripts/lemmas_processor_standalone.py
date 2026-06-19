@@ -1,8 +1,10 @@
+# Version: 3.0.0
+# Changes from 2.0.4: Report 1 = new ID lines, Report 1.5 = existing ID
+# lines, Report 2 = normalised entries, Report 3 = new entries.
 """
 lemmas_processor.py
-====================================
-Contains all configuration, helpers, dictionary I/O, KANA generation,
-POS-based annotation, ID generation, and processing loop.
+===================
+Standard lemma annotator.
 """
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -16,48 +18,27 @@ OUTPUT_FOLDER = "output_files"    # folder for all output files
 
 # ── Lemma ID settings ─────────────────────────────────────────────────────────
 LEMMA_PREFIX  = "N"    # prefix for newly generated IDs  (L, N, F, T, …)
-LEMMA_DIGITS  = 6      # zero-padded width  (6 → L000001)
+LEMMA_DIGITS  = 6      # zero-padded width  (6 → N000001)
 LEMMA_START   = 1      # minimum numeric value for new IDs
 
 # ── Existing-entry ID rewrite ─────────────────────────────────────────────────
 DICT_ID_PREFIX = "T"   # prefix applied when inserting an existing dict ID
-#                        Set to "T" to turn L011111 → T011111 on insertion.
-#                        The numeric part is always taken from the dictionary.
 
 # ── Core behaviour switches ───────────────────────────────────────────────────
 OVERWRITE_SOURCE  = False  # True  → overwrite source .txt files in place
                             # False → write *_processed.txt to OUTPUT_FOLDER
 
-DICT_ENTRY_CREATE = True   # True  → add a new entry to the dictionary when a
-                            #         word is absent and a new ID is generated
+DICT_ENTRY_CREATE = True   # True  → add a new entry when a word is absent
 
-ADVANCED_DISAMBIG = True   # True  → when multiple dict entries share the same
-                            #         .FORM, score each against the preceding
-                            #         syntactic tag and pick the best match
+ADVANCED_DISAMBIG = True   # True  → score candidates against the preceding tag
 
-NORMALIZE_DICT    = True   # True  → before any processing, rewrite the entire
-                            #         dictionary so every entry has the standard
-                            #         tags in order: .GLOSS .MEANING .FORM .KANA
-                            #         .POS  (missing tags are added blank;
-                            #         existing extra tags like .NOTE are kept).
+NORMALIZE_DICT    = True   # True  → rewrite dictionary to canonical field order
 
-# ── Existing-word POS behaviour ──────────────────────────────────────────────
-# When False, words found in the dictionary are annotated regardless of POS.
-# When True, existing dictionary words are only annotated if the matching
-# POS tag is present in the same way that unknown words are handled.
+# ── Existing-word POS behaviour ───────────────────────────────────────────────
 EXISTING_WORDS_POS_LIMIT = False
 
 # ── POS-annotation mode ───────────────────────────────────────────────────────
-# AUTO_POS_QUERY and AUTO_MATCH_MODE are applied automatically to every unknown
-# word without any runtime prompt.
-#
-# AUTO_POS_QUERY : the POS tag to match two positions before each unknown word.
-#                  Use "ALL!" to annotate every unlemmatised position regardless
-#                  of the tag there.
-# AUTO_MATCH_MODE: "strict" → the tag must equal AUTO_POS_QUERY exactly
-#                  "loose"  → the tag only needs to *contain* AUTO_POS_QUERY
-#                             (e.g. "VB" also matches "VB-ADN", "VB-STM", …)
-AUTO_POS_QUERY  = "N"        # e.g. "N", "NP", "VB", "ALL!" — never empty
+AUTO_POS_QUERY  = "N"        # "N", "NP", "VB", "ALL!" — never empty
 AUTO_MATCH_MODE = "strict"   # "strict" | "loose"
 
 
@@ -72,12 +53,9 @@ from collections import defaultdict
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  KANA CONVERSION TABLE
-#  Built from: Phonemic transcription to historical kana spelling conversion list
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Sorted longest-first so multi-char syllables are matched before single-char
 _KANA_RAW: list[tuple[str, str]] = [
-    # GROUP 1 — consonant + vowel
     ("pye", "ヘ"), ("pwi", "ヒ"),
     ("bye", "ベ"), ("bwi", "ビ"),
     ("kye", "ケ"), ("kwi", "キ"), ("kwo", "コ"),
@@ -101,25 +79,14 @@ _KANA_RAW: list[tuple[str, str]] = [
     ("ya", "ヤ"), ("yu", "ユ"), ("yo", "ヨ"),
     ("ra", "ラ"), ("ri", "リ"), ("ru", "ル"), ("re", "レ"), ("ro", "ロ"),
     ("wa", "ワ"), ("we", "ヱ"),
-    # GROUP 2
     ("ye", "エ"), ("wi", "ヰ"), ("wo", "ヲ"),
-    # GROUP 3 — bare vowels (shortest; must come last)
     ("a", "ア"), ("i", "イ"), ("u", "ウ"), ("o", "オ"), ("e", "エ"),
 ]
 
-# Build a deterministic longest-match mapping
-_KANA_TABLE: list[tuple[str, str]] = sorted(
-    _KANA_RAW, key=lambda x: -len(x[0])
-)
+_KANA_TABLE: list[tuple[str, str]] = sorted(_KANA_RAW, key=lambda x: -len(x[0]))
 
 
 def phonemic_to_kana(form: str) -> str:
-    """
-    Convert a phonemic transcription string into katakana using the
-    historical kana spelling conversion table (longest-match left-to-right).
-
-    Unrecognised segments are left as-is (wrapped in ⟨…⟩ to flag them).
-    """
     result: list[str] = []
     pos = 0
     low = form.lower()
@@ -132,7 +99,6 @@ def phonemic_to_kana(form: str) -> str:
                 matched = True
                 break
         if not matched:
-            # Unrecognised character — pass through and flag
             result.append(f"⟨{low[pos]}⟩")
             pos += 1
     return "".join(result)
@@ -146,7 +112,7 @@ ENTRY_SEP  = "---------------------------------------------------"
 ENTRY_HEAD = re.compile(r'^=== ([A-Za-z]\d+[a-z]*)$')
 FORM_LINE  = re.compile(r'^\.(FORM)\s+(\S+)')
 GLOSS_LINE = re.compile(r'^\.(GLOSS)\s+(\S+)')
-LEMMA_RE   = re.compile(r'^[A-Za-z]\d+[a-z]*$')   # any-prefix lemma ID
+LEMMA_RE   = re.compile(r'^[A-Za-z]\d+[a-z]*$')
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -154,24 +120,6 @@ LEMMA_RE   = re.compile(r'^[A-Za-z]\d+[a-z]*$')   # any-prefix lemma ID
 # ══════════════════════════════════════════════════════════════════════════════
 
 def load_dictionary(dict_path: str):
-    """
-    Parse the dictionary file.
-
-    Returns
-    -------
-    form_to_lemma      : dict[str, str]
-        Maps each .FORM to the *first* matching entry's lemma ID.
-        (Used when ADVANCED_DISAMBIG is False.)
-    form_to_candidates : dict[str, list[dict]]
-        Maps each .FORM to ALL matching entries: [{'lemma': str, 'gloss': str}, …]
-        (Used when ADVANCED_DISAMBIG is True.)
-    existing_numbers   : set[int]
-        Numeric parts of all existing lemma IDs (any prefix).
-    raw_lines          : list[str]
-        Original file lines, for in-place rewriting when DICT_ENTRY_CREATE=True.
-    entries_order      : list[tuple[int, int]]
-        (numeric_id, separator_line_index) per entry — used for sorted insertion.
-    """
     form_to_lemma: dict[str, str]       = {}
     form_to_candidates: dict[str, list] = defaultdict(list)
     existing_numbers: set[int]          = set()
@@ -199,9 +147,10 @@ def load_dictionary(dict_path: str):
 
         m = ENTRY_HEAD.match(stripped)
         if m:
-            current_lemma = m.group(1)
+            current_lemma = m.group(1) or ""
             current_gloss = ""
-            num = int(re.search(r'\d+', current_lemma).group())
+            m2 = re.search(r'\d+', m.group(1) or "")
+            num = int(m2.group()) if m2 else 0
             existing_numbers.add(num)
             if current_sep_idx is not None:
                 entries_order.append((num, current_sep_idx))
@@ -232,17 +181,6 @@ def load_dictionary(dict_path: str):
 def disambiguate(candidates: list[dict],
                  preceding_tag: str,
                  full_line: str) -> str:
-    """
-    Pick the best lemma ID from *candidates* by scoring each against the
-    syntactic tag that immediately precedes the word position.
-
-    Score (first match wins per candidate):
-        3 — preceding_tag starts with candidate .GLOSS
-        2 — preceding_tag contains candidate .GLOSS (case-insensitive)
-        1 — full_line contains candidate .GLOSS  (broad fallback)
-        0 — no match
-    Ties → first candidate (dictionary order).
-    """
     best_lemma = candidates[0]["lemma"]
     best_score = -1
     tag_upper  = preceding_tag.upper()
@@ -273,8 +211,6 @@ def disambiguate(candidates: list[dict],
 # ══════════════════════════════════════════════════════════════════════════════
 
 class IDGenerator:
-    """Generates unique numeric IDs that never clash with existing ones."""
-
     def __init__(self, existing: set[int], start: int = LEMMA_START):
         self._used: set[int] = set(existing)
         self._counter: int   = max(start, 1)
@@ -296,19 +232,6 @@ class IDGenerator:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def build_entry_block(lemma_id: str, word_form: str) -> list[str]:
-    """
-    Build the lines for a new dictionary entry.
-
-    Format (per spec):
-        ---------------------------------------------------
-        === <lemma_id>
-        .GLOSS\t
-        .MEANING\t
-        .FORM\t<word_form>
-        .KANA\t<auto-generated katakana>
-        .POS\t
-        <blank line>
-    """
     kana = phonemic_to_kana(word_form)
     return [
         ENTRY_SEP + "\n",
@@ -330,14 +253,10 @@ def insert_dict_entry(raw_lines: list[str],
                       entries_order: list[tuple],
                       lemma_id: str,
                       word_form: str) -> None:
-    """
-    Insert a new dictionary entry block into raw_lines in sorted numeric order.
-    Modifies raw_lines and entries_order in-place.
-    """
-    num       = int(re.search(r'\d+', lemma_id).group())
+    m2 = re.search(r'\d+', lemma_id)
+    num       = int(m2.group()) if m2 else 0
     new_block = build_entry_block(lemma_id, word_form)
 
-    # Find the separator of the last entry whose numeric ID < num
     insert_after_sep: int | None = None
     for entry_num, sep_idx in sorted(entries_order, key=lambda x: x[0]):
         if entry_num < num:
@@ -346,13 +265,10 @@ def insert_dict_entry(raw_lines: list[str],
             break
 
     if insert_after_sep is None:
-        # Insert before everything
         for i, line in enumerate(new_block):
             raw_lines.insert(i, line)
         shift = len(new_block)
-        entries_order[:] = [
-            (en, si + shift) for en, si in entries_order
-        ]
+        entries_order[:] = [(en, si + shift) for en, si in entries_order]
         entries_order.insert(0, (num, 0))
     else:
         later = [(en, si) for en, si in entries_order if si > insert_after_sep]
@@ -367,7 +283,6 @@ def insert_dict_entry(raw_lines: list[str],
             ]
             entries_order.append((num, target))
         else:
-            # Append at end
             new_sep_idx = len(raw_lines)
             raw_lines.extend(new_block)
             entries_order.append((num, new_sep_idx))
@@ -379,21 +294,11 @@ def insert_dict_entry(raw_lines: list[str],
 #  DICTIONARY NORMALISER
 # ══════════════════════════════════════════════════════════════════════════════
 
-# The five tags that every entry must contain, in this order.
 _REQUIRED_TAGS = [".GLOSS", ".MEANING", ".FORM", ".KANA", ".POS"]
-# Tag used to recognise any dot-field line
 _TAG_RE = re.compile(r'^(\.[A-Z]+(?:\[\d+\])?)\s*(.*)')
 
 
 def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
-    """
-    Read the dictionary at *dict_path*, ensure every entry contains all five
-    required tags (.GLOSS .MEANING .FORM .KANA .POS), add any missing ones,
-    auto-fill .KANA from .FORM when absent, preserve all extra tags (e.g.
-    .NOTE), and write the result back in-place.
-
-    All entries that were changed are recorded in *report*.
-    """
     if not os.path.isfile(dict_path):
         print(f"[NORMALIZE] Dictionary not found: {dict_path}")
         return
@@ -403,12 +308,11 @@ def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
 
     blocks   = raw.split(ENTRY_SEP)
     out_blocks: list[str] = [blocks[0]]
-    changed_entries: list[tuple[str, list[str]]] = []  # (lemma_id, [change descriptions])
+    changed_entries: list[tuple[str, list[str]]] = []
 
     for block in blocks[1:]:
         lines = block.splitlines(keepends=True)
 
-        # Find the header line
         header_line = ""
         body_lines: list[str] = []
         for i, ln in enumerate(lines):
@@ -421,15 +325,12 @@ def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
             out_blocks.append(ENTRY_SEP + block)
             continue
 
-        lemma_id = ENTRY_HEAD.match(header_line).group(1)
+        m3 = ENTRY_HEAD.match(header_line)
+        lemma_id = m3.group(1) if m3 else ""
 
-        # Parse existing tags.
-        # For required tags: record only the FIRST occurrence's value.
-        # Any subsequent occurrence of the same required tag, and all
-        # non-required tags, go into extra_lines (preserved verbatim).
         seen_required: set[str]  = set()
-        existing: dict[str, str] = {}   # required tag → first value
-        extra_lines: list[str]   = []   # everything else, kept in order
+        existing: dict[str, str] = {}
+        extra_lines: list[str]   = []
 
         for ln in body_lines:
             s = ln.rstrip("\r\n")
@@ -439,17 +340,16 @@ def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
             if m:
                 raw_tag  = m.group(1)
                 val      = m.group(2).strip()
-                base_tag = re.match(r'\.[A-Z]+', raw_tag).group()
+                m4 = re.match(r'\.[A-Z]+', raw_tag)
+                base_tag = m4.group() if m4 else raw_tag
                 if base_tag in _REQUIRED_TAGS and base_tag not in seen_required:
                     existing[base_tag] = val
                     seen_required.add(base_tag)
                 else:
-                    # Second+ occurrence of a required tag, or a non-required tag
                     extra_lines.append(ln if ln.endswith("\n") else ln + "\n")
             else:
                 extra_lines.append(ln if ln.endswith("\n") else ln + "\n")
 
-        # If every required tag is already present, skip this entry entirely
         if all(t in existing for t in _REQUIRED_TAGS):
             out_blocks.append(
                 ENTRY_SEP + "\n"
@@ -459,23 +359,20 @@ def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
             )
             continue
 
-        # Build normalised body, adding any missing required tags
         changes: list[str] = []
         new_body: list[str] = []
 
         for tag in _REQUIRED_TAGS:
-            old_val = existing.get(tag)   # None = tag absent
+            old_val = existing.get(tag)
 
             if old_val is not None:
                 val = old_val
-                # Auto-fill blank .KANA from .FORM
                 if tag == ".KANA" and not val:
                     form_val = existing.get(".FORM", "")
                     if form_val:
                         val = phonemic_to_kana(form_val)
                         changes.append(f"filled {tag} = {val}")
             else:
-                # Tag missing — add it
                 if tag == ".KANA":
                     form_val = existing.get(".FORM", "")
                     val = phonemic_to_kana(form_val) if form_val else ""
@@ -505,30 +402,18 @@ def normalize_dictionary(dict_path: str, report: "AnnotationReport") -> None:
     print(f"  [NORMALIZE] Dictionary normalised: {dict_path} "
           f"({total} entr{'y' if total == 1 else 'ies'} modified)")
 
-    # Pass all normalisation changes to the report
     report.record_normalization(changed_entries)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  LINE ANALYSIS  (standard mode — existing dict lookup)
+#  LINE ANALYSIS
 # ══════════════════════════════════════════════════════════════════════════════
 
-PEN_RE  = re.compile(r'^[A-Z][A-Z0-9\-]*$')  # syntactic tag (uppercase, may contain - or digits)
-LAST_RE = re.compile(r'^[A-Za-z]+$')          # word form (alphabetic)
+PEN_RE  = re.compile(r'^[A-Z][A-Z0-9\-]*$')
+LAST_RE = re.compile(r'^[A-Za-z]+$')
 
 
 def analyse_line(fields: list[str]):
-    """
-    Return (needs_lemma, word_form, insert_pos, preceding_tag) or None.
-
-    Looks for the pattern: …, <SYNCTAG>, <word_form>
-    where SYNCTAG is all-uppercase (possibly with hyphens/digits) and
-    word_form is alphabetic.
-
-    insert_pos    — index where the lemma ID should be inserted
-    preceding_tag — the field just before insert_pos (for disambiguation)
-    needs_lemma   — False when a lemma ID is already present there
-    """
     n = len(fields)
     if n < 2:
         return None
@@ -552,17 +437,10 @@ def analyse_line(fields: list[str]):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  POS-ANNOTATION HELPERS  (for words absent from the dictionary)
+#  POS-ANNOTATION HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
 def pos_matches(field: str, pos_query: str, mode: str) -> bool:
-    """
-    Return True when *field* matches *pos_query* under *mode*.
-
-    mode="strict" → exact equality
-    mode="loose"  → field contains pos_query (case-insensitive)
-    pos_query="ALL!" → always True (match everything without a lemma)
-    """
     if pos_query == "ALL!":
         return True
     if mode == "strict":
@@ -570,23 +448,9 @@ def pos_matches(field: str, pos_query: str, mode: str) -> bool:
     return pos_query.upper() in field.upper()
 
 
-def find_annotation_targets(
-    fields: list[str],
-    pos_query: str,
-    match_mode: str,
-) -> list[int]:
-    """
-    Scan *fields* for positions where:
-      - the field at index i matches pos_query (per match_mode)
-      - the field two positions AFTER i is a word (LAST_RE)
-      - no lemma ID already occupies position i+1
-
-    Returns a list of (tag_index) values — the position of the matching POS tag.
-
-    Requirement (spec §3): "two positions before this word".
-    So if the word is at index w, the POS tag is at w-2, and the lemma
-    slot to fill is at w-1.
-    """
+def find_annotation_targets(fields: list[str],
+                             pos_query: str,
+                             match_mode: str) -> list[int]:
     n       = len(fields)
     targets = []
     for tag_idx in range(n - 2):
@@ -598,10 +462,9 @@ def find_annotation_targets(
         if not LAST_RE.match(word):
             continue
 
-        # Slot between tag and word
         slot = fields[tag_idx + 1]
         if LEMMA_RE.match(slot):
-            continue   # already annotated
+            continue
 
         targets.append(tag_idx)
 
@@ -609,26 +472,30 @@ def find_annotation_targets(
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  ANNOTATION REPORT  (accumulated during a run)
+#  ANNOTATION REPORT  (with split Report 1 / Report 1.5)
 # ══════════════════════════════════════════════════════════════════════════════
 
 class AnnotationReport:
-    """Collects data for Report 1 (annotated lines) and Report 2 (new entries)."""
-
     def __init__(self):
-        # Report 1: {filename: [(line_no, original_line, new_lemma_id), …]}
-        self.annotated_lines: dict[str, list[tuple]] = defaultdict(list)
-        # Report 2: [(lemma_id, word_form, kana), …]
-        self.new_entries: list[tuple[str, str, str]] = []
-        # Report 3: [(lemma_id, [change descriptions]), …]
+        # Report 1: lines modified via newly generated ID
+        self.new_id_lines: dict[str, list[tuple]] = defaultdict(list)
+        # Report 1.5: lines modified via existing dictionary ID
+        self.existing_id_lines: dict[str, list[tuple]] = defaultdict(list)
+        # Report 2: normalised entries
         self.normalized_entries: list[tuple[str, list[str]]] = []
+        # Report 3: new dictionary entries
+        self.new_entries: list[tuple[str, str, str]] = []
 
     def record_normalization(self, changed_entries: list[tuple[str, list[str]]]) -> None:
         self.normalized_entries.extend(changed_entries)
 
-    def record_annotation(self, filename: str, line_no: int,
-                          original: str, lemma_id: str):
-        self.annotated_lines[filename].append((line_no, original.rstrip(), lemma_id))
+    def record_existing_annotation(self, filename: str, line_no: int,
+                                    original: str, lemma_id: str):
+        self.existing_id_lines[filename].append((line_no, original.rstrip(), lemma_id))
+
+    def record_new_annotation(self, filename: str, line_no: int,
+                               original: str, lemma_id: str):
+        self.new_id_lines[filename].append((line_no, original.rstrip(), lemma_id))
 
     def record_new_entry(self, lemma_id: str, word_form: str):
         kana = phonemic_to_kana(word_form)
@@ -636,41 +503,35 @@ class AnnotationReport:
 
     def save_reports(self, output_folder: str) -> None:
         os.makedirs(output_folder, exist_ok=True)
-        r1_path = os.path.join(output_folder, "report1_annotated_lines.txt")
-        r2_path = os.path.join(output_folder, "report2_new_entries.txt")
-        r3_path = os.path.join(output_folder, "report3_normalized_entries.txt")
 
-        # ── Report 1 ──────────────────────────────────────────────────────────
-        with open(r1_path, "w", encoding="utf-8") as fh:
-            fh.write("REPORT 1 · Annotated lines\n")
-            fh.write("══════════════════════════════════════════════════════\n")
-            if not self.annotated_lines:
-                fh.write("(none)\n")
-            else:
-                for fname, records in sorted(self.annotated_lines.items()):
-                    fh.write(f"\nFile: {fname}\n")
-                    for line_no, original, lemma_id in records:
-                        fh.write(f"  Line {line_no:>6}  [{lemma_id}]\n")
-                        fh.write(f"           {original}\n")
-        print(f"  [REPORT] {r1_path}")
+        def _write_line_report(path, title, records_by_file):
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(f"{title}\n")
+                fh.write("══════════════════════════════════════════════════════\n")
+                if not records_by_file:
+                    fh.write("(none)\n")
+                else:
+                    for fname, records in sorted(records_by_file.items()):
+                        fh.write(f"\nFile: {fname}\n")
+                        for line_no, original, lemma_id in records:
+                            fh.write(f"  Line {line_no:>6}  [{lemma_id}]\n")
+                            fh.write(f"           {original}\n")
+            print(f"  [REPORT] {path}")
 
-        # ── Report 2 ──────────────────────────────────────────────────────────
+        r1_path = os.path.join(output_folder, "report1_new_id_lines.txt")
+        _write_line_report(r1_path,
+                           "REPORT 1 · Lines modified via newly generated ID",
+                           self.new_id_lines)
+
+        r15_path = os.path.join(output_folder, "report1_5_existing_id_lines.txt")
+        _write_line_report(r15_path,
+                           "REPORT 1.5 · Lines modified via existing dictionary ID",
+                           self.existing_id_lines)
+
+        # Report 2: normalised entries
+        r2_path = os.path.join(output_folder, "report2_normalized_entries.txt")
         with open(r2_path, "w", encoding="utf-8") as fh:
-            fh.write("REPORT 2 · New dictionary entries added\n")
-            fh.write("══════════════════════════════════════════════════════\n")
-            if not self.new_entries:
-                fh.write("(none)\n")
-            else:
-                fh.write(f"{'ID':<12}  {'FORM':<20}  KANA\n")
-                fh.write(f"{'-'*12}  {'-'*20}  {'-'*20}\n")
-                for lemma_id, word_form, kana in self.new_entries:
-                    fh.write(f"{lemma_id:<12}  {word_form:<20}  {kana}\n")
-        print(f"  [REPORT] {r2_path}")
-
-        # ── Report 3 ──────────────────────────────────────────────────────────
-        r3_path = os.path.join(output_folder, "report3_normalized_entries.txt")
-        with open(r3_path, "w", encoding="utf-8") as fh:
-            fh.write("REPORT 3 · Dictionary entries modified by normalisation\n")
+            fh.write("REPORT 2 · Dictionary entries modified by normalisation\n")
             fh.write("══════════════════════════════════════════════════════\n")
             if not self.normalized_entries:
                 fh.write("(none)\n")
@@ -679,6 +540,20 @@ class AnnotationReport:
                 fh.write(f"{'-'*14}  {'-'*40}\n")
                 for lemma_id, changes in self.normalized_entries:
                     fh.write(f"{lemma_id:<14}  {'; '.join(changes)}\n")
+        print(f"  [REPORT] {r2_path}")
+
+        # Report 3: new dictionary entries
+        r3_path = os.path.join(output_folder, "report3_new_entries.txt")
+        with open(r3_path, "w", encoding="utf-8") as fh:
+            fh.write("REPORT 3 · New dictionary entries added\n")
+            fh.write("══════════════════════════════════════════════════════\n")
+            if not self.new_entries:
+                fh.write("(none)\n")
+            else:
+                fh.write(f"{'ID':<12}  {'FORM':<20}  KANA\n")
+                fh.write(f"{'-'*12}  {'-'*20}  {'-'*20}\n")
+                for lemma_id, word_form, kana in self.new_entries:
+                    fh.write(f"{lemma_id:<12}  {word_form:<20}  {kana}\n")
         print(f"  [REPORT] {r3_path}")
 
 
@@ -698,10 +573,6 @@ def process_file_standard(
     report: AnnotationReport,
     stats: dict,
 ) -> list[str]:
-    """
-    Process one .txt file using standard dictionary-lookup logic.
-    Returns the list of output lines.
-    """
     with open(filepath, encoding="utf-8") as fh:
         original_lines = fh.readlines()
 
@@ -727,7 +598,6 @@ def process_file_standard(
             output_lines.append(raw_line)
             continue
 
-        # ── Resolve lemma ID ──────────────────────────────────────────────────
         if word_form in form_to_lemma:
             candidates = form_to_candidates[word_form]
             if ADVANCED_DISAMBIG and len(candidates) > 1:
@@ -736,7 +606,8 @@ def process_file_standard(
             else:
                 raw_lemma = form_to_lemma[word_form]
 
-            num_part = re.search(r'\d+[a-z]*', raw_lemma).group()
+            m5 = re.search(r'\d+[a-z]*', raw_lemma)
+            num_part = m5.group() if m5 else raw_lemma
             lemma_id = f"{DICT_ID_PREFIX}{num_part}"
 
             if EXISTING_WORDS_POS_LIMIT:
@@ -759,7 +630,8 @@ def process_file_standard(
             stats["dict_matches_inserted"] += 1
             new_line = ",".join(fields) + trailing
             output_lines.append(new_line)
-            report.record_annotation(filename, line_no, line_body, lemma_id)
+            # Record in Report 1.5 (existing ID)
+            report.record_existing_annotation(filename, line_no, line_body, lemma_id)
 
         elif word_form in new_id_cache:
             lemma_id = new_id_cache[word_form]
@@ -778,39 +650,31 @@ def process_file_standard(
             stats["dict_matches_inserted"] += 1
             new_line = ",".join(fields) + trailing
             output_lines.append(new_line)
-            report.record_annotation(filename, line_no, line_body, lemma_id)
+            # Reused new ID → also Report 1
+            report.record_new_annotation(filename, line_no, line_body, lemma_id)
 
         else:
-            # Brand-new word — deferred to process_unknown_words pass 2
             stats["unchanged_lines"] += 1
             output_lines.append(raw_line)
-            continue
 
     return output_lines
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  PROCESS UNKNOWN WORDS  (POS-prompt path — batch per word form)
+#  PROCESS UNKNOWN WORDS  (POS-annotation path)
 # ══════════════════════════════════════════════════════════════════════════════
 
 def process_unknown_words(
     filename: str,
     lines: list[str],
     form_to_lemma: dict,
-    id_gen: "IDGenerator",
+    id_gen: IDGenerator,
     new_id_cache: dict,
     dict_raw: list,
     entries_order: list,
-    report: "AnnotationReport",
+    report: AnnotationReport,
     stats: dict,
 ) -> list[str]:
-    """
-    Second pass: collect ALL unknown word forms across the whole file first,
-    then ask the user once per unique form, and apply all matching annotations
-    in one go.
-    """
-    # ── Step 1: scan every line and collect unknown forms ─────────────────────
-    # unknown_forms: form → list of (line_index, needs_lemma)
     unknown_forms: dict[str, list[int]] = {}
 
     for i, raw_line in enumerate(lines):
@@ -829,19 +693,15 @@ def process_unknown_words(
     if not unknown_forms:
         return lines
 
-    # ── Step 2: for each unique unknown form, ask once then annotate all ──────
     output_lines = list(lines)
 
     for word_form, line_indices in unknown_forms.items():
 
-        # Determine the lemma ID (may already exist from a previous file)
         if word_form in new_id_cache:
             lemma_id   = new_id_cache[word_form]
             pos_query  = "ALL!"
             match_mode = "strict"
-
         else:
-            # Apply the global auto-annotation settings; no prompt needed.
             pos_query  = AUTO_POS_QUERY
             match_mode = AUTO_MATCH_MODE
 
@@ -859,7 +719,6 @@ def process_unknown_words(
                 stats["dict_entries_added"] += 1
                 report.record_new_entry(lemma_id, word_form)
 
-        # ── Apply to every line that contains this word form ──────────────────
         annotated_count = 0
         for i in line_indices:
             raw_line  = output_lines[i]
@@ -868,18 +727,17 @@ def process_unknown_words(
             fields    = line_body.split(",")
 
             targets = find_annotation_targets(fields, pos_query, match_mode)
-            # Filter to only insert at the specific position (third from end)
             n = len(fields)
             targets = [t for t in targets if t == n - 3]
             if not targets:
                 continue
 
-            # Insert from right to left to keep earlier indices valid
             for tag_idx in sorted(targets, reverse=True):
                 fields.insert(tag_idx + 1, lemma_id)
 
             output_lines[i] = ",".join(fields) + trailing
-            report.record_annotation(
+            # Record in Report 1 (new ID)
+            report.record_new_annotation(
                 filename, i + 1, line_body,
                 f"{lemma_id} [POS={pos_query}, mode={match_mode}]"
             )
@@ -896,7 +754,6 @@ def process_unknown_words(
 # ══════════════════════════════════════════════════════════════════════════════
 
 def write_output(filename: str, filepath: str, output_lines: list[str]) -> str:
-    """Write processed lines and return the output path used."""
     if OVERWRITE_SOURCE:
         out_path = filepath
     else:
@@ -915,14 +772,11 @@ def write_output(filename: str, filepath: str, output_lines: list[str]) -> str:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def process_files():
-    # ── Load dictionary ───────────────────────────────────────────────────────
     (form_to_lemma, form_to_candidates,
      existing_numbers, dict_raw, entries_order) = load_dictionary(DICT_FILE)
 
     id_gen = IDGenerator(existing_numbers, start=LEMMA_START)
-
-    new_id_cache: dict[str, str] = {}   # word_form → generated lemma_id
-
+    new_id_cache: dict[str, str] = {}
     report = AnnotationReport()
 
     stats = {
@@ -938,7 +792,6 @@ def process_files():
         "output_files_saved"     : 0,
     }
 
-    # ── Collect .txt files ────────────────────────────────────────────────────
     if not os.path.isdir(TEXT_FOLDER):
         sys.exit(f"[ERROR] Text folder not found: {TEXT_FOLDER}")
 
@@ -950,12 +803,10 @@ def process_files():
         print(f"[INFO] No .txt files found in '{TEXT_FOLDER}'.")
         return
 
-    # ── Process each file ─────────────────────────────────────────────────────
     for filename in txt_files:
         filepath = os.path.join(TEXT_FOLDER, filename)
         print(f"\n  Processing: {filename}")
 
-        # Pass 1 — annotate words that ARE in the dictionary
         output_lines = process_file_standard(
             filename, filepath,
             form_to_lemma, form_to_candidates,
@@ -964,7 +815,6 @@ def process_files():
             report, stats,
         )
 
-        # Pass 2 — prompt for POS and annotate words NOT in the dictionary
         output_lines = process_unknown_words(
             filename, output_lines,
             form_to_lemma,
@@ -973,16 +823,12 @@ def process_files():
             report, stats,
         )
 
-        # Write result
         out_path = write_output(filename, filepath, output_lines)
-        stats["files_processed"]   += 1
+        stats["files_processed"]    += 1
         stats["output_files_saved"] += 1
         mode = "overwritten" if OVERWRITE_SOURCE else f"→ '{os.path.basename(out_path)}'"
         print(f"  [OK] {filename} {mode}")
 
-    # ── Write the processed dictionary to OUTPUT_FOLDER ───────────────────────
-    # Always write dictionary_processed.txt when OVERWRITE_SOURCE is False,
-    # so even a normalise-only run produces output.
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
     if OVERWRITE_SOURCE:
         dict_out_path = DICT_FILE
@@ -994,11 +840,9 @@ def process_files():
         fh.writelines(dict_raw)
     print(f"\n  [OK] Dictionary written: {dict_out_path}")
 
-    # ── Normalise dictionary after all entries have been added/modified ────────
     if NORMALIZE_DICT:
         normalize_dictionary(dict_out_path, report)
 
-    # ── Summary ───────────────────────────────────────────────────────────────
     print()
     print("══════════════════════════════════════════════════════")
     print("  PROCESSING SUMMARY")
@@ -1006,7 +850,7 @@ def process_files():
     print(f"  Files processed               : {stats['files_processed']}")
     print(f"  Lines scanned                 : {stats['lines_scanned']}")
     print(f"  Lines already containing lemma: {stats['lines_already_lemma']}")
-    print(f"  Lemma IDs inserted (dict hit) : {stats['dict_matches_inserted']}")
+    print(f"  Lemma IDs inserted            : {stats['dict_matches_inserted']}")
     if ADVANCED_DISAMBIG:
         print(f"  Advanced disambiguations      : {stats['disambiguations_applied']}")
     print(f"  New IDs generated             : {stats['new_ids_created']}")
@@ -1016,14 +860,13 @@ def process_files():
     print(f"  Output files saved            : {stats['output_files_saved']}")
     print("══════════════════════════════════════════════════════")
 
-    # ── Annotation reports ────────────────────────────────────────────────────
     report.save_reports(OUTPUT_FOLDER)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
-    print("lemmas_processor")
+    print("lemmas_processor_3.0.0")
     print("════════════════════════════════════════════════════════")
     print(f"  Text folder   : {TEXT_FOLDER}")
     print(f"  Dictionary    : {DICT_FILE}")

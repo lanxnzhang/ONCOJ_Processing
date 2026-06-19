@@ -1,5 +1,4 @@
 """Tests for oncoj.tags — tag sets, dicts, and strip_disambig."""
-import pytest
 from oncoj.tags import (
     PHON_TAGS, MULTI_VALUE_FIELDS, REQUIRED_FIELDS,
     strip_disambig, is_phon_tag,
