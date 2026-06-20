@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='utf-8'?>
+<document filename="SM_58.txt">
+  <block id="1_SM_58" header="=N(&quot; sumyera ga opo mikoto rama to noto no pi mye mi kwo ni tuge yo to nori tamapu opo mikoto wo noritamapu &quot;)">
+    <comment raw="IP-MAT,PP,NP,IP-REL,0@天皇大命良麻止,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,1@能登内親王尔告与止詔,*" />
+    <comment raw="IP-MAT,PP,NP,2@大命乎宣,*" />
+    <IP-MAT>
+      <PP>
+        <NP>
+          <IP-REL>
+            <IP-ADV>
+              <PP-GEN>
+                <NP>
+                  <N phon="LOG" form="sumyera" />
+                </NP>
+                <P-CASE lemma="L000503" phon="LOG" form="ga" />
+              </PP-GEN>
+              <IP-ADV>
+                <NP>
+                  <N>
+                    <PFX-HON lemma="L000038" phon="LOG" form="opo" />
+                    <N phon="LOG" form="mikoto" index="1" />
+                    <N index="3" phon="PHON" form="rama" />
+                  </N>
+                </NP>
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+              </IP-ADV>
+              <PP-DAT>
+                <NP>
+                  <PP-GEN>
+                    <NP>
+                      <N phon="BPHON" form="noto" />
+                    </NP>
+                    <P-CASE lemma="L000520" phon="LOG" form="no" />
+                  </PP-GEN>
+                  <N index="1">
+                    <N phon="LOG" form="pi" index="1" />
+                    <N index="2" phon="LOG" form="mye" />
+                  </N>
+                  <N index="3">
+                    <MORPHEME phon="LOG" form="mi" />
+                    <N phon="LOG" form="kwo" />
+                  </N>
+                </NP>
+                <P-CASE lemma="L000519" phon="PHON" form="ni" />
+              </PP-DAT>
+              <VB-IMP lemma="L031140a" phon="LOG" form="tuge" />
+              <VB-IMP lemma="L031140a" phon="PHON" form="yo" />
+              <P-COMP lemma="L000530" phon="PHON" form="to" />
+            </IP-ADV>
+            <VB>
+              <VB-STM lemma="L031391a" phon="LOG" form="nori" />
+              <VB-ADC phon="LOG" form="tamapu" />
+            </VB>
+          </IP-REL>
+          <N>
+            <PFX-HON lemma="L000038" phon="LOG" form="opo" />
+            <N phon="LOG" form="mikoto" />
+          </N>
+        </NP>
+        <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
+      </PP>
+      <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
+    </IP-MAT>
+  </block>
+  <block id="2_SM_58" header="=N(&quot; ko no tukwi goro no apida mwi tukara su to kikosi myesi te itu si ka yamapi yami te mawi ri te wa ga kokoro mo nagusa me masa mu to kyepu ka ara mu asu ka ara mu to omoposi myesi tutu mata pi tamapu apida ni akarame sasu koto no goto ku oyodure kamo tosi mo taka ku nari taru ware wo oki te makari masi nu to kikosi myesi te namo odoroki tama pi kuyasi bwi tama pi opomasima su &quot;)">
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,0@此月頃間身労湏止聞食弖,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,1@伊都之可病止弖参入弖,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,2@朕心毛慰米麻佐牟止,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,3@今日加有牟,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,4@明日加有牟止所念食都々待比賜,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,5@間尔,*" />
+    <comment raw="IP-MAT,6@安加良米佐湏,*" />
+    <comment raw="IP-MAT,IP-ADV,PP-GEN,NP,7@如事久,*" />
+    <comment raw="IP-MAT,8@於与豆礼加毛年毛高久成多流,*" />
+    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,PP,NP,9@朕乎置弖,*" />
+    <comment raw="IP-MAT,IP-ADV,IP-ADV,10@罷麻之奴止,*" />
+    <comment raw="IP-MAT,IP-ADV,11@聞食弖奈毛驚賜比悔備賜比,*" />
+    <comment raw="IP-MAT,12@大坐湏,*" />
+    <IP-MAT>
+      <IP-ADV index="1">
+        <NP>
+          <IP-REL>
+            <IP-ADV>
+              <IP-ADV>
+                <IP-ADV>
+                  <NP index="1">
+                    <PP-GEN index="1">
+                      <NP>
+                        <PRO-N lemma="L042029" phon="LOG" form="ko" />
+                      </NP>
+                      <P-CASE lemma="L000520" phon="LOG" form="no" />
+                    </PP-GEN>
+                    <PP-GEN index="2">
+                      <NP>
+                        <N lemma="L050307">
+                          <N phon="LOG" form="tukwi" index="1" />
+                          <N index="2" phon="LOG" form="goro" />
+                        </N>
+                      </NP>
+                      <P-CASE lemma="L000520" phon="LOG" form="no" />
+                    </PP-GEN>
+                    <N phon="LOG" form="apida" />
+                  </NP>
+                  <NP index="2">
+                    <N phon="LOG" form="mwi" />
+                  </NP>
+                  <VB>
+                    <VB-STM lemma="L031124a" phon="LOG" form="tukara" />
+                    <VAX-RSP-ADC phon="PHON" form="su" />
+                  </VB>
+                  <P-COMP lemma="L000530" phon="PHON" form="to" />
+                </IP-ADV>
+                <VB>
+                  <VB-STM lemma="L030565a" phon="LOG" form="kikosi" />
+                  <VB-GER lemma="L031751a" phon="LOG" form="myesi" />
+                  <VB-GER lemma="L031751a" phon="PHON" form="te" />
+                </VB>
+                <PP>
+                  <NP>
+                    <N>
+                      <N phon="PHON" form="itu" index="1" />
+                      <N index="2" phon="BPHON" form="si" />
+                    </N>
+                  </NP>
+                  <P-FOC lemma="L000506" phon="PHON" form="ka" />
+                </PP>
+                <IP-ADV>
+                  <IP-ADV>
+                    <VB>
+                      <VB-STM phon="LOG" form="yamapi" />
+                      <VB-GER phon="LOG" form="yami" />
+                      <VB-GER phon="PHON" form="te" />
+                    </VB>
+                  </IP-ADV>
+                  <VB>
+                    <VB-STM lemma="L031603a" phon="LOG" form="mawi" />
+                    <VB-GER phon="LOG" form="ri" />
+                    <VB-GER phon="PHON" form="te" />
+                  </VB>
+                  <PP-TOP>
+                    <NP>
+                      <PP-GEN>
+                        <NP>
+                          <N phon="LOG" form="wa" />
+                        </NP>
+                        <P-CASE lemma="L000503" phon="LOG" form="ga" />
+                      </PP-GEN>
+                      <N phon="LOG" form="kokoro" />
+                    </NP>
+                    <P-TOP lemma="L000514" phon="PHON" form="mo" />
+                  </PP-TOP>
+                  <VB>
+                    <VB-STM lemma="L031273a" phon="LOG" form="nagusa" index="1" />
+                    <VB-STM lemma="L031273a" phon="PHON" form="me" index="1" />
+                    <VB-STM index="2" phon="BPHON" form="masa" />
+                    <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                  </VB>
+                </IP-ADV>
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+                <IP-ADV>
+                  <PP>
+                    <NP>
+                      <N phon="LOG" form="kyepu" />
+                    </NP>
+                    <P-FOC lemma="L000506" phon="PHON" form="ka" />
+                  </PP>
+                  <VB>
+                    <VB-STM lemma="L030125a" phon="LOG" form="ara" />
+                    <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                  </VB>
+                  <PP>
+                    <NP>
+                      <N phon="LOG" form="asu" />
+                    </NP>
+                    <P-FOC lemma="L000506" phon="PHON" form="ka" />
+                  </PP>
+                  <VB>
+                    <VB-STM lemma="L030125a" phon="LOG" form="ara" />
+                    <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                  </VB>
+                </IP-ADV>
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+              </IP-ADV>
+              <VB>
+                <VB-STM lemma="L030402a" phon="LOG" form="omoposi" />
+                <VB-CTT lemma="L031751a" phon="LOG" form="myesi" />
+                <VB-CTT lemma="L031751a" phon="PHON" form="tutu" />
+              </VB>
+            </IP-ADV>
+            <VB>
+              <VB-STM lemma="L031644a" phon="LOG" form="mata" />
+              <VB-STM lemma="L031644a" phon="PHON" form="pi" />
+              <VB-ADC lemma="L031077a" phon="LOG" form="tamapu" />
+            </VB>
+          </IP-REL>
+          <N phon="LOG" form="apida" />
+        </NP>
+        <COP-INF lemma="L031965" phon="PHON" form="ni" />
+        <PP-GEN>
+          <NP>
+            <IP-REL>
+              <VB>
+                <VB-STM lemma="L030012a" phon="PHON" form="akarame" />
+                <VB-ADC phon="BPHON" form="sasu" />
+              </VB>
+            </IP-REL>
+            <N phon="LOG" form="koto" />
+          </NP>
+          <P-CASE lemma="L000520" phon="LOG" form="no" />
+        </PP-GEN>
+        <ADJ>
+          <ADJ phon="LOG" form="goto" />
+          <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+        </ADJ>
+      </IP-ADV>
+      <PP>
+        <NP>
+          <N phon="BPHON" form="oyodure" />
+        </NP>
+        <P-FNL-MPH lemma="L000507" phon="PHON" form="kamo" />
+      </PP>
+      <IP-ADV index="1">
+        <IP-ADV>
+          <IP-ADV>
+            <PP>
+              <NP>
+                <IP-REL>
+                  <PP-TOP>
+                    <NP>
+                      <N phon="LOG" form="tosi" />
+                    </NP>
+                    <P-TOP lemma="L000514" phon="PHON" form="mo" />
+                  </PP-TOP>
+                  <IP-ADV>
+                    <ADJ>
+                      <ADJ phon="LOG" form="taka" />
+                      <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+                    </ADJ>
+                  </IP-ADV>
+                  <VB>
+                    <VB-STM phon="LOG" form="nari" />
+                    <VAX-STV-ADN lemma="L000022" phon="PHON" form="taru" />
+                  </VB>
+                </IP-REL>
+                <N phon="LOG" form="ware" />
+              </NP>
+              <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
+            </PP>
+            <VB-GER lemma="L030327a" phon="LOG" form="oki" />
+            <VB-GER lemma="L030327a" phon="PHON" form="te" />
+          </IP-ADV>
+          <VB>
+            <VB-STM lemma="L031613a" phon="LOG" form="makari" index="1" />
+            <VB-STM index="2" phon="PHON" form="masi" />
+            <VAX-PRF-CLS phon="BPHON" form="nu" />
+          </VB>
+          <P-COMP lemma="L000530" phon="PHON" form="to" />
+        </IP-ADV>
+        <VB>
+          <VB-STM lemma="L030565a" phon="LOG" form="kikosi" />
+          <VB-GER lemma="L031751a" phon="LOG" form="myesi" />
+          <VB-GER lemma="L031751a" phon="PHON" form="te" />
+        </VB>
+        <P-FOC lemma="L000518" phon="PHON" form="namo" />
+      </IP-ADV>
+      <IP-ADV index="7">
+        <VB>
+          <VB-STM lemma="L030361a" phon="LOG" form="odoroki" />
+          <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+          <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+        </VB>
+      </IP-ADV>
+      <IP-ADV index="1">
+        <VB>
+          <VB-STM lemma="L030661a" phon="LOG" form="kuyasi" />
+          <VB-STM lemma="L030661a" phon="PHON" form="bwi" />
+          <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+          <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+        </VB>
+      </IP-ADV>
+      <N-ADC lemma="L030384a" phon="LOG" form="opomasima" />
+      <N-ADC lemma="L030384a" phon="PHON" form="su" />
+    </IP-MAT>
+  </block>
+  <block id="3_SM_58" header="=N(&quot; kaku ara mu to sira maseba kokoro oki te mo katara pi tama pi api mi te masi mono wo kuyasi kamo kanasi kamo ipa mu su bye sira ni mo si aru kamo &quot;)">
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,IP-ADV,0@如此在牟止知末世婆,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,IP-REL,1@心置弖毛談比賜比相見弖末之,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,2@物乎,*" />
+    <comment raw="IP-MAT,3@悔加毛,*" />
+    <comment raw="IP-MAT,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
+    <comment raw="IP-MAT,4@哀加毛,*" />
+    <comment raw="IP-MAT,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
+    <comment raw="IP-MAT,5@云,*" />
+    <comment raw="IP-MAT,IP-ADV,NP,6@部不知毛之在加毛,*" />
+    <IP-MAT>
+      <IP-ADV>
+        <NP>
+          <IP-REL>
+            <IP-ADV index="1">
+              <IP-ADV>
+                <NP>
+                  <N phon="LOG" form="kaku" />
+                </NP>
+                <VB>
+                  <VB-STM lemma="L030125a" phon="LOG" form="ara" />
+                  <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                </VB>
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+              </IP-ADV>
+              <VB>
+                <VB-STM phon="LOG" form="sira" />
+                <VAX-SJV-CND lemma="L000004" phon="PHON" form="maseba" />
+              </VB>
+              <NP>
+                <N phon="LOG" form="kokoro" />
+              </NP>
+              <VB-GER lemma="L030327a" phon="LOG" form="oki" />
+              <VB-GER lemma="L030327a" phon="PHON" form="te" />
+              <P-TOP lemma="L000514" phon="PHON" form="mo" />
+            </IP-ADV>
+            <IP-ADV index="4">
+              <VB>
+                <VB-STM lemma="L030492a" phon="LOG" form="katara" />
+                <VB-STM lemma="L030492a" phon="PHON" form="pi" />
+                <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+                <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+              </VB>
+            </IP-ADV>
+            <VB>
+              <PFX-RCP lemma="L000025" phon="LOG" form="api" />
+              <VB-STM lemma="L031712a" phon="LOG" form="mi" />
+              <VAX-PRF-STM lemma="L000023" phon="LOG" form="te" />
+              <VAX-SJV-ADC lemma="L000004" phon="PHON" form="masi" />
+            </VB>
+          </IP-REL>
+          <N phon="LOG" form="mono" index="1" />
+          <N index="4" phon="PHON" form="wo" />
+        </NP>
+        <ADJ>
+          <ADJ phon="LOG" form="kuyasi" />
+        </ADJ>
+        <P-FNL-MPH lemma="L000507" phon="PHON" form="kamo" />
+        <ADJ>
+          <ADJ phon="LOG" form="kanasi" />
+        </ADJ>
+        <P-FNL-MPH lemma="L000507" phon="PHON" form="kamo" />
+        <NP>
+          <IP-REL>
+            <VB>
+              <VB-STM lemma="L030199a" phon="LOG" form="ipa" />
+              <VAX-CJR-ADC lemma="L000002" phon="LOG" form="mu" />
+            </VB>
+          </IP-REL>
+          <N phon="NLOG" form="su" />
+          <N phon="PHON" form="bye" />
+        </NP>
+        <VB>
+          <VB-STM phon="LOG" form="sira" />
+          <VAX-NEG-INF lemma="L000006" phon="LOG" form="ni" />
+        </VB>
+        <P-TOP lemma="L000514" phon="PHON" form="mo" />
+        <P-RES lemma="L000526a" phon="PHON" form="si" />
+        <VB-ADN lemma="L030125a" phon="LOG" form="aru" />
+        <P-FNL-MPH phon="PHON" form="kamo" />
+      </IP-ADV>
+    </IP-MAT>
+  </block>
+  <block id="4_SM_58" header="=N(&quot; ware pa mimasi no kokoro zasi woba simar a ku no ma mo wasure u masizi mi namo kanasi bwi tama pi sinwopi tama pi opo mi ne naka si tutu opomasi masu &quot;)">
+    <comment raw="IP-MAT,0@朕波汝乃志乎波暫久乃間毛忘得末之自美奈毛,*" />
+    <comment raw="IP-MAT,IP-ADV,1@悲備賜比之乃比賜比,*" />
+    <comment raw="IP-MAT,IP-ADV,2@大御泣哭川大坐麻湏,*" />
+    <IP-MAT>
+      <PP-TOP>
+        <NP>
+          <N phon="LOG" form="ware" />
+        </NP>
+        <P-TOP lemma="L000522" phon="PHON" form="pa" />
+      </PP-TOP>
+      <IP-ADV>
+        <IP-ADV index="1">
+          <PP>
+            <NP>
+              <PP-GEN>
+                <NP>
+                  <N phon="LOG" form="mimasi" />
+                </NP>
+                <P-CASE lemma="L000520" phon="PHON" form="no" />
+              </PP-GEN>
+              <N>
+                <N phon="LOG" form="kokoro" index="1" />
+                <N index="2" phon="LOG" form="zasi" />
+              </N>
+            </NP>
+            <P-CASE-ACC lemma="L000536" phon="PHON" form="woba" />
+          </PP>
+          <PP-TOP>
+            <NP>
+              <PP-GEN>
+                <NP>
+                  <N>
+                    <N phon="LOG" form="simar" index="1" />
+                    <N index="2" phon="LOG" form="a" />
+                    <N index="2" phon="PHON" form="ku" />
+                  </N>
+                </NP>
+                <P-CASE lemma="L000520" phon="PHON" form="no" />
+              </PP-GEN>
+              <N phon="LOG" form="ma" />
+            </NP>
+            <P-TOP lemma="L000514" phon="PHON" form="mo" />
+          </PP-TOP>
+          <VB>
+            <VB-STM lemma="L031907a" phon="LOG" form="wasure" />
+            <VB-CLS lemma="L030228a" phon="LOG" form="u" />
+          </VB>
+          <WORD>
+            <XTN lemma="L000802" phon="PHON" form="masizi" />
+            <ACP-INF lemma="L000034" phon="PHON" form="mi" />
+          </WORD>
+          <P-FOC lemma="L000518" phon="PHON" form="namo" />
+          <VB>
+            <VB-STM lemma="L030500a" phon="LOG" form="kanasi" />
+            <VB-STM lemma="L030500a" phon="PHON" form="bwi" />
+            <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+            <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+          </VB>
+        </IP-ADV>
+        <IP-ADV index="4">
+          <VB>
+            <VB-STM lemma="L030886a" phon="BPHON" form="sinwopi" />
+            <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+            <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+          </VB>
+        </IP-ADV>
+        <VB>
+          <PFX-HON lemma="L000038" phon="LOG" form="opo" />
+          <VB-STM lemma="L031712a" phon="LOG" form="mi" index="1" />
+          <VB-STM index="3" lemma="L031342a" phon="LOG" form="ne" />
+          <VB-STM lemma="L031267a" phon="LOG" form="naka" index="1" />
+          <VB-CTT lemma="L030919a" phon="LOG" form="si" />
+          <VB-CTT lemma="L030919a" phon="PHON" form="tutu" />
+        </VB>
+      </IP-ADV>
+      <VB-ADC lemma="L030384a" phon="LOG" form="opomasi" />
+      <VB-ADC lemma="L030384a" phon="PHON" form="masu" />
+    </IP-MAT>
+  </block>
+  <block id="5_SM_58" header="=N(&quot; sikaru mo wosame tamapa mu to omopo si si kurawi to namo pito tu no sina okuri tama pu &quot;)">
+    <comment raw="IP-MAT,0@然毛治賜牟止所念之,*" />
+    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,1@位止奈毛,*" />
+    <comment raw="IP-MAT,IP-ADV;@3,2@一品贈賜不,*" />
+    <IP-MAT>
+      <IP-ADV index="1">
+        <VB-ADN lemma="L030848a" phon="LOG" form="sikaru" />
+        <P-TOP lemma="L000514" phon="PHON" form="mo" />
+      </IP-ADV>
+      <IP-ADV index="3">
+        <IP-ADV>
+          <NP>
+            <IP-REL>
+              <IP-ADV>
+                <VB>
+                  <VB-STM lemma="L031943a" phon="LOG" form="wosame" index="1" />
+                  <VB-STM index="2" lemma="L031077a" phon="LOG" form="tamapa" />
+                  <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                </VB>
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+              </IP-ADV>
+              <VB>
+                <VB-STM lemma="L030402a" phon="LOG" form="omopo" />
+                <VB-STM lemma="L030402a" phon="PHON" form="si" />
+                <VAX-SPST-ADN lemma="L000015" phon="PHON" form="si" />
+              </VB>
+            </IP-REL>
+            <N phon="LOG" form="kurawi" />
+          </NP>
+          <PP>
+            <NP>
+              <N phon="PHON" form="to" />
+            </NP>
+            <P-FOC lemma="L000518" phon="PHON" form="namo" />
+          </PP>
+        </IP-ADV>
+        <NP>
+          <NUMCLP>
+            <NUM lemma="L002001" phon="LOG" form="pito" />
+            <CL lemma="L002015" phon="LOG" form="tu" />
+          </NUMCLP>
+          <N phon="LOG" form="no" index="1" />
+          <N index="3" phon="LOG" form="sina" />
+        </NP>
+        <VB>
+          <VB-STM lemma="L030328a" phon="LOG" form="okuri" />
+          <VB-ADC phon="LOG" form="tama" />
+          <VB-ADC phon="PHON" form="pu" />
+        </VB>
+      </IP-ADV>
+    </IP-MAT>
+  </block>
+  <block id="6_SM_58" header="=N(&quot; kwo domo woba puta tugi no opo kimi ni age tama pi wosame tama pu &quot;)">
+    <comment raw="IP-MAT,0@子等乎婆二世王尔上賜比治賜不,*" />
+    <IP-MAT>
+      <PP>
+        <NP>
+          <N lemma="L050667">
+            <N phon="LOG" form="kwo" />
+            <SFX lemma="L001002" phon="LOG" form="domo" />
+          </N>
+        </NP>
+        <P-CASE-ACC lemma="L000536" phon="PHON" form="woba" />
+      </PP>
+      <IP-ADV>
+        <IP-ADV>
+          <NP>
+            <NUMCLP>
+              <NUM lemma="L002002" phon="LOG" form="puta" />
+              <N phon="LOG" form="tugi" />
+            </NUMCLP>
+            <N phon="LOG" form="no" index="1" />
+            <N index="3" lemma="L050267">
+              <PFX-HON lemma="L000038" phon="LOG" form="opo" />
+              <N phon="LOG" form="kimi" />
+            </N>
+          </NP>
+          <COP-INF lemma="L031965" phon="PHON" form="ni" />
+        </IP-ADV>
+        <VB>
+          <VB-STM lemma="L030023a" phon="LOG" form="age" />
+          <VB-INF lemma="L031077a" phon="LOG" form="tama" />
+          <VB-INF lemma="L031077a" phon="PHON" form="pi" />
+        </VB>
+      </IP-ADV>
+      <VB>
+        <VB-STM lemma="L031943a" phon="LOG" form="wosame" />
+        <VB-ADC phon="LOG" form="tama" />
+        <VB-ADC phon="PHON" form="pu" />
+      </VB>
+    </IP-MAT>
+  </block>
+  <block id="7_SM_58" header="=N(&quot; itapasi ku na omopi masi so &quot;)">
+    <comment raw="IP-MAT,0@労久奈思麻之曾,*" />
+    <IP-MAT>
+      <IP-ADV>
+        <ADJ>
+          <ADJ phon="LOG" form="itapasi" />
+          <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+        </ADJ>
+      </IP-ADV>
+      <VB>
+        <PFX-PHB phon="PHON" form="na" />
+        <VB-STM lemma="L030399a" phon="LOG" form="omopi" />
+        <VB-INF phon="PHON" form="masi" />
+        <SFX-PHB phon="PHON" form="so" />
+      </VB>
+    </IP-MAT>
+  </block>
+  <block id="8_SM_58" header="=N(&quot; makari masa mu miti pa tapirake ku saki ku tutumu koto na ku usiro mo karo ku yasurake ku topo rase to tuge yo to noritamapu sumyera ga opo mikoto wo noritamapu &quot;)">
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,PP-TOP,NP,0@罷麻佐牟,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,PP-TOP,NP,1@道波平幸久,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,IP-ADV,2@都々牟事無久,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,IP-ADV,3@宇志呂毛軽久安久,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,IP-ADV,4@通良世止,*" />
+    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,5@告与止詔,*" />
+    <comment raw="IP-MAT,PP,NP,6@天皇大命乎宣,*" />
+    <IP-MAT>
+      <PP>
+        <NP>
+          <IP-REL>
+            <IP-ADV>
+              <PP-TOP>
+                <NP>
+                  <IP-REL>
+                    <VB>
+                      <VB-STM lemma="L031613a" phon="LOG" form="makari" index="1" />
+                      <VB-STM index="2" phon="BPHON" form="masa" />
+                      <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
+                    </VB>
+                  </IP-REL>
+                  <N phon="LOG" form="miti" />
+                </NP>
+                <P-TOP lemma="L000522" phon="PHON" form="pa" />
+              </PP-TOP>
+              <IP-ADV>
+                <IP-ADV index="1">
+                  <ADJ>
+                    <ADJ phon="LOG" form="tapirake" />
+                    <ACP-INF lemma="L000033" phon="LOG" form="ku" />
+                  </ADJ>
+                </IP-ADV>
+                <IP-ADV index="2">
+                  <ADJ>
+                    <ADJ phon="LOG" form="saki" />
+                    <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+                  </ADJ>
+                </IP-ADV>
+                <IP-ADV index="1">
+                  <NP>
+                    <IP-REL>
+                      <VB-ADC lemma="L031161a" phon="BPHON" form="tutumu" />
+                    </IP-REL>
+                    <N phon="LOG" form="koto" />
+                  </NP>
+                  <ADJ>
+                    <ADJ phon="LOG" form="na" />
+                    <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+                  </ADJ>
+                  <PP-TOP>
+                    <NP>
+                      <N phon="BPHON" form="usiro" />
+                    </NP>
+                    <P-TOP lemma="L000514" phon="PHON" form="mo" />
+                  </PP-TOP>
+                  <ADJ>
+                    <ADJ phon="LOG" form="karo" />
+                    <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+                  </ADJ>
+                </IP-ADV>
+                <IP-ADV index="7">
+                  <ADJ>
+                    <ADJ phon="LOG" form="yasurake" />
+                    <ACP-INF lemma="L000033" phon="PHON" form="ku" />
+                  </ADJ>
+                </IP-ADV>
+                <VB-IMP lemma="L031227a" phon="LOG" form="topo" />
+                <VB-IMP lemma="L031227a" phon="PHON" form="rase" />
+                <P-COMP lemma="L000530" phon="PHON" form="to" />
+              </IP-ADV>
+              <VB-IMP lemma="L031140a" phon="LOG" form="tuge" />
+              <VB-IMP lemma="L031140a" phon="PHON" form="yo" />
+              <P-COMP lemma="L000530" phon="PHON" form="to" />
+            </IP-ADV>
+            <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
+          </IP-REL>
+          <PP-GEN>
+            <NP>
+              <N phon="LOG" form="sumyera" />
+            </NP>
+            <P-CASE lemma="L000503" phon="LOG" form="ga" />
+          </PP-GEN>
+          <N>
+            <PFX-HON lemma="L000038" phon="LOG" form="opo" />
+            <N phon="LOG" form="mikoto" />
+          </N>
+        </NP>
+        <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
+      </PP>
+      <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
+    </IP-MAT>
+  </block>
+</document>

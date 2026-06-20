@@ -33,7 +33,7 @@ python3 -m pytest tests/test_dictionary.py      # single file
 python3 -m pytest tests/test_corpus.py::TestCorpusLine  # single class
 ```
 
-`conftest.py` adds `src/` to `sys.path` and exposes session-scoped fixtures: `dict_file` (`data/dict/dictionary.txt`), `text_dir` (`data/text/`), `sample_corpus_file` (`data/text/EN_01.txt`).
+`conftest.py` adds `src/` to `sys.path` and exposes session-scoped fixtures: `dict_file` (`data/txt/dict/dictionary.txt`), `text_dir` (`data/txt/text/`), `sample_corpus_file` (`data/txt/text/EN_01.txt`).
 
 ## Data Format
 
@@ -48,7 +48,7 @@ IP-MAT,NP,N,L000006a,LOG,nu
 - Penultimate field: syntactic/phonetic tag (`LOG`, `PHON`, `VB-STM`, `N`, etc.)
 - Optional lemma ID (e.g., `L050877`) inserted between the syntactic path and the tag
 
-**Dictionary** (`data/dict/dictionary.txt`): entries separated by `---` (51 dashes), each starting with `=== L<number>`. Required canonical fields in order: `.GLOSS`, `.MEANING`, `.FORM`, `.KANA`, `.POS`. Multi-valued fields (can repeat per entry): `.FORM`, `.KANA`, `.MEANING`, `.COMPOUND`, `.RELATED`, `.DERIVATION`, `.TRANSREL`, `.NOTE`, `.VCLASS`, `.ITYPE`, `.POS`, `.GEO`, `.PTR`. All other fields (`.CORRESP`, `.AFFIX`, `.ACCENTCLASS`, `.USE`) are singular.
+**Dictionary** (`data/txt/dict/dictionary.txt`): entries separated by `---` (51 dashes), each starting with `=== L<number>`. Required canonical fields in order: `.GLOSS`, `.MEANING`, `.FORM`, `.KANA`, `.POS`. Multi-valued fields (can repeat per entry): `.FORM`, `.KANA`, `.MEANING`, `.COMPOUND`, `.RELATED`, `.DERIVATION`, `.TRANSREL`, `.NOTE`, `.VCLASS`, `.ITYPE`, `.POS`, `.GEO`, `.PTR`. All other fields (`.CORRESP`, `.AFFIX`, `.ACCENTCLASS`, `.USE`) are singular.
 
 **Writing-mode tags** (penultimate field before a word form): `LOG`, `PHON`, `NLOG`, `PHON-KUN`, `PHON-ON`, `PLOG`, `BPHON`, `ILL`, `ORDLOG`, `NLPOG`. Any syntactic tag may carry a `;@N` disambiguation suffix (e.g. `N;@2`, `C-NP;@5`) identifying the Nth sister with the same path — strip this before tag comparison.
 
@@ -78,20 +78,35 @@ Handles Old Japanese poetic pillow words marked with the sentinel `L099999`. Rep
 
 A shared Python package formalising the domain objects. Use `sys.path.insert(0, 'src')` to import.
 
+The package has two sub-packages:
+
+### `oncoj.core` — domain model
+
 | Module | Key exports |
 |---|---|
-| `kana.py` | `phonemic_to_kana(form)` — romanised OJ → historical katakana |
-| `lemma_id.py` | `LemmaID` (immutable, hashable), `IDGenerator` |
-| `dictionary.py` | `DictEntry`, `Dictionary` (load/save/query/mutate) |
-| `corpus.py` | `CorpusLine`, `CommentLine`, `Utterance`, `CorpusDocument` |
-| `tags.py` | `PHON_TAGS`, `MULTI_VALUE_FIELDS`, `REQUIRED_FIELDS`, tag/POS/ITYPE reference dicts, `strip_disambig()` |
+| `oncoj.core.kana` | `phonemic_to_kana(form)` — romanised OJ → historical katakana |
+| `oncoj.core.lemma_id` | `LemmaID` (immutable, hashable), `IDGenerator` |
+| `oncoj.core.dictionary` | `DictEntry`, `Dictionary` (load/save/query/mutate) |
+| `oncoj.core.corpus` | `CorpusLine`, `CommentLine`, `Utterance`, `CorpusDocument` |
+| `oncoj.core.tags` | `PHON_TAGS`, `MULTI_VALUE_FIELDS`, `REQUIRED_FIELDS`, tag/POS/ITYPE reference dicts, `strip_disambig()` |
+
+All code imports directly from `oncoj.core.*` or `oncoj.xml.*`.
+
+### `oncoj.xml` — XML export (read-only; canonical format stays comma-path text)
+
+| Module | Key exports |
+|---|---|
+| `oncoj.xml.corpus_xml` | `corpus_to_xml_file(doc, path)`, `corpus_to_xml(doc)`, `utterance_to_xml(utt)`, `utterance_to_tree_str(utt)` |
+| `oncoj.xml.dictionary_xml` | `dictionary_to_xml_file(d, path)`, `dictionary_to_xml(d)`, `entry_to_xml(entry)`, `entry_to_str(entry)` |
+
+XML exports live in `data/xml/` (mirroring the `text/`, `trees/`, `dict/` sub-folders). Generate them with `python3 scripts/export.py`.
 
 ## Shared Conventions
 
 - **Lemma ID format**: `<PREFIX><zero-padded-6-digit-number>[optional-letter-suffix]` — e.g., `L000006a`, `N000001`
-- **Phonemic-to-katakana**: `phonemic_to_kana()` in `src/oncoj/kana.py`; the standalone scripts embed an identical copy locally (package postdates them).
+- **Phonemic-to-katakana**: `phonemic_to_kana()` in `oncoj.core.kana`; the standalone scripts embed an identical copy locally (package postdates them).
 - **Output mode**: controlled by `OVERWRITE_SOURCE` — either overwrite corpus files in place or write `*_processed.txt` files to `OUTPUT_FOLDER`; report files are always produced separately.
 - **Sentinel IDs**: `L099999` = makura-kotoba placeholder (replaced by `mk_lemma_processor`); `L099997` is also reserved and excluded from normalisation.
 - **Script/package split**: `*_standalone.py` scripts embed all logic locally and have zero non-stdlib dependencies. The package-based scripts (`lemmas_processor.py`, etc.) import `src/oncoj` via `sys.path.insert` at the top. The `src/oncoj` package is the clean API used by `tests/` and `notebooks/`. New code and refactors should use `src/oncoj`.
-- **Import path**: `sys.path.insert(0, 'src')` before `from oncoj.X import Y` (or use the scripts' own `sys.path.insert` relative to `__file__`).
+- **Import path**: `sys.path.insert(0, 'src')` before `from oncoj.core.X import Y`. Scripts use `sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))`.
 - **Linting**: `ruff` is configured in `pyproject.toml`. Run `ruff check .` to lint; E402/E741/E501 are suppressed globally (intentional `sys.path` pattern, corpus loop variables, and long data-table lines respectively).

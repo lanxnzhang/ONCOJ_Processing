@@ -3,10 +3,9 @@ import sys
 import os
 import pytest
 
-# Make `oncoj` importable without installing the package
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+DATA_DIR  = os.path.join(os.path.dirname(__file__), "..", "data", "txt")
 DICT_FILE = os.path.join(DATA_DIR, "dict", "dictionary.txt")
 TEXT_DIR  = os.path.join(DATA_DIR, "text")
 
