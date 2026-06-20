@@ -77,7 +77,7 @@ Thin wrappers that delegate to `oncoj.core`:
 | `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True) → str` |
 | | `print_tree(utt, *, show_comments=True, show_annotations=True)` |
 
-Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output.
+Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output. All annotated nodes — leaf and internal alike — use the same `TAG  ( annotations… )` format.
 
 ### Quick start
 

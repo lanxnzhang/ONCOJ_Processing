@@ -107,7 +107,7 @@ All code imports directly from `oncoj.core.*` or `oncoj.xml.*`.
 |---|---|
 | `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True) → str`, `print_tree(utt, …)` |
 
-`ascii_tree` renders an `Utterance` as a box-drawing syntax tree. The sentence ID and bare word-list header appear on the first line; sibling indices (`;@N`) are suppressed in the visual output.
+`ascii_tree` renders an `Utterance` as a box-drawing syntax tree. The sentence ID and bare word-list header appear on the first line; sibling indices (`;@N`) are suppressed in the visual output. All annotated nodes (leaf and internal) use the same `TAG  ( annotations… )` parenthesis format.
 
 ## Shared Conventions
 

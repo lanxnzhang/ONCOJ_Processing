@@ -29,7 +29,7 @@ def _node_label(elem: ET.Element, show_annotations: bool) -> str:
     in parentheses when *show_annotations* is True.
 
     Internal nodes:  TAG
-                     TAG  [lemma]               ← embedded compound/MK lemma
+                     TAG  ( [lemma] … )         ← annotations in parens, same as leaves
     Leaf nodes:      TAG  ( form  phon  [lemma] )
     """
     tag = elem.get("raw_tag") or elem.tag
@@ -50,9 +50,14 @@ def _node_label(elem: ET.Element, show_annotations: bool) -> str:
         return f"{tag}  ( {'  '.join(parts)} )"
 
     # Internal node
-    if not show_annotations or not lemma:
+    if not show_annotations:
         return tag
-    return f"{tag}  [{lemma}]"
+    parts = []
+    if lemma:
+        parts.append(f"[{lemma}]")
+    if not parts:
+        return tag
+    return f"{tag}  ( {'  '.join(parts)} )"
 
 
 def _render(
