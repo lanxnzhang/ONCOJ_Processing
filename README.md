@@ -74,10 +74,10 @@ Thin wrappers that delegate to `oncoj.core`:
 
 | Module | Key exports |
 |---|---|
-| `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True) → str` |
-| | `print_tree(utt, *, show_comments=True, show_annotations=True)` |
+| `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True, colour=False) → str` |
+| | `print_tree(utt, *, show_comments=True, show_annotations=True, colour=None)` |
 
-Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output. All annotated nodes — leaf and internal alike — use the same `TAG  ( annotations… )` format.
+Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output. All annotated nodes use the same `TAG  ( annotations… )` format. Optional ANSI colour: tags bold, word forms cyan, phon/script tags dim, lemma IDs yellow. `print_tree` auto-detects TTY when `colour=None` (default); `ascii_tree` defaults to `colour=False` so captured strings stay plain.
 
 ### Quick start
 
