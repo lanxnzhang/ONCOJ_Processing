@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_17.txt">
-  <block id="1_EN_17" header="=N(&quot; sumyera ga opo mi koto moti te watarapi no yamada no para no simwo tu ipa ne ni tatapegoto wope matu ru toyo uke no sumyegamwi no mapye ni mawosa ku tune mo tate matu ru kisaragi no tosigopi no tukwinami no maturi ni pa tada minadukwi no tukinami no koto wo motite api kapeyo opo mitegura wo sore no tukasa kurawi nanigasi wo tukapi to si te sasage mota sime te tate maturi tama pu opo mi koto wo mawosi tamapa ku to mawosu &quot;)">
+  <block id="1_EN_17" header="sumyera ga opo mi koto moti te watarapi no yamada no para no simwo tu ipa ne ni tatapegoto wope matu ru toyo uke no sumyegamwi no mapye ni mawosa ku tune mo tate matu ru kisaragi no tosigopi no tukwinami no maturi ni pa tada minadukwi no tukinami no koto wo motite api kapeyo opo mitegura wo sore no tukasa kurawi nanigasi wo tukapi to si te sasage mota sime te tate maturi tama pu opo mi koto wo mawosi tamapa ku to mawosu">
     <comment raw="IP-MAT,IP-NMZ,PP-DAT,NP,PP-GEN,NP,PP-GEN,NP,IP-REL,0@天皇我御命以弖,*" />
     <comment raw="IP-MAT,IP-NMZ,PP-DAT,NP,PP-GEN,NP,PP-GEN,NP,IP-REL,1@度會乃山田原乃下津石根爾稱辭竟奉留,*" />
     <comment raw="IP-MAT,IP-NMZ,PP-DAT,NP,PP-GEN,NP,PP-GEN,NP,2@豐受皇神前爾申久,*" />
@@ -27,7 +27,7 @@
                           </PP-GEN>
                           <N>
                             <PFX-HON phon="LOG" form="opo" />
-                            <N phon="LOG" form="mi" index="1" />
+                            <N index="1" phon="LOG" form="mi" />
                             <N index="3" phon="LOG" form="koto" />
                           </N>
                         </NP-OB1>
@@ -61,7 +61,7 @@
                             <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
                           </PP-GEN>
                           <N>
-                            <N phon="LOG" form="ipa" index="1" />
+                            <N index="1" phon="LOG" form="ipa" />
                             <N index="2" phon="LOG" form="ne" />
                           </N>
                         </NP>
@@ -77,7 +77,7 @@
                       <VB-ADC phon="PHON" form="ru" />
                     </IP-REL>
                     <N>
-                      <N phon="LOG" form="toyo" index="1" />
+                      <N index="1" phon="LOG" form="toyo" />
                       <N index="2" phon="LOG" form="uke" />
                     </N>
                   </NP>
@@ -216,7 +216,7 @@
                 <VB-GER phon="PHON" form="te" />
               </IP-ADV>
               <VB>
-                <VB-STM phon="LOG" form="sasage" index="1" />
+                <VB-STM index="1" phon="LOG" form="sasage" />
                 <VB-STM index="2" phon="LOG" form="mota" />
                 <VAX-CTV-GER phon="LOG" form="sime" />
                 <VAX-CTV-GER phon="PHON" form="te" />
@@ -224,7 +224,7 @@
             </IP-ADV>
             <IP-REL>
               <VB>
-                <VB-STM phon="LOG" form="tate" index="1" />
+                <VB-STM index="1" phon="LOG" form="tate" />
                 <VB-STM index="2" phon="LOG" form="maturi" />
                 <VB-ADC phon="LOG" form="tama" />
                 <VB-ADC phon="PHON" form="pu" />
@@ -232,7 +232,7 @@
             </IP-REL>
             <N>
               <PFX-HON phon="LOG" form="opo" />
-              <N phon="LOG" form="mi" index="1" />
+              <N index="1" phon="LOG" form="mi" />
               <N index="3" phon="LOG" form="koto" />
             </N>
           </NP>

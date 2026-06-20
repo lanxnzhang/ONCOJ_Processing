@@ -73,64 +73,7 @@ def utterance_from_xml(xml_str: str) -> Utterance:
 # ── ASCII tree rendering ───────────────────────────────────────────────────────
 
 
-def _elem_to_tree_lines(
-    elem: ET.Element,
-    prefix: str = "",
-    is_last: bool = True,
-) -> list[str]:
-    """Recursively render an XML element as ASCII tree lines."""
-    connector = "└── " if is_last else "├── "
-    children = list(elem)
-
-    if not children:
-        parts: list[str] = []
-        idx = elem.get("index")
-        if idx:
-            parts.append(f"index={idx}")
-        for attr in ("lemma", "phon", "form"):
-            val = elem.get(attr)
-            if val:
-                parts.append(f"{attr}={val}")
-        attr_str = "  [" + "  ".join(parts) + "]" if parts else ""
-        return [prefix + connector + elem.tag + attr_str]
-
-    lines = [prefix + connector + elem.tag]
-    child_prefix = prefix + ("    " if is_last else "│   ")
-
-    comment_elems = [c for c in children if c.tag == "comment"]
-    tree_elems = [c for c in children if c.tag != "comment"]
-    all_ordered = comment_elems + tree_elems
-
-    for i, child in enumerate(all_ordered):
-        child_is_last = (i == len(all_ordered) - 1)
-        if child.tag == "comment":
-            conn2 = "└── " if child_is_last else "├── "
-            lines.append(child_prefix + conn2 + "# " + (child.get("raw") or ""))
-        else:
-            lines.extend(_elem_to_tree_lines(child, child_prefix, child_is_last))
-
-    return lines
-
-
 def utterance_to_tree_str(utt: Utterance) -> str:
     """Render an Utterance as a human-readable ASCII tree."""
-    if utt._block_elem is not None:
-        elem = utt._block_elem
-        sid = elem.get("id") or ""
-        hdr = elem.get("header") or ""
-    else:
-        elem = _utterance_to_elem(utt)
-        sid = utt.sentence_id or ""
-        hdr = utt.header.raw if utt.header else ""
-
-    header_line = f"block  id={sid}  {hdr}" if sid else f"block  {hdr}"
-    lines = [header_line]
-    children = list(elem)
-    for i, child in enumerate(children):
-        is_last = (i == len(children) - 1)
-        if child.tag == "comment":
-            connector = "└── " if is_last else "├── "
-            lines.append(connector + "# " + (child.get("raw") or ""))
-        else:
-            lines.extend(_elem_to_tree_lines(child, "", is_last))
-    return "\n".join(lines)
+    from oncoj.visual.ascii_tree import ascii_tree
+    return ascii_tree(utt)

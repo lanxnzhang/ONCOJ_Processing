@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_10.txt">
-  <block id="1_SM_10" header="=N(&quot; aki tu mi kamwi to opo ya sima sira si myesu wa ga kwo sumyera mikoto no kake maku mo kasikwo ki sumyera ga mikadwo no pazime tama pi tukuri tama p yeru takara wo kuni no takara to site ko no opokimi wo tukape matura sime tamape ba ame no sita ni tate tama pi okonapi tama p yeru nori pa tayu be ki koto pa na ku ari kyeri to mi kiki yorokobwi paberi to mawosi tamapye to noritamapu opo mikoto wo mawosu &quot;)">
+  <block id="1_SM_10" header="aki tu mi kamwi to opo ya sima sira si myesu wa ga kwo sumyera mikoto no kake maku mo kasikwo ki sumyera ga mikadwo no pazime tama pi tukuri tama p yeru takara wo kuni no takara to site ko no opokimi wo tukape matura sime tamape ba ame no sita ni tate tama pi okonapi tama p yeru nori pa tayu be ki koto pa na ku ari kyeri to mi kiki yorokobwi paberi to mawosi tamapye to noritamapu opo mikoto wo mawosu">
     <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,0@現神,*" />
     <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,1@御大八洲,*" />
     <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,2@我子天皇乃掛母畏伎,*" />
@@ -42,7 +42,7 @@
                           <NP-OB1>
                             <N>
                               <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                              <N phon="LOG" form="ya" index="1" />
+                              <N index="1" phon="LOG" form="ya" />
                               <N index="3" phon="LOG" form="sima" />
                             </N>
                           </NP-OB1>
@@ -58,9 +58,9 @@
                           </NP>
                           <P-CASE lemma="L000503" phon="LOG" form="ga" />
                         </PP-GEN>
-                        <N phon="LOG" form="kwo" index="1" />
+                        <N index="1" phon="LOG" form="kwo" />
                         <N index="5">
-                          <N phon="LOG" form="sumyera" index="1" />
+                          <N index="1" phon="LOG" form="sumyera" />
                           <N index="2" phon="LOG" form="mikoto" />
                         </N>
                       </NP>
@@ -109,7 +109,7 @@
                               </VB>
                             </IP-ADV>
                             <VB>
-                              <VB-STM lemma="L031144a" phon="LOG" form="tukuri" index="1" />
+                              <VB-STM index="1" lemma="L031144a" phon="LOG" form="tukuri" />
                               <VB-STM index="2" lemma="L031077a" phon="LOG" form="tama" />
                               <VB-STM index="2" lemma="L031077a" phon="PHON" form="p" />
                               <VAX-STV-ADN lemma="L000024" phon="PHON" form="yeru" />
@@ -144,9 +144,9 @@
                       <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
                     </PP-OB1>
                     <VB>
-                      <VB-STM lemma="L031119a" phon="LOG" form="tukape" index="1" />
+                      <VB-STM index="1" lemma="L031119a" phon="LOG" form="tukape" />
                       <VB-STM index="2" lemma="L031644a" phon="LOG" form="matura" />
-                      <VB-STM phon="LOG" form="sime" index="1" />
+                      <VB-STM index="1" phon="LOG" form="sime" />
                       <VB-PRV lemma="L031077a" phon="LOG" form="tamape" />
                       <VB-PRV lemma="L031077a" phon="PHON" form="ba" />
                     </VB>
@@ -174,7 +174,7 @@
                           </VB>
                         </IP-ADV>
                         <VB>
-                          <VB-STM lemma="L030336a" phon="LOG" form="okonapi" index="1" />
+                          <VB-STM index="1" lemma="L030336a" phon="LOG" form="okonapi" />
                           <VB-STM index="2" lemma="L031077a" phon="LOG" form="tama" />
                           <VB-STM index="2" lemma="L031077a" phon="PHON" form="p" />
                           <VAX-STV-ADN lemma="L000024" phon="PHON" form="yeru" />
@@ -208,9 +208,9 @@
                   <P-COMP lemma="L000530" phon="PHON" form="to" />
                 </IP-ADV>
                 <VB>
-                  <VB-STM lemma="L031712a" phon="LOG" form="mi" index="1" />
+                  <VB-STM index="1" lemma="L031712a" phon="LOG" form="mi" />
                   <VB-STM index="2" lemma="L030565a" phon="LOG" form="kiki" />
-                  <VB-STM lemma="L031890a" phon="LOG" form="yorokobwi" index="1" />
+                  <VB-STM index="1" lemma="L031890a" phon="LOG" form="yorokobwi" />
                   <VB-IFC lemma="L031443a" phon="LOG" form="paberi" />
                 </VB>
                 <P-COMP lemma="L000530" phon="PHON" form="to" />
@@ -233,7 +233,7 @@
       <VB-ADC lemma="L031678a" phon="LOG" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="2_SM_10" header="=N(&quot; mata kyepu okonapi tama pu waza wo misonapaseba tada ni aswobi to nomwi ni pa ara zu site ame no sita no pito ni kimi omi oya kwo no kotowari wo wosipe tama pi omobuke tama pu to ni aru rasi to namo omoposi mye su &quot;)">
+  <block id="2_SM_10" header="mata kyepu okonapi tama pu waza wo misonapaseba tada ni aswobi to nomwi ni pa ara zu site ame no sita no pito ni kimi omi oya kwo no kotowari wo wosipe tama pi omobuke tama pu to ni aru rasi to namo omoposi mye su">
     <comment raw="IP-MAT,0@又今日行賜布,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,PP-OB1,NP,1@態乎見行波,*" />
     <comment raw="IP-MAT,IP-ADV,2@直遊止乃味,*" />
@@ -309,9 +309,9 @@
               <PP-GEN>
                 <NP>
                   <N>
-                    <N phon="LOG" form="kimi" index="1" />
+                    <N index="1" phon="LOG" form="kimi" />
                     <N index="2" phon="LOG" form="omi" />
-                    <N phon="LOG" form="oya" index="1" />
+                    <N index="1" phon="LOG" form="oya" />
                     <N index="4" phon="LOG" form="kwo" />
                   </N>
                 </NP>
@@ -352,7 +352,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="3_SM_10" header="=N(&quot; koko wo motite wosipe tama pi omobuke tama pi nagara uke tamapari moti te wasure zu usinapa zu aru be ki sirusi tosite pito ri puta ri wo wosame tama pana to namo omoposi mye su to mawosi tamapye to noritamapu opo mikoto wo mawosi tama paku to mawosu &quot;)">
+  <block id="3_SM_10" header="koko wo motite wosipe tama pi omobuke tama pi nagara uke tamapari moti te wasure zu usinapa zu aru be ki sirusi tosite pito ri puta ri wo wosame tama pana to namo omoposi mye su to mawosi tamapye to noritamapu opo mikoto wo mawosi tama paku to mawosu">
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,0@是以教賜比趣賜比奈何良受被賜持弖不忘,*" />
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,1@不失可有伎表等之弖,*" />
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,2@一二人乎治賜波奈止那毛,*" />
@@ -387,14 +387,14 @@
                             </VB>
                           </IP-ADV>
                           <VB>
-                            <VB-STM lemma="L030401a" phon="LOG" form="omobuke" index="1" />
+                            <VB-STM index="1" lemma="L030401a" phon="LOG" form="omobuke" />
                             <VB-STM index="2" lemma="L031077a" phon="LOG" form="tama" />
                             <VB-STM index="2" lemma="L031077a" phon="PHON" form="pi" />
                             <SFX lemma="L001001" phon="PHON" form="nagara" />
                           </VB>
                         </IP-ADV>
                         <VB>
-                          <VB-STM phon="LOG" form="uke" index="1" />
+                          <VB-STM index="1" phon="LOG" form="uke" />
                           <VB-STM index="2" lemma="L031076a" phon="LOG" form="tamapari" />
                           <VB-GER lemma="L031761a" phon="LOG" form="moti" />
                           <VB-GER lemma="L031761a" phon="PHON" form="te" />

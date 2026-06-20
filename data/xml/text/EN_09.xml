@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_09.txt">
-  <block id="1_EN_09" header="=N(&quot; kusi ipamatwo toyoipamatwo no mikoto to mi na wo mawosu koto pa yo mo uti two no mi kadwo ni yutu ipa mura no goto ku sayari masi te yo mo yo sumi ywori utwo bwi ara bwi ko mu amenomagatupi to ipu kamwi no ipa mu maga koto ni purugoto ni maga koto to ipu api mazikori api kuti ape tamapu koto na ku upe ywori yuka ba upe wo mamo ri sita ywori yuka ba sita wo mamo ri moti pusegi parapi yari ipi soke masi te asita pa mi kadwo wo piraki yupubye pa mikadwo wo tate te mawiri magaduru pito no na wo twopi sira si toga ayamati ara mu woba kamunapobi oponapobi ni mi naposi kiki naposi masi te tapi rake ku yasu rake ku tukape matura sime tamapu ga yuwe ni toyoipamatwo no mikoto kusiipamatwo no mikoto to mi na wo tatapegoto wope matura ku to mawosu &quot;)">
+  <block id="1_EN_09" header="kusi ipamatwo toyoipamatwo no mikoto to mi na wo mawosu koto pa yo mo uti two no mi kadwo ni yutu ipa mura no goto ku sayari masi te yo mo yo sumi ywori utwo bwi ara bwi ko mu amenomagatupi to ipu kamwi no ipa mu maga koto ni purugoto ni maga koto to ipu api mazikori api kuti ape tamapu koto na ku upe ywori yuka ba upe wo mamo ri sita ywori yuka ba sita wo mamo ri moti pusegi parapi yari ipi soke masi te asita pa mi kadwo wo piraki yupubye pa mikadwo wo tate te mawiri magaduru pito no na wo twopi sira si toga ayamati ara mu woba kamunapobi oponapobi ni mi naposi kiki naposi masi te tapi rake ku yasu rake ku tukape matura sime tamapu ga yuwe ni toyoipamatwo no mikoto kusiipamatwo no mikoto to mi na wo tatapegoto wope matura ku to mawosu">
     <comment raw="IP-MAT,IP-ARG,PP-TOP,NP,IP-REL,IP-ADV,NP,0@櫛磐牖豐磐牖,*" />
     <comment raw="IP-MAT,IP-ARG,PP-TOP,NP,IP-REL,IP-ADV,NP,1@命止,*" />
     <comment raw="IP-MAT,IP-ARG,PP-TOP,NP,IP-REL,2@御名乎申,*" />
@@ -75,13 +75,13 @@
                   <N>
                     <C-N index="1">
                       <N>
-                        <N phon="LOG" form="yo" index="1" />
+                        <N index="1" phon="LOG" form="yo" />
                         <N index="2" phon="LOG" form="mo" />
                       </N>
                     </C-N>
                     <C-N index="2">
                       <N>
-                        <N phon="LOG" form="uti" index="1" />
+                        <N index="1" phon="LOG" form="uti" />
                         <N index="2" phon="LOG" form="two" />
                       </N>
                     </C-N>
@@ -100,9 +100,9 @@
             <PP-GEN>
               <NP>
                 <N>
-                  <N phon="PHON" form="yutu" index="1" />
+                  <N index="1" phon="PHON" form="yutu" />
                   <N index="2" phon="LOG" form="ipa" />
-                  <N phon="LOG" form="mura" index="1" />
+                  <N index="1" phon="LOG" form="mura" />
                 </N>
               </NP>
               <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
@@ -131,13 +131,13 @@
                                 <N>
                                   <C-N index="1">
                                     <N>
-                                      <N phon="LOG" form="yo" index="1" />
+                                      <N index="1" phon="LOG" form="yo" />
                                       <N index="2" phon="LOG" form="mo" />
                                     </N>
                                   </C-N>
                                   <C-N index="2">
                                     <N>
-                                      <N phon="LOG" form="yo" index="1" />
+                                      <N index="1" phon="LOG" form="yo" />
                                       <N index="2" phon="LOG" form="sumi" />
                                     </N>
                                   </C-N>
@@ -150,8 +150,8 @@
                               <VB-INF phon="PHON" form="bwi" />
                             </IP-ADV>
                             <VB>
-                              <VB-STM phon="LOG" form="ara" index="1" />
-                              <VB-STM phon="PHON" form="bwi" index="1" />
+                              <VB-STM index="1" phon="LOG" form="ara" />
+                              <VB-STM index="1" phon="PHON" form="bwi" />
                               <VB-STM index="2" phon="LOG" form="ko" />
                               <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
                             </VB>
@@ -171,7 +171,7 @@
                       </VB>
                     </IP-REL>
                     <N lemma="L050330">
-                      <N phon="LOG" form="maga" index="1" />
+                      <N index="1" phon="LOG" form="maga" />
                       <N index="2" phon="LOG" form="koto" />
                     </N>
                   </NP>
@@ -264,7 +264,7 @@
             </VB>
           </IP-ADV>
           <VB>
-            <VB-STM phon="LOG" form="ipi" index="1" />
+            <VB-STM index="1" phon="LOG" form="ipi" />
             <VB-STM index="2" phon="LOG" form="soke" />
             <VB-GER phon="LOG" form="masi" />
             <VB-GER phon="PHON" form="te" />
@@ -318,7 +318,7 @@
             <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
           </PP-OB1>
           <VB>
-            <VB-STM phon="LOG" form="twopi" index="1" />
+            <VB-STM index="1" phon="LOG" form="twopi" />
             <VB-STM index="2" phon="LOG" form="sira" />
             <VAX-RSP-INF phon="PHON" form="si" />
           </VB>
@@ -357,7 +357,7 @@
             </VB>
           </IP-ADV>
           <VB>
-            <VB-STM phon="LOG" form="kiki" index="1" />
+            <VB-STM index="1" phon="LOG" form="kiki" />
             <VB-STM index="2" phon="LOG" form="naposi" />
             <VB-GER phon="LOG" form="masi" />
             <VB-GER phon="PHON" form="te" />
@@ -379,7 +379,7 @@
                 </ADJ>
               </IP-ADV>
               <VB>
-                <VB-STM phon="LOG" form="tukape" index="1" />
+                <VB-STM index="1" phon="LOG" form="tukape" />
                 <VB-STM index="2" phon="LOG" form="matura" />
                 <VAX-CTV phon="LOG" form="sime" />
                 <VB-ADC phon="LOG" form="tamapu" />

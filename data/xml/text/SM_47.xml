@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_47.txt">
-  <block id="1_SM_47" header="=N(&quot; ima nori tamapa ku koto nipaka ni aru ni yori te omi tati pakari te sira kabye no opo kimi pa opo kimi tati no naka ni yopapi mo ko no kami nari mata saki no mikadwo no mi isawo mo aru yuwe ni pi tugi no mi kwo to sadame te mawose ba mawos e ru manima sadame tama pu to nori tamapa ku to noritamapu &quot;)">
+  <block id="1_SM_47" header="ima nori tamapa ku koto nipaka ni aru ni yori te omi tati pakari te sira kabye no opo kimi pa opo kimi tati no naka ni yopapi mo ko no kami nari mata saki no mikadwo no mi isawo mo aru yuwe ni pi tugi no mi kwo to sadame te mawose ba mawos e ru manima sadame tama pu to nori tamapa ku to noritamapu">
     <comment raw="IP-MAT,0@今詔久事卒然尔有依天,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,1@諸臣等議天,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,2@白壁王波諸王乃中尔,*" />
@@ -62,7 +62,7 @@
                         <PP-GEN>
                           <NP>
                             <N>
-                              <N phon="LOG" form="sira" index="1" />
+                              <N index="1" phon="LOG" form="sira" />
                               <N index="2" phon="LOG" form="kabye" />
                             </N>
                           </NP>
@@ -147,7 +147,7 @@
                       </IP-ADV>
                       <NP>
                         <N index="1">
-                          <N phon="LOG" form="pi" index="1" />
+                          <N index="1" phon="LOG" form="pi" />
                           <N index="2" phon="LOG" form="tugi" />
                         </N>
                         <N index="2" phon="LOG" form="no" />

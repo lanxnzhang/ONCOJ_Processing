@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_60.txt">
-  <block id="1_SM_60" header="=N(&quot; sumyera ga opo mikoto rama to noritamapu opo mikoto wo mi kwo tati opo kimi tati omi tati tukasa dukasa no pito domo ame no sita no opo mi takara moro moro kiki tamapeyo to noritamapu &quot;)">
+  <block id="1_SM_60" header="sumyera ga opo mikoto rama to noritamapu opo mikoto wo mi kwo tati opo kimi tati omi tati tukasa dukasa no pito domo ame no sita no opo mi takara moro moro kiki tamapeyo to noritamapu">
     <comment raw="IP-MAT,IP-ADV,PP,NP,IP-REL,0@天皇詔旨勅,*" />
     <comment raw="IP-MAT,IP-ADV,PP,NP,1@命乎親王諸王諸臣百官人等天下公民衆聞食止宣,*" />
     <IP-MAT>
@@ -18,7 +18,7 @@
                 <NP>
                   <N>
                     <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                    <N phon="LOG" form="mikoto" index="1" />
+                    <N index="1" phon="LOG" form="mikoto" />
                     <N index="3" phon="LOG" form="rama" />
                   </N>
                 </NP>
@@ -49,10 +49,10 @@
             <SFX lemma="L001004" phon="LOG" form="tati" />
           </N>
           <N index="4">
-            <N phon="LOG" form="tukasa" index="1" />
+            <N index="1" phon="LOG" form="tukasa" />
             <N index="2" phon="LOG" form="dukasa" />
           </N>
-          <N phon="LOG" form="no" index="1" />
+          <N index="1" phon="LOG" form="no" />
           <N index="6">
             <N phon="LOG" form="pito" />
             <SFX lemma="L001002" phon="LOG" form="domo" />
@@ -71,11 +71,11 @@
           </PP-GEN>
           <N index="1">
             <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-            <N phon="LOG" form="mi" index="1" />
+            <N index="1" phon="LOG" form="mi" />
             <N index="3" phon="LOG" form="takara" />
           </N>
           <N index="10">
-            <N phon="LOG" form="moro" index="1" />
+            <N index="1" phon="LOG" form="moro" />
             <N index="2" phon="LOG" form="moro" />
           </N>
         </NP>
@@ -88,7 +88,7 @@
       <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
     </IP-MAT>
   </block>
-  <block id="2_SM_60" header="=N(&quot; nori no manima ni aru be ki maturi goto to site sawa ra no mi kwo wo tatete pi tugi no mi kwo to sadame tama pu &quot;)">
+  <block id="2_SM_60" header="nori no manima ni aru be ki maturi goto to site sawa ra no mi kwo wo tatete pi tugi no mi kwo to sadame tama pu">
     <comment raw="IP-MAT,IP-ADV,NP,0@随法尔可有伎,*" />
     <comment raw="IP-MAT,IP-ADV,NP,1@政止志弖,*" />
     <comment raw="IP-MAT,2@早良親王立而,*" />
@@ -116,7 +116,7 @@
             </WORD>
           </IP-REL>
           <N>
-            <N phon="LOG" form="maturi" index="1" />
+            <N index="1" phon="LOG" form="maturi" />
             <N index="2" phon="LOG" form="goto" />
           </N>
         </NP>
@@ -125,8 +125,8 @@
       </IP-ADV>
       <PP>
         <NP>
-          <N phon="LOG" form="sawa" index="1" />
-          <N phon="BPHON" form="ra" index="1" />
+          <N index="1" phon="LOG" form="sawa" />
+          <N index="1" phon="BPHON" form="ra" />
           <N index="2" phon="LOG" form="no" />
           <N index="1">
             <PFX phon="LOG" form="mi" />
@@ -139,7 +139,7 @@
         <VB-GER lemma="L031044a" phon="LOG" form="tatete" />
         <NP>
           <N index="1">
-            <N phon="LOG" form="pi" index="1" />
+            <N index="1" phon="LOG" form="pi" />
             <N index="2" phon="LOG" form="tugi" />
           </N>
           <N index="2" phon="LOG" form="no" />
@@ -157,7 +157,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="3_SM_60" header="=N(&quot; kare kaku no sama satorite tukasa dukasa no pito domo tukape matu re to noritamapu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu &quot;)">
+  <block id="3_SM_60" header="kare kaku no sama satorite tukasa dukasa no pito domo tukape matu re to noritamapu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu">
     <comment raw="IP-MAT,0@故此之状悟天,*" />
     <comment raw="IP-MAT,IP-ADV,PP,NP,IP-REL,IP-ADV,1@百官人等仕奉礼止詔,*" />
     <comment raw="IP-MAT,IP-ADV,PP,NP,2@天皇勅旨乎衆聞食宣,*" />
@@ -172,15 +172,15 @@
               <IP-ADV>
                 <IP-ADV>
                   <NP>
-                    <N phon="LOG" form="kaku" index="1" />
+                    <N index="1" phon="LOG" form="kaku" />
                     <N index="2" phon="LOG" form="no" />
-                    <N phon="LOG" form="sama" index="1" />
+                    <N index="1" phon="LOG" form="sama" />
                   </NP>
                   <VB-GER phon="LOG" form="satorite" />
                 </IP-ADV>
                 <NP>
                   <N index="1">
-                    <N phon="LOG" form="tukasa" index="1" />
+                    <N index="1" phon="LOG" form="tukasa" />
                     <N index="2" phon="LOG" form="dukasa" />
                   </N>
                   <N index="2" phon="LOG" form="no" />
@@ -213,7 +213,7 @@
         </PP>
         <NP>
           <N>
-            <N phon="LOG" form="moro" index="1" />
+            <N index="1" phon="LOG" form="moro" />
             <N index="2" phon="LOG" form="moro" />
           </N>
         </NP>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_26.txt">
-  <block id="1_EN_26" header="=N(&quot; sumyemima no mikoto no opo mi koto moti te suminoye ni koto wope matu ru sumye gamwi tati no mapye ni mawosi tamapa ku morokwosi ni tukapi tukapa sa mu to suru ni puna suwe na ki ni yori te parima no kuni yori puna noru to si te tukapi pa tukapa sa mu to omoposi myesu ma ni sumye gamwi no mikoto moti te puna suwe pa ware tukura mu to wosipe satosi tama pi ki &quot;)">
+  <block id="1_EN_26" header="sumyemima no mikoto no opo mi koto moti te suminoye ni koto wope matu ru sumye gamwi tati no mapye ni mawosi tamapa ku morokwosi ni tukapi tukapa sa mu to suru ni puna suwe na ki ni yori te parima no kuni yori puna noru to si te tukapi pa tukapa sa mu to omoposi myesu ma ni sumye gamwi no mikoto moti te puna suwe pa ware tukura mu to wosipe satosi tama pi ki">
     <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,0@皇御孫,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,1@尊乃御命以弖,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,2@住吉爾辭竟奉留,*" />
@@ -60,7 +60,7 @@
                   </IP-ADV>
                 </IP-REL>
                 <N>
-                  <N phon="LOG" form="sumye" index="1" />
+                  <N index="1" phon="LOG" form="sumye" />
                   <N index="2" phon="LOG" form="gamwi" />
                   <SFX phon="LOG" form="tati" />
                 </N>
@@ -169,7 +169,7 @@
           <PP-GEN>
             <NP>
               <N lemma="L050218">
-                <N phon="LOG" form="sumye" index="1" />
+                <N index="1" phon="LOG" form="sumye" />
                 <N index="2" phon="LOG" form="gamwi" />
               </N>
             </NP>
@@ -200,15 +200,15 @@
         <P-COMP lemma="L000530" phon="PHON" form="to" />
       </IP-ARG>
       <VB>
-        <VB-STM phon="LOG" form="wosipe" index="1" />
+        <VB-STM index="1" phon="LOG" form="wosipe" />
         <VB-STM index="2" phon="LOG" form="satosi" />
-        <VB-STM phon="LOG" form="tama" index="1" />
-        <VB-STM phon="PHON" form="pi" index="1" />
+        <VB-STM index="1" phon="LOG" form="tama" />
+        <VB-STM index="1" phon="PHON" form="pi" />
         <VAX-SPST-CLS lemma="L000015" phon="PHON" form="ki" />
       </VB>
     </IP-MAT>
   </block>
-  <block id="2_EN_26" header="=N(&quot; wosipe satosi tama pi nagara puna suwe tukuri tama p yereba yoro kobwi yoro si mi wiya ziro no mitegura wo tukasa kurawi nanigasi ni sasage mota sime te tate matura ku to mawosu &quot;)">
+  <block id="2_EN_26" header="wosipe satosi tama pi nagara puna suwe tukuri tama p yereba yoro kobwi yoro si mi wiya ziro no mitegura wo tukasa kurawi nanigasi ni sasage mota sime te tate matura ku to mawosu">
     <comment raw="IP-MAT,IP-ARG,IP-ADV,0@教悟給比那我良,*" />
     <comment raw="IP-MAT,IP-ARG,IP-ADV,1@船居作給部禮波悦己比嘉之美,*" />
     <comment raw="IP-MAT,IP-ARG,2@禮代乃,*" />
@@ -219,10 +219,10 @@
         <IP-ADV index="1">
           <IP-ADV>
             <VB>
-              <VB-STM phon="LOG" form="wosipe" index="1" />
+              <VB-STM index="1" phon="LOG" form="wosipe" />
               <VB-STM index="2" phon="LOG" form="satosi" />
-              <VB-STM phon="LOG" form="tama" index="1" />
-              <VB-STM phon="PHON" form="pi" index="1" />
+              <VB-STM index="1" phon="LOG" form="tama" />
+              <VB-STM index="1" phon="PHON" form="pi" />
               <SFX phon="PHON" form="nagara" />
             </VB>
           </IP-ADV>
@@ -233,7 +233,7 @@
             </N>
           </NP-OB1>
           <VB>
-            <VB-STM phon="LOG" form="tukuri" index="1" />
+            <VB-STM index="1" phon="LOG" form="tukuri" />
             <VB-STM index="2" phon="LOG" form="tama" />
             <VB-STM index="2" phon="PHON" form="p" />
             <VAX-STV-PRV phon="PHON" form="yereba" />
@@ -254,7 +254,7 @@
               <IP-REL>
                 <NP-PRD>
                   <N>
-                    <N phon="LOG" form="wiya" index="1" />
+                    <N index="1" phon="LOG" form="wiya" />
                     <N index="2" phon="LOG" form="ziro" />
                   </N>
                 </NP-PRD>
@@ -283,7 +283,7 @@
             <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
           </PP-DAT>
           <VB>
-            <VB-STM phon="LOG" form="sasage" index="1" />
+            <VB-STM index="1" phon="LOG" form="sasage" />
             <VB-STM index="2" phon="LOG" form="mota" />
             <VAX-CTV-GER phon="LOG" form="sime" />
             <VAX-CTV-GER phon="PHON" form="te" />

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_09.txt">
-  <block id="1_SM_09" header="=N(&quot; sumyera ga opo mikoto ni ima se mawosi tamapa ku kake maku mo kasikwo ki asuka no kiywo mi bara no miya ni opo ya sima sira si myesi si piziri no sumyera mikoto ame no sita wo wosame tama pi tapirage tama pite omoposi masa ku kami simwo wo totono pe yapara gete ugwoki na ku sidu ka ni ara simuru ni pa rai to gaku to puta tu narabe te si tapirake ku naga ku aru be si to kamu nagara mo omoposi masi te ko no mapi wo pazime tama pi tukuri tama pi ki to kiki tamape te ame tuti to tomo ni tayuru koto na ku iya tugitugi ni uke tama pari yuka mu mono to site pi tugi no mi kwo ko no opo kimi ni narapa si itadaki mota sime te wa ga opo kimi sumyera mikoto no opo mapye ni tatematuru koto wo mawosu &quot;)">
+  <block id="1_SM_09" header="sumyera ga opo mikoto ni ima se mawosi tamapa ku kake maku mo kasikwo ki asuka no kiywo mi bara no miya ni opo ya sima sira si myesi si piziri no sumyera mikoto ame no sita wo wosame tama pi tapirage tama pite omoposi masa ku kami simwo wo totono pe yapara gete ugwoki na ku sidu ka ni ara simuru ni pa rai to gaku to puta tu narabe te si tapirake ku naga ku aru be si to kamu nagara mo omoposi masi te ko no mapi wo pazime tama pi tukuri tama pi ki to kiki tamape te ame tuti to tomo ni tayuru koto na ku iya tugitugi ni uke tama pari yuka mu mono to site pi tugi no mi kwo ko no opo kimi ni narapa si itadaki mota sime te wa ga opo kimi sumyera mikoto no opo mapye ni tatematuru koto wo mawosu">
     <comment raw="IP-MAT,IP-ADV,0@天皇大命尓坐西奏賜久,*" />
     <comment raw="IP-MAT,1@掛母畏岐,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP-SBJ,IP-REL,PP-DAT,NP,2@飛鳥浄御原宮尓大八洲所知志,*" />
@@ -78,9 +78,9 @@
                       <PP-GEN index="4">
                         <NP>
                           <N>
-                            <N phon="LOG" form="kiywo" index="1" />
+                            <N index="1" phon="LOG" form="kiywo" />
                             <N index="2" phon="LOG" form="mi" />
-                            <N phon="LOG" form="bara" index="1" />
+                            <N index="1" phon="LOG" form="bara" />
                           </N>
                         </NP>
                         <P-CASE lemma="L000520" phon="LOG" form="no" />
@@ -92,7 +92,7 @@
                   <NP-OB1>
                     <N>
                       <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                      <N phon="LOG" form="ya" index="1" />
+                      <N index="1" phon="LOG" form="ya" />
                       <N index="3" phon="LOG" form="sima" />
                     </N>
                   </NP-OB1>
@@ -106,7 +106,7 @@
                 <N phon="LOG" form="piziri" />
                 <COP-ADN lemma="L031965" phon="PHON" form="no" />
                 <N>
-                  <N phon="LOG" form="sumyera" index="1" />
+                  <N index="1" phon="LOG" form="sumyera" />
                   <N index="2" phon="LOG" form="mikoto" />
                 </N>
               </NP-SBJ>
@@ -149,7 +149,7 @@
                         <PP-OB1>
                           <NP>
                             <N>
-                              <N phon="LOG" form="kami" index="1" />
+                              <N index="1" phon="LOG" form="kami" />
                               <N index="2" phon="LOG" form="simwo" />
                             </N>
                           </NP>
@@ -263,7 +263,7 @@
             </VB>
           </IP-ADV>
           <VB>
-            <VB-STM lemma="L031144a" phon="LOG" form="tukuri" index="1" />
+            <VB-STM index="1" lemma="L031144a" phon="LOG" form="tukuri" />
             <VB-STM index="2" lemma="L031077a" phon="LOG" form="tama" />
             <VB-STM index="2" lemma="L031077a" phon="PHON" form="pi" />
             <VAX-SPST-CLS lemma="L000015" phon="PHON" form="ki" />
@@ -280,7 +280,7 @@
             <PP>
               <NP>
                 <N lemma="L050719">
-                  <N phon="LOG" form="ame" index="1" />
+                  <N index="1" phon="LOG" form="ame" />
                   <N index="2" phon="LOG" form="tuti" />
                 </N>
               </NP>
@@ -331,7 +331,7 @@
               <PP-DAT>
                 <NP>
                   <N index="1">
-                    <N phon="LOG" form="pi" index="1" />
+                    <N index="1" phon="LOG" form="pi" />
                     <N index="2" phon="LOG" form="tugi" />
                   </N>
                   <N index="2" phon="LOG" form="no" />

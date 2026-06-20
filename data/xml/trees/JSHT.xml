@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="JSHT.txt">
-  <block id="JSHT.1" header="=N(&quot; ikaruga no tomi no wi no midu ikanaku ni tagetemasi mono tomi no wi no midu &quot;)">
+  <block id="JSHT.1" header="ikaruga no tomi no wi no midu ikanaku ni tagetemasi mono tomi no wi no midu">
     <comment raw="CP-FINAL,IP-SUB,0@伊我留我乃,*" />
     <comment raw="CP-FINAL,IP-SUB,NP-OB1,PP,NP,1@止美能井乃美豆,*" />
     <comment raw="CP-FINAL,IP-SUB,2@伊加奈久爾,*" />
@@ -60,7 +60,7 @@
       </NP>
     </CP-FINAL>
   </block>
-  <block id="JSHT.2" header="=N(&quot; ikaruga no tomi no wogapa no tayeba koso wa ga opokimi no mina wasurayeme &quot;)">
+  <block id="JSHT.2" header="ikaruga no tomi no wogapa no tayeba koso wa ga opokimi no mina wasurayeme">
     <comment raw="IP-MAT,0@伊我留我乃,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@止美能乎何波乃,*" />
     <comment raw="IP-MAT,IP-ADV,2@多叡婆許曾,*" />
@@ -118,7 +118,7 @@
       </VB-EXC>
     </IP-MAT>
   </block>
-  <block id="JSHT.3" header="=N(&quot; mikami wosu tabasamiyama no adikage ni pito no mawosisi wa ga opokimi pa mo &quot;)">
+  <block id="JSHT.3" header="mikami wosu tabasamiyama no adikage ni pito no mawosisi wa ga opokimi pa mo">
     <comment raw="IP-MAT,0@美加弥乎須,*" />
     <comment raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,PP,NP,1@多婆佐美夜麻乃,*" />
     <comment raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,2@阿遅加気爾,*" />
@@ -179,12 +179,12 @@
             <N lemma="L004266" phon="PHON" form="kimi" />
           </N>
         </NP>
-        <P-TOP lemma="L000522" phon="PHON" form="pa" index="1" />
+        <P-TOP index="1" lemma="L000522" phon="PHON" form="pa" />
         <P-TOP index="3" lemma="L000514" phon="PHON" form="mo" />
       </PP>
     </IP-MAT>
   </block>
-  <block id="JSHT.4" header="=N(&quot; ikaruga no ko no kakiyama no sagaru kwi no swora naru koto wo kimi ni mawosana &quot;)">
+  <block id="JSHT.4" header="ikaruga no ko no kakiyama no sagaru kwi no swora naru koto wo kimi ni mawosana">
     <comment raw="IP-MAT,0@伊我留我乃,*" />
     <comment raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,PP,NP,1@己能加支夜麻乃,*" />
     <comment raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,2@佐可留木乃,*" />
@@ -209,7 +209,7 @@
                       <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                     </PP>
                     <N lemma="L092030">
-                      <N lemma="L050141" phon="PHON" form="kaki" index="1" />
+                      <N index="1" lemma="L050141" phon="PHON" form="kaki" />
                       <N index="2" lemma="L050034" phon="PHON" form="yama" />
                     </N>
                   </NP>

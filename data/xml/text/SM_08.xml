@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_08.txt">
-  <block id="1_SM_08" header="=N(&quot; sumyera ga opo mikoto rama to ima nori tamap yeru mi koto nori pa tune no koto ni pa ara zu mutu goto to omoposi masu ga yuwe ni napo aru be ki mono ni a re ya to omoposi mye site opo mi mono tamapa ku to noritamapu &quot;)">
+  <block id="1_SM_08" header="sumyera ga opo mikoto rama to ima nori tamap yeru mi koto nori pa tune no koto ni pa ara zu mutu goto to omoposi masu ga yuwe ni napo aru be ki mono ni a re ya to omoposi mye site opo mi mono tamapa ku to noritamapu">
     <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,0@天皇詔旨,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,1@今勅,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,2@御事法者常事尓波不有,*" />
@@ -24,7 +24,7 @@
                   </PP-GEN>
                   <N>
                     <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                    <N phon="LOG" form="mikoto" index="1" />
+                    <N index="1" phon="LOG" form="mikoto" />
                     <N index="3" phon="LOG" form="rama" />
                   </N>
                 </NP>
@@ -34,14 +34,14 @@
                 <N phon="LOG" form="ima" />
               </NP>
               <VB>
-                <VB-STM lemma="L031391a" phon="LOG" form="nori" index="1" />
+                <VB-STM index="1" lemma="L031391a" phon="LOG" form="nori" />
                 <VB-STM index="2" lemma="L031077a" phon="LOG" form="tamap" />
                 <VAX-STV-ADN lemma="L000024" phon="LOG" form="yeru" />
               </VB>
             </IP-REL>
             <N>
               <PFX phon="LOG" form="mi" />
-              <N phon="LOG" form="koto" index="1" />
+              <N index="1" phon="LOG" form="koto" />
               <N index="3" phon="LOG" form="nori" />
             </N>
           </NP>
@@ -49,9 +49,9 @@
         </PP-SBJ-TOP>
         <IP-ADV>
           <NP>
-            <N phon="LOG" form="tune" index="1" />
+            <N index="1" phon="LOG" form="tune" />
             <N index="2" phon="LOG" form="no" />
-            <N phon="LOG" form="koto" index="1" />
+            <N index="1" phon="LOG" form="koto" />
           </NP>
           <COP phon="PHON" form="ni" />
           <P-TOP lemma="L000522" phon="PHON" form="pa" />
@@ -65,7 +65,7 @@
                 <IP-REL>
                   <NP>
                     <N>
-                      <N phon="BPHON" form="mutu" index="1" />
+                      <N index="1" phon="BPHON" form="mutu" />
                       <N index="2" phon="LOG" form="goto" />
                     </N>
                   </NP>
@@ -108,7 +108,7 @@
         <NP-OB1>
           <N>
             <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-            <N phon="LOG" form="mi" index="1" />
+            <N index="1" phon="LOG" form="mi" />
             <N index="3" phon="LOG" form="mono" />
           </N>
         </NP-OB1>

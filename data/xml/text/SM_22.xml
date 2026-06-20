@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_22.txt">
-  <block id="1_SM_22" header="=N(&quot; ko no tabi no maturi goto aka ku kiywo ku tukape matu r eru ni yorite wosame tamapu pito mo ari &quot;)">
+  <block id="1_SM_22" header="ko no tabi no maturi goto aka ku kiywo ku tukape matu r eru ni yorite wosame tamapu pito mo ari">
     <comment raw="IP-MAT,PP-SBJ-TOP,NP,IP-REL,IP-ADV,PP-DAT,NP,0@此遍乃政明浄久仕奉礼留尔依而治賜,*" />
     <comment raw="IP-MAT,PP-SBJ-TOP,NP,1@人母在,*" />
     <IP-MAT>
@@ -25,7 +25,7 @@
                         <P-CASE lemma="L000520" phon="LOG" form="no" />
                       </PP-GEN>
                       <N>
-                        <N phon="LOG" form="maturi" index="1" />
+                        <N index="1" phon="LOG" form="maturi" />
                         <N index="2" phon="LOG" form="goto" />
                       </N>
                     </NP>
@@ -42,7 +42,7 @@
                       </ADJ>
                     </IP-ADV>
                     <VB>
-                      <VB-STM lemma="L031119a" phon="LOG" form="tukape" index="1" />
+                      <VB-STM index="1" lemma="L031119a" phon="LOG" form="tukape" />
                       <VB-STM index="2" lemma="L031649a" phon="LOG" form="matu" />
                       <VB-STM index="2" lemma="L031649a" phon="PHON" form="r" />
                       <VAX-STV-ADN lemma="L000024" phon="PHON" form="eru" />
@@ -65,7 +65,7 @@
       <VB-CLS lemma="L030125a" phon="LOG" form="ari" />
     </IP-MAT>
   </block>
-  <block id="2_SM_22" header="=N(&quot; mata mede no sakari ni pito ri puta ri domo ni kagapuri kurawi age tamapi wosame tamapa ku to noritamapu &quot;)">
+  <block id="2_SM_22" header="mata mede no sakari ni pito ri puta ri domo ni kagapuri kurawi age tamapi wosame tamapa ku to noritamapu">
     <comment raw="IP-MAT,0@又愛盛尔一二人等尔冠位上賜,*" />
     <comment raw="IP-MAT,IP-ADV,1@治賜久止宣,*" />
     <IP-MAT>
@@ -76,9 +76,9 @@
         <IP-ADV>
           <PP-DAT>
             <NP>
-              <N phon="LOG" form="mede" index="1" />
+              <N index="1" phon="LOG" form="mede" />
               <N index="2" phon="LOG" form="no" />
-              <N phon="LOG" form="sakari" index="1" />
+              <N index="1" phon="LOG" form="sakari" />
             </NP>
             <P-CASE lemma="L000519" phon="PHON" form="ni" />
           </PP-DAT>
@@ -96,7 +96,7 @@
           </NP>
           <NP-OB1>
             <N>
-              <N phon="LOG" form="kagapuri" index="1" />
+              <N index="1" phon="LOG" form="kagapuri" />
               <N index="2" phon="LOG" form="kurawi" />
             </N>
           </NP-OB1>

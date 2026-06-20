@@ -28,12 +28,12 @@ python3 scripts/mk_lemma_processor_standalone.py
 ## Tests
 
 ```bash
-python3 -m pytest tests/                        # all 150 tests
+python3 -m pytest tests/                        # all 221 tests
 python3 -m pytest tests/test_dictionary.py      # single file
 python3 -m pytest tests/test_corpus.py::TestCorpusLine  # single class
 ```
 
-`conftest.py` adds `src/` to `sys.path` and exposes session-scoped fixtures: `dict_file` (`data/txt/dict/dictionary.txt`), `text_dir` (`data/txt/text/`), `sample_corpus_file` (`data/txt/text/EN_01.txt`).
+`conftest.py` adds `src/` to `sys.path` and exposes session-scoped fixtures: `dict_file` (`data/xml/dict/dictionary.xml`), `text_dir` (`data/xml/text/`), `sample_corpus_file` (`data/xml/text/EN_01.xml`).
 
 ## Data Format
 
@@ -51,6 +51,8 @@ IP-MAT,NP,N,L000006a,LOG,nu
 **Dictionary** (`data/txt/dict/dictionary.txt`): entries separated by `---` (51 dashes), each starting with `=== L<number>`. Required canonical fields in order: `.GLOSS`, `.MEANING`, `.FORM`, `.KANA`, `.POS`. Multi-valued fields (can repeat per entry): `.FORM`, `.KANA`, `.MEANING`, `.COMPOUND`, `.RELATED`, `.DERIVATION`, `.TRANSREL`, `.NOTE`, `.VCLASS`, `.ITYPE`, `.POS`, `.GEO`, `.PTR`. All other fields (`.CORRESP`, `.AFFIX`, `.ACCENTCLASS`, `.USE`) are singular.
 
 **Writing-mode tags** (penultimate field before a word form): `LOG`, `PHON`, `NLOG`, `PHON-KUN`, `PHON-ON`, `PLOG`, `BPHON`, `ILL`, `ORDLOG`, `NLPOG`. Any syntactic tag may carry a `;@N` disambiguation suffix (e.g. `N;@2`, `C-NP;@5`) identifying the Nth sister with the same path — strip this before tag comparison.
+
+**Utterance headers**: the `=N(" words ")` format exists only in the `.txt` derived format. The XML `<block>` element stores just the bare word string in its `header` attribute; the wrapper is added back automatically when converting to `.txt`.
 
 **Corpus texts**: BS (Buddha's Footprints Stones), EN (Engi-shiki Norito), FK (Fudoki), JSHT, KH (Kaifūsō), KK (Kojiki kayō), MYS (Man'yōshū), NSK (Nihon shoki kayō), SM (Senmyō), SNK. Full tag/field reference: `src/oncoj/tags.py`.
 
@@ -92,14 +94,20 @@ The package has two sub-packages:
 
 All code imports directly from `oncoj.core.*` or `oncoj.xml.*`.
 
-### `oncoj.xml` — XML export (read-only; canonical format stays comma-path text)
+### `oncoj.xml` — XML serialisation helpers (thin wrappers)
 
 | Module | Key exports |
 |---|---|
 | `oncoj.xml.corpus_xml` | `corpus_to_xml_file(doc, path)`, `corpus_to_xml(doc)`, `utterance_to_xml(utt)`, `utterance_to_tree_str(utt)` |
 | `oncoj.xml.dictionary_xml` | `dictionary_to_xml_file(d, path)`, `dictionary_to_xml(d)`, `entry_to_xml(entry)`, `entry_to_str(entry)` |
 
-XML exports live in `data/xml/` (mirroring the `text/`, `trees/`, `dict/` sub-folders). Generate them with `python3 scripts/export.py`.
+### `oncoj.visual` — visualisation
+
+| Module | Key exports |
+|---|---|
+| `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True) → str`, `print_tree(utt, …)` |
+
+`ascii_tree` renders an `Utterance` as a box-drawing syntax tree. The sentence ID and bare word-list header appear on the first line; sibling indices (`;@N`) are suppressed in the visual output.
 
 ## Shared Conventions
 

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_20.txt">
-  <block id="1_SM_20" header="=N(&quot; sipo yaki no opo kimi pa tada yota ri no opo kimi no tura ni adukar eri &quot;)">
+  <block id="1_SM_20" header="sipo yaki no opo kimi pa tada yota ri no opo kimi no tura ni adukar eri">
     <comment raw="IP-MAT,0@塩焼王者唯預四王之列,*" />
     <IP-MAT>
       <PP-TOP>
@@ -8,7 +8,7 @@
           <PP-GEN>
             <NP>
               <N>
-                <N phon="LOG" form="sipo" index="1" />
+                <N index="1" phon="LOG" form="sipo" />
                 <N index="2" phon="LOG" form="yaki" />
               </N>
             </NP>
@@ -23,12 +23,12 @@
       </PP-TOP>
       <PP-DAT>
         <NP>
-          <N phon="LOG" form="tada" index="1" />
+          <N index="1" phon="LOG" form="tada" />
           <N index="2">
-            <N phon="LOG" form="yota" index="1" />
+            <N index="1" phon="LOG" form="yota" />
             <N index="2" phon="LOG" form="ri" />
           </N>
-          <N phon="LOG" form="no" index="1" />
+          <N index="1" phon="LOG" form="no" />
           <PP-GEN>
             <NP>
               <N lemma="L050267">
@@ -38,7 +38,7 @@
             </NP>
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N phon="LOG" form="tura" index="1" />
+          <N index="1" phon="LOG" form="tura" />
         </NP>
         <P-CASE lemma="L000519" phon="LOG" form="ni" />
       </PP-DAT>
@@ -48,7 +48,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="2_SM_20" header="=N(&quot; sikaru ni koto pakar eru tokoro ni mazira zu &quot;)">
+  <block id="2_SM_20" header="sikaru ni koto pakar eru tokoro ni mazira zu">
     <comment raw="IP-MAT,0@然,*" />
     <comment raw="IP-MAT,1@不会謀庭,*" />
     <IP-MAT>
@@ -77,7 +77,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="3_SM_20" header="=N(&quot; mata tugerare nedomo punato no opo kimi ni kakarereba topo ku nagasu tumi ni wosamu besi &quot;)">
+  <block id="3_SM_20" header="mata tugerare nedomo punato no opo kimi ni kakarereba topo ku nagasu tumi ni wosamu besi">
     <comment raw="IP-MAT,0@亦不被告,*" />
     <comment raw="IP-MAT,1@而縁道祖王者,*" />
     <comment raw="IP-MAT,2@応配遠流罪,*" />
@@ -128,7 +128,7 @@
       </WORD>
     </IP-MAT>
   </block>
-  <block id="4_SM_20" header="=N(&quot; sikaredomo so no titi nipi tabe no mi kwo pa kiywo ki aka ki kokoro wo motite tukape matur eru mi kwo n ari &quot;)">
+  <block id="4_SM_20" header="sikaredomo so no titi nipi tabe no mi kwo pa kiywo ki aka ki kokoro wo motite tukape matur eru mi kwo n ari">
     <comment raw="CP-FINAL,0@然,*" />
     <comment raw="CP-FINAL,1@其父新田部親王以清明心,*" />
     <comment raw="CP-FINAL,IP-ADV,NP,IP-REL,2@仕奉,*" />
@@ -151,7 +151,7 @@
           <PP-GEN>
             <NP>
               <N>
-                <N phon="LOG" form="nipi" index="1" />
+                <N index="1" phon="LOG" form="nipi" />
                 <N index="2" phon="BPHON" form="tabe" />
               </N>
             </NP>
@@ -189,7 +189,7 @@
               <VB-GER lemma="L031761a" phon="LOG" form="motite" />
             </IP-ADV>
             <VB>
-              <VB-STM lemma="L031119a" phon="LOG" form="tukape" index="1" />
+              <VB-STM index="1" lemma="L031119a" phon="LOG" form="tukape" />
               <VB-STM index="2" lemma="L031649a" phon="LOG" form="matur" />
               <VAX-STV-ADN lemma="L000024" phon="LOG" form="eru" />
             </VB>
@@ -206,7 +206,7 @@
       </IP-ADV>
     </CP-FINAL>
   </block>
-  <block id="5_SM_20" header="=N(&quot; so no ipye kadwo tatu besi ya to site namo ko no tabi no tumi yurusi tamapu &quot;)">
+  <block id="5_SM_20" header="so no ipye kadwo tatu besi ya to site namo ko no tabi no tumi yurusi tamapu">
     <comment raw="IP-MAT,0@可絶其家門夜止為奈母,*" />
     <comment raw="IP-MAT,1@此般罪免給,*" />
     <IP-MAT>
@@ -219,7 +219,7 @@
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
           <N>
-            <N phon="LOG" form="ipye" index="1" />
+            <N index="1" phon="LOG" form="ipye" />
             <N index="2" phon="LOG" form="kadwo" />
           </N>
         </NP>
@@ -253,7 +253,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="6_SM_20" header="=N(&quot; ima ywori yuku saki pa aka ki napo ki kokoro wo motite mikadwo ni tukape mature to noritamapu &quot;)">
+  <block id="6_SM_20" header="ima ywori yuku saki pa aka ki napo ki kokoro wo motite mikadwo ni tukape mature to noritamapu">
     <comment raw="IP-MAT,IP-ADV,PP-TOP,NP,0@自今徃,*" />
     <comment raw="IP-MAT,IP-ADV,PP-TOP,NP,1@前者以明直心,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,2@仕奉朝廷止詔,*" />

@@ -32,11 +32,13 @@ scripts/
 src/oncoj/              — Python package: core data model
   core/                 — domain objects (corpus, dictionary, kana, …)
   xml/                  — XML serialisation helpers (thin wrappers)
+  visual/               — visualisation utilities (ascii_tree, print_tree)
 notebooks/
   oncoj_usage.ipynb               — src/oncoj package walkthrough
   lemmas_processor.ipynb          — demo of the lemma annotator algorithm
   compound_lemma_processor.ipynb  — demo of the compound noun algorithm
   mk_lemma_processor.ipynb        — demo of the makura-kotoba algorithm
+  visualisation.ipynb             — ascii_tree and print_tree demo
 tests/                  — pytest test suite (221 tests)
 pyproject.toml          — ruff linter configuration
 ```
@@ -67,6 +69,15 @@ Thin wrappers that delegate to `oncoj.core`:
 |---|---|
 | `oncoj.xml.corpus_xml` | `corpus_to_xml_file`, `corpus_from_xml_file`, `utterance_to_tree_str` |
 | `oncoj.xml.dictionary_xml` | `dictionary_to_xml_file`, `dictionary_from_xml_file`, `entry_to_str` |
+
+### `oncoj.visual`
+
+| Module | Key exports |
+|---|---|
+| `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True) → str` |
+| | `print_tree(utt, *, show_comments=True, show_annotations=True)` |
+
+Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output.
 
 ### Quick start
 
@@ -120,7 +131,7 @@ IP-MAT,NP,N,L000006a,LOG,nu
 - Lemma ID (e.g. `L000006a`) inserted between the syntactic path and the tag
 - Tags may carry a `;@N` disambiguation suffix (e.g. `N;@2`) — strip with `tags.strip_disambig()`
 
-Utterances are separated by blank lines; headers follow the pattern `=N("…")`.
+Utterances are separated by blank lines. Headers in `.txt` follow the pattern `=N("…")`; in XML the `<block header="…">` attribute stores only the bare word list — the wrapper is added back on export to `.txt`.
 
 ### Dictionary
 

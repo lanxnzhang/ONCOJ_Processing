@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_24.txt">
-  <block id="1_EN_24" header="=N(&quot; toyo uke no miya pa kore ni narapye &quot;)">
+  <block id="1_EN_24" header="toyo uke no miya pa kore ni narapye">
     <comment raw="COMMENT,0@豐受宮准此,*" />
     <COMMENT>
       <IP-MAT>
@@ -9,7 +9,7 @@
             <PP-GEN>
               <NP>
                 <PLN>
-                  <N phon="LOG" form="toyo" index="1" />
+                  <N index="1" phon="LOG" form="toyo" />
                   <N index="2" phon="LOG" form="uke" />
                 </PLN>
               </NP>
@@ -29,7 +29,7 @@
       </IP-MAT>
     </COMMENT>
   </block>
-  <block id="2_EN_24" header="=N(&quot; sumyemima no mikoto no opo mi koto wo moti te sumye opo mi kamwi no opo mapye ni mawosi tamapa ku tune no tamesi ni yori te pata tose ni pito ta bi opo miya arata ni tukape maturi te kusa gusa no mi yosopi no mono itu kusa amari yo kusa kamu dakara pata kusa amari pito kusa wo make sonape te parape kiywo me moti yuma parite adukari tukape maturu opo tomopi sore no kurawi nanigasi wo sasi tukapa si te tate maturi tamapu sama wo mawosi tamapa ku to mawosu &quot;)">
+  <block id="2_EN_24" header="sumyemima no mikoto no opo mi koto wo moti te sumye opo mi kamwi no opo mapye ni mawosi tamapa ku tune no tamesi ni yori te pata tose ni pito ta bi opo miya arata ni tukape maturi te kusa gusa no mi yosopi no mono itu kusa amari yo kusa kamu dakara pata kusa amari pito kusa wo make sonape te parape kiywo me moti yuma parite adukari tukape maturu opo tomopi sore no kurawi nanigasi wo sasi tukapa si te tate maturi tamapu sama wo mawosi tamapa ku to mawosu">
     <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,PP-OB1,NP,PP-GEN,NP,0@皇御孫乃,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,PP-OB1,NP,PP-GEN,NP,1@御命乎以弖,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,2@皇大御神乃太前爾申給久,*" />
@@ -77,7 +77,7 @@
               <NP>
                 <N>
                   <ADJ-STM phon="LOG" form="sumye" />
-                  <PFX phon="LOG" form="opo" index="1" />
+                  <PFX index="1" phon="LOG" form="opo" />
                   <PFX index="3" phon="LOG" form="mi" />
                   <N phon="LOG" form="kamwi" />
                 </N>
@@ -149,7 +149,7 @@
               <IP-REL>
                 <NP-PRD>
                   <N>
-                    <N phon="LOG" form="kusa" index="1" />
+                    <N index="1" phon="LOG" form="kusa" />
                     <N index="2" phon="LOG" form="gusa" />
                   </N>
                 </NP-PRD>
@@ -182,7 +182,7 @@
                 <C-N index="2">
                   <N>
                     <N>
-                      <N phon="LOG" form="kamu" index="1" />
+                      <N index="1" phon="LOG" form="kamu" />
                       <N index="2" phon="LOG" form="dakara" />
                     </N>
                   </N>
@@ -225,7 +225,7 @@
             <NP>
               <IP-REL>
                 <VB>
-                  <VB-STM phon="LOG" form="adukari" index="1" />
+                  <VB-STM index="1" phon="LOG" form="adukari" />
                   <VB-STM index="2" phon="LOG" form="tukape" />
                   <VB-ADC phon="LOG" form="maturu" />
                 </VB>
@@ -266,7 +266,7 @@
           <NP>
             <IP-EMB>
               <VB>
-                <VB-STM phon="LOG" form="tate" index="1" />
+                <VB-STM index="1" phon="LOG" form="tate" />
                 <VB-STM index="2" phon="LOG" form="maturi" />
                 <VB-ADC phon="LOG" form="tamapu" />
               </VB>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="FK.txt">
-  <block id="FK.1;hitachi_fudoki" header="=N(&quot; kotitakyeba wobatuseyama no ipakwi ni mo wite komoranamu na kwopwi so wagimo &quot;)">
+  <block id="FK.1;hitachi_fudoki" header="kotitakyeba wobatuseyama no ipakwi ni mo wite komoranamu na kwopwi so wagimo">
     <comment raw="multi-sentence,IP-MAT,0@許智多鶏波,*" />
     <comment raw="multi-sentence,IP-MAT,1@乎婆頭勢夜麻能,*" />
     <comment raw="multi-sentence,IP-MAT,PP-OB1,NP,2@伊波帰爾母,*" />
@@ -29,7 +29,7 @@
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP>
             <N lemma="L050277">
-              <N lemma="L050014" phon="PHON" form="ipa" index="1" />
+              <N index="1" lemma="L050014" phon="PHON" form="ipa" />
               <N index="2" lemma="L052473" phon="PHON" form="kwi" />
             </N>
           </NP>
@@ -55,14 +55,14 @@
       </CP-FINAL>
     </multi-sentence>
   </block>
-  <block id="FK.2;hitachi_fudoki" header="=N(&quot; tukupane ni apamu to ipisi kwo pa ta ga koto kikeba ka mine apazukyemu &quot;)">
+  <block id="FK.2;hitachi_fudoki" header="tukupane ni apamu to ipisi kwo pa ta ga koto kikeba ka mine apazukyemu">
     <comment raw="IP-MAT;_que_,0@都久波尼爾,*" />
     <comment raw="IP-MAT;_que_,PP-SBJ,NP,IP-REL,IP-ARG,1@阿波牟等,*" />
     <comment raw="IP-MAT;_que_,PP-SBJ,NP,IP-REL,2@伊比志古波,*" />
     <comment raw="IP-MAT;_que_,3@多賀己等岐気波加,*" />
     <comment raw="IP-MAT;_que_,4@弥尼阿波巣気牟也,*" />
   </block>
-  <block id="FK.3;hitachi_fudoki" header="=N(&quot; tukupane ni iporite tuma nasi ni wa ga nemu yworo pa paya mo akenu kamo &quot;)">
+  <block id="FK.3;hitachi_fudoki" header="tukupane ni iporite tuma nasi ni wa ga nemu yworo pa paya mo akenu kamo">
     <comment raw="IP-MAT,0@都区波尼爾,*" />
     <comment raw="IP-MAT,PP-SBJ,NP,IP-REL,IP-ADV,1@伊保利弖,*" />
     <comment raw="IP-MAT,PP-SBJ,NP,IP-REL,2@都麻奈志爾,*" />
@@ -125,7 +125,7 @@
       <P-FNL-MPH lemma="L000507" phon="PHON" form="kamo" />
     </IP-MAT>
   </block>
-  <block id="FK.4;hitachi_fudoki" header="=N(&quot; takapama ni kiyosuru nami no oki tu nami yosu tomo yorazi kwora ni si yoraba &quot;)">
+  <block id="FK.4;hitachi_fudoki" header="takapama ni kiyosuru nami no oki tu nami yosu tomo yorazi kwora ni si yoraba">
     <comment raw="CP-FINAL,IP-SUB,0@多賀波麻爾,*" />
     <comment raw="CP-FINAL,IP-SUB,IP-ADV,NP-PRD,IP-REL,1@支与須留奈弥乃,*" />
     <comment raw="CP-FINAL,IP-SUB,2@意支都奈弥,*" />
@@ -186,7 +186,7 @@
       </IP-ADV>
     </CP-FINAL>
   </block>
-  <block id="FK.5;hitachi_fudoki" header="=N(&quot; takapama no sitakaze sayagu imo wo kwopi tuma to ipaba ya sikwotomye situ mo &quot;)">
+  <block id="FK.5;hitachi_fudoki" header="takapama no sitakaze sayagu imo wo kwopi tuma to ipaba ya sikwotomye situ mo">
     <comment raw="multi-sentence,IP-MAT,0@多賀波麻乃,*" />
     <comment raw="multi-sentence,IP-MAT,NP-SBJ,1@志多賀是差夜久,*" />
     <comment raw="multi-sentence,CP-FINAL,2@伊毛乎古比,*" />
@@ -204,7 +204,7 @@
             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
           </PP>
           <N lemma="L050258">
-            <N lemma="L050026" phon="PHON" form="sita" index="1" />
+            <N index="1" lemma="L050026" phon="PHON" form="sita" />
             <N index="2" lemma="L050008a" phon="PHON" form="kaze" />
           </N>
         </NP-SBJ>
@@ -244,14 +244,14 @@
       </CP-FINAL>
     </multi-sentence>
   </block>
-  <block id="FK.6;hitachi_fudoki" header="=N(&quot; arasaka no kamwi no misake wo tage to ipikyeba ka mo yo wa ga wepinikyemu &quot;)">
+  <block id="FK.6;hitachi_fudoki" header="arasaka no kamwi no misake wo tage to ipikyeba ka mo yo wa ga wepinikyemu">
     <comment raw="IP-MAT;_que_,IP-ADV,0@阿良佐賀乃,*" />
     <comment raw="IP-MAT;_que_,IP-ADV,IP-ARG,PP-OB1,NP,1@賀味能弥佐気乎,*" />
     <comment raw="IP-MAT;_que_,IP-ADV,IP-ARG,2@多義止,*" />
     <comment raw="IP-MAT;_que_,IP-ADV,3@伊比祁婆賀母与,*" />
     <comment raw="IP-MAT;_que_,4@和我恵比爾祁牟,*" />
   </block>
-  <block id="FK.7;hitachi_fudoki" header="=N(&quot; iyazeru no aze no kwomatu ni yupu sidete wa wo puri miyu mo azekwo si mapamo &quot;)">
+  <block id="FK.7;hitachi_fudoki" header="iyazeru no aze no kwomatu ni yupu sidete wa wo puri miyu mo azekwo si mapamo">
     <comment raw="multi-sentence,IP-MAT,0@伊夜是留乃,*" />
     <comment raw="multi-sentence,IP-MAT,IP-ADV,PP-OB2,NP,1@阿是乃古麻都爾,*" />
     <comment raw="multi-sentence,IP-MAT,IP-ADV,2@由布悉弖弖,*" />
@@ -311,7 +311,7 @@
       </IP-MAT>
     </multi-sentence>
   </block>
-  <block id="FK.8;hitachi_fudoki" header="=N(&quot; usipo ni pa tatamu to ipedo nase no kwo ga yaswosimakakuri wa wo misaba sirisi &quot;)">
+  <block id="FK.8;hitachi_fudoki" header="usipo ni pa tatamu to ipedo nase no kwo ga yaswosimakakuri wa wo misaba sirisi">
     <comment raw="IP-MAT,0@宇志呆爾波,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ARG,1@多多牟止伊閇止,*" />
     <comment raw="IP-MAT,2@奈西乃古何,*" />
@@ -356,7 +356,7 @@
           <VB-INF lemma="L031804a">
             <N lemma="L050549">
               <NUM lemma="L080437">
-                <NUM lemma="L002008" phon="PHON" form="ya" index="1" />
+                <NUM index="1" lemma="L002008" phon="PHON" form="ya" />
                 <NUM index="2" lemma="L002032" phon="PHON" form="swo" />
               </NUM>
               <N lemma="L050078" phon="PHON" form="sima" />
@@ -381,7 +381,7 @@
       </VB-ADN>
     </IP-MAT>
   </block>
-  <block id="FK.9;hitachi_fudoki" header="=N(&quot; sirwotori no pa ga tutumi wo tutumu tomo arapu ma mo ukwi pakwoye &quot;)">
+  <block id="FK.9;hitachi_fudoki" header="sirwotori no pa ga tutumi wo tutumu tomo arapu ma mo ukwi pakwoye">
     <comment raw="IP-MAT,0@志漏止利乃,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@芳我都都弥乎,*" />
     <comment raw="IP-MAT,IP-ADV,2@都都牟止母,*" />
@@ -431,7 +431,7 @@
       </FRAG>
     </IP-MAT>
   </block>
-  <block id="FK.10;harima_fudoki" header="=N(&quot; utukusiki wome no sasapa ni arare puri simo puru tomo na kare sone wome no sasaba &quot;)">
+  <block id="FK.10;harima_fudoki" header="utukusiki wome no sasapa ni arare puri simo puru tomo na kare sone wome no sasaba">
     <comment raw="CP-FINAL,IP-SUB,0@宇都久志伎,*" />
     <comment raw="CP-FINAL,IP-SUB,IP-ADV,PP,NP,1@乎米乃佐佐波爾,*" />
     <comment raw="CP-FINAL,IP-SUB,IP-ADV,2@阿羅礼布理,*" />
@@ -495,7 +495,7 @@
       </NP-SBJ>
     </CP-FINAL>
   </block>
-  <block id="FK.11;hizen_fudoki" header="=N(&quot; sinwopara no otopimye no kwo wo sapitoyu mo winetemu sida ya ipye ni kudasamu &quot;)">
+  <block id="FK.11;hizen_fudoki" header="sinwopara no otopimye no kwo wo sapitoyu mo winetemu sida ya ipye ni kudasamu">
     <comment raw="IP-MAT,0@志努波羅能,*" />
     <comment raw="IP-MAT,PP-OB1,NP,NP,1@意登比賣能古袁,*" />
     <comment raw="IP-MAT,2@佐比登由母,*" />
@@ -517,7 +517,7 @@
               </NP-SBJ>
               <NP-PRD>
                 <N lemma="L050458">
-                  <N lemma="L080001" phon="PHON" form="oto" index="1" />
+                  <N index="1" lemma="L080001" phon="PHON" form="oto" />
                   <N index="2" lemma="L050137" phon="PHON" form="pimye" />
                 </N>
               </NP-PRD>
@@ -543,7 +543,7 @@
             </PP-ADV>
             <VB-ADC>
               <VB-STM lemma="L031922a">
-                <VB-STM lemma="L031927a" phon="PHON" form="wi" index="1" />
+                <VB-STM index="1" lemma="L031927a" phon="PHON" form="wi" />
                 <VB-STM index="2" lemma="L031342a" phon="PHON" form="ne" />
               </VB-STM>
               <VAX-PRF-STM lemma="L000023" phon="PHON" form="te" />
@@ -566,7 +566,7 @@
       </VB-ADC>
     </IP-MAT>
   </block>
-  <block id="FK.12;tango_fudoki" header="=N(&quot; tokoyopye ni kumo tatiwataru midunoye no urasima no kwo ga koto motiwataru &quot;)">
+  <block id="FK.12;tango_fudoki" header="tokoyopye ni kumo tatiwataru midunoye no urasima no kwo ga koto motiwataru">
     <comment raw="multi-sentence,IP-MAT,0@等許余弊爾,*" />
     <comment raw="multi-sentence,IP-MAT,1@久母多智和多留,*" />
     <comment raw="multi-sentence,IP-MAT;@2,2@美頭能睿能,*" />
@@ -621,7 +621,7 @@
       </IP-MAT>
     </multi-sentence>
   </block>
-  <block id="FK.13;tango_fudoki" header="=N(&quot; yamatopye ni kaze pukiagete kumobanare soki wori tomo yo wa wo wasurasu na &quot;)">
+  <block id="FK.13;tango_fudoki" header="yamatopye ni kaze pukiagete kumobanare soki wori tomo yo wa wo wasurasu na">
     <comment raw="IP-MAT,0@夜麻等弊爾,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,1@加是布企阿義天,*" />
     <comment raw="IP-MAT,IP-ADV,2@久母婆奈礼,*" />
@@ -669,7 +669,7 @@
       <P-FNL-PHB lemma="L000517" phon="PHON" form="na" />
     </IP-MAT>
   </block>
-  <block id="FK.14;tango_fudoki" header="=N(&quot; kwora ni kwopwi asatwo wo piraki wa ga woreba tokoyo no pama no nami no to kikoyu &quot;)">
+  <block id="FK.14;tango_fudoki" header="kwora ni kwopwi asatwo wo piraki wa ga woreba tokoyo no pama no nami no to kikoyu">
     <comment raw="IP-MAT,0@古良爾古非,*" />
     <comment raw="IP-MAT,IP-ADV,1@阿佐刀遠比良企,*" />
     <comment raw="IP-MAT,IP-ADV,2@和我遠礼波,*" />
@@ -691,7 +691,7 @@
           <PP-OB1>
             <NP>
               <N lemma="L050647">
-                <N lemma="L050139" phon="PHON" form="asa" index="1" />
+                <N index="1" lemma="L050139" phon="PHON" form="asa" />
                 <N index="2" lemma="L090263" phon="PHON" form="two" />
               </N>
             </NP>
@@ -734,7 +734,7 @@
       <VB-CLS lemma="L030569a" phon="PHON" form="kikoyu" />
     </IP-MAT>
   </block>
-  <block id="FK.15;tango_fudoki" header="=N(&quot; midunoye no urasima no kwo ga tamakusige akezu ariseba mata mo apamasi wo &quot;)">
+  <block id="FK.15;tango_fudoki" header="midunoye no urasima no kwo ga tamakusige akezu ariseba mata mo apamasi wo">
     <comment raw="IP-MAT,0@美頭能睿能,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@宇良志麻能古我,*" />
     <comment raw="IP-MAT,IP-ADV,2@多麻久志義,*" />
@@ -760,7 +760,7 @@
         </PP-SBJ>
         <NP-OB1>
           <N lemma="L052080">
-            <N lemma="L052078" phon="PHON" form="tama" index="1" />
+            <N index="1" lemma="L052078" phon="PHON" form="tama" />
             <N index="2" lemma="L050263" phon="PHON" form="kusige" />
           </N>
         </NP-OB1>
@@ -786,7 +786,7 @@
       <P-CONN lemma="L000552" phon="PHON" form="wo" />
     </IP-MAT>
   </block>
-  <block id="FK.16;tango_fudoki" header="=N(&quot; tokoyopye ni kumo tatiwataru tamakusige patukani akesi ware zo kanasiki &quot;)">
+  <block id="FK.16;tango_fudoki" header="tokoyopye ni kumo tatiwataru tamakusige patukani akesi ware zo kanasiki">
     <comment raw="multi-sentence,IP-MAT,0@等許与弊爾,*" />
     <comment raw="multi-sentence,IP-MAT,1@久母多知和多留,*" />
     <comment raw="multi-sentence,IP-MAT;@2,2@多麻久志義,*" />
@@ -823,7 +823,7 @@
               </NP-SBJ>
               <NP-OB1>
                 <N lemma="L052080">
-                  <N lemma="L052078" phon="PHON" form="tama" index="1" />
+                  <N index="1" lemma="L052078" phon="PHON" form="tama" />
                   <N index="2" lemma="L050263" phon="PHON" form="kusige" />
                 </N>
               </NP-OB1>
@@ -849,7 +849,7 @@
       </IP-MAT>
     </multi-sentence>
   </block>
-  <block id="FK.17;tango_fudoki" header="=N(&quot; ama no para purisakemireba kasumi tati ipyedi madwopite yuku pye sirazu mo &quot;)">
+  <block id="FK.17;tango_fudoki" header="ama no para purisakemireba kasumi tati ipyedi madwopite yuku pye sirazu mo">
     <comment raw="IP-MAT,0@阿麻能波良,*" />
     <comment raw="IP-MAT,IP-ADV,1@布理佐兼美礼婆,*" />
     <comment raw="IP-MAT,2@加須美多智,*" />
@@ -876,7 +876,7 @@
         <VB-INF lemma="L031043a" phon="PHON" form="tati" />
         <NP-OB1>
           <N lemma="L080575">
-            <N lemma="L050006a" phon="PHON" form="ipye" index="1" />
+            <N index="1" lemma="L050006a" phon="PHON" form="ipye" />
             <N index="2" lemma="L050091" phon="PHON" form="di" />
           </N>
         </NP-OB1>
@@ -895,7 +895,7 @@
       <P-TOP lemma="L000514" phon="PHON" form="mo" />
     </IP-MAT>
   </block>
-  <block id="FK.18;harima_fudoki" header="=N(&quot; suminoye no opokura mukite tobaba koso payatori to ipame nani ka payatori &quot;)">
+  <block id="FK.18;harima_fudoki" header="suminoye no opokura mukite tobaba koso payatori to ipame nani ka payatori">
     <comment raw="multi-sentence,IP-MAT,0@住吉之,*" />
     <comment raw="multi-sentence,IP-MAT,IP-ADV,IP-ADV,NP-OB1,1@大倉向而,*" />
     <comment raw="multi-sentence,IP-MAT,IP-ADV,2@飛者許曾,*" />
@@ -954,7 +954,7 @@
       </IP-MAT>
     </multi-sentence>
   </block>
-  <block id="FK.19;hizen_fudoki" header="=N(&quot; arare puru kisima ga take wo sagasimito kusa tworikanete imo ga te wo tworu &quot;)">
+  <block id="FK.19;hizen_fudoki" header="arare puru kisima ga take wo sagasimito kusa tworikanete imo ga te wo tworu">
     <comment raw="IP-MAT,0@阿羅礼布楼,*" />
     <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,PP,NP,1@耆資麼加多皚塢,*" />
     <comment raw="IP-MAT,IP-ADV,2@嵯峨紫弥苫,*" />
@@ -1012,7 +1012,7 @@
       <VB-ADC lemma="L031258a" phon="PHON" form="tworu" />
     </IP-MAT>
   </block>
-  <block id="FK.20;ise_fudoki" header="=N(&quot; masurawo no satuya tabasami mukapitati iru ya matwokata pama no sayakesa &quot;)">
+  <block id="FK.20;ise_fudoki" header="masurawo no satuya tabasami mukapitati iru ya matwokata pama no sayakesa">
     <comment raw="IP-MAT,0@麻須羅遠能,*" />
     <comment raw="IP-MAT,PP-SBJ,NP,NP,IP-REL-ZYO,IP-ADV,1@佐都夜多波佐美,*" />
     <comment raw="IP-MAT,PP-SBJ,NP,NP,IP-REL-ZYO,IP-ADV,2@牟加比多知,*" />
@@ -1036,7 +1036,7 @@
                 <IP-ADV>
                   <NP-OB1>
                     <N lemma="L051901">
-                      <N lemma="L051899" phon="PHON" form="satu" index="1" />
+                      <N index="1" lemma="L051899" phon="PHON" form="satu" />
                       <N index="2" lemma="L052580" phon="PHON" form="ya" />
                     </N>
                   </NP-OB1>

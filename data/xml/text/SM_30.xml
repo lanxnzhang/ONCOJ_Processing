@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_30.txt">
-  <block id="1_SM_30" header="=N(&quot; pune no mi kwo pa naga dukwi no itu ka no pi ni naka maro to puta ri pakari kyeraku pumi tukuri te mikadwo no toga kazwope te tatematura mu to pakari kyeri &quot;)">
+  <block id="1_SM_30" header="pune no mi kwo pa naga dukwi no itu ka no pi ni naka maro to puta ri pakari kyeraku pumi tukuri te mikadwo no toga kazwope te tatematura mu to pakari kyeri">
     <comment raw="IP-MAT,0@船親王波九月五日尔仲麻呂止二人謀家良久,*" />
     <comment raw="IP-MAT,1@書作弖,*" />
     <comment raw="IP-MAT,IP-ADV,2@朝庭乃咎計弖,*" />
@@ -8,7 +8,7 @@
     <IP-MAT>
       <PP-SBJ-TOP>
         <NP>
-          <N phon="LOG" form="pune" index="1" />
+          <N index="1" phon="LOG" form="pune" />
           <N index="2" phon="LOG" form="no" />
           <N index="1">
             <PFX phon="LOG" form="mi" />
@@ -23,7 +23,7 @@
             <PP-GEN index="1">
               <NP>
                 <N>
-                  <N phon="LOG" form="naga" index="1" />
+                  <N index="1" phon="LOG" form="naga" />
                   <N index="2" phon="LOG" form="dukwi" />
                 </N>
               </NP>
@@ -45,7 +45,7 @@
         <PP>
           <NP>
             <N>
-              <N phon="LOG" form="naka" index="1" />
+              <N index="1" phon="LOG" form="naka" />
               <N index="2" phon="BPHON" form="maro" />
             </N>
           </NP>
@@ -91,7 +91,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="2_SM_30" header="=N(&quot; mata naka maro ga ipye no mono kazwo puru ni pumi no naka ni naka maro to kaywopa si kyeru pakari koto no pumi ari &quot;)">
+  <block id="2_SM_30" header="mata naka maro ga ipye no mono kazwo puru ni pumi no naka ni naka maro to kaywopa si kyeru pakari koto no pumi ari">
     <comment raw="CP-FINAL,IP-SUB,0@又仲麻呂何家物計夫流尔,*" />
     <comment raw="CP-FINAL,1@書中尔仲麻呂等通家流,*" />
     <comment raw="CP-FINAL,IP-ADV,NP-SBJ,IP-REL,NP-PRD,2@謀乃,*" />
@@ -105,7 +105,7 @@
           <PP-GEN index="1">
             <NP>
               <N>
-                <N phon="LOG" form="naka" index="1" />
+                <N index="1" phon="LOG" form="naka" />
                 <N index="2" phon="BPHON" form="maro" />
               </N>
             </NP>
@@ -143,7 +143,7 @@
                 <PP>
                   <NP>
                     <N>
-                      <N phon="LOG" form="naka" index="1" />
+                      <N index="1" phon="LOG" form="naka" />
                       <N index="2" phon="BPHON" form="maro" />
                     </N>
                   </NP>
@@ -156,7 +156,7 @@
                 </VB>
               </IP-REL>
               <N>
-                <N phon="LOG" form="pakari" index="1" />
+                <N index="1" phon="LOG" form="pakari" />
                 <N index="2" phon="LOG" form="koto" />
               </N>
             </NP-PRD>
@@ -168,7 +168,7 @@
       </IP-ADV>
     </CP-FINAL>
   </block>
-  <block id="3_SM_30" header="=N(&quot; koko wo motite mi kwo no na pa kudasi te opo kimi to nasi te oki no kuni ni nagasi tama pu &quot;)">
+  <block id="3_SM_30" header="koko wo motite mi kwo no na pa kudasi te opo kimi to nasi te oki no kuni ni nagasi tama pu">
     <comment raw="IP-MAT,0@是以,*" />
     <comment raw="IP-MAT,1@親王乃名波下弖,*" />
     <comment raw="IP-MAT,2@諸王等成弖,*" />
@@ -212,9 +212,9 @@
         <VB-GER phon="PHON" form="te" />
       </IP-ADV>
       <NP>
-        <N phon="BPHON" form="oki" index="1" />
+        <N index="1" phon="BPHON" form="oki" />
         <N index="2" phon="LOG" form="no" />
-        <N phon="LOG" form="kuni" index="1" />
+        <N index="1" phon="LOG" form="kuni" />
       </NP>
       <COP-INF lemma="L031965" phon="PHON" form="ni" />
       <VB>
@@ -224,7 +224,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_SM_30" header="=N(&quot; mata ikeda no mi kwo pa ko no natu uma opo ku tudwope te koto pakaru to kikosi myesi ki &quot;)">
+  <block id="4_SM_30" header="mata ikeda no mi kwo pa ko no natu uma opo ku tudwope te koto pakaru to kikosi myesi ki">
     <comment raw="IP-MAT,0@又池田親王波此夏馬多集天,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,1@事謀止所聞支,*" />
     <IP-MAT>
@@ -234,7 +234,7 @@
       <IP-ADV>
         <PP-TOP>
           <NP>
-            <N phon="LOG" form="ikeda" index="1" />
+            <N index="1" phon="LOG" form="ikeda" />
             <N index="2" phon="LOG" form="no" />
             <N index="1">
               <PFX phon="LOG" form="mi" />
@@ -274,13 +274,13 @@
         <P-COMP lemma="L000530" phon="PHON" form="to" />
       </IP-ADV>
       <VB>
-        <VB-STM lemma="L030565a" phon="LOG" form="kikosi" index="1" />
+        <VB-STM index="1" lemma="L030565a" phon="LOG" form="kikosi" />
         <VB-STM index="2" lemma="L031751a" phon="LOG" form="myesi" />
         <VAX-SPST-CLS lemma="L000015" phon="PHON" form="ki" />
       </VB>
     </IP-MAT>
   </block>
-  <block id="5_SM_30" header="=N(&quot; kaku aru koto amata tabi mawosi tamap yeri &quot;)">
+  <block id="5_SM_30" header="kaku aru koto amata tabi mawosi tamap yeri">
     <comment raw="IP-MAT,NP-SBJ,0@如是在,*" />
     <comment raw="IP-MAT,NP-SBJ,1@事阿麻多太比所奏,*" />
     <IP-MAT>
@@ -295,18 +295,18 @@
       </NP-SBJ>
       <NP>
         <N lemma="L050594">
-          <N phon="PHON" form="amata" index="1" />
+          <N index="1" phon="PHON" form="amata" />
           <N index="2" phon="PHON" form="tabi" />
         </N>
       </NP>
       <VB>
-        <VB-STM lemma="L031678a" phon="LOG" form="mawosi" index="1" />
+        <VB-STM index="1" lemma="L031678a" phon="LOG" form="mawosi" />
         <VB-STM index="2" lemma="L031077a" phon="LOG" form="tamap" />
         <VAX-STV-CLS phon="LOG" form="yeri" />
       </VB>
     </IP-MAT>
   </block>
-  <block id="6_SM_30" header="=N(&quot; koko wo motite mi kwo no na pa kudasi tamapi te opo kimi to site tosa no kuni ni nagasi tama pu to noritamapu opo mikoto wo kiki tamapeyo to noritamapu &quot;)">
+  <block id="6_SM_30" header="koko wo motite mi kwo no na pa kudasi tamapi te opo kimi to site tosa no kuni ni nagasi tama pu to noritamapu opo mikoto wo kiki tamapeyo to noritamapu">
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,0@是以,*" />
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,1@親王乃名波下賜天,*" />
     <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,2@諸王等志弖,*" />
@@ -360,9 +360,9 @@
                 </IP-ADV>
                 <PP-DAT>
                   <NP>
-                    <N phon="BPHON" form="tosa" index="1" />
+                    <N index="1" phon="BPHON" form="tosa" />
                     <N index="2" phon="LOG" form="no" />
-                    <N phon="LOG" form="kuni" index="1" />
+                    <N index="1" phon="LOG" form="kuni" />
                   </NP>
                   <P-CASE lemma="L000519" phon="PHON" form="ni" />
                 </PP-DAT>

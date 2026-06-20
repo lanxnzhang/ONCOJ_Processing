@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_27.txt">
-  <block id="1_EN_27" header="=N(&quot; ya swo ka bi pa are domo kyepu no iku pi no taru pi ni idumwo no kuni no kuninomiyatukwo nanigasi kasikwo mi kasikwo mi mo mawosi tamapa ku kake maku mo kasikwo ki aki tu mi kamwi to opo ya sima guni sirosi mye su sumyera mikoto no opo mi yo wo ta naga no opo mi yo to ipapu to mosi noti no ipapi no toki ni pa noti no zi wo kupapeyo si te idumwo no kuni no awo gaki yama no uti ni sita tu ipa ne ni miya basira putwo siri tate takama no para ni ti gwi taka siri ma su izanaki no pi manakwo kaburwoki kumanwo no opo kamwi kusimikenwo no mikoto kuni tukuri masi si oponamoti no mikoto puta pasira no kamwi wo padime te momo ya swo mari mu yasiro ni masu sumyegamwi tati wo soregasi ga yowa kata ni putwo dasuki tori kake te itu nusa no wo musubi ame no mikabi kagapu rite idu no maya ni ara kusa wo idu no musiro to kari si kite itu pe kurwo ma si ame no mi ka wa ni imi komorite sidu miya ni ipapi sidu me tukape maturi te asa pi no toyo saka nobori ni ipapi no kapyeri goto no kamu poki no yo goto mawosi tama paku to mawosu &quot;)">
+  <block id="1_EN_27" header="ya swo ka bi pa are domo kyepu no iku pi no taru pi ni idumwo no kuni no kuninomiyatukwo nanigasi kasikwo mi kasikwo mi mo mawosi tamapa ku kake maku mo kasikwo ki aki tu mi kamwi to opo ya sima guni sirosi mye su sumyera mikoto no opo mi yo wo ta naga no opo mi yo to ipapu to mosi noti no ipapi no toki ni pa noti no zi wo kupapeyo si te idumwo no kuni no awo gaki yama no uti ni sita tu ipa ne ni miya basira putwo siri tate takama no para ni ti gwi taka siri ma su izanaki no pi manakwo kaburwoki kumanwo no opo kamwi kusimikenwo no mikoto kuni tukuri masi si oponamoti no mikoto puta pasira no kamwi wo padime te momo ya swo mari mu yasiro ni masu sumyegamwi tati wo soregasi ga yowa kata ni putwo dasuki tori kake te itu nusa no wo musubi ame no mikabi kagapu rite idu no maya ni ara kusa wo idu no musiro to kari si kite itu pe kurwo ma si ame no mi ka wa ni imi komorite sidu miya ni ipapi sidu me tukape maturi te asa pi no toyo saka nobori ni ipapi no kapyeri goto no kamu poki no yo goto mawosi tama paku to mawosu">
     <comment raw="IP-MAT,IP-NMZ-FRM,0@八十日〻波在止毛,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,1@今日乃,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,2@生日乃足,*" />
@@ -41,7 +41,7 @@
           <PP-TOP>
             <NP>
               <N>
-                <NUM phon="LOG" form="ya" index="1" />
+                <NUM index="1" phon="LOG" form="ya" />
                 <NUM index="2" phon="LOG" form="swo" />
                 <CL phon="LOG" form="ka" />
                 <N phon="LOG" form="bi" />
@@ -153,7 +153,7 @@
                         <N>
                           <PFX-HON phon="LOG" form="opo" />
                           <NUM phon="LOG" form="ya" />
-                          <N phon="LOG" form="sima" index="1" />
+                          <N index="1" phon="LOG" form="sima" />
                           <N index="4" phon="LOG" form="guni" />
                         </N>
                       </NP-OB1>
@@ -164,7 +164,7 @@
                       </VB>
                     </IP-REL>
                     <N>
-                      <N phon="LOG" form="sumyera" index="1" />
+                      <N index="1" phon="LOG" form="sumyera" />
                       <N index="2" phon="LOG" form="mikoto" />
                     </N>
                   </NP>
@@ -261,7 +261,7 @@
                           </PP-GEN>
                           <N>
                             <ADJ-STM phon="LOG" form="awo" />
-                            <N phon="LOG" form="gaki" index="1" />
+                            <N index="1" phon="LOG" form="gaki" />
                             <N index="3" phon="LOG" form="yama" />
                           </N>
                         </NP>
@@ -280,7 +280,7 @@
                   <PP-DAT>
                     <NP>
                       <N>
-                        <N phon="LOG" form="ipa" index="1" />
+                        <N index="1" phon="LOG" form="ipa" />
                         <N index="2" phon="LOG" form="ne" />
                       </N>
                     </NP>
@@ -288,7 +288,7 @@
                   </PP-DAT>
                   <NP-OB1>
                     <N lemma="L050416">
-                      <N phon="LOG" form="miya" index="1" />
+                      <N index="1" phon="LOG" form="miya" />
                       <N index="2" phon="LOG" form="basira" />
                     </N>
                   </NP-OB1>
@@ -364,7 +364,7 @@
                           <N phon="LOG" form="kuni" />
                         </NP>
                         <VB>
-                          <VB-STM phon="LOG" form="tukuri" index="1" />
+                          <VB-STM index="1" phon="LOG" form="tukuri" />
                           <VB-STM index="2" phon="LOG" form="masi" />
                           <VAX-SPST-ADN lemma="L000015" phon="LOG" form="si" />
                         </VB>
@@ -402,11 +402,11 @@
               <PP-DAT>
                 <NP>
                   <N>
-                    <NUM phon="LOG" form="momo" index="1" />
+                    <NUM index="1" phon="LOG" form="momo" />
                     <NUM index="2" phon="LOG" form="ya" />
-                    <NUM phon="LOG" form="swo" index="1" />
+                    <NUM index="1" phon="LOG" form="swo" />
                     <N phon="LOG" form="mari" />
-                    <NUM phon="LOG" form="mu" index="1" />
+                    <NUM index="1" phon="LOG" form="mu" />
                     <N phon="LOG" form="yasiro" />
                   </N>
                 </NP>
@@ -491,7 +491,7 @@
           <PP-OB1>
             <NP>
               <N lemma="L050359">
-                <N phon="LOG" form="ara" index="1" />
+                <N index="1" phon="LOG" form="ara" />
                 <N index="2" phon="LOG" form="kusa" />
               </N>
             </NP>
@@ -569,7 +569,7 @@
           <IP-ADV>
             <NP-PRD>
               <N lemma="L050448">
-                <N phon="LOG" form="asa" index="1" />
+                <N index="1" phon="LOG" form="asa" />
                 <N index="2" phon="LOG" form="pi" />
               </N>
             </NP-PRD>
@@ -577,9 +577,9 @@
           </IP-ADV>
           <NP-PRD>
             <N>
-              <N phon="LOG" form="toyo" index="1" />
+              <N index="1" phon="LOG" form="toyo" />
               <N index="2" phon="LOG" form="saka" />
-              <N phon="LOG" form="nobori" index="1" />
+              <N index="1" phon="LOG" form="nobori" />
             </N>
           </NP-PRD>
           <COP-ADI phon="PHON" form="ni" />
@@ -594,7 +594,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-GEN>
               <N>
-                <N phon="LOG" form="kapyeri" index="1" />
+                <N index="1" phon="LOG" form="kapyeri" />
                 <N index="2" phon="LOG" form="goto" />
               </N>
             </NP-PRD>
@@ -603,14 +603,14 @@
           <PP-GEN>
             <NP>
               <N>
-                <N phon="LOG" form="kamu" index="1" />
+                <N index="1" phon="LOG" form="kamu" />
                 <N index="2" phon="LOG" form="poki" />
               </N>
             </NP>
             <P-CASE phon="LOG" form="no" />
           </PP-GEN>
           <N lemma="L050332">
-            <N phon="LOG" form="yo" index="1" />
+            <N index="1" phon="LOG" form="yo" />
             <N index="2" phon="LOG" form="goto" />
           </N>
         </NP>
@@ -624,7 +624,7 @@
       <VB-ADC phon="LOG" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="2_EN_27" header="=N(&quot; taka ma no kamu mi oya takamimusubi no mikoto no sumye mima no mikoto ni ame no sita ya sima guni wo koto yosa si maturi si toki ni idumwo no omi ra ga topo tu kamwi ameno popi no mikoto wo kuni gata mi ni tukapa si si toki ni ame no ya pye gumwo wo osi wake te ama gakeri kuni gakeri te ame no sita wo mi meguri te kapyeri goto mawosi tamapa ku toyo asi para no midu po no kuni pa piru pa sabape nasu mina wa ki yoru pa pobe nasu kagayaku kamwi a ri ipa ne ko dati awo minawa mo koto twopi te araburu kuni na ri &quot;)">
+  <block id="2_EN_27" header="taka ma no kamu mi oya takamimusubi no mikoto no sumye mima no mikoto ni ame no sita ya sima guni wo koto yosa si maturi si toki ni idumwo no omi ra ga topo tu kamwi ameno popi no mikoto wo kuni gata mi ni tukapa si si toki ni ame no ya pye gumwo wo osi wake te ama gakeri kuni gakeri te ame no sita wo mi meguri te kapyeri goto mawosi tamapa ku toyo asi para no midu po no kuni pa piru pa sabape nasu mina wa ki yoru pa pobe nasu kagayaku kamwi a ri ipa ne ko dati awo minawa mo koto twopi te araburu kuni na ri">
     <comment raw="IP-MAT,PP-DAT,NP,0@高天乃神王高御魂,*" />
     <comment raw="IP-MAT,PP-DAT,NP,IP-REL,PP-SBJ,NP,N,APP-N;@2,1@命乃皇御孫,*" />
     <comment raw="IP-MAT,PP-DAT,NP,IP-REL,PP-OB2,2@命爾天下大八嶋國乎事避奉之,*" />
@@ -650,7 +650,7 @@
                     <PP-GEN>
                       <NP>
                         <N>
-                          <N phon="LOG" form="taka" index="1" />
+                          <N index="1" phon="LOG" form="taka" />
                           <N index="2" phon="LOG" form="ma" />
                         </N>
                       </NP>
@@ -679,7 +679,7 @@
               <IP-REL>
                 <NP-PRD>
                   <N>
-                    <N phon="LOG" form="sumye" index="1" />
+                    <N index="1" phon="LOG" form="sumye" />
                     <N index="2" phon="LOG" form="mima" />
                   </N>
                 </NP-PRD>
@@ -703,7 +703,7 @@
                   <APP-N index="2">
                     <N>
                       <NUM phon="LOG" form="ya" />
-                      <N phon="LOG" form="sima" index="1" />
+                      <N index="1" phon="LOG" form="sima" />
                       <N index="3" phon="LOG" form="guni" />
                     </N>
                   </APP-N>
@@ -774,9 +774,9 @@
             <PP-DAT>
               <NP>
                 <N>
-                  <N phon="LOG" form="kuni" index="1" />
+                  <N index="1" phon="LOG" form="kuni" />
                   <N index="2" phon="LOG" form="gata" />
-                  <N phon="LOG" form="mi" index="1" />
+                  <N index="1" phon="LOG" form="mi" />
                 </N>
               </NP>
               <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -847,7 +847,7 @@
       <IP-NMZ-FRM>
         <NP-OB1>
           <N>
-            <N phon="LOG" form="kapyeri" index="1" />
+            <N index="1" phon="LOG" form="kapyeri" />
             <N index="2" phon="LOG" form="goto" />
           </N>
         </NP-OB1>
@@ -864,9 +864,9 @@
               <PP-GEN index="1">
                 <NP>
                   <N>
-                    <N phon="LOG" form="toyo" index="1" />
+                    <N index="1" phon="LOG" form="toyo" />
                     <N index="2" phon="LOG" form="asi" />
-                    <N phon="LOG" form="para" index="1" />
+                    <N index="1" phon="LOG" form="para" />
                   </N>
                 </NP>
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
@@ -874,7 +874,7 @@
               <PP-GEN index="2">
                 <NP>
                   <N lemma="L050492">
-                    <N phon="LOG" form="midu" index="1" />
+                    <N index="1" phon="LOG" form="midu" />
                     <N index="2" phon="LOG" form="po" />
                   </N>
                 </NP>
@@ -934,13 +934,13 @@
                   <N>
                     <C-N index="1">
                       <N>
-                        <N phon="LOG" form="ipa" index="1" />
+                        <N index="1" phon="LOG" form="ipa" />
                         <N index="2" phon="LOG" form="ne" />
                       </N>
                     </C-N>
                     <C-N index="2">
                       <N>
-                        <N phon="LOG" form="ko" index="1" />
+                        <N index="1" phon="LOG" form="ko" />
                         <N index="2" phon="LOG" form="dati" />
                       </N>
                     </C-N>
@@ -969,7 +969,7 @@
       </IP-ARG>
     </IP-MAT>
   </block>
-  <block id="3_EN_27" header="=N(&quot; sikaredo mo sidume muke te sumyemima no mikoto ni yasu kuni to tapirake ku sirosi masa sime mu to mawosi te onore mikoto mikwo amenopinatori no mikoto ni putunusi no mikoto wo sope te ama kudasi tukapa si te ara buru kamwi domo wo parapi mu ke kuni tukura si si opo kamwi wo mo kobwi sidume te opo ya sima guni no aki tu koto utusi goto koto yosa sime ki &quot;)">
+  <block id="3_EN_27" header="sikaredo mo sidume muke te sumyemima no mikoto ni yasu kuni to tapirake ku sirosi masa sime mu to mawosi te onore mikoto mikwo amenopinatori no mikoto ni putunusi no mikoto wo sope te ama kudasi tukapa si te ara buru kamwi domo wo parapi mu ke kuni tukura si si opo kamwi wo mo kobwi sidume te opo ya sima guni no aki tu koto utusi goto koto yosa sime ki">
     <comment raw="IP-MAT,0@然毛,*" />
     <comment raw="IP-MAT,1@鎭平弖,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ARG,2@皇御孫,*" />
@@ -1025,7 +1025,7 @@
             </ADJ>
           </IP-ADV>
           <VB>
-            <VB-STM phon="LOG" form="sirosi" index="1" />
+            <VB-STM index="1" phon="LOG" form="sirosi" />
             <VB-STM index="2" phon="LOG" form="masa" />
             <VAX-CTV-STM lemma="L000010" phon="PHON" form="sime" />
             <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
@@ -1040,7 +1040,7 @@
               <APP-N index="1">
                 <N>
                   <PRO-N phon="LOG" form="onore" />
-                  <N phon="LOG" form="mikoto" index="1" />
+                  <N index="1" phon="LOG" form="mikoto" />
                   <N index="3" phon="LOG" form="mikwo" />
                 </N>
               </APP-N>
@@ -1130,7 +1130,7 @@
             <N>
               <PFX-HON phon="LOG" form="opo" />
               <NUM phon="LOG" form="ya" />
-              <N phon="LOG" form="sima" index="1" />
+              <N index="1" phon="LOG" form="sima" />
               <N index="4" phon="LOG" form="guni" />
             </N>
           </NP>
@@ -1149,7 +1149,7 @@
           <C-N index="2">
             <NP>
               <N>
-                <N phon="LOG" form="utusi" index="1" />
+                <N index="1" phon="LOG" form="utusi" />
                 <N index="2" phon="LOG" form="goto" />
               </N>
             </NP>
@@ -1166,7 +1166,7 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_EN_27" header="=N(&quot; sunapati oponamoti no mikoto no mawosi tamapa ku sumyemima no mikoto no sidumari masa mu opo yamato no kuni to mawosi te onore mikoto no nigi mitama wo ya ta no kagami ni tori tuke te yamato no opo mono nusi kusimikatama no mikoto to mi na wo tatape te opomiwa no kamu nabwi ni mase onore mikoto no mi kwo adisuki takapikwone no mikoto no mi tama wo kadurakwi no kamwo no kamu nabwi ni mase kotosironusi no mikoto no mi tama wo unate ni mase kayanarumi no mikoto no mi tama wo asuka no kamu nabwi ni mase te sumyemima no mikoto no tika ki mamori gamwi to tate maturi oki te ya po ni kiduki no miya ni sidumari masi ki &quot;)">
+  <block id="4_EN_27" header="sunapati oponamoti no mikoto no mawosi tamapa ku sumyemima no mikoto no sidumari masa mu opo yamato no kuni to mawosi te onore mikoto no nigi mitama wo ya ta no kagami ni tori tuke te yamato no opo mono nusi kusimikatama no mikoto to mi na wo tatape te opomiwa no kamu nabwi ni mase onore mikoto no mi kwo adisuki takapikwone no mikoto no mi tama wo kadurakwi no kamwo no kamu nabwi ni mase kotosironusi no mikoto no mi tama wo unate ni mase kayanarumi no mikoto no mi tama wo asuka no kamu nabwi ni mase te sumyemima no mikoto no tika ki mamori gamwi to tate maturi oki te ya po ni kiduki no miya ni sidumari masi ki">
     <comment raw="IP-MAT,0@乃大穴持,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-GEN,NP,1@命乃申給久,*" />
     <comment raw="IP-MAT,2@皇御孫,*" />
@@ -1232,7 +1232,7 @@
                       <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                     </PP-SBJ>
                     <VB>
-                      <VB-STM phon="LOG" form="sidumari" index="1" />
+                      <VB-STM index="1" phon="LOG" form="sidumari" />
                       <VB-STM index="2" phon="LOG" form="masa" />
                       <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
                     </VB>
@@ -1300,7 +1300,7 @@
                   </PP-GEN>
                   <N>
                     <PFX-HON phon="LOG" form="opo" />
-                    <N phon="LOG" form="mono" index="1" />
+                    <N index="1" phon="LOG" form="mono" />
                     <N index="3" phon="LOG" form="nusi" />
                   </N>
                 </APP-N>
@@ -1337,7 +1337,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-GEN>
               <N>
-                <N phon="LOG" form="kamu" index="1" />
+                <N index="1" phon="LOG" form="kamu" />
                 <N index="2" phon="PHON" form="nabwi" />
               </N>
             </NP>
@@ -1404,7 +1404,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-GEN>
               <N>
-                <N phon="LOG" form="kamu" index="1" />
+                <N index="1" phon="LOG" form="kamu" />
                 <N index="2" phon="PHON" form="nabwi" />
               </N>
               <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -1469,7 +1469,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-GEN>
               <N>
-                <N phon="LOG" form="kamu" index="1" />
+                <N index="1" phon="LOG" form="kamu" />
                 <N index="2" phon="PHON" form="nabwi" />
               </N>
               <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -1498,14 +1498,14 @@
                 </ADJ>
               </IP-REL>
               <N>
-                <N phon="LOG" form="mamori" index="1" />
+                <N index="1" phon="LOG" form="mamori" />
                 <N index="2" phon="LOG" form="gamwi" />
               </N>
             </NP-PRD>
             <COP-INF lemma="L031968" phon="PHON" form="to" />
           </IP-ADV>
           <VB>
-            <VB-STM phon="LOG" form="tate" index="1" />
+            <VB-STM index="1" phon="LOG" form="tate" />
             <VB-STM index="2" phon="LOG" form="maturi" />
             <VB-GER phon="LOG" form="oki" />
             <VB-GER phon="PHON" form="te" />
@@ -1513,7 +1513,7 @@
         </IP-ADV>
         <IP-EPT>
           <MK>
-            <NUM phon="LOG" form="ya" index="1" />
+            <NUM index="1" phon="LOG" form="ya" />
             <NUM index="2" phon="LOG" form="po" />
             <N phon="LOG" form="ni" />
           </MK>
@@ -1531,14 +1531,14 @@
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
         <VB>
-          <VB-STM phon="LOG" form="sidumari" index="1" />
+          <VB-STM index="1" phon="LOG" form="sidumari" />
           <VB-STM index="2" phon="LOG" form="masi" />
           <VAX-SPST-CLS lemma="L000015" phon="PHON" form="ki" />
         </VB>
       </IP-ARG>
     </IP-MAT>
   </block>
-  <block id="5_EN_27" header="=N(&quot; koko ni mutu kamu rwoki kamu rwomi no mikoto no nori tamapa ku imasi amenopopi no mikoto pa sumyera mikoto no ta naga no opo mi yo wo kak ipa ni tok ipa ni ipapi maturi ikasi no mi yo ni sakipape mature to opose tamapi si &quot;)">
+  <block id="5_EN_27" header="koko ni mutu kamu rwoki kamu rwomi no mikoto no nori tamapa ku imasi amenopopi no mikoto pa sumyera mikoto no ta naga no opo mi yo wo kak ipa ni tok ipa ni ipapi maturi ikasi no mi yo ni sakipape mature to opose tamapi si">
     <comment raw="IP-MAT,0@是爾親神魯伎神魯美乃,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-SBJ,NP,1@命宣久,*" />
     <comment raw="IP-MAT,2@汝天穗比,*" />
@@ -1563,14 +1563,14 @@
                 <N>
                   <CP-N>
                     <N>
-                      <N phon="LOG" form="mutu" index="1" />
+                      <N index="1" phon="LOG" form="mutu" />
                       <N index="2" phon="LOG" form="kamu" />
-                      <N phon="LOG" form="rwoki" index="1" />
+                      <N index="1" phon="LOG" form="rwoki" />
                     </N>
                   </CP-N>
                   <C-N>
                     <N>
-                      <N phon="LOG" form="kamu" index="1" />
+                      <N index="1" phon="LOG" form="kamu" />
                       <N index="2" phon="LOG" form="rwomi" />
                     </N>
                   </C-N>
@@ -1616,7 +1616,7 @@
               <PP-GEN>
                 <NP>
                   <N>
-                    <N phon="LOG" form="sumyera" index="1" />
+                    <N index="1" phon="LOG" form="sumyera" />
                     <N index="2" phon="LOG" form="mikoto" />
                   </N>
                 </NP>
@@ -1642,14 +1642,14 @@
           <IP-ADV>
             <NP-PRD>
               <N lemma="L050379">
-                <N phon="LOG" form="kak" index="1" />
+                <N index="1" phon="LOG" form="kak" />
                 <N index="2" phon="LOG" form="ipa" />
               </N>
             </NP-PRD>
             <COP-INF lemma="L031965" phon="PHON" form="ni" />
             <NP-PRD>
               <N>
-                <N phon="LOG" form="tok" index="1" />
+                <N index="1" phon="LOG" form="tok" />
                 <N index="2" phon="LOG" form="ipa" />
               </N>
             </NP-PRD>
@@ -1678,13 +1678,13 @@
         <P-COMP lemma="L000530" phon="PHON" form="to" />
       </IP-ARG>
       <VB>
-        <VB-STM phon="LOG" form="opose" index="1" />
+        <VB-STM index="1" phon="LOG" form="opose" />
         <VB-STM index="2" phon="LOG" form="tamapi" />
         <VAX-SPST-ADN lemma="L000015" phon="PHON" form="si" />
       </VB>
     </IP-MAT>
   </block>
-  <block id="6_EN_27" header="=N(&quot; tugite no manima ni ipapi goto mosi noti no ipapi no toki ni pa noti no zi wo kupapeyo tukape maturi te asa pi no toyo saka nobori ni kamwi no wiya ziro omi no wiya ziro to mi poki no kamu dakara tate matu raku to mawosu &quot;)">
+  <block id="6_EN_27" header="tugite no manima ni ipapi goto mosi noti no ipapi no toki ni pa noti no zi wo kupapeyo tukape maturi te asa pi no toyo saka nobori ni kamwi no wiya ziro omi no wiya ziro to mi poki no kamu dakara tate matu raku to mawosu">
     <comment raw="IP-MAT,IP-ARG,0@次乃隨爾,*" />
     <comment raw="IP-MAT,IP-ARG,1@供齋若後,*" />
     <comment raw="IP-MAT,IP-ARG,IP-ADV,COMMENT,IP-MAT,PP-DAT,NP,PP-GEN,NP,2@齋時者加後字仕奉之〈弖〉,*" />
@@ -1707,7 +1707,7 @@
           <COP-INF lemma="L031965" phon="PHON" form="ni" />
           <NP>
             <N lemma="L050321">
-              <N phon="LOG" form="ipapi" index="1" />
+              <N index="1" phon="LOG" form="ipapi" />
               <N index="2" phon="LOG" form="goto" />
             </N>
           </NP>
@@ -1758,7 +1758,7 @@
           <IP-ADV>
             <NP-PRD>
               <N lemma="L050448">
-                <N phon="LOG" form="asa" index="1" />
+                <N index="1" phon="LOG" form="asa" />
                 <N index="2" phon="LOG" form="pi" />
               </N>
             </NP-PRD>
@@ -1766,9 +1766,9 @@
           </IP-ADV>
           <NP-PRD>
             <N>
-              <N phon="LOG" form="toyo" index="1" />
+              <N index="1" phon="LOG" form="toyo" />
               <N index="2" phon="LOG" form="saka" />
-              <N phon="LOG" form="nobori" index="1" />
+              <N index="1" phon="LOG" form="nobori" />
             </N>
           </NP-PRD>
           <COP-INF lemma="L031965" phon="PHON" form="ni" />
@@ -1782,7 +1782,7 @@
                   <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                 </PP-GEN>
                 <N>
-                  <N phon="LOG" form="wiya" index="1" />
+                  <N index="1" phon="LOG" form="wiya" />
                   <N index="2" phon="LOG" form="ziro" />
                 </N>
               </C-N>
@@ -1794,7 +1794,7 @@
                   <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                 </PP-GEN>
                 <N>
-                  <N phon="LOG" form="wiya" index="1" />
+                  <N index="1" phon="LOG" form="wiya" />
                   <N index="2" phon="LOG" form="ziro" />
                 </N>
               </C-N>
@@ -1813,7 +1813,7 @@
             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
           </PP-GEN>
           <N>
-            <N phon="LOG" form="kamu" index="1" />
+            <N index="1" phon="LOG" form="kamu" />
             <N index="2" phon="LOG" form="dakara" />
           </N>
         </NP-OB1>
@@ -1827,7 +1827,7 @@
       <VB-ADC phon="LOG" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="7_EN_27" header="=N(&quot; sira tama no opo mi sira ga masi aka tama no mi akarabwi masi awo tama no midu no ye no tama no yuki api ni aki tu mi kamwi to opo ya sima guni sirosi myesu sumyera mikoto no ta naga no opo mi yo wo mi pakasi pira ni uti kata me sirwo mi ma no mapye asi no tume siripye asi no tume pumi taturu koto pa opo miya no uti two no mi kadwo no pasira wo upa tu ipa ne ni pumi kata me sita tu ipa ne ni pumi kogora si puri tatu ru mimi no iya taka ni ame no sita wo sirosi mye sa mu koto no sirusi no tame sira midori no iki mi tukwi no moteaswobi mono to sidu no opo mi kokoro mo tasi ni woti no puru kapa gwisi ko ti no puru kapa gwisi ni opwi tatu waka mi numa no iya wakaye ni mi wakaye masi susugi puru wodomi no midu no iya woti ni mi woti masi maswopi no opo mi kagami no omo wo osi parukasite mi sonapasu koto no goto ku aki tu mi kamwi no opo ya sima guni wo ame tuti tukwi pi to tomo ni yasurake ku tapirake ku sirosi myesa mu koto no sirusi no tame to mi poki no kamudakara wo sasage moti te kamwi no wiya ziro omi no wiya ziro to kasikwo mi kasikwo mi mo ama tu tugite no kamupoki no yogoto mawosi tamapa ku to mawosu &quot;)">
+  <block id="7_EN_27" header="sira tama no opo mi sira ga masi aka tama no mi akarabwi masi awo tama no midu no ye no tama no yuki api ni aki tu mi kamwi to opo ya sima guni sirosi myesu sumyera mikoto no ta naga no opo mi yo wo mi pakasi pira ni uti kata me sirwo mi ma no mapye asi no tume siripye asi no tume pumi taturu koto pa opo miya no uti two no mi kadwo no pasira wo upa tu ipa ne ni pumi kata me sita tu ipa ne ni pumi kogora si puri tatu ru mimi no iya taka ni ame no sita wo sirosi mye sa mu koto no sirusi no tame sira midori no iki mi tukwi no moteaswobi mono to sidu no opo mi kokoro mo tasi ni woti no puru kapa gwisi ko ti no puru kapa gwisi ni opwi tatu waka mi numa no iya wakaye ni mi wakaye masi susugi puru wodomi no midu no iya woti ni mi woti masi maswopi no opo mi kagami no omo wo osi parukasite mi sonapasu koto no goto ku aki tu mi kamwi no opo ya sima guni wo ame tuti tukwi pi to tomo ni yasurake ku tapirake ku sirosi myesa mu koto no sirusi no tame to mi poki no kamudakara wo sasage moti te kamwi no wiya ziro omi no wiya ziro to kasikwo mi kasikwo mi mo ama tu tugite no kamupoki no yogoto mawosi tamapa ku to mawosu">
     <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,PP-GEN,NP,IP-REL,IP-ADV,0@白玉乃,*" />
     <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,PP-GEN,NP,IP-REL,IP-ADV,1@大御白髮坐,*" />
     <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,PP-GEN,NP,IP-REL,2@赤玉乃,*" />
@@ -1881,7 +1881,7 @@
                       <IP-ADV>
                         <NP-PRD>
                           <N lemma="L050611">
-                            <N phon="LOG" form="sira" index="1" />
+                            <N index="1" phon="LOG" form="sira" />
                             <N index="2" phon="LOG" form="tama" />
                           </N>
                         </NP-PRD>
@@ -1891,7 +1891,7 @@
                         <N>
                           <PFX-HON phon="LOG" form="opo" />
                           <PFX phon="LOG" form="mi" />
-                          <N phon="LOG" form="sira" index="1" />
+                          <N index="1" phon="LOG" form="sira" />
                           <N index="4" phon="LOG" form="ga" />
                         </N>
                       </NP>
@@ -1899,7 +1899,7 @@
                       <IP-ADV>
                         <NP-PRD>
                           <N lemma="L050606">
-                            <N phon="LOG" form="aka" index="1" />
+                            <N index="1" phon="LOG" form="aka" />
                             <N index="2" phon="LOG" form="tama" />
                           </N>
                         </NP-PRD>
@@ -1914,7 +1914,7 @@
                       <VB-INF phon="LOG" form="masi" />
                       <NP-PRD>
                         <N>
-                          <N phon="LOG" form="awo" index="1" />
+                          <N index="1" phon="LOG" form="awo" />
                           <N index="2" phon="LOG" form="tama" />
                         </N>
                       </NP-PRD>
@@ -1939,7 +1939,7 @@
                           <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                         </PP-GEN>
                         <N>
-                          <N phon="LOG" form="yuki" index="1" />
+                          <N index="1" phon="LOG" form="yuki" />
                           <N index="2" phon="LOG" form="api" />
                         </N>
                       </NP-PRD>
@@ -1963,7 +1963,7 @@
                         <PFX-HON phon="LOG" form="opo" />
                         <N lemma="L050348">
                           <NUM phon="LOG" form="ya" />
-                          <N phon="LOG" form="sima" index="1" />
+                          <N index="1" phon="LOG" form="sima" />
                           <N index="3" phon="LOG" form="guni" />
                         </N>
                       </N>
@@ -1974,7 +1974,7 @@
                     </VB>
                   </IP-REL>
                   <N>
-                    <N phon="LOG" form="sumyera" index="1" />
+                    <N index="1" phon="LOG" form="sumyera" />
                     <N index="2" phon="LOG" form="mikoto" />
                   </N>
                 </NP>
@@ -2037,7 +2037,7 @@
                       <PP-GEN>
                         <NP>
                           <N>
-                            <N phon="LOG" form="mapye" index="1" />
+                            <N index="1" phon="LOG" form="mapye" />
                             <N index="2" phon="LOG" form="asi" />
                           </N>
                         </NP>
@@ -2051,7 +2051,7 @@
                       <PP-GEN>
                         <NP index="1">
                           <N>
-                            <N phon="LOG" form="siripye" index="1" />
+                            <N index="1" phon="LOG" form="siripye" />
                             <N index="2" phon="LOG" form="asi" />
                           </N>
                           <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
@@ -2090,7 +2090,7 @@
                         <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                       </PP-GEN>
                       <N>
-                        <N phon="LOG" form="uti" index="1" />
+                        <N index="1" phon="LOG" form="uti" />
                         <N index="2" phon="LOG" form="two" />
                       </N>
                     </NP>
@@ -2117,7 +2117,7 @@
                   <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
                 </PP-GEN>
                 <N>
-                  <N phon="LOG" form="ipa" index="1" />
+                  <N index="1" phon="LOG" form="ipa" />
                   <N index="2" phon="LOG" form="ne" />
                 </N>
               </NP>
@@ -2138,7 +2138,7 @@
           <PP-DAT>
             <NP>
               <N>
-                <N phon="LOG" form="ipa" index="1" />
+                <N index="1" phon="LOG" form="ipa" />
                 <N index="2" phon="LOG" form="ne" />
               </N>
             </NP>
@@ -2187,7 +2187,7 @@
                       <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
                     </PP-OB1>
                     <VB>
-                      <VB-STM phon="LOG" form="sirosi" index="1" />
+                      <VB-STM index="1" phon="LOG" form="sirosi" />
                       <VB-STM index="2" phon="LOG" form="mye" />
                       <VB-STM index="2" phon="PHON" form="sa" />
                       <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
@@ -2208,7 +2208,7 @@
             <IP-REL>
               <NP-PRD>
                 <N>
-                  <N phon="LOG" form="sira" index="1" />
+                  <N index="1" phon="LOG" form="sira" />
                   <N index="2" phon="LOG" form="midori" />
                 </N>
               </NP-PRD>
@@ -2223,7 +2223,7 @@
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
             <N>
-              <N phon="LOG" form="moteaswobi" index="1" />
+              <N index="1" phon="LOG" form="moteaswobi" />
               <N index="2" phon="LOG" form="mono" />
             </N>
           </NP-PRD>
@@ -2264,9 +2264,9 @@
                               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                             </PP-GEN>
                             <N>
-                              <N phon="LOG" form="puru" index="1" />
+                              <N index="1" phon="LOG" form="puru" />
                               <N index="2" phon="LOG" form="kapa" />
-                              <N phon="LOG" form="gwisi" index="1" />
+                              <N index="1" phon="LOG" form="gwisi" />
                             </N>
                           </NP>
                         </C-N>
@@ -2282,9 +2282,9 @@
                               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                             </PP-GEN>
                             <N>
-                              <N phon="LOG" form="puru" index="1" />
+                              <N index="1" phon="LOG" form="puru" />
                               <N index="2" phon="LOG" form="kapa" />
-                              <N phon="LOG" form="gwisi" index="1" />
+                              <N index="1" phon="LOG" form="gwisi" />
                             </N>
                           </NP>
                         </C-N>
@@ -2298,9 +2298,9 @@
                   </VB>
                 </IP-REL>
                 <N>
-                  <N phon="LOG" form="waka" index="1" />
+                  <N index="1" phon="LOG" form="waka" />
                   <N index="2" phon="LOG" form="mi" />
-                  <N phon="PHON" form="numa" index="1" />
+                  <N index="1" phon="PHON" form="numa" />
                 </N>
               </NP-PRD>
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
@@ -2415,7 +2415,7 @@
                             <PFX-HON phon="LOG" form="opo" />
                             <N lemma="L050348">
                               <NUM phon="LOG" form="ya" />
-                              <N phon="LOG" form="sima" index="1" />
+                              <N index="1" phon="LOG" form="sima" />
                               <N index="3" phon="LOG" form="guni" />
                             </N>
                           </N>
@@ -2458,7 +2458,7 @@
                         </ADJ>
                       </IP-ADV>
                       <VB>
-                        <VB-STM phon="LOG" form="sirosi" index="1" />
+                        <VB-STM index="1" phon="LOG" form="sirosi" />
                         <VB-STM index="2" phon="LOG" form="myesa" />
                         <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
                       </VB>
@@ -2504,7 +2504,7 @@
                     </NP>
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
-                  <N phon="LOG" form="wiya" index="1" />
+                  <N index="1" phon="LOG" form="wiya" />
                   <N index="3" phon="LOG" form="ziro" />
                 </NP>
               </C-N>
@@ -2516,7 +2516,7 @@
                     </NP>
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
-                  <N phon="LOG" form="wiya" index="1" />
+                  <N index="1" phon="LOG" form="wiya" />
                   <N index="3" phon="LOG" form="ziro" />
                 </NP>
               </C-N>

@@ -41,7 +41,9 @@ _MULTIROOT_RE = re.compile(r'^multi-\w+')
 _WORDFORM_RE = re.compile(r'^[A-Za-z]+$')
 
 # Header pattern: =N(" ... ")  or  =N(...)
-_HEADER_RE   = re.compile(r'^=\w+\(')
+_HEADER_RE      = re.compile(r'^=\w+\(')
+# Captures the inner word string from  =N(" words ")  or  =N("words")
+_HEADER_INNER_RE = re.compile(r'^=\w+\(\s*"?\s*(.*?)\s*"?\s*\)\s*$')
 # Sentence ID line: ID,<text>
 _ID_LINE_RE  = re.compile(r'^ID,')
 
@@ -420,7 +422,7 @@ class Utterance:
     def header(self) -> "CommentLine | None":
         if self._block_elem is not None:
             header_raw = self._block_elem.get("header")
-            return CommentLine(header_raw) if header_raw else None
+            return CommentLine(_wrap_header(header_raw)) if header_raw else None
         for ln in self._lines_storage:
             if isinstance(ln, CommentLine) and ln.is_header:
                 return ln
@@ -442,7 +444,7 @@ class Utterance:
             out: list[AnyLine] = []
             header_raw = self._block_elem.get("header")
             if header_raw:
-                out.append(CommentLine(header_raw))
+                out.append(CommentLine(_wrap_header(header_raw)))
             for child in self._block_elem:
                 if child.tag == "comment":
                     out.append(CommentLine(child.get("raw") or ""))
@@ -676,6 +678,19 @@ def _build_children(lines: list[CorpusLine], depth: int) -> list[ET.Element]:
     return results
 
 
+def _strip_header_wrapper(raw: str) -> str:
+    """Extract the inner word string from ``=N(" words ")`` for XML storage."""
+    m = _HEADER_INNER_RE.match(raw)
+    return m.group(1).strip() if m else raw
+
+
+def _wrap_header(words: str) -> str:
+    """Reconstruct the ``=N(" words ")`` txt format from a stored word string."""
+    if _HEADER_RE.match(words):
+        return words  # already wrapped (field-list mode passthrough)
+    return f'=N(" {words} ")'
+
+
 def _utterance_to_elem(utt: Utterance) -> ET.Element:
     """Convert an Utterance to an XML <block> element."""
     elem = ET.Element("block")
@@ -684,7 +699,7 @@ def _utterance_to_elem(utt: Utterance) -> ET.Element:
         elem.set("id", sid)
     hdr = utt.header
     if hdr:
-        elem.set("header", hdr.raw)
+        elem.set("header", _strip_header_wrapper(hdr.raw))
 
     for cl in utt.comment_lines():
         if cl.is_inline_comment:
@@ -768,7 +783,7 @@ def _utterance_from_elem(elem: ET.Element) -> Utterance:
 
     header_raw = elem.get("header")
     if header_raw:
-        lines.append(CommentLine(header_raw))
+        lines.append(CommentLine(_wrap_header(header_raw)))
 
     for child in elem:
         if child.tag == "comment":

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_18.txt">
-  <block id="1_EN_18" header="=N(&quot; nagadukwi pa kore ni narapye &quot;)">
+  <block id="1_EN_18" header="nagadukwi pa kore ni narapye">
     <comment raw="COMMENT,0@九月准此,*" />
     <COMMENT>
       <IP-MAT>
@@ -20,7 +20,7 @@
       </IP-MAT>
     </COMMENT>
   </block>
-  <block id="2_EN_18" header="=N(&quot; watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te taka ma no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosa ku patori womi no pito domo no tune mo tukape matu ru nigi tape ara tape no pata no mi so wo tate maturu koto wo mawosi tamapaku to mawosu &quot;)">
+  <block id="2_EN_18" header="watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te taka ma no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosa ku patori womi no pito domo no tune mo tukape matu ru nigi tape ara tape no pata no mi so wo tate maturu koto wo mawosi tamapaku to mawosu">
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,0@度會乃宇治五十鈴川上爾大官柱太敷立弖,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,1@高天原千木高知弖,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,2@稱辭竟奉留,*" />
@@ -58,7 +58,7 @@
                           <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                         </PP-GEN>
                         <N lemma="L050215">
-                          <N phon="LOG" form="kapa" index="1" />
+                          <N index="1" phon="LOG" form="kapa" />
                           <N index="2" phon="LOG" form="kami" />
                         </N>
                       </NP>
@@ -67,7 +67,7 @@
                     <NP-OB1>
                       <N>
                         <PFX-HON phon="LOG" form="opo" />
-                        <N phon="LOG" form="miya" index="1" />
+                        <N index="1" phon="LOG" form="miya" />
                         <N index="3" phon="LOG" form="basira" />
                       </N>
                     </NP-OB1>
@@ -82,7 +82,7 @@
                         <PP-GEN>
                           <NP>
                             <N>
-                              <N phon="LOG" form="taka" index="1" />
+                              <N index="1" phon="LOG" form="taka" />
                               <N index="2" phon="LOG" form="ma" />
                             </N>
                           </NP>
@@ -94,7 +94,7 @@
                     </PP-DAT>
                     <NP-OB1>
                       <N>
-                        <N phon="LOG" form="pi" index="1" />
+                        <N index="1" phon="LOG" form="pi" />
                         <N index="2" phon="LOG" form="gwi" />
                       </N>
                     </NP-OB1>
@@ -118,7 +118,7 @@
                   <APP-N index="2">
                     <N>
                       <N phon="LOG" form="sumye" />
-                      <PFX phon="LOG" form="opo" index="1" />
+                      <PFX index="1" phon="LOG" form="opo" />
                       <PFX index="3" phon="LOG" form="mi" />
                       <N phon="LOG" form="kamwi" />
                     </N>
@@ -224,7 +224,7 @@
       <VB-ADC phon="PHON" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="3_EN_18" header="=N(&quot; ara maturi no miya ni mo kaku mawosi te tate mature to noru &quot;)">
+  <block id="3_EN_18" header="ara maturi no miya ni mo kaku mawosi te tate mature to noru">
     <comment raw="IP-MAT,0@荒祭宮爾毛如是申弖,*" />
     <comment raw="IP-MAT,IP-ARG,1@進止宣,*" />
     <IP-MAT>
@@ -234,7 +234,7 @@
             <PP-GEN>
               <NP>
                 <N>
-                  <N phon="LOG" form="ara" index="1" />
+                  <N index="1" phon="LOG" form="ara" />
                   <N index="2" phon="LOG" form="maturi" />
                 </N>
               </NP>
@@ -261,7 +261,7 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="4_EN_18" header="=N(&quot; negi utibito wowo to mawosu &quot;)">
+  <block id="4_EN_18" header="negi utibito wowo to mawosu">
     <comment raw="COMMENT,0@禰宜内人稱唯,*" />
     <COMMENT>
       <IP-MAT>
