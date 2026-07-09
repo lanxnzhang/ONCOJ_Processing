@@ -174,7 +174,6 @@ def print_tree(
     *colour* defaults to None, which enables ANSI colour automatically when
     stdout is a TTY.  Pass True to force colour on, False to force it off.
     """
-    if colour is None:
-        colour = sys.stdout.isatty()
+    resolved: bool = sys.stdout.isatty() if colour is None else colour
     print(ascii_tree(utt, show_comments=show_comments,
-                     show_annotations=show_annotations, colour=colour))
+                     show_annotations=show_annotations, colour=resolved))
