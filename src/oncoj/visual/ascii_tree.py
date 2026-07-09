@@ -21,23 +21,23 @@ _BLANK  = "    "
 _CONT   = "│   "
 
 # ANSI escape sequences
-_BOLD   = "\033[1m"
-_DIM    = "\033[2m"
-_CYAN   = "\033[36m"
-_YELLOW = "\033[33m"
-_RESET  = "\033[0m"
+_BOLD    = "\033[1m"
+_BLUE    = "\033[34m"
+_MAGENTA = "\033[35m"
+_YELLOW  = "\033[33m"
+_RESET   = "\033[0m"
 
 
 def _b(s: str, c: bool) -> str:
     return f"{_BOLD}{s}{_RESET}" if c else s
 
 
-def _dim(s: str, c: bool) -> str:
-    return f"{_DIM}{s}{_RESET}" if c else s
+def _bl(s: str, c: bool) -> str:
+    return f"{_BLUE}{s}{_RESET}" if c else s
 
 
-def _cy(s: str, c: bool) -> str:
-    return f"{_CYAN}{s}{_RESET}" if c else s
+def _mg(s: str, c: bool) -> str:
+    return f"{_MAGENTA}{s}{_RESET}" if c else s
 
 
 def _yl(s: str, c: bool) -> str:
@@ -66,9 +66,9 @@ def _node_label(elem: ET.Element, show_annotations: bool, colour: bool) -> str:
         # Leaf node
         if not show_annotations:
             return _b(tag, colour)
-        parts: list[str] = [_cy(form, colour)]
+        parts: list[str] = [_bl(form, colour)]
         if phon:
-            parts.append(_dim(phon, colour))
+            parts.append(_mg(phon, colour))
         if lemma:
             parts.append(_yl(f"[{lemma}]", colour))
         return f"{_b(tag, colour)}  ( {'  '.join(parts)} )"
@@ -128,10 +128,10 @@ def ascii_tree(
         ``TAG  ( [lemma] )`` for internal compound/MK nodes.
         When False, show only the syntactic tag on every node.
     colour:
-        When True, apply ANSI colour: tags bold, word forms cyan, phon/script
-        tags dim, lemma IDs yellow.  Defaults to False so that captured strings
-        remain plain text.  Use ``print_tree`` with ``colour=None`` for
-        automatic TTY detection.
+        When True, apply ANSI colour: tags bold, word forms blue, phon/script
+        tags magenta, lemma IDs yellow.  Defaults to False so that captured
+        strings remain plain text.  Use ``print_tree`` with ``colour=None``
+        for automatic TTY detection.
 
     Layout
     ------

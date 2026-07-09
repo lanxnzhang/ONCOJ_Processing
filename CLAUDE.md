@@ -108,7 +108,7 @@ All code imports directly from `oncoj.core.*` or `oncoj.xml.*`.
 | `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True, colour=False) → str` |
 | | `print_tree(utt, *, show_comments=True, show_annotations=True, colour=None)` |
 
-`ascii_tree` renders an `Utterance` as a box-drawing syntax tree. The sentence ID and bare word-list header appear on the first line; sibling indices (`;@N`) are suppressed in the visual output. All annotated nodes (leaf and internal) use the same `TAG  ( annotations… )` parenthesis format. Pass `colour=True` to enable ANSI highlighting (tags bold, word forms cyan, phon/script tags dim, lemma IDs yellow). `print_tree` auto-detects TTY when `colour=None` (default).
+`ascii_tree` renders an `Utterance` as a box-drawing syntax tree. The sentence ID and bare word-list header appear on the first line; sibling indices (`;@N`) are suppressed in the visual output. All annotated nodes (leaf and internal) use the same `TAG  ( annotations… )` parenthesis format. Pass `colour=True` to enable ANSI highlighting (tags bold, word forms blue, phon/script tags magenta, lemma IDs yellow). `print_tree` auto-detects TTY when `colour=None` (default).
 
 ## Shared Conventions
 
