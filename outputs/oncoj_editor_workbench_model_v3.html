@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONCOJ XML Editor Workbench Model v3</title>
+  <style>
+    :root {
+      --left: 316px;
+      --right: 348px;
+      --bottom: 204px;
+      --bg: #f4f6f7;
+      --panel: #fff;
+      --soft: #f8fafb;
+      --line: #d7e0e4;
+      --line2: #b7c4cb;
+      --text: #20282d;
+      --muted: #62727b;
+      --accent: #006b5c;
+      --blue: #1f6feb;
+      --warn: #986000;
+      --danger: #b42318;
+      --ok: #20753a;
+      --tag: #edf5f2;
+      --select: #e8f2ff;
+      --shadow: 0 1px 3px rgba(18, 28, 36, .10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-width: 1240px;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 "Segoe UI", "Microsoft YaHei", "Yu Gothic UI", Arial, sans-serif;
+    }
+    button, input, select, textarea { font: inherit; }
+    button {
+      border: 1px solid var(--line2);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); color: var(--accent); }
+    button.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
+    button.primary:hover { background: #00574b; color: #fff; }
+    button.icon { width: 34px; height: 32px; padding: 0; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line2);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 6px 8px;
+    }
+    textarea { resize: vertical; min-height: 64px; }
+
+    .topbar {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; min-width: 262px; font-size: 16px; font-weight: 700; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 7px; background: var(--accent); color: #fff; }
+    .toolbar-group { display: flex; align-items: center; gap: 7px; padding-left: 10px; border-left: 1px solid var(--line); }
+    .mode-switch { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+    .mode-btn { border-color: transparent; background: transparent; }
+    .mode-btn.active { border-color: var(--accent); background: #eef7f5; color: var(--accent); }
+    .language { width: 126px; }
+
+    .shell {
+      height: calc(100vh - 56px);
+      display: grid;
+      grid-template-columns: 48px var(--left) 6px minmax(520px, 1fr) 6px var(--right);
+      grid-template-rows: minmax(360px, 1fr) 6px var(--bottom);
+    }
+    .activity {
+      grid-row: 1 / 4;
+      border-right: 1px solid var(--line);
+      background: #233036;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 6px;
+    }
+    .activity button {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: #d7e4e8;
+      font-size: 16px;
+      padding: 0;
+    }
+    .activity button.active, .activity button:hover { background: #3a4a52; color: #fff; }
+    .activity .spacer { flex: 1; }
+
+    .panel {
+      min-height: 0;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .left-panel { grid-column: 2; grid-row: 1 / 4; border-left: 0; }
+    .main-panel { grid-column: 4; grid-row: 1; border-radius: 8px; margin: 10px 0 0; box-shadow: var(--shadow); }
+    .right-panel { grid-column: 6; grid-row: 1; border-radius: 8px; margin: 10px 10px 0 0; box-shadow: var(--shadow); }
+    .bottom-panel { grid-column: 4 / 7; grid-row: 3; border-radius: 8px; margin: 0 10px 10px 0; box-shadow: var(--shadow); }
+    .resize-x { grid-row: 1 / 4; cursor: col-resize; }
+    .resize-y { grid-column: 4 / 7; cursor: row-resize; }
+    .resize-x:hover, .resize-y:hover { background: #c9dde8; }
+    #leftHandle { grid-column: 3; }
+    #rightHandle { grid-column: 5; }
+    #bottomHandle { grid-row: 2; }
+
+    .panel-title {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+      font-weight: 700;
+    }
+    .panel-body { height: calc(100% - 42px); overflow: auto; padding: 10px; }
+    .section { padding: 10px 0; border-top: 1px solid var(--line); }
+    .section:first-child { border-top: 0; padding-top: 0; }
+    .small-title, label { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .small-title { margin-bottom: 8px; text-transform: uppercase; }
+    .field { display: grid; gap: 5px; margin-bottom: 10px; }
+    .row { display: flex; align-items: center; gap: 8px; }
+    .row > * { flex: 1; }
+    .stack { display: grid; gap: 7px; }
+    .muted, .count { color: var(--muted); font-size: 12px; }
+
+    .tabs { display: flex; gap: 4px; padding: 5px; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
+    .tab { border-color: transparent; background: transparent; padding: 5px 10px; }
+    .tab.active { border-color: var(--accent); background: #eef7f5; color: var(--accent); }
+    .workspace-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+    .switch { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .switch input { width: 17px; height: 17px; accent-color: var(--accent); }
+
+    .card, .chip, .file-node, .candidate, .script-card, .change-row, .dict-result {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+    }
+    .card { padding: 10px; }
+    .chip { padding: 7px 8px; cursor: pointer; }
+    .chip.active { border-color: var(--blue); background: var(--select); }
+    .file-node { padding: 7px 8px; }
+    .folder-head { display: flex; align-items: center; gap: 6px; }
+    .folder-head input, .file-leaf input, .change-row input { width: auto; }
+    .file-children { display: grid; gap: 5px; margin: 7px 0 0 24px; }
+    .file-leaf { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+    .hidden { display: none !important; }
+
+    .script-card { padding: 9px; display: grid; gap: 6px; }
+    .script-card.active { border-color: var(--accent); background: #eef7f5; }
+    .script-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+    .result-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+    .result-table th { color: var(--muted); font-size: 12px; text-align: left; padding: 0 8px 2px; }
+    .result-table td { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; padding: 8px; vertical-align: middle; }
+    .result-table td:first-child { border-left: 1px solid var(--line); border-radius: 7px 0 0 7px; }
+    .result-table td:last-child { border-right: 1px solid var(--line); border-radius: 0 7px 7px 0; }
+    .result-table tr.selected td { border-color: var(--blue); background: var(--select); }
+
+    .tag { display: inline-flex; align-items: center; min-height: 22px; border-radius: 5px; background: var(--tag); color: #21483f; padding: 2px 6px; font-family: Consolas, monospace; font-size: 12px; }
+    .lemma-link { color: var(--blue); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; font-family: Consolas, monospace; }
+    .pill { display: inline-flex; align-items: center; min-height: 22px; border-radius: 999px; padding: 2px 7px; background: #eef2f4; color: var(--muted); font-size: 12px; }
+    .pill.warn { background: #fff3d7; color: var(--warn); }
+    .pill.ok { background: #e8f6ec; color: var(--ok); }
+    .pill.danger { background: #fdebea; color: var(--danger); }
+
+    .tree-box { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 12px; font-family: Consolas, monospace; font-size: 13px; overflow: auto; }
+    .node { display: grid; grid-template-columns: 42px 1fr; min-height: 27px; }
+    .branch { color: var(--line2); text-align: right; padding-right: 5px; user-select: none; }
+    .node-content { border-radius: 6px; padding: 3px 5px; }
+    .node-content.current { background: var(--select); outline: 1px solid var(--blue); }
+    .attr { color: var(--muted); }
+    .missing { color: var(--danger); font-weight: 700; }
+    .structure-grid { display: grid; grid-template-columns: 1fr 240px; gap: 10px; align-items: start; }
+
+    .meta-grid { display: grid; grid-template-columns: 82px 1fr; gap: 6px 8px; margin-bottom: 12px; }
+    .key { color: var(--muted); }
+    .candidate { display: grid; grid-template-columns: 22px 1fr; gap: 6px; padding: 9px; margin-bottom: 8px; cursor: pointer; }
+    .candidate.active { border-color: var(--accent); background: #eef7f5; }
+    .candidate-title { font-weight: 700; }
+    .candidate-detail { color: var(--muted); font-size: 12px; }
+    .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+
+    .bottom-panel .panel-body { padding: 0; }
+    .bottom-head { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; padding: 8px 10px; border-bottom: 1px solid var(--line); background: #fff; }
+    .filter-group { display: flex; gap: 5px; align-items: center; }
+    .filter-btn { padding: 5px 9px; }
+    .filter-btn.active { border-color: var(--accent); background: #eef7f5; color: var(--accent); }
+    .change-list { height: calc(100% - 50px); overflow: auto; padding: 8px 10px; display: grid; gap: 7px; }
+    .change-row { display: grid; grid-template-columns: 28px 1.1fr 1.3fr .75fr .85fr 96px; gap: 8px; align-items: center; padding: 8px; }
+
+    .dictionary-drawer {
+      position: fixed;
+      top: 56px;
+      right: 0;
+      bottom: 0;
+      width: 430px;
+      display: grid;
+      grid-template-rows: 48px auto;
+      border-left: 1px solid var(--line);
+      background: #fff;
+      box-shadow: -4px 0 18px rgba(18, 28, 36, .15);
+      transform: translateX(100%);
+      transition: transform .18s ease;
+      z-index: 10;
+    }
+    .dictionary-drawer.open { transform: translateX(0); }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid var(--line); background: var(--soft); font-weight: 700; }
+    .drawer-body { overflow: auto; padding: 10px; }
+    .dict-result { padding: 9px; margin-bottom: 8px; }
+    .dict-result.active { border-color: var(--accent); background: #eef7f5; }
+    .dict-editor { display: grid; gap: 9px; }
+
+    body.left-collapsed { --left: 0px; }
+    body.right-collapsed { --right: 0px; }
+    body.left-collapsed .left-panel, body.right-collapsed .right-panel { display: none; }
+    body.left-collapsed #leftHandle, body.right-collapsed #rightHandle { display: none; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">編</div><div>ONCOJ XML 编辑工作台 v3</div></div>
+    <div class="mode-switch" aria-label="Mode">
+      <button id="editMode" class="mode-btn active">编辑现有文本</button>
+      <button id="inputMode" class="mode-btn">输入新文本/注释</button>
+    </div>
+    <div class="toolbar-group">
+      <button>打开工作区</button>
+      <button>保存确认修改</button>
+      <button id="commandCenter" class="primary">命令 / 脚本任务</button>
+      <button id="openDictionary">词典</button>
+    </div>
+    <div class="toolbar-group">
+      <select class="language" aria-label="Language">
+        <option>简体中文</option>
+        <option>English</option>
+        <option>日本語</option>
+      </select>
+    </div>
+    <div class="toolbar-group" style="margin-left:auto">
+      <span class="pill ok">lemma 属性：lemma="L000001"</span>
+      <span class="pill warn">5 条待确认</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <nav class="activity">
+      <button id="activityExplorer" class="active" title="文件和检索">⌕</button>
+      <button id="activityScripts" title="脚本任务">⚙</button>
+      <button id="activityReview" title="待确认">✓</button>
+      <button id="activityInput" title="输入模式">＋</button>
+      <div class="spacer"></div>
+      <button id="toggleLeft" title="折叠左栏">◧</button>
+      <button id="toggleRight" title="折叠右栏">◨</button>
+    </nav>
+
+    <aside class="panel left-panel">
+      <div class="panel-title"><span id="leftTitle">文件、检索、任务</span><button class="icon" id="collapseLeft">×</button></div>
+      <div class="panel-body">
+        <div id="explorerPanel">
+          <div class="section">
+            <div class="field">
+              <label>基础检索</label>
+              <select id="queryType">
+                <option value="form">form</option>
+                <option value="tag">tag</option>
+                <option value="lemma">lemma id</option>
+                <option value="path">路径结构，例如 NP > N</option>
+                <option value="siblings">同节点包含多个成分，例如 N + P</option>
+              </select>
+            </div>
+            <div class="field"><label>查询内容</label><input value="NP > N"></div>
+            <div class="row"><button class="primary">在选中文本中检索</button><button>保存查询</button></div>
+          </div>
+
+          <div class="section">
+            <div class="small-title">文件范围</div>
+            <div class="stack">
+              <div class="file-node">
+                <div class="folder-head"><button class="icon folder-toggle">▾</button><input type="checkbox" checked><strong>data/xml/text/</strong><span class="muted">128</span></div>
+                <div class="file-children">
+                  <label class="file-leaf"><input type="checkbox" checked> EN_01.xml</label>
+                  <label class="file-leaf"><input type="checkbox" checked> EN_02.xml</label>
+                  <label class="file-leaf"><input type="checkbox"> EN_03.xml</label>
+                  <label class="file-leaf"><input type="checkbox"> SM_01.xml</label>
+                </div>
+              </div>
+              <div class="file-node">
+                <div class="folder-head"><button class="icon folder-toggle">▸</button><input type="checkbox"><strong>data/xml/trees/</strong><span class="muted">76</span></div>
+                <div class="file-children hidden">
+                  <label class="file-leaf"><input type="checkbox"> MYS_01.xml</label>
+                  <label class="file-leaf"><input type="checkbox"> KK_01.xml</label>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="small-title">已选文本</div>
+              <div class="card">EN_01.xml、EN_02.xml<br><span class="muted">主工作区只审阅/修改这些文本。可以只选一篇，也可以多选。</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="scriptsPanel" class="hidden">
+          <div class="section">
+            <div class="small-title">脚本任务不是固定按钮，而是可注册工具</div>
+            <div class="card">左侧基础检索处理通用查询；脚本任务处理高级搜索和候选生成。脚本输出统一进入“结果列表”和“待确认修改”。</div>
+          </div>
+          <div class="section stack">
+            <div class="script-card active">
+              <strong>lemmas_processor</strong>
+              <div class="muted">搜索未标 lemma 的可注释词；按 dictionary form 匹配；多候选可用前一 syntactic tag 消歧；未知 form 可生成新词典项。</div>
+              <div class="script-meta"><span class="pill ok">候选 lemma</span><span class="pill warn">可能新增词典项</span></div>
+            </div>
+            <div class="script-card">
+              <strong>compound_lemma_processor</strong>
+              <div class="muted">检测内部 bare &lt;N&gt;，其直接子节点均为带 lemma 的 &lt;N&gt;；可 NP expansion；分层生成 compound lemma；补写 .COMPOUND。</div>
+              <div class="script-meta"><span class="pill ok">结构候选</span><span class="pill warn">词典新增/修正</span></div>
+            </div>
+            <div class="script-card">
+              <strong>mk_lemma_processor</strong>
+              <div class="muted">查找 L099999 sentinel；按 MK block 分组；替换为新/已有 makura-kotoba ID；新增或规范化 .COMPOUND / .MKTARGETNEW。</div>
+              <div class="script-meta"><span class="pill ok">批量替换</span><span class="pill warn">MK 词典项</span></div>
+            </div>
+            <button class="primary">配置并运行所选脚本</button>
+          </div>
+        </div>
+
+        <div id="inputPanel" class="hidden">
+          <div class="section">
+            <div class="small-title">输入新文本/注释模式</div>
+            <div class="field"><label>新 block header</label><textarea>ugonapar eru kamu nusi ...</textarea></div>
+            <div class="field"><label>初始结构模板</label><select><option>空白 block</option><option>IP-MAT 模板</option><option>从当前句复制结构</option></select></div>
+            <div class="row"><button class="primary">创建草稿 block</button><button>导入文本</button></div>
+          </div>
+          <div class="section">
+            <div class="card">输入模式和编辑模式共用同一套树形编辑、词典查询、待确认修改机制；区别只是数据来源是“新建草稿”还是“已有 XML”。</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div id="leftHandle" class="resize-x"></div>
+
+    <section class="panel main-panel">
+      <div class="panel-title">
+        <span>主工作区</span>
+        <label class="switch"><input id="renderTree" type="checkbox" checked> 渲染树形图</label>
+      </div>
+      <div class="panel-body">
+        <div class="workspace-head">
+          <div class="tabs">
+            <button class="tab active" data-view="list">列表</button>
+            <button class="tab" data-view="tree">树形</button>
+            <button class="tab" data-view="full">全文</button>
+            <button class="tab" data-view="structure">结构编辑</button>
+            <button class="tab" data-view="script">脚本结果</button>
+            <button class="tab" data-view="input">输入草稿</button>
+          </div>
+          <div class="count">当前范围：EN_01.xml、EN_02.xml</div>
+        </div>
+
+        <div id="listView">
+          <table class="result-table">
+            <thead><tr><th>文件</th><th>位置</th><th>路径</th><th>form</th><th>lemma</th><th>操作</th></tr></thead>
+            <tbody>
+              <tr class="selected">
+                <td>EN_01.xml</td><td>1_EN_01</td><td><span class="tag">IP-MAT &gt; IP-ARG &gt; IP-REL &gt; VB &gt; VB-STM</span></td><td>ugonapar</td><td><span class="lemma-link" data-lemma="L000001">L000001</span></td><td><button class="showTree">树形</button></td>
+              </tr>
+              <tr>
+                <td>EN_01.xml</td><td>1_EN_01</td><td><span class="tag">C-NP &gt; N</span></td><td>kamu+nusi</td><td><span class="pill warn">compound 候选</span></td><td><button class="showTree">展开</button></td>
+              </tr>
+              <tr>
+                <td>EN_02.xml</td><td>14_EN_02</td><td><span class="tag">MK block</span></td><td>L099999</td><td><span class="pill danger">sentinel</span></td><td><button>脚本详情</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="treeView" class="tree-box hidden">
+          <div class="node"><div class="branch"></div><div class="node-content"><span class="tag">IP-MAT</span></div></div>
+          <div class="node"><div class="branch">├─</div><div class="node-content"><span class="tag">IP-ARG</span></div></div>
+          <div class="node"><div class="branch">│ └─</div><div class="node-content"><span class="tag">IP-REL</span></div></div>
+          <div class="node"><div class="branch">│   └─</div><div class="node-content"><span class="tag">VB</span></div></div>
+          <div class="node"><div class="branch">│     ├─</div><div class="node-content current"><span class="tag">VB-STM</span> <span class="attr">phon=LOG form=ugonapar lemma=<span class="lemma-link" data-lemma="L000001">L000001</span></span></div></div>
+          <div class="node"><div class="branch">│     └─</div><div class="node-content"><span class="tag">VAX-STV-ADN</span> <span class="attr">phon=LOG form=eru</span></div></div>
+          <div class="node"><div class="branch">└─</div><div class="node-content"><span class="tag">C-NP</span> <span class="attr">index=1</span></div></div>
+          <div class="node"><div class="branch">  └─</div><div class="node-content"><span class="tag">N</span> <span class="pill warn">compound candidate</span></div></div>
+        </div>
+
+        <div id="fullView" class="hidden stack">
+          <div class="card"><strong>1_EN_01</strong><div class="muted">header: ugonapar eru kamu nusi papuri ra moromoro...</div><div style="margin-top:8px"><span class="tag">VB-STM form="ugonapar" lemma="L000001"</span> <span class="tag">N form="kamu"</span> <span class="tag">N form="nusi"</span></div></div>
+          <div class="card"><strong>2_EN_01</strong><div class="muted">可作为上下文审阅，也可从这里进入结构编辑。</div></div>
+        </div>
+
+        <div id="structureView" class="hidden">
+          <div class="structure-grid">
+            <div class="tree-box" id="editableTree">
+              <div class="node"><div class="branch"></div><div class="node-content"><span class="tag">C-NP</span></div></div>
+              <div class="node"><div class="branch">└─</div><div class="node-content current"><span class="tag">N</span> <span class="attr">bare internal compound marker</span></div></div>
+              <div class="node"><div class="branch">  ├─</div><div class="node-content"><span class="tag">N</span> <span class="attr">form=kamu lemma=L000040</span></div></div>
+              <div class="node"><div class="branch">  └─</div><div class="node-content"><span class="tag">N</span> <span class="attr">form=nusi lemma=L000120</span></div></div>
+            </div>
+            <div class="card stack">
+              <div class="small-title">结构修改</div>
+              <button id="demoAddBranch" class="primary">新增 branch</button>
+              <button id="demoMoveBranch">移动 branch</button>
+              <button id="demoDeleteBranch">删除 branch</button>
+              <div class="muted">真实版本会修改 XML DOM 后立刻重新渲染，并把结构变更加入待确认。</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="scriptView" class="hidden stack">
+          <div class="card"><strong>compound_lemma_processor 结果</strong><br>检测到 EN_01.xml / 1_EN_01 中 bare &lt;N&gt;: kamu + nusi。建议为外层 &lt;N&gt; 写入 compound lemma，并补充词典 .COMPOUND。</div>
+          <div class="card"><strong>mk_lemma_processor 结果</strong><br>检测到 EN_02.xml 中 L099999 MK block。建议替换 sentinel，并新建或复用 makura-kotoba entry。</div>
+        </div>
+
+        <div id="inputView" class="hidden stack">
+          <div class="card"><strong>输入草稿 block</strong><br>这里用于创建新文本/注释。创建后进入同一套树形编辑与待确认流程。</div>
+          <textarea>新文本 header 或粘贴的初始注释...</textarea>
+        </div>
+      </div>
+    </section>
+
+    <div id="rightHandle" class="resize-x"></div>
+
+    <aside class="panel right-panel">
+      <div class="panel-title"><span>检查器</span><button class="icon" id="collapseRight">×</button></div>
+      <div class="panel-body">
+        <div class="section">
+          <div class="small-title">当前节点</div>
+          <div class="meta-grid">
+            <div class="key">文件</div><div>EN_01.xml</div>
+            <div class="key">位置</div><div>1_EN_01</div>
+            <div class="key">tag</div><div><span class="tag">VB-STM</span></div>
+            <div class="key">form</div><div>ugonapar</div>
+            <div class="key">lemma</div><div><span class="lemma-link" data-lemma="L000001">L000001</span></div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="small-title">词典候选 / 当前 lemma</div>
+          <label class="candidate active"><input type="radio" checked><div><div class="candidate-title">L000001 · ugonapar</div><div class="candidate-detail">来自真实 dictionary.xml 示例：&lt;form phonemic="ugonapar" /&gt;</div></div></label>
+          <label class="candidate"><input type="radio"><div><div class="candidate-title">标记待查</div><div class="candidate-detail">不写入，进入校对队列。</div></div></label>
+          <div class="action-grid"><button class="primary">加入待确认</button><button id="openDictionary2">打开词典</button><button>编辑节点</button><button>替换 lemma</button></div>
+        </div>
+        <div class="section">
+          <div class="small-title">词典修改</div>
+          <div class="card">词典修改也进入待确认：编辑 entry、增加 form、修改 gloss/POS、补充 .COMPOUND / .MKTARGETNEW。</div>
+        </div>
+      </div>
+    </aside>
+
+    <div id="bottomHandle" class="resize-y"></div>
+
+    <section class="panel bottom-panel">
+      <div class="panel-title"><span>待确认修改</span><span class="count">过滤、多选、确认后写入 XML / dictionary.xml</span></div>
+      <div class="panel-body">
+        <div class="bottom-head">
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="pending">待确认</button>
+            <button class="filter-btn" data-filter="multi">多候选</button>
+            <button class="filter-btn" data-filter="dict">词典修改</button>
+          </div>
+          <div class="row"><button id="selectVisible" class="primary">一键选中当前过滤结果</button><button>确认选中</button><button>拒绝选中</button><button>写入</button></div>
+          <div class="count" id="visibleCount">显示 5 条</div>
+        </div>
+        <div id="changeList" class="change-list">
+          <div class="change-row" data-status="pending"><input type="checkbox"><div>EN_01.xml · 1_EN_01</div><div><span class="tag">VB-STM</span> add lemma</div><div>ugonapar</div><div>L000001</div><div><span class="pill ok">待确认</span></div></div>
+          <div class="change-row" data-status="multi"><input type="checkbox"><div>EN_01.xml · 1_EN_01</div><div><span class="tag">compound N</span></div><div>kamu+nusi</div><div>2 candidates</div><div><span class="pill warn">多候选</span></div></div>
+          <div class="change-row" data-status="pending"><input type="checkbox"><div>EN_02.xml · 14_EN_02</div><div>replace L099999</div><div>MK block</div><div>L050999</div><div><span class="pill ok">待确认</span></div></div>
+          <div class="change-row" data-status="dict"><input type="checkbox"><div>dictionary.xml</div><div>add .COMPOUND</div><div>compound entry</div><div>L050001</div><div><span class="pill warn">词典修改</span></div></div>
+          <div class="change-row" data-status="dict"><input type="checkbox"><div>dictionary.xml</div><div>edit entry</div><div>L000001</div><div>FORM ugonapar</div><div><span class="pill warn">词典修改</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside id="dictionaryDrawer" class="dictionary-drawer">
+    <div class="drawer-head"><span>词典面板</span><button id="closeDictionary" class="icon">×</button></div>
+    <div class="drawer-body">
+      <div class="section">
+        <div class="field"><label>词典检索</label><input id="dictSearch" value="L000001"></div>
+        <div class="row"><button class="primary">检索</button><button>新建 entry</button></div>
+      </div>
+      <div class="section">
+        <div class="small-title">当前词条</div>
+        <div id="dictContent" class="dict-result active">
+          <strong>L000001 · ugonapar</strong>
+          <div class="muted">真实词典样例：&lt;entry id="L000001"&gt; ... &lt;form phonemic="ugonapar" kana="" /&gt;</div>
+          <div>gloss: 空 · forms: ugonapar</div>
+        </div>
+      </div>
+      <div class="section dict-editor">
+        <div class="small-title">词典编辑草稿</div>
+        <div class="field"><label>entry id</label><input id="dictId" value="L000001"></div>
+        <div class="field"><label>gloss</label><input value=""></div>
+        <div class="field"><label>forms</label><input value="ugonapar"></div>
+        <div class="field"><label>POS</label><input value=""></div>
+        <div class="field"><label>.COMPOUND / .MKTARGETNEW</label><textarea placeholder="ref_target=L000040 kamu"></textarea></div>
+        <div class="row"><button class="primary">加入待确认修改</button><button>重置</button></div>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    const viewMap = {
+      list: "listView",
+      tree: "treeView",
+      full: "fullView",
+      structure: "structureView",
+      script: "scriptView",
+      input: "inputView"
+    };
+    function setView(name) {
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.view === name));
+      Object.entries(viewMap).forEach(([key, id]) => document.getElementById(id).classList.toggle("hidden", key !== name));
+    }
+    document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => setView(t.dataset.view)));
+    document.querySelectorAll(".showTree").forEach(b => b.addEventListener("click", () => setView("tree")));
+
+    function setLeftPanel(name) {
+      document.getElementById("explorerPanel").classList.toggle("hidden", name !== "explorer");
+      document.getElementById("scriptsPanel").classList.toggle("hidden", name !== "scripts");
+      document.getElementById("inputPanel").classList.toggle("hidden", name !== "input");
+      document.querySelectorAll(".activity button").forEach(b => b.classList.remove("active"));
+      if (name === "explorer") document.getElementById("activityExplorer").classList.add("active");
+      if (name === "scripts") document.getElementById("activityScripts").classList.add("active");
+      if (name === "input") document.getElementById("activityInput").classList.add("active");
+      document.body.classList.remove("left-collapsed");
+    }
+    document.getElementById("activityExplorer").addEventListener("click", () => setLeftPanel("explorer"));
+    document.getElementById("activityScripts").addEventListener("click", () => setLeftPanel("scripts"));
+    document.getElementById("activityInput").addEventListener("click", () => { setLeftPanel("input"); setView("input"); });
+    document.getElementById("commandCenter").addEventListener("click", () => setLeftPanel("scripts"));
+    document.getElementById("toggleLeft").addEventListener("click", () => document.body.classList.toggle("left-collapsed"));
+    document.getElementById("collapseLeft").addEventListener("click", () => document.body.classList.add("left-collapsed"));
+    document.getElementById("toggleRight").addEventListener("click", () => document.body.classList.toggle("right-collapsed"));
+    document.getElementById("collapseRight").addEventListener("click", () => document.body.classList.add("right-collapsed"));
+
+    document.querySelectorAll(".mode-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        if (btn.id === "inputMode") { setLeftPanel("input"); setView("input"); }
+        else { setLeftPanel("explorer"); setView("list"); }
+      });
+    });
+
+    document.querySelectorAll(".folder-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const children = btn.closest(".file-node").querySelector(".file-children");
+        children.classList.toggle("hidden");
+        btn.textContent = children.classList.contains("hidden") ? "▸" : "▾";
+      });
+    });
+
+    function openDictionary(lemma = "L000001") {
+      const content = {
+        L000001: ["L000001 · ugonapar", "真实词典样例：<entry id=\"L000001\"> ... <form phonemic=\"ugonapar\" kana=\"\" />", "gloss: 空 · forms: ugonapar"],
+        L000731: ["L000731 · sin", "真实词典样例：<entry id=\"L000731\"> ... <form phonemic=\"sin\" kana=\"\" />", "gloss: 空 · forms: sin"]
+      }[lemma] || [lemma, "词典详情将在真实版本中从 dictionary.xml 读取。", ""];
+      document.getElementById("dictSearch").value = lemma;
+      document.getElementById("dictId").value = lemma;
+      document.getElementById("dictContent").innerHTML = `<strong>${content[0]}</strong><div class="muted">${content[1].replaceAll("<","&lt;").replaceAll(">","&gt;")}</div><div>${content[2]}</div>`;
+      document.getElementById("dictionaryDrawer").classList.add("open");
+    }
+    document.getElementById("openDictionary").addEventListener("click", () => openDictionary());
+    document.getElementById("openDictionary2").addEventListener("click", () => openDictionary());
+    document.getElementById("closeDictionary").addEventListener("click", () => document.getElementById("dictionaryDrawer").classList.remove("open"));
+    document.querySelectorAll(".lemma-link").forEach(el => el.addEventListener("click", () => openDictionary(el.dataset.lemma)));
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
+        let count = 0;
+        document.querySelectorAll(".change-row").forEach(row => {
+          const visible = filter === "all" || row.dataset.status === filter;
+          row.classList.toggle("hidden", !visible);
+          if (visible) count += 1;
+        });
+        document.getElementById("visibleCount").textContent = `显示 ${count} 条`;
+      });
+    });
+    document.getElementById("selectVisible").addEventListener("click", () => {
+      document.querySelectorAll(".change-row:not(.hidden) input[type=checkbox]").forEach(cb => cb.checked = true);
+    });
+
+    document.getElementById("renderTree").addEventListener("change", e => {
+      document.querySelectorAll('[data-view="tree"], [data-view="structure"]').forEach(tab => {
+        tab.disabled = !e.target.checked;
+        tab.style.opacity = e.target.checked ? "1" : ".45";
+      });
+      if (!e.target.checked && (document.querySelector('[data-view="tree"]').classList.contains("active") || document.querySelector('[data-view="structure"]').classList.contains("active"))) setView("list");
+    });
+
+    document.getElementById("demoAddBranch").addEventListener("click", () => {
+      document.getElementById("editableTree").insertAdjacentHTML("beforeend", '<div class="node"><div class="branch">  └─</div><div class="node-content"><span class="tag">N</span> <span class="attr">new branch preview=true</span></div></div>');
+    });
+
+    function dragVar(handle, varName, axis, invert = false, min = 0, max = 620) {
+      const el = document.getElementById(handle);
+      el.addEventListener("mousedown", e => {
+        e.preventDefault();
+        const move = ev => {
+          let value = axis === "x" ? ev.clientX - 48 : window.innerHeight - ev.clientY - 10;
+          if (invert) value = window.innerWidth - ev.clientX - 10;
+          value = Math.max(min, Math.min(max, value));
+          document.documentElement.style.setProperty(varName, `${value}px`);
+        };
+        const up = () => { window.removeEventListener("mousemove", move); window.removeEventListener("mouseup", up); };
+        window.addEventListener("mousemove", move);
+        window.addEventListener("mouseup", up);
+      });
+    }
+    dragVar("leftHandle", "--left", "x", false, 220, 520);
+    dragVar("rightHandle", "--right", "x", true, 260, 560);
+    dragVar("bottomHandle", "--bottom", "y", false, 140, 360);
+  </script>
+</body>
+</html>
