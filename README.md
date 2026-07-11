@@ -179,7 +179,7 @@ Install dev dependencies with `pip install -e ".[dev]"`.
 ---
 
 <details>
-<summary>Repository layout</summary>
+<summary><strong>Repository layout</strong></summary>
 
 <br>
 
