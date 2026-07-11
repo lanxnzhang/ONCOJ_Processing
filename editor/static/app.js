@@ -109,16 +109,12 @@ async function selectUtterance(docId, sentenceId, liElem) {
 // ══════════════════════════════════════════════════════════════════════════
 
 // Layout constants
-const COL_W   = 90;   // horizontal cell width per leaf
-const ROW_H   = 48;   // vertical spacing between levels
-const LEAF_H  = 88;   // extra height for leaf annotation block
-const PAD_X   = 40;   // horizontal padding
-const PAD_TOP = 32;   // space above root
-
-// Font metrics (approximate, for SVG text positioning)
-const FONT_TAG  = 13; // px, syntactic tag
-const FONT_FORM = 13; // px, italic word form
-const FONT_ANN  = 11; // px, phon / lemma
+const COL_W    = 90;  // horizontal cell width per leaf
+const ROW_H    = 48;  // vertical spacing between tree levels
+const ANN_GAP  = 38;  // gap from leaf tag baseline to word-form row
+const LEAF_H   = 96;  // extra SVG height below leaf level for annotation block
+const PAD_X    = 40;  // horizontal padding
+const PAD_TOP  = 32;  // space above root
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
@@ -187,80 +183,67 @@ function yPx(depth, bottomDepth) {
   return PAD_TOP + depth * ROW_H;
 }
 
-function leafYPx(bottomDepth) {
-  return PAD_TOP + bottomDepth * ROW_H;
-}
-
 function renderNode(node, svg, totalLeaves, bottomDepth, opts) {
-  const cx = xPx(node._x, totalLeaves);
-  const cy = node.children ? yPx(node._depth, bottomDepth) : leafYPx(bottomDepth);
+  const cx  = xPx(node._x, totalLeaves);
+  const cy  = PAD_TOP + node._depth * ROW_H;
 
-  // draw edges to children
+  // ── Internal node ──────────────────────────────────────────────────────
   if (node.children) {
+    // tag label
+    svg.appendChild(svgElem("text", {
+      x: cx, y: cy + 5, class: "lbl-tag", "text-anchor": "middle",
+    }, node.tag));
+    // embedded lemma on compound/MK nodes
+    if (opts.lemma && node.lemma) {
+      svg.appendChild(svgElem("text", {
+        x: cx, y: cy + 18, class: "lbl-lemma", "text-anchor": "middle",
+      }, node.lemma));
+    }
+    // edges to children
     node.children.forEach(child => {
       const ccx = xPx(child._x, totalLeaves);
-      const ccy = child.children ? yPx(child._depth, bottomDepth) : leafYPx(bottomDepth);
+      const ccy = PAD_TOP + child._depth * ROW_H;
       svg.appendChild(svgElem("line", {
-        x1: cx, y1: cy, x2: ccx, y2: ccy,
-        class: "tree-edge",
+        x1: cx, y1: cy, x2: ccx, y2: ccy, class: "tree-edge",
       }));
+      renderNode(child, svg, totalLeaves, bottomDepth, opts);
     });
+    return;
   }
 
-  // draw node label
-  if (!node.children) {
-    // Leaf: stacked annotation block
-    let yOffset = cy;
+  // ── Leaf node ──────────────────────────────────────────────────────────
+  // 1. Leaf syntactic tag at tree-level row (same y as any internal node at this depth)
+  svg.appendChild(svgElem("text", {
+    x: cx, y: cy + 5, class: "lbl-tag", "text-anchor": "middle",
+  }, node.tag));
 
-    // word form (italic)
-    if (node.form) {
-      svg.appendChild(svgElem("text", {
-        x: cx, y: yOffset,
-        class: "lbl-form",
-        "text-anchor": "middle",
-      }, node.form));
-    }
-    yOffset += 16;
+  // 2. Short edge from leaf tag down to annotation block
+  const annY = PAD_TOP + bottomDepth * ROW_H + ANN_GAP;
+  svg.appendChild(svgElem("line", {
+    x1: cx, y1: cy + 8, x2: cx, y2: annY - 14, class: "tree-edge tree-edge-leaf",
+  }));
 
-    // phon/script tag
-    if (opts.phon && node.phon) {
-      svg.appendChild(svgElem("text", {
-        x: cx, y: yOffset,
-        class: "lbl-phon",
-        "text-anchor": "middle",
-      }, node.phon));
-      yOffset += 14;
-    }
+  // 3. Annotation block: word form, phon, lemma
+  let yOff = annY;
 
-    // lemma ID
-    if (opts.lemma && node.lemma) {
-      svg.appendChild(svgElem("text", {
-        x: cx, y: yOffset,
-        class: "lbl-lemma",
-        "text-anchor": "middle",
-      }, node.lemma));
-    }
-  } else {
-    // Internal node: just the tag
+  if (node.form) {
     svg.appendChild(svgElem("text", {
-      x: cx, y: cy + 5,
-      class: "lbl-tag",
-      "text-anchor": "middle",
-    }, node.tag));
+      x: cx, y: yOff, class: "lbl-form", "text-anchor": "middle",
+    }, node.form));
+  }
+  yOff += 15;
 
-    // embedded lemma on compound nodes
-    if (opts.lemma && node.lemma) {
-      svg.appendChild(svgElem("text", {
-        x: cx, y: cy + 18,
-        class: "lbl-lemma",
-        "text-anchor": "middle",
-      }, node.lemma));
-    }
+  if (opts.phon && node.phon) {
+    svg.appendChild(svgElem("text", {
+      x: cx, y: yOff, class: "lbl-phon", "text-anchor": "middle",
+    }, node.phon));
+    yOff += 14;
   }
 
-  // recurse
-  if (node.children) {
-    node.children.forEach(c => renderNode(c, svg, totalLeaves, bottomDepth, opts));
+  if (opts.lemma && node.lemma) {
+    svg.appendChild(svgElem("text", {
+      x: cx, y: yOff, class: "lbl-lemma", "text-anchor": "middle",
+    }, node.lemma));
   }
 }
 

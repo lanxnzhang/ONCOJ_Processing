@@ -136,6 +136,10 @@ header {
   stroke: #aaa;
   stroke-width: 1.2;
 }
+.tree-edge-leaf {
+  stroke-dasharray: 3 3;
+  stroke: #ccc;
+}
 
 /* Syntactic tag labels — bold, dark */
 .lbl-tag {
