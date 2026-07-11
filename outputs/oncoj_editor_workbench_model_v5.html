@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONCOJ Corpus Studio v5 — Refined Offline Workbench</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef2f4;
+      --surface: #ffffff;
+      --surface-2: #f7f9fa;
+      --surface-3: #edf3f2;
+      --border: #d4dde1;
+      --border-strong: #adbdc5;
+      --text: #182126;
+      --muted: #5b6b74;
+      --accent: #087565;
+      --accent-strong: #005f52;
+      --accent-soft: #e3f4ef;
+      --focus: #1b6eea;
+      --danger: #b42318;
+      --danger-soft: #ffedeb;
+      --warning: #8a5800;
+      --warning-soft: #fff3d8;
+      --success: #1f6d38;
+      --success-soft: #e9f6ec;
+      --info-soft: #e8f2ff;
+      --shadow: 0 2px 10px rgba(22, 36, 44, .08);
+      --radius: 9px;
+      --sidebar: 286px;
+      --inspector: 326px;
+      --bottom: 222px;
+      --appbar: 52px;
+      --status: 26px;
+    }
+
+    body.dark {
+      color-scheme: dark;
+      --bg: #151b1e;
+      --surface: #1d2529;
+      --surface-2: #242d31;
+      --surface-3: #263835;
+      --border: #38464c;
+      --border-strong: #607078;
+      --text: #e8eff2;
+      --muted: #a9b7bd;
+      --accent: #45bca8;
+      --accent-strong: #78d7c7;
+      --accent-soft: #173e38;
+      --focus: #75a7ff;
+      --danger: #ff8a80;
+      --danger-soft: #4a2422;
+      --warning: #ffd277;
+      --warning-soft: #473819;
+      --success: #85d99b;
+      --success-soft: #183c25;
+      --info-soft: #203853;
+      --shadow: 0 2px 12px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: var(--text);
+      background: var(--bg);
+      font: 13px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", "Yu Gothic UI", sans-serif;
+    }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button, select, input, textarea { min-height: 32px; }
+    button {
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    button:disabled { cursor: not-allowed; opacity: .48; }
+    button.primary { border-color: var(--accent); background: var(--accent); color: white; }
+    button.primary:hover { background: var(--accent-strong); }
+    button.ghost { border-color: transparent; background: transparent; }
+    button.icon { width: 34px; padding: 0; }
+    button.danger { color: var(--danger); }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      padding: 5px 8px;
+    }
+    textarea { min-height: 70px; resize: vertical; }
+    :focus-visible { outline: 3px solid color-mix(in srgb, var(--focus) 52%, transparent); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .hidden { display: none !important; }
+    .muted { color: var(--muted); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+    .ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .preview-controls {
+      position: fixed;
+      z-index: 50;
+      right: 8px;
+      bottom: 34px;
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .preview-controls select { width: auto; }
+
+    .appbar {
+      height: var(--appbar);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; min-width: 206px; font-weight: 700; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 7px; background: var(--accent); color: white; }
+    .appbar-center { flex: 1; display: flex; justify-content: center; }
+    .workspace-switch { max-width: 420px; display: flex; align-items: center; gap: 8px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 7px; background: var(--surface-2); }
+    .appbar-actions { display: flex; align-items: center; gap: 6px; }
+
+    .workbench {
+      height: calc(100vh - var(--appbar) - var(--status));
+      display: grid;
+      grid-template-columns: 48px var(--sidebar) minmax(360px, 1fr) var(--inspector);
+      grid-template-rows: minmax(280px, 1fr) var(--bottom);
+      min-width: 0;
+    }
+    body.host-vscode .appbar { display: none; }
+    body.host-vscode .workbench { height: calc(100vh - var(--status)); grid-template-columns: var(--sidebar) minmax(360px, 1fr) var(--inspector); }
+    body.host-vscode .rail { display: none; }
+    body.host-vscode .sidebar { grid-column: 1; }
+    body.host-vscode .editor-shell { grid-column: 2; }
+    body.host-vscode .inspector { grid-column: 3; }
+    body.host-vscode .bottom-panel { grid-column: 2 / 4; }
+
+    .rail {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 5px;
+      background: #253238;
+      border-right: 1px solid var(--border);
+    }
+    .rail button { width: 38px; height: 38px; padding: 0; border: 0; background: transparent; color: #d9e5e8; font-weight: 700; }
+    .rail button:hover, .rail button.active { background: #3c4c53; color: white; }
+    .rail .spacer { flex: 1; }
+
+    .sidebar, .inspector, .editor-shell, .bottom-panel { min-width: 0; min-height: 0; background: var(--surface); }
+    .sidebar { grid-column: 2; grid-row: 1 / 3; border-right: 1px solid var(--border); }
+    .editor-shell { grid-column: 3; grid-row: 1; margin: 8px 7px 0; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .inspector { grid-column: 4; grid-row: 1; margin: 8px 8px 0 0; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .bottom-panel { grid-column: 3 / 5; grid-row: 2; margin: 7px 8px 8px 7px; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+
+    .panel-head {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 6px 9px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .panel-title { font-weight: 700; }
+    .panel-body { height: calc(100% - 42px); overflow: auto; padding: 9px; }
+    .section { padding: 10px 0; border-top: 1px solid var(--border); }
+    .section:first-child { padding-top: 0; border-top: 0; }
+    .section-title { margin-bottom: 7px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .stack { display: grid; gap: 7px; }
+    .row { display: flex; align-items: center; gap: 7px; }
+    .row > * { min-width: 0; }
+    .field { display: grid; gap: 4px; margin-bottom: 8px; }
+    .field label { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .card { border: 1px solid var(--border); border-radius: 7px; background: var(--surface); padding: 9px; }
+    .card.active { border-color: var(--focus); background: var(--info-soft); }
+    .card-header { display: flex; align-items: center; justify-content: space-between; gap: 7px; }
+    .card-title { font-weight: 700; }
+
+    .nav-tabs, .segmented, .panel-tabs { display: flex; gap: 3px; }
+    .nav-tabs button, .segmented button, .panel-tabs button { min-height: 30px; border-color: transparent; background: transparent; padding: 4px 8px; }
+    .nav-tabs button.active, .segmented button.active, .panel-tabs button.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-strong); }
+    .panel-tabs { overflow: auto; }
+
+    .tree-list { display: grid; gap: 2px; }
+    .tree-row { display: grid; grid-template-columns: 22px 20px minmax(0, 1fr) auto; align-items: center; gap: 4px; min-height: 30px; border-radius: 5px; padding: 2px 4px; }
+    .tree-row:hover { background: var(--surface-2); }
+    .tree-row.selected { background: var(--accent-soft); }
+    .tree-row input { width: 16px; min-height: 16px; }
+    .indent-1 { padding-left: 20px; }
+    .indent-2 { padding-left: 40px; }
+
+    .badge { display: inline-flex; align-items: center; gap: 4px; min-height: 21px; border-radius: 999px; padding: 2px 7px; background: var(--surface-3); color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .badge.success { background: var(--success-soft); color: var(--success); }
+    .badge.warning { background: var(--warning-soft); color: var(--warning); }
+    .badge.danger { background: var(--danger-soft); color: var(--danger); }
+    .badge.info { background: var(--info-soft); color: var(--focus); }
+    .tag { display: inline-flex; min-height: 21px; align-items: center; padding: 2px 6px; border-radius: 5px; background: var(--surface-3); color: var(--accent-strong); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; }
+
+    .query-grid { display: grid; grid-template-columns: 90px 1fr; gap: 6px; align-items: center; }
+    .query-grid label { color: var(--muted); font-size: 12px; }
+    .saved-query { display: flex; justify-content: space-between; gap: 6px; padding: 7px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+    .saved-query.active { border-color: var(--accent); background: var(--accent-soft); }
+
+    .script-card { border: 1px solid var(--border); border-radius: 7px; padding: 8px; background: var(--surface); }
+    .script-card.active { border-color: var(--accent); background: var(--accent-soft); }
+    .script-meta { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+
+    .editor-head { height: 88px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
+    .docbar { height: 44px; display: flex; align-items: center; gap: 8px; padding: 6px 9px; border-bottom: 1px solid var(--border); }
+    .breadcrumbs { min-width: 0; flex: 1; display: flex; align-items: center; gap: 5px; }
+    .breadcrumbs span { white-space: nowrap; }
+    .editor-toolbar { height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 5px 9px; }
+    .editor-body { height: calc(100% - 88px); min-height: 0; display: grid; grid-template-columns: 254px minmax(0, 1fr); }
+    .result-pane { min-width: 0; border-right: 1px solid var(--border); background: var(--surface-2); overflow: auto; }
+    .result-summary { position: sticky; top: 0; z-index: 1; padding: 8px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
+    .result-item { display: grid; gap: 4px; padding: 9px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .result-item:hover { background: var(--surface); }
+    .result-item.selected { background: var(--info-soft); box-shadow: inset 3px 0 var(--focus); }
+    .result-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .canvas { min-width: 0; min-height: 0; overflow: auto; padding: 14px; background: var(--surface); }
+
+    .context-banner { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; background: var(--surface-2); }
+    .layer-controls { display: flex; flex-wrap: wrap; gap: 6px; }
+    .layer-controls label { display: inline-flex; align-items: center; gap: 4px; min-height: 28px; padding: 3px 7px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+    .layer-controls input { width: 15px; min-height: 15px; }
+
+    .sentence { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; background: var(--surface); }
+    .sentence-head { display: flex; justify-content: space-between; gap: 8px; padding: 7px 9px; border-bottom: 1px solid var(--border); background: var(--surface-2); }
+    .tokens { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px; }
+    .token { min-width: 82px; display: grid; gap: 3px; border: 1px solid var(--border); border-radius: 7px; padding: 7px; background: var(--surface); cursor: pointer; text-align: left; }
+    .token:hover { border-color: var(--accent); }
+    .token.selected { border-color: var(--focus); background: var(--info-soft); box-shadow: 0 0 0 1px var(--focus); }
+    .token-form { font-size: 15px; font-weight: 700; }
+    .token-layer { color: var(--muted); font-size: 10px; }
+
+    .syntax-tree { min-width: 650px; display: grid; gap: 3px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .syntax-node { display: grid; grid-template-columns: 86px minmax(0, 1fr) auto; align-items: start; gap: 7px; min-height: 30px; padding: 4px 6px; border-radius: 6px; }
+    .syntax-node:hover { background: var(--surface-2); }
+    .syntax-node.selected { background: var(--info-soft); outline: 1px solid var(--focus); }
+    .branch { color: var(--border-strong); text-align: right; white-space: pre; }
+
+    .source-editor { min-height: 420px; margin: 0; overflow: auto; border: 1px solid var(--border); border-radius: 7px; padding: 12px; background: var(--surface-2); line-height: 1.65; white-space: pre; }
+    .xml-tag { color: #845ec2; }
+    .xml-attr { color: #986000; }
+    .xml-value { color: #087565; }
+    body.dark .xml-tag { color: #cfb3ff; }
+    body.dark .xml-attr { color: #ffd277; }
+    body.dark .xml-value { color: #7ee2d0; }
+
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .diff-col { min-width: 0; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+    .diff-title { padding: 6px 8px; border-bottom: 1px solid var(--border); background: var(--surface-2); font-weight: 700; }
+    .diff-code { min-height: 250px; padding: 10px; overflow: auto; white-space: pre; }
+    .diff-remove { background: var(--danger-soft); }
+    .diff-add { background: var(--success-soft); }
+
+    .meta-grid { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 7px; align-items: center; }
+    .meta-grid .key { color: var(--muted); }
+    .candidate { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 6px; border: 1px solid var(--border); border-radius: 7px; padding: 8px; cursor: pointer; }
+    .candidate.active { border-color: var(--accent); background: var(--accent-soft); }
+    .candidate input { width: 16px; min-height: 16px; }
+    .evidence { display: grid; grid-template-columns: auto 1fr; gap: 4px 7px; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .evidence strong { color: var(--text); }
+    .scope-box { padding: 8px; border: 1px dashed var(--border-strong); border-radius: 7px; background: var(--surface-2); }
+
+    .bottom-body { height: calc(100% - 42px); display: grid; grid-template-rows: 42px minmax(0, 1fr); }
+    .bottom-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 5px 8px; border-bottom: 1px solid var(--border); }
+    .change-table-wrap { min-height: 0; overflow: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th { position: sticky; top: 0; z-index: 1; background: var(--surface-2); color: var(--muted); font-size: 11px; text-align: left; }
+    th, td { padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tbody tr:hover { background: var(--surface-2); }
+    tbody tr.selected { background: var(--info-soft); }
+    table input { width: 16px; min-height: 16px; }
+    .stage { display: flex; align-items: center; gap: 4px; color: var(--muted); }
+    .stage strong { color: var(--text); }
+
+    .statusbar {
+      height: var(--status);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 8px;
+      border-top: 1px solid var(--border);
+      background: var(--accent-strong);
+      color: white;
+      font-size: 11px;
+    }
+    .statusbar .spacer { flex: 1; }
+
+    .palette {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 11vh;
+      background: rgba(12, 18, 22, .42);
+    }
+    .palette.open { display: flex; }
+    .palette-box { width: min(680px, calc(100vw - 28px)); border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); box-shadow: 0 18px 60px rgba(0,0,0,.28); overflow: hidden; }
+    .palette-box input { min-height: 46px; border: 0; border-radius: 0; border-bottom: 1px solid var(--border); padding: 8px 12px; font-size: 15px; }
+    .command { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 9px 12px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .command:hover, .command.active { background: var(--info-soft); }
+    kbd { border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; background: var(--surface-2); font: 11px ui-monospace, monospace; }
+
+    body.sidebar-collapsed { --sidebar: 0px; }
+    body.sidebar-collapsed .sidebar { display: none; }
+    body.inspector-collapsed { --inspector: 0px; }
+    body.inspector-collapsed .inspector { display: none; }
+    body.bottom-collapsed { --bottom: 0px; }
+    body.bottom-collapsed .bottom-panel { display: none; }
+
+    @media (max-width: 1180px) {
+      :root { --inspector: 294px; --sidebar: 264px; }
+      .editor-body { grid-template-columns: 220px minmax(0, 1fr); }
+      .appbar-center { display: none; }
+    }
+    @media (max-width: 940px) {
+      :root { --inspector: 0px; }
+      .inspector { display: none; }
+      .bottom-panel { grid-column: 3 / 5; }
+      body.host-vscode .bottom-panel { grid-column: 2 / 4; }
+      .editor-body { grid-template-columns: 205px minmax(0, 1fr); }
+    }
+    @media (max-width: 720px) {
+      :root { --sidebar: 0px; --bottom: 180px; }
+      .sidebar { display: none; }
+      .workbench { grid-template-columns: 42px minmax(0, 1fr); }
+      .editor-shell { grid-column: 2; margin-right: 8px; }
+      .bottom-panel { grid-column: 2; margin-right: 8px; }
+      body.host-vscode .workbench { grid-template-columns: minmax(0, 1fr); }
+      body.host-vscode .editor-shell, body.host-vscode .bottom-panel { grid-column: 1; }
+      .editor-body { grid-template-columns: 1fr; }
+      .result-pane { display: none; }
+      .breadcrumbs .optional { display: none; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .appbar { padding-right: 52px; }
+      .brand { min-width: 0; }
+      .brand span:last-child { display: none; }
+      .appbar-actions button:not(.primary) { display: none; }
+    }
+
+
+    /* v5 additions */
+    .doc-tabs {
+      height: 38px;
+      display: flex;
+      align-items: end;
+      gap: 2px;
+      padding: 5px 7px 0;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .doc-tab {
+      min-width: 132px;
+      max-width: 230px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid transparent;
+      border-bottom: 0;
+      border-radius: 7px 7px 0 0;
+      background: transparent;
+      padding: 5px 8px;
+      white-space: nowrap;
+    }
+    .doc-tab.active { border-color: var(--border); background: var(--surface); }
+    .doc-tab .dirty { color: var(--warning); font-size: 16px; line-height: 1; }
+    .doc-tab .close { margin-left: auto; opacity: .55; }
+    .doc-tab:hover .close { opacity: 1; }
+    .doc-tab-add { min-width: 34px; width: 34px; }
+    .editor-head { height: 126px; }
+    .editor-body { height: calc(100% - 126px); }
+    .docbar { height: 44px; }
+
+    .tree-canvas { min-width: 720px; padding: 10px 0 20px; }
+    .rich-tree, .rich-tree ul { list-style: none; margin: 0; padding-left: 22px; position: relative; }
+    .rich-tree { padding-left: 0; }
+    .rich-tree ul::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 15px;
+      left: 9px;
+      border-left: 1px solid var(--border-strong);
+    }
+    .rich-tree li { position: relative; margin: 4px 0; }
+    .rich-tree li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: -13px;
+      width: 13px;
+      border-top: 1px solid var(--border-strong);
+    }
+    .rich-tree > li::before { display: none; }
+    .tree-node {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      max-width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      padding: 4px 8px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .tree-node:hover { border-color: var(--accent); }
+    .tree-node.selected { border-color: var(--focus); background: var(--info-soft); box-shadow: 0 0 0 1px var(--focus); }
+    .tree-node.issue { border-left: 4px solid var(--warning); }
+    .node-kind { min-width: 76px; font-weight: 800; }
+    .node-kind.clause { color: #6b4bc3; }
+    .node-kind.phrase { color: #0b7285; }
+    .node-kind.word { color: var(--accent-strong); }
+    body.dark .node-kind.clause { color: #cfb3ff; }
+    body.dark .node-kind.phrase { color: #78d7e7; }
+    .tree-toggle { width: 24px; height: 24px; min-height: 24px; border: 0; padding: 0; background: transparent; }
+    .tree-attrs { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .rich-tree li.collapsed > ul { display: none; }
+
+    .facsimile-layout { display: grid; grid-template-columns: minmax(320px, 1.05fr) minmax(300px, .95fr); gap: 12px; align-items: start; }
+    .facsimile-page {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid #b9aa84;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(110,78,32,.12), transparent 22%),
+        radial-gradient(circle at 78% 76%, rgba(110,78,32,.10), transparent 26%),
+        repeating-linear-gradient(90deg, rgba(104,75,34,.045) 0 1px, transparent 1px 31px),
+        #efe2bd;
+      box-shadow: inset 0 0 45px rgba(82,56,20,.12);
+    }
+    .facsimile-page::after {
+      content: "";
+      position: absolute; inset: 12px;
+      border: 1px solid rgba(81,58,27,.22);
+      pointer-events: none;
+    }
+    .manuscript-lines {
+      position: absolute; inset: 30px 38px;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 21px;
+      line-height: 1.9;
+      letter-spacing: .12em;
+      color: rgba(54,38,22,.78);
+      user-select: none;
+    }
+    .image-hit {
+      position: absolute;
+      right: 31%;
+      top: 116px;
+      width: 44px;
+      height: 178px;
+      border: 2px solid var(--focus);
+      border-radius: 5px;
+      background: color-mix(in srgb, var(--focus) 12%, transparent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 15%, transparent);
+    }
+    .facsimile-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .alignment-row { display: grid; grid-template-columns: 72px 1fr; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+
+    .script-config { border: 1px solid var(--border); border-radius: 8px; padding: 9px; background: var(--surface-2); }
+    .manifest-box { max-height: 126px; overflow: auto; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); white-space: pre-wrap; }
+    .progress-wrap { display: grid; gap: 5px; }
+    progress { width: 100%; height: 12px; accent-color: var(--accent); }
+    .permission-list { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .problem-toolbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .problem-item { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 8px; align-items: start; padding: 9px; border-bottom: 1px solid var(--border); }
+    .problem-item:hover { background: var(--surface-2); }
+    .problem-icon { width: 22px; text-align: center; font-weight: 900; }
+    .problem-icon.error { color: var(--danger); }
+    .problem-icon.warning { color: var(--warning); }
+    .problem-icon.info { color: var(--focus); }
+
+    .timeline { position: relative; margin-left: 9px; padding-left: 18px; border-left: 2px solid var(--border); }
+    .timeline-item { position: relative; padding: 0 0 15px 8px; }
+    .timeline-item::before { content: ""; position: absolute; left: -24px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+    .timeline-item.current::before { background: var(--accent); }
+
+    .note-card { border: 1px solid var(--border); border-radius: 7px; padding: 8px; background: var(--surface); }
+    .uncertainty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .uncertainty-grid label { display: flex; align-items: center; gap: 5px; padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
+    .uncertainty-grid input { width: auto; min-height: auto; }
+
+    .toast { position: fixed; z-index: 120; right: 16px; bottom: 42px; max-width: 360px; display: none; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); }
+    .toast.show { display: block; }
+
+    @media (max-width: 880px) {
+      .facsimile-layout { grid-template-columns: 1fr; }
+      .doc-tab { min-width: 118px; }
+    }
+    @media (max-width: 560px) {
+      .preview-controls { right: 4px; bottom: 30px; }
+      .preview-controls select { max-width: 92px; }
+      .editor-head { height: 126px; }
+      .docbar .breadcrumbs { display: none; }
+      .nav-tabs button { padding: 4px 6px; }
+      .facsimile-page { min-height: 390px; }
+      .manuscript-lines { font-size: 17px; }
+      .bottom-panel { position: fixed; z-index: 40; left: 0; right: 0; bottom: var(--status); height: min(48vh, 360px); margin: 0; border-radius: 10px 10px 0 0; }
+      body.bottom-collapsed .bottom-panel { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="preview-controls" aria-label="原型预览设置">
+    <label class="sr-only" for="hostPreview">宿主</label>
+    <select id="hostPreview" title="切换宿主预览">
+      <option value="web">网页宿主</option>
+      <option value="vscode">VS Code 宿主</option>
+    </select>
+    <select id="languageSelect" title="Interface language" aria-label="Interface language">
+      <option value="zh">简体中文</option>
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+    </select>
+    <button id="themeToggle" class="icon" title="切换明暗主题" aria-label="切换明暗主题">◐</button>
+  </div>
+
+  <header class="appbar">
+    <div class="brand"><span class="brand-mark">編</span><span>ONCOJ Corpus Studio</span></div>
+    <div class="appbar-center">
+      <div class="workspace-switch"><span class="muted">工作区</span><strong class="ellipsis">ONCOJ / Old Japanese Corpus</strong><span class="badge success">已索引</span></div>
+    </div>
+    <div class="appbar-actions">
+      <button id="undoButton" class="icon" title="撤销草稿修改" aria-label="撤销草稿修改" disabled>↶</button>
+      <button id="redoButton" class="icon" title="重做草稿修改" aria-label="重做草稿修改" disabled>↷</button>
+      <button id="commandButton" class="primary" data-i18n="commandCenter">命令中心 <kbd>Ctrl K</kbd></button>
+      <button>导入/打开</button>
+      <button id="saveDraft">保存草稿</button>
+      <button class="icon" aria-label="更多操作" title="更多操作">⋯</button>
+    </div>
+  </header>
+
+  <div class="workbench">
+    <nav class="rail" aria-label="主导航">
+      <button class="active" data-section="files" aria-label="文件" title="文件">文</button>
+      <button data-section="search" aria-label="检索" title="检索">检</button>
+      <button data-section="tasks" aria-label="脚本任务" title="脚本任务">任</button>
+      <button data-section="input" aria-label="新建注释" title="新建注释">新</button>
+      <div class="spacer"></div>
+      <button id="toggleSidebar" aria-label="切换左侧栏" title="切换左侧栏">左</button>
+      <button id="toggleInspector" aria-label="切换检查器" title="切换检查器">右</button>
+      <button id="toggleBottom" aria-label="切换底部面板" title="切换底部面板">下</button>
+    </nav>
+
+    <aside class="sidebar">
+      <div class="panel-head">
+        <span id="sidebarTitle" class="panel-title">语料导航器</span>
+        <div class="row"><button class="icon ghost" aria-label="刷新索引" title="刷新索引">↻</button><button id="collapseSidebar" class="icon ghost" aria-label="折叠左侧栏" title="折叠左侧栏">×</button></div>
+      </div>
+      <div class="panel-body">
+        <section id="section-files" class="side-section">
+          <div class="section">
+            <div class="field"><label for="fileFilter">筛选文件、文本或句号</label><input id="fileFilter" placeholder="例如 EN_01 或 14_EN_02"></div>
+            <div class="tree-list" role="tree" aria-label="语料文件">
+              <div class="tree-row selected" role="treeitem" aria-expanded="true"><button class="icon ghost" aria-label="折叠文件夹">▾</button><input type="checkbox" checked aria-label="选择 text 文件夹"><strong class="ellipsis">data/xml/text</strong><span class="badge">128</span></div>
+              <div class="tree-row indent-1" role="treeitem"><span></span><input type="checkbox" checked aria-label="选择 EN_01.xml"><span class="ellipsis">EN_01.xml</span><span class="badge success">clean</span></div>
+              <div class="tree-row indent-1" role="treeitem"><span></span><input type="checkbox" checked aria-label="选择 EN_02.xml"><span class="ellipsis">EN_02.xml</span><span class="badge warning">3</span></div>
+              <div class="tree-row indent-1" role="treeitem"><span></span><input type="checkbox" aria-label="选择 SM_01.xml"><span class="ellipsis">SM_01.xml</span><span class="badge">—</span></div>
+              <div class="tree-row" role="treeitem" aria-expanded="false"><button class="icon ghost" aria-label="展开文件夹">▸</button><input type="checkbox" aria-label="选择 dictionary"><strong class="ellipsis">data/xml/dict</strong><span class="badge">1</span></div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-title">当前审阅范围</div>
+            <div class="card"><div class="card-header"><strong>2 个文本 · 2,384 节点</strong><button class="ghost">修改</button></div><div class="muted">所有检索、脚本和批量应用都先受此范围约束。</div></div>
+          </div>
+          <div class="section">
+            <div class="section-title">最近打开</div>
+            <div class="stack">
+              <button class="saved-query"><span>EN_01.xml / 1_EN_01</span><span class="muted">12m</span></button>
+              <button class="saved-query"><span>dictionary.xml / L000001</span><span class="muted">1h</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-search" class="side-section hidden">
+          <div class="section">
+            <div class="section-title">结构化检索</div>
+            <div class="query-grid">
+              <label for="queryField">字段</label><select id="queryField"><option>lemma</option><option>form</option><option>tag</option><option>path</option><option>validation</option></select>
+              <label for="queryOperator">条件</label><select id="queryOperator"><option>缺失</option><option>等于</option><option>包含</option><option>匹配正则</option><option>路径满足</option></select>
+              <label for="queryValue">值</label><input id="queryValue" value="form 存在 AND lemma 缺失">
+            </div>
+            <div class="row" style="margin-top:8px"><button id="runSearch" class="primary">运行检索</button><button>高级语法</button><button>保存</button></div>
+          </div>
+          <div class="section">
+            <div class="section-title">已保存查询</div>
+            <div class="stack">
+              <div class="saved-query active"><span>未标 lemma 的词形</span><span class="badge warning">3</span></div>
+              <div class="saved-query"><span>NP 下的 bare N</span><span class="badge">12</span></div>
+              <div class="saved-query"><span>悬空 dictionary 引用</span><span class="badge danger">1</span></div>
+              <div class="saved-query"><span>MK sentinel</span><span class="badge">4</span></div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-title">结果选项</div>
+            <label class="row"><input type="checkbox" checked style="width:auto;min-height:auto">包含前后句上下文</label>
+            <label class="row"><input type="checkbox" checked style="width:auto;min-height:auto">按文件和规则分组</label>
+            <label class="row"><input type="checkbox" style="width:auto;min-height:auto">仅显示可自动修复项</label>
+          </div>
+        </section>
+
+        <section id="section-tasks" class="side-section hidden">
+          <div class="section">
+            <div class="card-header"><div class="section-title" data-i18n="registeredTools">已注册工具</div><button id="addScriptButton">＋ <span data-i18n="addScript">添加脚本</span></button></div>
+            <div class="stack" id="scriptRegistry">
+              <button class="script-card active" data-script="lemmas" style="text-align:left">
+                <div class="card-header"><strong>lemmas_processor</strong><span class="badge success">Web + VS Code</span></div>
+                <div class="muted" data-i18n="lemmaScriptDesc">生成 lemma 候选；输出标准 ChangeSet，不直接写文件。</div>
+                <div class="script-meta"><span class="badge info">readCorpus</span><span class="badge info">readDictionary</span><span class="badge">v2.1.0</span><span class="badge success" data-i18n="deterministic">确定性</span></div>
+              </button>
+              <button class="script-card" data-script="compound" style="text-align:left">
+                <div class="card-header"><strong>compound_lemma_processor</strong><span class="badge success">Web + VS Code</span></div>
+                <div class="muted" data-i18n="compoundScriptDesc">检测复合词结构，并生成语料与词典的关联事务。</div>
+                <div class="script-meta"><span class="badge info">readCorpus</span><span class="badge warning">proposeDictionary</span><span class="badge">v1.8.2</span></div>
+              </button>
+              <button class="script-card" data-script="legacy" style="text-align:left">
+                <div class="card-header"><strong>legacy_python_audit</strong><span class="badge warning" data-i18n="desktopOnly">仅 VS Code 桌面</span></div>
+                <div class="muted" data-i18n="legacyScriptDesc">依赖本地 Python；网页宿主会明确显示不兼容原因。</div>
+                <div class="script-meta"><span class="badge danger">spawnProcess</span><span class="badge">Python ≥3.11</span><span class="badge warning" data-i18n="untrusted">需授权</span></div>
+              </button>
+            </div>
+          </div>
+          <div class="section script-config">
+            <div class="section-title" data-i18n="taskConfiguration">任务配置</div>
+            <div class="field"><label for="taskScope" data-i18n="runScope">运行范围</label><select id="taskScope"><option data-i18n="currentReviewScope">当前审阅范围（2 个文本）</option><option data-i18n="currentFile">当前文件</option><option data-i18n="currentSentence">当前句</option><option data-i18n="wholeWorkspace">整个工作区</option></select></div>
+            <div class="field"><label for="confidence"><span data-i18n="confidenceThreshold">候选置信度下限</span> <output id="confidenceValue">0.85</output></label><input id="confidence" type="range" min="0" max="100" value="85"></div>
+            <label class="row"><input id="createUnknown" type="checkbox" style="width:auto;min-height:auto"><span data-i18n="proposeUnknownEntries">为未知词形建议新词典项</span></label>
+            <label class="row"><input id="dryRun" type="checkbox" checked style="width:auto;min-height:auto"><span data-i18n="dryRun">仅预览（不生成待审变更）</span></label>
+            <div class="permission-list"><span class="badge info">readCorpus</span><span class="badge info">readDictionary</span><span class="badge success" data-i18n="noDiskWrite">无直接写盘权限</span></div>
+            <div class="row" style="margin-top:8px"><button id="runTask" class="primary" style="flex:1" data-i18n="runTask">运行任务</button><button id="cancelTask" disabled data-i18n="cancel">取消</button></div>
+            <div id="taskProgress" class="progress-wrap hidden" style="margin-top:8px"><progress id="taskProgressBar" max="100" value="0"></progress><div class="row"><span id="taskProgressText" class="muted">0%</span><span class="muted" style="margin-left:auto" data-i18n="backgroundWorker">本地后台工作线程</span></div></div>
+          </div>
+          <div class="section">
+            <details><summary data-i18n="manifestAndReproducibility">清单与可复现信息</summary><pre id="manifestPreview" class="manifest-box mono">{
+  "id": "oncoj.lemmasProcessor",
+  "version": "2.1.0",
+  "runtime": "worker",
+  "permissions": ["readCorpus", "readDictionary"],
+  "output": ["diagnostics", "changeSet"],
+  "deterministic": true
+}</pre></details>
+          </div>
+        </section>
+
+        <section id="section-input" class="side-section hidden">
+          <div class="section">
+            <div class="section-title">新建注释单元</div>
+            <div class="field"><label for="sourceText">原始/转写文本</label><textarea id="sourceText">ugonapar eru kamu nusi ...</textarea></div>
+            <div class="field"><label for="template">结构模板</label><select id="template"><option>从空白 block 开始</option><option>IP-MAT 基础模板</option><option>复制当前句结构</option><option>从脚本建议生成</option></select></div>
+            <button class="primary" style="width:100%">创建未提交草稿</button>
+          </div>
+          <div class="section"><div class="card"><strong>统一模型</strong><div class="muted">新文本并非独立“模式”：它只是在同一个文档模型中创建 draft 文档，随后仍使用文本、树、XML、校验与 ChangeSet。</div></div></div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="editor-shell">
+      <div class="editor-head">
+        <div class="doc-tabs" role="tablist" aria-label="打开的文档">
+          <button class="doc-tab active" data-doc="EN_01.xml"><span aria-hidden="true">◇</span><span class="ellipsis">EN_01.xml</span><span class="dirty" title="有未提交草稿">●</span><span class="close" aria-hidden="true">×</span></button>
+          <button class="doc-tab" data-doc="dictionary.xml"><span aria-hidden="true">辞</span><span class="ellipsis">dictionary.xml</span><span class="close" aria-hidden="true">×</span></button>
+          <button class="doc-tab" data-doc="facsimile"><span aria-hidden="true">影</span><span class="ellipsis" data-i18n="facsimilePage">影印页 12</span><span class="close" aria-hidden="true">×</span></button>
+          <button class="doc-tab doc-tab-add" id="newDocument" aria-label="新建或打开文档">＋</button>
+        </div>
+        <div class="docbar">
+          <div class="breadcrumbs" aria-label="当前位置"><strong>查询结果</strong><span>›</span><span class="optional">未标 lemma 的词形</span><span>›</span><span class="mono">EN_01.xml</span><span>›</span><strong class="mono">1_EN_01</strong></div>
+          <span class="badge warning">3 个命中</span>
+          <button class="ghost">在原始 XML 中定位</button>
+        </div>
+        <div class="editor-toolbar">
+          <div class="segmented" role="tablist" aria-label="文档表示方式">
+            <button class="active" data-view="text" role="tab" aria-selected="true">注释文本</button>
+            <button data-view="tree" role="tab">句法树</button>
+            <button data-view="source" role="tab">XML 源码</button>
+            <button data-view="diff" role="tab" data-i18n="diffView">变更对比</button>
+            <button data-view="facsimile" role="tab" data-i18n="facsimile">影印对照</button>
+          </div>
+          <div class="row"><button id="previousHit" class="icon" aria-label="上一个命中" title="上一个命中">↑</button><button id="nextHit" class="icon" aria-label="下一个命中" title="下一个命中">↓</button><button id="toggleResults">隐藏结果列表</button></div>
+        </div>
+      </div>
+
+      <div class="editor-body">
+        <aside class="result-pane" aria-label="检索结果">
+          <div class="result-summary"><strong>3 个命中</strong><div class="muted">按文件分组 · 当前 1/3</div></div>
+          <article class="result-item selected" tabindex="0" data-form="ugonapar" data-lemma="">
+            <div class="result-top"><strong>EN_01.xml · 1_EN_01</strong><span class="badge warning">缺 lemma</span></div>
+            <div><span class="tag">IP-MAT › VB › VB-STM</span></div>
+            <div><strong>ugonapar</strong> <span class="muted">前项 tag: VB</span></div>
+          </article>
+          <article class="result-item" tabindex="0" data-form="kimi" data-lemma="">
+            <div class="result-top"><strong>SM_02.xml · 11_SM_02</strong><span class="badge warning">2 候选</span></div>
+            <div><span class="tag">IP-MAT › NP-SBJ › N</span></div>
+            <div><strong>kimi</strong> <span class="muted">前项 tag: D</span></div>
+          </article>
+          <article class="result-item" tabindex="0" data-form="yama" data-lemma="">
+            <div class="result-top"><strong>MYS_05.xml · 217_MYS_05</strong><span class="badge info">高置信</span></div>
+            <div><span class="tag">NP › N</span></div>
+            <div><strong>yama</strong> <span class="muted">唯一 exact form</span></div>
+          </article>
+        </aside>
+
+        <section class="canvas">
+          <div id="view-text" class="doc-view">
+            <div class="context-banner"><div><strong>1_EN_01</strong> <span class="muted">外交式转写与注释层同步显示</span></div><span class="badge success">XML 已通过语法解析</span></div>
+            <div class="layer-controls" aria-label="显示层">
+              <label><input type="checkbox" checked>form</label><label><input type="checkbox" checked>lemma</label><label><input type="checkbox" checked>tag</label><label><input type="checkbox">kana</label><label><input type="checkbox">gloss</label><label><input type="checkbox">不确定性</label>
+            </div>
+            <div style="height:10px"></div>
+            <article class="sentence">
+              <div class="sentence-head"><div><strong>前句 · 0_EN_01</strong></div><button class="ghost">展开上下文</button></div>
+              <div class="tokens"><button class="token"><span class="token-form">...</span><span class="token-layer">上下文折叠</span></button></div>
+            </article>
+            <article class="sentence">
+              <div class="sentence-head"><div><strong>当前句 · 1_EN_01</strong> <span class="badge info">命中 1</span></div><div class="row"><button class="ghost">复制节点路径</button><button class="ghost">添加注释</button></div></div>
+              <div class="tokens">
+                <button class="token selected" data-token="ugonapar"><span class="token-form">ugonapar</span><span class="token-layer">VB-STM</span><span class="token-layer" style="color:var(--danger)">lemma: 缺失</span></button>
+                <button class="token"><span class="token-form">eru</span><span class="token-layer">VAX-STV-ADN</span><span class="token-layer">L000022</span></button>
+                <button class="token"><span class="token-form">kamu</span><span class="token-layer">N</span><span class="token-layer">L000040</span></button>
+                <button class="token"><span class="token-form">nusi</span><span class="token-layer">N</span><span class="token-layer">L000120</span></button>
+                <button class="token"><span class="token-form">papuri</span><span class="token-layer">N</span><span class="token-layer">L000921</span></button>
+              </div>
+            </article>
+            <article class="sentence">
+              <div class="sentence-head"><div><strong>后句 · 2_EN_01</strong></div><button class="ghost">展开上下文</button></div>
+              <div class="tokens"><button class="token"><span class="token-form">...</span><span class="token-layer">上下文折叠</span></button></div>
+            </article>
+          </div>
+
+          <div id="view-tree" class="doc-view hidden">
+            <div class="context-banner"><div><strong data-i18n="interactiveTree">可交互句法树</strong><div class="muted" data-i18n="treeHint">点击节点选择；折叠子树；颜色区分 clause、phrase 与 lexical node。结构命令始终生成可审阅补丁。</div></div><div class="row"><button data-i18n="addChild">新增子节点</button><button data-i18n="moveNode">移动节点</button><button class="danger" data-i18n="deleteNode">删除</button></div></div>
+            <div class="tree-canvas">
+              <ul class="rich-tree" role="tree" aria-label="1_EN_01 句法树">
+                <li>
+                  <div class="tree-node" role="treeitem" aria-expanded="true" tabindex="0"><button class="tree-toggle" aria-label="折叠 IP-MAT">▾</button><span class="node-kind clause">IP-MAT</span><span class="tree-attrs">root</span></div>
+                  <ul>
+                    <li>
+                      <div class="tree-node" role="treeitem" aria-expanded="true" tabindex="0"><button class="tree-toggle" aria-label="折叠 IP-ARG">▾</button><span class="node-kind clause">IP-ARG</span><span class="tree-attrs">function=ARG</span></div>
+                      <ul>
+                        <li>
+                          <div class="tree-node" role="treeitem" aria-expanded="true" tabindex="0"><button class="tree-toggle" aria-label="折叠 VB">▾</button><span class="node-kind phrase">VB</span><span class="tree-attrs">verbal group</span></div>
+                          <ul>
+                            <li><div class="tree-node selected issue" role="treeitem" aria-selected="true" tabindex="0" data-node-form="ugonapar"><span style="width:24px"></span><span class="node-kind word">VB-STM</span><span class="tree-attrs">form=ugonapar · lemma=∅</span><span class="badge warning" data-i18n="problem">问题</span></div></li>
+                            <li><div class="tree-node" role="treeitem" tabindex="0" data-node-form="eru"><span style="width:24px"></span><span class="node-kind word">VAX-STV-ADN</span><span class="tree-attrs">form=eru · lemma=L000022</span></div></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="tree-node" role="treeitem" aria-expanded="true" tabindex="0"><button class="tree-toggle" aria-label="折叠 C-NP">▾</button><span class="node-kind phrase">C-NP</span><span class="tree-attrs">index=1</span></div>
+                      <ul>
+                        <li><div class="tree-node" role="treeitem" tabindex="0" data-node-form="kamu"><span style="width:24px"></span><span class="node-kind word">N</span><span class="tree-attrs">form=kamu · lemma=L000040</span></div></li>
+                        <li><div class="tree-node" role="treeitem" tabindex="0" data-node-form="nusi"><span style="width:24px"></span><span class="node-kind word">N</span><span class="tree-attrs">form=nusi · lemma=L000120</span></div></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="view-source" class="doc-view hidden">
+            <div class="context-banner"><div><strong>XML 源码 · 双向同步</strong><div class="muted">结构视图和源码共享同一文档模型；保留命名空间、注释和未修改区的格式。</div></div><span class="badge info">光标同步到 VB-STM</span></div>
+            <pre class="source-editor mono" aria-label="XML 源码"><span class="xml-tag">&lt;block</span> <span class="xml-attr">id</span>=<span class="xml-value">"1_EN_01"</span><span class="xml-tag">&gt;</span>
+  <span class="xml-tag">&lt;IP-MAT&gt;</span>
+    <span class="xml-tag">&lt;IP-ARG&gt;</span>
+      <span class="xml-tag">&lt;VB&gt;</span>
+        <mark><span class="xml-tag">&lt;VB-STM</span> <span class="xml-attr">phon</span>=<span class="xml-value">"LOG"</span> <span class="xml-attr">form</span>=<span class="xml-value">"ugonapar"</span> <span class="xml-tag">/&gt;</span></mark>
+        <span class="xml-tag">&lt;VAX-STV-ADN</span> <span class="xml-attr">form</span>=<span class="xml-value">"eru"</span> <span class="xml-attr">lemma</span>=<span class="xml-value">"L000022"</span> <span class="xml-tag">/&gt;</span>
+      <span class="xml-tag">&lt;/VB&gt;</span>
+    <span class="xml-tag">&lt;/IP-ARG&gt;</span>
+  <span class="xml-tag">&lt;/IP-MAT&gt;</span>
+<span class="xml-tag">&lt;/block&gt;</span></pre>
+          </div>
+
+          <div id="view-diff" class="doc-view hidden">
+            <div class="context-banner"><div><strong>事务预览 · lemma-fix-2026-07-10-001</strong><div class="muted">语料修改与可能的词典修改作为一个原子事务验证和提交。</div></div><span class="badge warning">尚未批准</span></div>
+            <div class="diff-grid">
+              <div class="diff-col"><div class="diff-title">修改前</div><pre class="diff-code mono">&lt;VB-STM
+  phon="LOG"
+  form="ugonapar"
+/&gt;</pre></div>
+              <div class="diff-col"><div class="diff-title">修改后</div><pre class="diff-code mono">&lt;VB-STM
+  phon="LOG"
+  form="ugonapar"
+<span class="diff-add">  lemma="L000001"</span>
+/&gt;</pre></div>
+            </div>
+          </div>
+
+
+          <div id="view-facsimile" class="doc-view hidden">
+            <div class="context-banner"><div><strong data-i18n="facsimileAlignment">影印—转写对照</strong><div class="muted" data-i18n="facsimileHint">离线图像切片与节点坐标绑定；选择任一侧都会同步高亮。</div></div><span class="badge info">folio 12r · zone z17</span></div>
+            <div class="facsimile-layout">
+              <div>
+                <div class="facsimile-tools"><button>−</button><button>100%</button><button>＋</button><button data-i18n="rotate">旋转</button><button data-i18n="contrast">对比度</button><button data-i18n="openImageFile">打开本地图像</button></div>
+                <div class="facsimile-page" aria-label="写本影印占位图">
+                  <div class="manuscript-lines">宇古奈波流衣流加牟奴之波不利良毛呂毛呂乃古止波</div>
+                  <div class="image-hit" title="与 ugonapar 对齐的图像区域"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><strong data-i18n="alignmentInspector">对齐检查</strong><span class="badge warning" data-i18n="manualAlignment">人工对齐</span></div>
+                <div class="alignment-row"><span class="muted">zone</span><span class="mono">z17 · x=0.61 y=0.18 w=0.08 h=0.34</span></div>
+                <div class="alignment-row"><span class="muted">node</span><span class="mono">node:EN_01:1:17</span></div>
+                <div class="alignment-row"><span class="muted">form</span><strong>ugonapar</strong></div>
+                <div class="alignment-row"><span class="muted">reading</span><span>宇古奈波流 <span class="badge warning" data-i18n="uncertain">存疑</span></span></div>
+                <div class="field" style="margin-top:10px"><label for="imageNote" data-i18n="facsimileNote">影印核验说明</label><textarea id="imageNote">第三字可能为異体字；需与同卷其他例比较。</textarea></div>
+                <div class="row"><button class="primary" data-i18n="saveAlignmentDraft">保存对齐草稿</button><button data-i18n="markUnreadable">标记不可判读</button></div>
+              </div>
+            </div>
+          </div>        </section>
+      </div>
+    </main>
+
+    <aside class="inspector">
+      <div class="panel-head"><div class="panel-tabs" role="tablist" aria-label="检查器"><button class="active" data-inspector="node">节点</button><button data-inspector="lexicon">词典</button><button data-inspector="validation" data-i18n="validation">校验</button><button data-inspector="notes" data-i18n="notes">注释</button><button data-inspector="history" data-i18n="history">历史</button></div><button id="collapseInspector" class="icon ghost" aria-label="折叠检查器" title="折叠检查器">×</button></div>
+      <div class="panel-body">
+        <section id="inspector-node" class="inspector-view">
+          <div class="section">
+            <div class="section-title">选中节点</div>
+            <div class="meta-grid"><div class="key">稳定标识</div><div class="mono">node:EN_01:1:17</div><div class="key">XML 路径</div><div class="mono ellipsis">/block/IP-MAT/IP-ARG/VB/VB-STM[1]</div><div class="key">来源</div><div>人工转写 · rev 48</div></div>
+          </div>
+          <div class="section">
+            <div class="section-title">属性草稿</div>
+            <div class="field"><label for="nodeTag">tag</label><input id="nodeTag" value="VB-STM"></div>
+            <div class="field"><label for="nodeForm">form</label><input id="nodeForm" value="ugonapar"></div>
+            <div class="field"><label for="nodeLemma">lemma</label><input id="nodeLemma" placeholder="尚未设置"></div>
+            <div class="field"><label for="nodePhon">phon</label><select id="nodePhon"><option>LOG</option><option>PHON</option><option>UNKNOWN</option></select></div>
+            <div class="field"><label for="nodeNote">编辑说明（写入审计记录，不写入 XML）</label><textarea id="nodeNote" placeholder="为什么作此修改？"></textarea></div>
+            <div class="row"><button id="stageManual" class="primary">生成变更草稿</button><button>恢复节点</button></div>
+          </div>
+          <div class="section">
+            <div class="section-title">结构命令</div>
+            <div class="row"><button>新增子节点</button><button>移动到…</button><button class="danger">删除…</button></div>
+            <div class="muted" style="margin-top:6px">命令先检查语法规则，再产生可审阅的结构补丁。</div>
+          </div>
+        </section>
+
+        <section id="inspector-lexicon" class="inspector-view hidden">
+          <div class="section">
+            <div class="field"><label for="dictQuery">词典检索</label><input id="dictQuery" value="ugonapar"></div>
+            <div class="row"><button class="primary">检索</button><button>新建词条草稿</button></div>
+          </div>
+          <div class="section">
+            <div class="section-title">候选与证据</div>
+            <label class="candidate active"><input type="radio" name="candidate" checked><span><strong>L000001 · ugonapar</strong><span class="badge success" style="float:right">0.96</span><div class="evidence"><span>词形</span><strong>exact</strong><span>句法</span><strong>VB-STM → verb</strong><span>语料频次</span><strong>84</strong><span>来源</span><strong>dictionary rev 31</strong></div></span></label>
+            <div style="height:7px"></div>
+            <label class="candidate"><input type="radio" name="candidate"><span><strong>L000731 · sin</strong><span class="badge warning" style="float:right">0.42</span><div class="muted">弱匹配；需人工确认。</div></span></label>
+          </div>
+          <div class="section">
+            <div class="section-title">应用范围</div>
+            <div class="scope-box"><label class="row"><input type="radio" name="scope" checked style="width:auto;min-height:auto">仅当前节点</label><label class="row"><input type="radio" name="scope" style="width:auto;min-height:auto">当前检索结果中的同 form + 同 tag（3 项）</label><label class="row"><input type="radio" name="scope" style="width:auto;min-height:auto">自定义条件…</label></div>
+            <button id="stageCandidate" class="primary" style="width:100%;margin-top:8px">加入 ChangeSet</button>
+          </div>
+          <div class="section"><button style="width:100%">打开词条 L000001 的完整编辑器</button></div>
+        </section>
+
+        <section id="inspector-validation" class="inspector-view hidden">
+          <div class="section">
+            <div class="section-title">即时校验</div>
+            <div class="stack">
+              <div class="card"><div class="card-header"><strong>XML 语法</strong><span class="badge success">通过</span></div><div class="muted">文档可解析。</div></div>
+              <div class="card active"><div class="card-header"><strong>语料约束 OJ-LEMMA-001</strong><span class="badge warning">1 问题</span></div><div>有 form 的可注释节点应具有 lemma 或显式标记为待查。</div></div>
+              <div class="card"><div class="card-header"><strong>词典引用完整性</strong><span class="badge success">通过</span></div><div class="muted">当前文档中的 42 个 lemma 均存在。</div></div>
+            </div>
+          </div>
+          <div class="section"><button class="primary" style="width:100%">运行工作区完整校验</button></div>
+        </section>
+
+
+        <section id="inspector-notes" class="inspector-view hidden">
+          <div class="section">
+            <div class="section-title" data-i18n="uncertaintyAndComments">存疑标记与节点注释</div>
+            <div class="uncertainty-grid">
+              <label><input type="checkbox" checked><span data-i18n="uncertainReading">释读存疑</span></label>
+              <label><input type="checkbox"><span data-i18n="uncertainSegmentation">切分存疑</span></label>
+              <label><input type="checkbox"><span data-i18n="uncertainSyntax">句法存疑</span></label>
+              <label><input type="checkbox"><span data-i18n="needsSecondReview">需二次复核</span></label>
+            </div>
+          </div>
+          <div class="section">
+            <div class="field"><label for="scholarlyNote" data-i18n="nodeComment">节点级学术注释</label><textarea id="scholarlyNote">写本字形略损，暂从上下文释作 ugonapar。</textarea></div>
+            <div class="field"><label for="noteVisibility" data-i18n="noteStorage">保存位置</label><select id="noteVisibility"><option data-i18n="auditOnly">仅审计记录</option><option data-i18n="corpusAnnotation">写入语料注释节点</option><option data-i18n="projectNotebook">项目笔记本</option></select></div>
+            <button id="saveNote" class="primary" style="width:100%" data-i18n="saveNoteDraft">保存注释草稿</button>
+          </div>
+          <div class="section">
+            <div class="section-title" data-i18n="existingComments">已有讨论</div>
+            <div class="note-card"><strong>Lanxin · rev 48</strong><div>前一版本按 VB-STM 处理；尚未核对影印。</div><div class="muted">2026-07-08 · local audit log</div></div>
+          </div>
+        </section>
+
+        <section id="inspector-history" class="inspector-view hidden">
+          <div class="section">
+            <div class="section-title" data-i18n="nodeHistory">节点历史</div>
+            <div class="timeline">
+              <div class="timeline-item current"><strong data-i18n="currentDraft">当前草稿</strong><div class="muted">lemma → L000001 · 尚未提交</div></div>
+              <div class="timeline-item"><strong>rev 48</strong><div>form: ugonapar · lemma: ∅</div><div class="muted">Lanxin · 2026-07-08</div><button class="ghost" data-i18n="compare">比较</button></div>
+              <div class="timeline-item"><strong>rev 43</strong><div>form: ukonapar → ugonapar</div><div class="muted">import_normalizer@1.4.0</div><button class="ghost" data-i18n="restoreAsDraft">恢复为草稿</button></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <section class="bottom-panel">
+      <div class="panel-head"><div class="panel-tabs" role="tablist" aria-label="底部面板"><button class="active" data-bottom="changes">变更集 <span class="badge warning">3</span></button><button data-bottom="problems">问题 <span class="badge danger">1</span></button><button data-bottom="tasks" data-i18n="tasks">任务</button><button data-bottom="history" data-i18n="history">历史</button><button data-bottom="output" data-i18n="output">输出</button></div><button id="collapseBottom" class="icon ghost" aria-label="折叠底部面板" title="折叠底部面板">×</button></div>
+      <div id="bottom-changes" class="bottom-body bottom-view">
+        <div class="bottom-toolbar">
+          <div class="stage"><span>草稿 3</span><span>→</span><strong>已验证 2</strong><span>→</span><span>已批准 0</span><span>→</span><span>已提交 0</span></div>
+          <div class="row"><button id="validateSelected">验证</button><button id="approveSelected">批准</button><button id="commitChanges" class="primary" disabled>提交事务</button></div>
+        </div>
+        <div class="change-table-wrap">
+          <table aria-label="变更列表">
+            <thead><tr><th><input id="selectAllChanges" type="checkbox" aria-label="选择全部变更"></th><th>事务 / 目标</th><th>操作</th><th>修改前</th><th>修改后</th><th>来源</th><th>状态</th></tr></thead>
+            <tbody id="changeRows">
+              <tr class="selected" data-status="validated"><td><input type="checkbox" checked aria-label="选择第一项"></td><td><strong>lemma-fix-001</strong><div class="muted mono">EN_01.xml · node:17</div></td><td>设置 @lemma</td><td class="mono">—</td><td class="mono">L000001</td><td>lemmas_processor 2.1.0</td><td><span class="badge success status-badge">已验证</span></td></tr>
+              <tr data-status="draft"><td><input type="checkbox" aria-label="选择第二项"></td><td><strong>compound-009</strong><div class="muted mono">EN_01.xml · node:31</div></td><td>设置 compound lemma</td><td class="mono">—</td><td class="mono">L050001</td><td>compound_processor 1.8.2</td><td><span class="badge warning status-badge">草稿</span></td></tr>
+              <tr data-status="validated"><td><input type="checkbox" aria-label="选择第三项"></td><td><strong>compound-009</strong><div class="muted mono">dictionary.xml · L050001</div></td><td>新增 .COMPOUND</td><td class="mono">—</td><td class="mono">kamu+nusi</td><td>compound_processor 1.8.2</td><td><span class="badge success status-badge">已验证</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="bottom-problems" class="panel-body bottom-view hidden">
+        <div class="problem-toolbar"><button class="active">全部 4</button><button>错误 1</button><button>警告 2</button><button>信息 1</button><select style="width:auto"><option>按文件分组</option><option>按规则分组</option></select></div>
+        <div class="problem-item"><span class="problem-icon error">×</span><div><strong>XML-SCHEMA-014 · 非法父子关系</strong><div><span class="mono">EN_02.xml / 14_EN_02 / C-NP / IP-MAT</span></div><div class="muted">IP-MAT 不能直接作为 C-NP 的子节点。</div></div><div><button class="ghost" data-i18n="goTo">转到</button></div></div>
+        <div class="problem-item"><span class="problem-icon warning">!</span><div><strong>OJ-LEMMA-001 · 缺少 lemma</strong><div><span class="mono">EN_01.xml / 1_EN_01 / VB-STM</span></div><div class="muted">form="ugonapar" 的可注释节点缺少 lemma。</div></div><div><button class="ghost">快速修复</button></div></div>
+        <div class="problem-item"><span class="problem-icon warning">!</span><div><strong>DICT-REF-003 · 词典引用过期</strong><div><span class="mono">SM_02.xml / 11_SM_02 / N</span></div><div class="muted">L000731 已在 dictionary rev 32 中合并到 L000001。</div></div><div><button class="ghost">查看迁移</button></div></div>
+        <div class="problem-item"><span class="problem-icon info">i</span><div><strong>FACSIMILE-ALIGN-002 · 对齐待复核</strong><div><span class="mono">folio 12r / zone z17</span></div><div class="muted">影印区域由人工框选，尚未二次确认。</div></div><div><button class="ghost">打开影印</button></div></div>
+      </div>
+      <div id="bottom-tasks" class="panel-body bottom-view hidden">
+        <div id="activeTaskCard" class="card"><div class="card-header"><strong>lemmas_processor@2.1.0</strong><span id="taskStateBadge" class="badge success" data-i18n="completed">完成</span></div><div class="muted">scope=review-selection · confidence≥0.85 · deterministic=true</div><div class="muted">扫描 2 个文件、2,384 节点；生成 3 个 diagnostics 与 1 个 ChangeSet；耗时 420ms。</div></div>
+        <div class="card" style="margin-top:8px"><div class="card-header"><strong>legacy_python_audit</strong><span class="badge warning" data-i18n="blocked">未运行</span></div><div class="muted" data-i18n="permissionReason">需要 spawnProcess 权限，且网页宿主不支持本地 Python。</div></div>
+      </div>
+      <div id="bottom-history" class="panel-body bottom-view hidden">
+        <div class="timeline">
+          <div class="timeline-item current"><strong>Draft session #2026-07-10-03</strong><div>4 staged changes · autosaved locally</div><div class="muted">base revision: corpus@a813c2f</div><div class="row"><button data-i18n="openDiff">打开 diff</button><button data-i18n="discardSession">丢弃会话</button></div></div>
+          <div class="timeline-item"><strong>Commit cset-0087</strong><div>12 XML changes + 2 dictionary changes</div><div class="muted">Lanxin · 2026-07-09 16:42 · validation passed</div><div class="row"><button data-i18n="inspect">查看</button><button data-i18n="revertAsNewChangeSet">反向生成新 ChangeSet</button></div></div>
+          <div class="timeline-item"><strong>External file change detected</strong><div class="muted">EN_02.xml changed on disk after the current draft was created.</div><div class="row"><button data-i18n="compareWithDisk">与磁盘比较</button><button data-i18n="reloadAndRebase">重新载入并 rebase</button></div></div>
+        </div>
+      </div>
+      <div id="bottom-output" class="panel-body bottom-view hidden"><pre class="mono">[index] Workspace index ready
+[validator] 1 warning, 0 errors
+[script] lemmas_processor@2.1.0 produced ChangeSet lemma-fix-001</pre></div>
+    </section>
+  </div>
+
+  <footer class="statusbar"><span>ONCOJ schema 0.9</span><span>UTF-8</span><span data-i18n="indexReady">索引：就绪 · 12,842 blocks · virtualized</span><span>XML：1 error / 2 warnings</span><span class="badge warning" style="background:rgba(255,255,255,.16);color:white" data-i18n="externalConflict">1 个外部改动冲突</span><span class="spacer"></span><span>当前节点 node:EN_01:1:17</span><span>草稿未写入磁盘</span></footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="palette" class="palette" role="dialog" aria-modal="true" aria-label="命令中心">
+    <div class="palette-box">
+      <input id="paletteInput" placeholder="输入命令、节点 ID、lemma 或查询…" autocomplete="off">
+      <div id="commandList">
+        <div class="command active" data-command="candidate"><span><strong>应用首选 lemma 候选</strong><div class="muted">为当前节点生成 ChangeSet</div></span><kbd>Alt Enter</kbd></div>
+        <div class="command" data-command="validate"><span><strong>验证当前变更集</strong><div class="muted">运行 XML、语料规则和词典引用检查</div></span><kbd>Ctrl Shift V</kbd></div>
+        <div class="command" data-command="search"><span><strong>运行保存查询：未标 lemma 的词形</strong></span><kbd>Ctrl Enter</kbd></div>
+        <div class="command" data-command="tree"><span><strong>切换到句法树</strong></span><kbd>Alt 2</kbd></div>
+        <div class="command" data-command="open-dict"><span><strong>打开词条 L000001</strong></span><kbd>F12</kbd></div>
+        <div class="command" data-command="facsimile"><span><strong data-i18n="openFacsimile">打开当前节点的影印对照</strong></span><kbd>Alt 5</kbd></div>
+        <div class="command" data-command="problems"><span><strong data-i18n="showProblems">显示 Problems 面板</strong></span><kbd>Ctrl Shift M</kbd></div>
+        <div class="command" data-command="history"><span><strong data-i18n="showHistory">显示版本历史</strong></span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const qs = (s, root = document) => root.querySelector(s);
+    const qsa = (s, root = document) => [...root.querySelectorAll(s)];
+
+    const sideTitles = { files: '语料导航器', search: '检索与查询', tasks: '脚本与工具', input: '新建注释' };
+    function setSideSection(name) {
+      qsa('.side-section').forEach(el => el.classList.toggle('hidden', el.id !== `section-${name}`));
+      qsa('.rail [data-section]').forEach(b => b.classList.toggle('active', b.dataset.section === name));
+      qs('#sidebarTitle').textContent = sideTitles[name];
+      document.body.classList.remove('sidebar-collapsed');
+    }
+    qsa('.rail [data-section]').forEach(b => b.addEventListener('click', () => setSideSection(b.dataset.section)));
+
+    function setDocView(name) {
+      qsa('.doc-view').forEach(el => el.classList.toggle('hidden', el.id !== `view-${name}`));
+      qsa('[data-view]').forEach(b => {
+        const active = b.dataset.view === name;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+    }
+    qsa('[data-view]').forEach(b => b.addEventListener('click', () => setDocView(b.dataset.view)));
+
+    function setInspector(name) {
+      qsa('.inspector-view').forEach(el => el.classList.toggle('hidden', el.id !== `inspector-${name}`));
+      qsa('[data-inspector]').forEach(b => b.classList.toggle('active', b.dataset.inspector === name));
+    }
+    qsa('[data-inspector]').forEach(b => b.addEventListener('click', () => setInspector(b.dataset.inspector)));
+
+    function setBottom(name) {
+      qsa('.bottom-view').forEach(el => el.classList.toggle('hidden', el.id !== `bottom-${name}`));
+      qsa('[data-bottom]').forEach(b => b.classList.toggle('active', b.dataset.bottom === name));
+      document.body.classList.remove('bottom-collapsed');
+    }
+    qsa('[data-bottom]').forEach(b => b.addEventListener('click', () => setBottom(b.dataset.bottom)));
+
+    qs('#toggleSidebar').addEventListener('click', () => document.body.classList.toggle('sidebar-collapsed'));
+    qs('#collapseSidebar').addEventListener('click', () => document.body.classList.add('sidebar-collapsed'));
+    qs('#toggleInspector').addEventListener('click', () => document.body.classList.toggle('inspector-collapsed'));
+    qs('#collapseInspector').addEventListener('click', () => document.body.classList.add('inspector-collapsed'));
+    qs('#toggleBottom').addEventListener('click', () => document.body.classList.toggle('bottom-collapsed'));
+    qs('#collapseBottom').addEventListener('click', () => document.body.classList.add('bottom-collapsed'));
+
+    qs('#hostPreview').addEventListener('change', e => document.body.classList.toggle('host-vscode', e.target.value === 'vscode'));
+    qs('#themeToggle').addEventListener('click', () => document.body.classList.toggle('dark'));
+
+    qs('#toggleResults').addEventListener('click', e => {
+      const pane = qs('.result-pane');
+      pane.classList.toggle('hidden');
+      qs('.editor-body').style.gridTemplateColumns = pane.classList.contains('hidden') ? '1fr' : '';
+      e.currentTarget.textContent = pane.classList.contains('hidden') ? '显示结果列表' : '隐藏结果列表';
+    });
+
+    const results = qsa('.result-item');
+    let currentResult = 0;
+    function selectResult(index) {
+      currentResult = (index + results.length) % results.length;
+      results.forEach((r, i) => r.classList.toggle('selected', i === currentResult));
+      results[currentResult].scrollIntoView({ block: 'nearest' });
+      const form = results[currentResult].dataset.form;
+      qs('#nodeForm').value = form;
+      qs('#dictQuery').value = form;
+      qsa('.token').forEach(t => t.classList.toggle('selected', t.dataset.token === form));
+    }
+    results.forEach((r, i) => r.addEventListener('click', () => selectResult(i)));
+    qs('#previousHit').addEventListener('click', () => selectResult(currentResult - 1));
+    qs('#nextHit').addEventListener('click', () => selectResult(currentResult + 1));
+
+    qsa('.token').forEach(t => t.addEventListener('click', () => {
+      qsa('.token').forEach(x => x.classList.remove('selected'));
+      t.classList.add('selected');
+      if (t.querySelector('.token-form')) qs('#nodeForm').value = t.querySelector('.token-form').textContent;
+    }));
+
+    const palette = qs('#palette');
+    function openPalette() { palette.classList.add('open'); qs('#paletteInput').focus(); }
+    function closePalette() { palette.classList.remove('open'); }
+    qs('#commandButton').addEventListener('click', openPalette);
+    palette.addEventListener('click', e => { if (e.target === palette) closePalette(); });
+    document.addEventListener('keydown', e => {
+      const mod = e.ctrlKey || e.metaKey;
+      if (mod && e.key.toLowerCase() === 'k') { e.preventDefault(); openPalette(); }
+      if (e.key === 'Escape') closePalette();
+      if (e.altKey && e.key === '1') setDocView('text');
+      if (e.altKey && e.key === '2') setDocView('tree');
+      if (e.altKey && e.key === '3') setDocView('source');
+      if (e.altKey && e.key === '4') setDocView('diff');
+    });
+    qs('#paletteInput').addEventListener('input', e => {
+      const value = e.target.value.toLowerCase();
+      qsa('.command').forEach(c => c.classList.toggle('hidden', !c.textContent.toLowerCase().includes(value)));
+    });
+    qsa('.command').forEach(c => c.addEventListener('click', () => {
+      if (c.dataset.command === 'tree') setDocView('tree');
+      if (c.dataset.command === 'search') setSideSection('search');
+      if (c.dataset.command === 'open-dict') setInspector('lexicon');
+      if (c.dataset.command === 'validate') setBottom('changes');
+      if (c.dataset.command === 'candidate') { setInspector('lexicon'); stageChange('L000001', '命令中心'); }
+      closePalette();
+    }));
+
+    function updateCommitState() {
+      const selected = qsa('#changeRows input[type="checkbox"]:checked').map(cb => cb.closest('tr'));
+      qs('#commitChanges').disabled = selected.length === 0 || selected.some(row => row.dataset.status !== 'approved');
+    }
+    qsa('#changeRows input[type="checkbox"]').forEach(cb => cb.addEventListener('change', updateCommitState));
+    qs('#selectAllChanges').addEventListener('change', e => {
+      qsa('#changeRows input[type="checkbox"]').forEach(cb => cb.checked = e.target.checked);
+      updateCommitState();
+    });
+    qs('#validateSelected').addEventListener('click', () => {
+      qsa('#changeRows input[type="checkbox"]:checked').forEach(cb => {
+        const row = cb.closest('tr'); row.dataset.status = 'validated';
+        const badge = qs('.status-badge', row); badge.className = 'badge success status-badge'; badge.textContent = '已验证';
+      });
+      updateCommitState();
+    });
+    qs('#approveSelected').addEventListener('click', () => {
+      qsa('#changeRows input[type="checkbox"]:checked').forEach(cb => {
+        const row = cb.closest('tr');
+        if (row.dataset.status === 'validated') {
+          row.dataset.status = 'approved';
+          const badge = qs('.status-badge', row); badge.className = 'badge info status-badge'; badge.textContent = '已批准';
+        }
+      });
+      updateCommitState();
+    });
+    qs('#commitChanges').addEventListener('click', () => {
+      qsa('#changeRows input[type="checkbox"]:checked').forEach(cb => {
+        const row = cb.closest('tr'); row.dataset.status = 'committed';
+        const badge = qs('.status-badge', row); badge.className = 'badge success status-badge'; badge.textContent = '已提交';
+        cb.checked = false;
+      });
+      updateCommitState();
+    });
+
+    function stageChange(value, source) {
+      const tr = document.createElement('tr');
+      tr.dataset.status = 'draft';
+      tr.innerHTML = `<td><input type="checkbox" checked aria-label="选择新变更"></td><td><strong>manual-${Date.now().toString().slice(-4)}</strong><div class="muted mono">EN_01.xml · node:17</div></td><td>设置 @lemma</td><td class="mono">—</td><td class="mono">${value || '待查'}</td><td>${source}</td><td><span class="badge warning status-badge">草稿</span></td>`;
+      qs('#changeRows').prepend(tr);
+      qs('input', tr).addEventListener('change', updateCommitState);
+      setBottom('changes');
+      updateCommitState();
+    }
+    qs('#stageCandidate').addEventListener('click', () => stageChange('L000001', '人工选择候选'));
+    qs('#stageManual').addEventListener('click', () => stageChange(qs('#nodeLemma').value || '待查', '人工编辑'));
+    qs('#runSearch').addEventListener('click', () => { setDocView('text'); document.body.classList.remove('sidebar-collapsed'); });
+    qs('#runTask').addEventListener('click', () => { setBottom('tasks'); qs('#bottom-tasks .card').classList.add('active'); });
+    qs('#saveDraft').addEventListener('click', e => { e.currentTarget.textContent = '草稿已保存'; setTimeout(() => e.currentTarget.textContent = '保存草稿', 1200); });
+
+
+    // v5: document tabs and synchronized document state
+    qsa('.doc-tab[data-doc]').forEach(tab => tab.addEventListener('click', e => {
+      if (e.target.classList.contains('close')) {
+        e.stopPropagation();
+        tab.remove();
+        return;
+      }
+      qsa('.doc-tab[data-doc]').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      if (tab.dataset.doc === 'facsimile') setDocView('facsimile');
+      if (tab.dataset.doc === 'dictionary.xml') setInspector('lexicon');
+    }));
+
+    qsa('.tree-toggle').forEach(btn => btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const li = btn.closest('li');
+      li.classList.toggle('collapsed');
+      const expanded = !li.classList.contains('collapsed');
+      btn.textContent = expanded ? '▾' : '▸';
+      btn.parentElement.setAttribute('aria-expanded', String(expanded));
+    }));
+    qsa('.tree-node').forEach(node => node.addEventListener('click', () => {
+      qsa('.tree-node').forEach(n => { n.classList.remove('selected'); n.setAttribute('aria-selected', 'false'); });
+      node.classList.add('selected');
+      node.setAttribute('aria-selected', 'true');
+      const form = node.dataset.nodeForm;
+      if (form) {
+        qs('#nodeForm').value = form;
+        qs('#dictQuery').value = form;
+      }
+    }));
+
+    // v5: script registry, configuration, progress, cancellation
+    qsa('#scriptRegistry .script-card').forEach(card => card.addEventListener('click', () => {
+      qsa('#scriptRegistry .script-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const id = card.dataset.script;
+      const manifests = {
+        lemmas: '{\n  "id": "oncoj.lemmasProcessor",\n  "version": "2.1.0",\n  "runtime": "worker",\n  "permissions": ["readCorpus", "readDictionary"],\n  "output": ["diagnostics", "changeSet"],\n  "deterministic": true\n}',
+        compound: '{\n  "id": "oncoj.compoundProcessor",\n  "version": "1.8.2",\n  "runtime": "worker",\n  "permissions": ["readCorpus", "readDictionary", "proposeDictionary"],\n  "output": ["diagnostics", "linkedChangeSet"]\n}',
+        legacy: '{\n  "id": "oncoj.legacyAudit",\n  "version": "0.7.0",\n  "runtime": "python",\n  "permissions": ["readCorpus", "spawnProcess"],\n  "host": ["vscode-desktop"]\n}'
+      };
+      qs('#manifestPreview').textContent = manifests[id];
+    }));
+    qs('#confidence').addEventListener('input', e => qs('#confidenceValue').textContent = (e.target.value / 100).toFixed(2));
+    let taskTimer = null;
+    qs('#runTask').replaceWith(qs('#runTask').cloneNode(true));
+    qs('#runTask').addEventListener('click', () => {
+      const active = qs('#scriptRegistry .script-card.active');
+      if (active?.dataset.script === 'legacy' && qs('#hostPreview').value === 'web') {
+        showToast('该脚本需要 VS Code 桌面宿主和本地 Python，网页离线模式无法运行。');
+        return;
+      }
+      setBottom('tasks');
+      qs('#taskProgress').classList.remove('hidden');
+      qs('#runTask').disabled = true;
+      qs('#cancelTask').disabled = false;
+      qs('#taskStateBadge').className = 'badge info';
+      qs('#taskStateBadge').textContent = '运行中';
+      let value = 0;
+      clearInterval(taskTimer);
+      taskTimer = setInterval(() => {
+        value += 7 + Math.random() * 12;
+        if (value >= 100) {
+          value = 100;
+          clearInterval(taskTimer);
+          qs('#runTask').disabled = false;
+          qs('#cancelTask').disabled = true;
+          qs('#taskStateBadge').className = 'badge success';
+          qs('#taskStateBadge').textContent = '完成';
+          if (!qs('#dryRun').checked) stageChange('L000001', 'lemmas_processor@2.1.0');
+          showToast('任务完成：生成 3 个 diagnostics 和 1 个 ChangeSet。');
+        }
+        qs('#taskProgressBar').value = value;
+        qs('#taskProgressText').textContent = `${Math.round(value)}% · ${Math.round(2384 * value / 100)}/2384 nodes`;
+      }, 180);
+    });
+    qs('#cancelTask').addEventListener('click', () => {
+      clearInterval(taskTimer);
+      qs('#runTask').disabled = false;
+      qs('#cancelTask').disabled = true;
+      qs('#taskStateBadge').className = 'badge warning';
+      qs('#taskStateBadge').textContent = '已取消';
+      showToast('任务已取消；未生成变更。');
+    });
+    qs('#addScriptButton').addEventListener('click', () => showToast('原型：真实版本将打开本地 manifest.json 或扩展注册向导。'));
+
+    // v5: scoped undo/redo for draft operations
+    const draftHistory = [];
+    const redoHistory = [];
+    const originalStageChange = stageChange;
+    stageChange = function(value, source) {
+      originalStageChange(value, source);
+      const row = qs('#changeRows tr');
+      draftHistory.push({ html: row.outerHTML, label: `${source}: lemma=${value}` });
+      redoHistory.length = 0;
+      updateUndoRedo();
+    };
+    function updateUndoRedo() {
+      qs('#undoButton').disabled = draftHistory.length === 0;
+      qs('#redoButton').disabled = redoHistory.length === 0;
+    }
+    function undoDraft() {
+      if (!draftHistory.length) return;
+      const action = draftHistory.pop();
+      const first = qs('#changeRows tr');
+      if (first) first.remove();
+      redoHistory.push(action);
+      updateUndoRedo();
+      showToast(`已撤销草稿操作：${action.label}`);
+    }
+    function redoDraft() {
+      if (!redoHistory.length) return;
+      const action = redoHistory.pop();
+      qs('#changeRows').insertAdjacentHTML('afterbegin', action.html);
+      const cb = qs('#changeRows tr input[type="checkbox"]');
+      cb?.addEventListener('change', updateCommitState);
+      draftHistory.push(action);
+      updateUndoRedo();
+      showToast(`已重做草稿操作：${action.label}`);
+    }
+    qs('#undoButton').addEventListener('click', undoDraft);
+    qs('#redoButton').addEventListener('click', redoDraft);
+
+    function showToast(message) {
+      const toast = qs('#toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+    qs('#saveNote').addEventListener('click', () => showToast('节点注释已保存到草稿审计记录。'));
+    qs('#newDocument').addEventListener('click', () => { setSideSection('input'); showToast('请选择新建草稿或打开本地 XML。'); });
+
+    // v5: command and keyboard extensions
+    document.addEventListener('keydown', e => {
+      const mod = e.ctrlKey || e.metaKey;
+      if (mod && !e.shiftKey && e.key.toLowerCase() === 'z') { e.preventDefault(); undoDraft(); }
+      if ((mod && e.key.toLowerCase() === 'y') || (mod && e.shiftKey && e.key.toLowerCase() === 'z')) { e.preventDefault(); redoDraft(); }
+      if (e.altKey && e.key === '5') setDocView('facsimile');
+      if (mod && e.shiftKey && e.key.toLowerCase() === 'm') { e.preventDefault(); setBottom('problems'); }
+    });
+    qsa('.command').forEach(c => c.addEventListener('click', () => {
+      if (c.dataset.command === 'facsimile') setDocView('facsimile');
+      if (c.dataset.command === 'problems') setBottom('problems');
+      if (c.dataset.command === 'history') setBottom('history');
+    }));
+
+    // v5: interface localization. Corpus data, IDs and user-authored notes remain unchanged.
+    const i18n = {
+      zh: {
+        commandCenter: '命令中心', registeredTools: '已注册工具', addScript: '添加脚本', deterministic: '确定性', desktopOnly: '仅 VS Code 桌面', untrusted: '需授权',
+        lemmaScriptDesc: '生成 lemma 候选；输出标准 ChangeSet，不直接写文件。', compoundScriptDesc: '检测复合词结构，并生成语料与词典的关联事务。', legacyScriptDesc: '依赖本地 Python；网页宿主会明确显示不兼容原因。',
+        taskConfiguration: '任务配置', runScope: '运行范围', currentReviewScope: '当前审阅范围（2 个文本）', currentFile: '当前文件', currentSentence: '当前句', wholeWorkspace: '整个工作区', confidenceThreshold: '候选置信度下限', proposeUnknownEntries: '为未知词形建议新词典项', dryRun: '仅预览（不生成待审变更）', noDiskWrite: '无直接写盘权限', runTask: '运行任务', cancel: '取消', backgroundWorker: '本地后台工作线程', manifestAndReproducibility: '清单与可复现信息',
+        facsimilePage: '影印页 12', diffView: '变更对比', facsimile: '影印对照', interactiveTree: '可交互句法树', treeHint: '点击节点选择；折叠子树；颜色区分 clause、phrase 与 lexical node。结构命令始终生成可审阅补丁。', addChild: '新增子节点', moveNode: '移动节点', deleteNode: '删除', problem: '问题',
+        facsimileAlignment: '影印—转写对照', facsimileHint: '离线图像切片与节点坐标绑定；选择任一侧都会同步高亮。', rotate: '旋转', contrast: '对比度', openImageFile: '打开本地图像', alignmentInspector: '对齐检查', manualAlignment: '人工对齐', uncertain: '存疑', facsimileNote: '影印核验说明', saveAlignmentDraft: '保存对齐草稿', markUnreadable: '标记不可判读',
+        validation: '校验', notes: '注释', history: '历史', uncertaintyAndComments: '存疑标记与节点注释', uncertainReading: '释读存疑', uncertainSegmentation: '切分存疑', uncertainSyntax: '句法存疑', needsSecondReview: '需二次复核', nodeComment: '节点级学术注释', noteStorage: '保存位置', auditOnly: '仅审计记录', corpusAnnotation: '写入语料注释节点', projectNotebook: '项目笔记本', saveNoteDraft: '保存注释草稿', existingComments: '已有讨论', nodeHistory: '节点历史', currentDraft: '当前草稿', compare: '比较', restoreAsDraft: '恢复为草稿',
+        tasks: '任务', output: '输出', completed: '完成', blocked: '未运行', permissionReason: '需要 spawnProcess 权限，且网页宿主不支持本地 Python。', goTo: '转到', openDiff: '打开 diff', discardSession: '丢弃会话', inspect: '查看', revertAsNewChangeSet: '反向生成新 ChangeSet', compareWithDisk: '与磁盘比较', reloadAndRebase: '重新载入并 rebase', indexReady: '索引：就绪 · 12,842 blocks · virtualized', externalConflict: '1 个外部改动冲突', openFacsimile: '打开当前节点的影印对照', showProblems: '显示 Problems 面板', showHistory: '显示版本历史'
+      },
+      en: {
+        commandCenter: 'Command Center', registeredTools: 'Registered tools', addScript: 'Add script', deterministic: 'Deterministic', desktopOnly: 'VS Code desktop only', untrusted: 'Permission required',
+        lemmaScriptDesc: 'Generate lemma candidates and return a standard ChangeSet without writing files.', compoundScriptDesc: 'Detect compounds and generate linked corpus–dictionary transactions.', legacyScriptDesc: 'Requires local Python; the web host explains incompatibility instead of failing silently.',
+        taskConfiguration: 'Task configuration', runScope: 'Run scope', currentReviewScope: 'Current review scope (2 texts)', currentFile: 'Current file', currentSentence: 'Current sentence', wholeWorkspace: 'Whole workspace', confidenceThreshold: 'Minimum candidate confidence', proposeUnknownEntries: 'Propose dictionary entries for unknown forms', dryRun: 'Preview only (do not stage changes)', noDiskWrite: 'No direct disk-write permission', runTask: 'Run task', cancel: 'Cancel', backgroundWorker: 'Local background worker', manifestAndReproducibility: 'Manifest and reproducibility',
+        facsimilePage: 'Facsimile page 12', diffView: 'Diff', facsimile: 'Facsimile', interactiveTree: 'Interactive syntax tree', treeHint: 'Select nodes, collapse subtrees, and distinguish clause, phrase, and lexical nodes by color. Structural commands always create reviewable patches.', addChild: 'Add child', moveNode: 'Move node', deleteNode: 'Delete', problem: 'Problem',
+        facsimileAlignment: 'Facsimile–transcription alignment', facsimileHint: 'Offline image regions are linked to stable node coordinates; selection is synchronized on both sides.', rotate: 'Rotate', contrast: 'Contrast', openImageFile: 'Open local image', alignmentInspector: 'Alignment inspector', manualAlignment: 'Manual alignment', uncertain: 'Uncertain', facsimileNote: 'Facsimile verification note', saveAlignmentDraft: 'Save alignment draft', markUnreadable: 'Mark unreadable',
+        validation: 'Validation', notes: 'Notes', history: 'History', uncertaintyAndComments: 'Uncertainty and node comments', uncertainReading: 'Reading uncertain', uncertainSegmentation: 'Segmentation uncertain', uncertainSyntax: 'Syntax uncertain', needsSecondReview: 'Second review required', nodeComment: 'Scholarly node comment', noteStorage: 'Storage', auditOnly: 'Audit record only', corpusAnnotation: 'Write corpus annotation node', projectNotebook: 'Project notebook', saveNoteDraft: 'Save note draft', existingComments: 'Existing discussion', nodeHistory: 'Node history', currentDraft: 'Current draft', compare: 'Compare', restoreAsDraft: 'Restore as draft',
+        tasks: 'Tasks', output: 'Output', completed: 'Completed', blocked: 'Not run', permissionReason: 'Requires spawnProcess permission and local Python is unavailable in the web host.', goTo: 'Go to', openDiff: 'Open diff', discardSession: 'Discard session', inspect: 'Inspect', revertAsNewChangeSet: 'Create inverse ChangeSet', compareWithDisk: 'Compare with disk', reloadAndRebase: 'Reload and rebase', indexReady: 'Index ready · 12,842 blocks · virtualized', externalConflict: '1 external-change conflict', openFacsimile: 'Open facsimile for current node', showProblems: 'Show Problems panel', showHistory: 'Show version history'
+      },
+      ja: {
+        commandCenter: 'コマンドセンター', registeredTools: '登録済みツール', addScript: 'スクリプト追加', deterministic: '決定的', desktopOnly: 'VS Code デスクトップのみ', untrusted: '権限が必要',
+        lemmaScriptDesc: 'lemma 候補を生成し、ファイルへ直接書き込まず標準 ChangeSet を返します。', compoundScriptDesc: '複合語構造を検出し、コーパスと辞書を結ぶトランザクションを生成します。', legacyScriptDesc: 'ローカル Python が必要です。Web 宿主では非対応理由を明示します。',
+        taskConfiguration: 'タスク設定', runScope: '実行範囲', currentReviewScope: '現在の確認範囲（2 テキスト）', currentFile: '現在のファイル', currentSentence: '現在の文', wholeWorkspace: 'ワークスペース全体', confidenceThreshold: '候補信頼度の下限', proposeUnknownEntries: '未知語形の辞書項目を提案', dryRun: 'プレビューのみ（変更を追加しない）', noDiskWrite: '直接書き込み権限なし', runTask: 'タスク実行', cancel: 'キャンセル', backgroundWorker: 'ローカルバックグラウンドワーカー', manifestAndReproducibility: 'マニフェストと再現性',
+        facsimilePage: '影印 12頁', diffView: '差分', facsimile: '影印対照', interactiveTree: '操作可能な統語木', treeHint: 'ノード選択、部分木の折りたたみ、節・句・語彙ノードの色分けに対応します。構造操作は必ず確認可能なパッチを生成します。', addChild: '子ノード追加', moveNode: 'ノード移動', deleteNode: '削除', problem: '問題',
+        facsimileAlignment: '影印—転写対照', facsimileHint: 'オフライン画像領域と安定ノード座標を結び、両側の選択を同期します。', rotate: '回転', contrast: 'コントラスト', openImageFile: 'ローカル画像を開く', alignmentInspector: 'アラインメント確認', manualAlignment: '手動対応', uncertain: '要検討', facsimileNote: '影印確認メモ', saveAlignmentDraft: '対応草稿を保存', markUnreadable: '判読不能にする',
+        validation: '検証', notes: '注釈', history: '履歴', uncertaintyAndComments: '不確実性とノード注釈', uncertainReading: '読み不確実', uncertainSegmentation: '分割不確実', uncertainSyntax: '統語不確実', needsSecondReview: '再確認が必要', nodeComment: 'ノード学術注釈', noteStorage: '保存先', auditOnly: '監査記録のみ', corpusAnnotation: 'コーパス注釈ノードへ書く', projectNotebook: 'プロジェクトノート', saveNoteDraft: '注釈草稿を保存', existingComments: '既存コメント', nodeHistory: 'ノード履歴', currentDraft: '現在の草稿', compare: '比較', restoreAsDraft: '草稿として復元',
+        tasks: 'タスク', output: '出力', completed: '完了', blocked: '未実行', permissionReason: 'spawnProcess 権限が必要で、Web 宿主ではローカル Python を利用できません。', goTo: '移動', openDiff: '差分を開く', discardSession: 'セッション破棄', inspect: '表示', revertAsNewChangeSet: '逆 ChangeSet を作成', compareWithDisk: 'ディスクと比較', reloadAndRebase: '再読込して rebase', indexReady: '索引準備完了 · 12,842 blocks · 仮想化', externalConflict: '外部変更競合 1 件', openFacsimile: '現在ノードの影印を開く', showProblems: 'Problems パネルを表示', showHistory: '版履歴を表示'
+      }
+    };
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      qsa('[data-i18n]').forEach(el => {
+        const text = i18n[lang]?.[el.dataset.i18n];
+        if (text) {
+          const kbd = el.querySelector('kbd');
+          el.childNodes.forEach(node => { if (node.nodeType === Node.TEXT_NODE) node.textContent = ''; });
+          if (kbd) el.insertBefore(document.createTextNode(text + ' '), kbd);
+          else el.textContent = text;
+        }
+      });
+      localStorage.setItem('oncoj-language', lang);
+    }
+    qs('#languageSelect').addEventListener('change', e => applyLanguage(e.target.value));
+    const savedLanguage = localStorage.getItem('oncoj-language') || 'zh';
+    qs('#languageSelect').value = savedLanguage;
+    applyLanguage(savedLanguage);
+  </script>
+</body>
+</html>

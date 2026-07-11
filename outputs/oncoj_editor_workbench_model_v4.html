@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONCOJ XML Editor Workbench — Model v4</title>
+<style>
+  :root{
+    --left:320px; --right:340px; --bottom:220px;
+    --bg:#f2f5f5; --panel:#fff; --soft:#f7f9f9; --rail:#1e2b30;
+    --line:#d8e1e3; --line2:#b7c4c7; --text:#1d2528; --muted:#616f74;
+    --accent:#0a6b5c; --accent-soft:#e7f5f1; --blue:#215fc9; --blue-soft:#e9f0ff;
+    --warn:#93600a; --warn-soft:#fff2d8; --danger:#b3261e; --danger-soft:#fdeceb;
+    --ok:#1b7a43; --ok-soft:#e7f6ec; --mono:"IBM Plex Mono","Consolas",monospace;
+    --shadow:0 1px 2px rgba(20,30,34,.08), 0 1px 10px rgba(20,30,34,.04);
+    --radius:9px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:14px/1.5 "Source Han Sans SC","Microsoft YaHei","Yu Gothic UI",-apple-system,Arial,sans-serif;}
+  button,input,select,textarea{font:inherit;color:inherit}
+  button{border:1px solid var(--line2);border-radius:6px;background:#fff;padding:6px 11px;cursor:pointer;transition:.12s}
+  button:hover{border-color:var(--accent);color:var(--accent)}
+  button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+  button.primary{border-color:var(--accent);background:var(--accent);color:#fff}
+  button.primary:hover{background:#075848;color:#fff}
+  button.icon{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center}
+  button.subtle{border-color:transparent;background:transparent}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  input,select,textarea{width:100%;border:1px solid var(--line2);border-radius:6px;background:#fff;padding:6px 8px}
+  textarea{resize:vertical;min-height:60px;font-family:var(--mono)}
+  .hidden{display:none!important}
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+  /* ---------- topbar ---------- */
+  .topbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow);flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;white-space:nowrap}
+  .brand-mark{width:28px;height:28px;border-radius:7px;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-size:13px;font-family:var(--mono)}
+  .branch-pill{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;
+    padding:3px 9px;font-size:12px;color:var(--muted);background:var(--soft)}
+  .branch-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+  .tgroup{display:flex;align-items:center;gap:6px;padding-left:8px;border-left:1px solid var(--line)}
+  .lang-select{width:118px}
+  .spacer{margin-left:auto}
+  .kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line2);border-bottom-width:2px;
+    border-radius:4px;padding:0 5px;background:#fbfbfb;color:var(--muted)}
+  .pill{display:inline-flex;align-items:center;min-height:22px;border-radius:999px;padding:2px 8px;
+    background:#eef2f3;color:var(--muted);font-size:12px;gap:4px}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)}
+  .pill.danger{background:var(--danger-soft);color:var(--danger)}
+  .pill.blue{background:var(--blue-soft);color:var(--blue)}
+
+  /* ---------- shell ---------- */
+  .shell{height:calc(100vh - 52px);display:grid;
+    grid-template-columns:46px var(--left) 6px minmax(0,1fr) 6px var(--right);
+    grid-template-rows:minmax(240px,1fr) 6px var(--bottom);min-width:0}
+  .rail{grid-row:1/4;background:var(--rail);display:flex;flex-direction:column;align-items:center;
+    gap:6px;padding:10px 5px}
+  .rail button{width:34px;height:34px;border:0;border-radius:7px;background:transparent;color:#aebcc0;
+    font-size:15px;padding:0;position:relative}
+  .rail button.active,.rail button:hover{background:#324248;color:#fff}
+  .rail button.active::before{content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:3px;
+    border-radius:2px;background:var(--accent)}
+  .rail .rspacer{flex:1}
+
+  .panel{min-height:0;border:1px solid var(--line);background:var(--panel);overflow:hidden}
+  .left-panel{grid-column:2;grid-row:1/4;border-left:0}
+  .center-col{grid-column:4;grid-row:1/4;display:grid;grid-template-rows:auto minmax(0,1fr) 6px var(--bottom);min-height:0}
+  .main-panel{border-radius:8px 8px 0 0;margin:8px 0 0;box-shadow:var(--shadow);border-bottom:0;min-height:0;display:flex;flex-direction:column}
+  .right-panel{grid-column:6;grid-row:1;border-radius:8px;margin:8px 8px 0 0;box-shadow:var(--shadow)}
+  .bottom-panel{border-radius:0 0 8px 8px;margin:0 0 8px;box-shadow:var(--shadow);min-height:0}
+  .resize-x{grid-row:1/4;cursor:col-resize}
+  .resize-x:hover,.resize-y:hover{background:#c7dbe6}
+  #leftHandle{grid-column:3}#rightHandle{grid-column:5}
+  #bottomHandleWrap{display:flex}
+
+  .panel-title{min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:7px 10px;border-bottom:1px solid var(--line);background:var(--soft);font-weight:700;font-size:13px}
+  .panel-body{height:calc(100% - 40px);overflow:auto;padding:10px}
+  .section{padding:10px 0;border-top:1px solid var(--line)}
+  .section:first-child{border-top:0;padding-top:0}
+  .small-title{color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:7px}
+  label{color:var(--muted);font-size:12px;font-weight:600}
+  .field{display:grid;gap:5px;margin-bottom:9px}
+  .row{display:flex;align-items:center;gap:7px}
+  .row>*{flex:1}
+  .row.tight>*{flex:none}
+  .stack{display:grid;gap:7px}
+  .muted{color:var(--muted);font-size:12px}
+  .card{border:1px solid var(--line);border-radius:7px;background:#fff;padding:9px}
+  .card.note{background:var(--soft)}
+
+  /* ---------- file tabs ---------- */
+  .file-tabs{display:flex;align-items:stretch;overflow-x:auto;background:var(--soft);
+    border-bottom:1px solid var(--line);flex:0 0 auto}
+  .file-tab{display:flex;align-items:center;gap:7px;padding:8px 10px;border-right:1px solid var(--line);
+    font-size:12.5px;font-family:var(--mono);white-space:nowrap;cursor:pointer;color:var(--muted)}
+  .file-tab.active{background:#fff;color:var(--text);box-shadow:inset 0 -2px 0 var(--accent)}
+  .file-tab .dot{width:6px;height:6px;border-radius:50%;background:var(--warn)}
+  .file-tab .x{opacity:.5;font-size:13px}
+  .file-tab .x:hover{opacity:1}
+  .file-tab.addtab{color:var(--accent);font-weight:700}
+
+  /* ---------- explorer ---------- */
+  .search-tabs{display:flex;gap:4px;border:1px solid var(--line);border-radius:7px;padding:3px;background:#fff;margin-bottom:9px}
+  .search-tab{flex:1;border-color:transparent;padding:5px 6px;font-size:12.5px}
+  .search-tab.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .file-node{border:1px solid var(--line);border-radius:7px;background:#fff;padding:6px 8px}
+  .folder-head{display:flex;align-items:center;gap:6px}
+  .folder-head input,.file-leaf input{width:auto}
+  .file-children{display:grid;gap:4px;margin:6px 0 0 22px}
+  .file-leaf{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px}
+  .file-leaf .fpill{margin-left:auto}
+
+  /* ---------- scripts ---------- */
+  .script-card{border:1px solid var(--line);border-radius:8px;background:#fff;padding:9px;display:grid;gap:6px}
+  .script-card.active{border-color:var(--accent);background:var(--accent-soft)}
+  .script-card .sc-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .script-meta{display:flex;gap:5px;flex-wrap:wrap}
+  .script-params{display:grid;gap:6px;border-top:1px dashed var(--line);padding-top:7px;margin-top:2px}
+  .script-params.hidden{display:none}
+  .run-log{border:1px solid var(--line);border-radius:7px;background:#0f1a1d;color:#c3d6d2;
+    font-family:var(--mono);font-size:11.5px;padding:8px;max-height:120px;overflow:auto}
+  .progress{height:6px;border-radius:4px;background:var(--line);overflow:hidden}
+  .progress i{display:block;height:100%;width:62%;background:var(--accent)}
+
+  /* ---------- history ---------- */
+  .history-item{border:1px solid var(--line);border-radius:7px;background:#fff;padding:8px;display:grid;gap:3px}
+  .history-item .h-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .history-item.current{border-color:var(--accent);background:var(--accent-soft)}
+
+  /* ---------- workspace ---------- */
+  .workspace-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px 0}
+  .tabs{display:flex;gap:3px;padding:4px;border:1px solid var(--line);border-radius:7px;background:#fff;flex-wrap:wrap}
+  .tab{border-color:transparent;background:transparent;padding:5px 9px;font-size:12.5px}
+  .tab.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .switch{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12.5px;white-space:nowrap}
+  .switch input{width:16px;height:16px;accent-color:var(--accent)}
+  .view-scroll{flex:1;min-height:0;overflow:auto;padding:10px}
+  .quick-search{display:flex;gap:7px;padding:0 0 10px}
+
+  .result-table{width:100%;border-collapse:separate;border-spacing:0 6px}
+  .result-table th{color:var(--muted);font-size:11.5px;text-align:left;padding:0 8px 2px;font-weight:600}
+  .result-table td{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:8px;vertical-align:middle}
+  .result-table td:first-child{border-left:1px solid var(--line);border-radius:7px 0 0 7px}
+  .result-table td:last-child{border-right:1px solid var(--line);border-radius:0 7px 7px 0}
+  .result-table tr.selected td{border-color:var(--blue);background:var(--blue-soft)}
+  .confidence{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11.5px}
+  .confidence i{width:34px;height:5px;border-radius:3px;background:var(--line);display:block;overflow:hidden;position:relative}
+  .confidence i::after{content:"";position:absolute;inset:0;background:var(--ok);width:var(--c,70%)}
+
+  .tag{display:inline-flex;align-items:center;min-height:21px;border-radius:5px;padding:2px 6px;
+    font-family:var(--mono);font-size:11.5px}
+  .tag.t-ip{background:#eef1fb;color:#3143a8}
+  .tag.t-np{background:#eefaf3;color:#0f7a4a}
+  .tag.t-v{background:#fdf1e8;color:#a3541c}
+  .tag.t-x{background:var(--tag,#f1f1f1);color:#555}
+  .lemma-link{color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:2px;font-family:var(--mono)}
+
+  .tree-box{border:1px solid var(--line);border-radius:8px;background:#fff;padding:10px;font-family:var(--mono);font-size:13px}
+  .tnode{position:relative}
+  .tnode>.row-line{display:flex;align-items:center;gap:6px;min-height:26px;padding:1px 6px;border-radius:6px;cursor:pointer}
+  .tnode>.row-line:hover{background:var(--soft)}
+  .tnode>.row-line.current{background:var(--blue-soft);outline:1px solid var(--blue)}
+  .tnode>.row-line.missing-node{outline:1px dashed var(--danger)}
+  .tnode .twisty{width:14px;color:var(--line2);flex:none;user-select:none}
+  .tnode .attr{color:var(--muted)}
+  .tnode .flag-missing{color:var(--danger);font-weight:700;font-size:11.5px}
+  .tnode .flag-note{color:var(--warn);font-size:12px}
+  .tchildren{margin-left:20px;padding-left:10px;border-left:1px dashed var(--line2)}
+
+  .facsimile-toggle{display:flex;justify-content:flex-end;margin-bottom:8px}
+  .facsimile-box{border:1px dashed var(--line2);border-radius:8px;background:repeating-linear-gradient(135deg,#fbfbfb,#fbfbfb 10px,#f2f2f2 10px,#f2f2f2 20px);
+    height:150px;display:grid;place-items:center;color:var(--muted);font-size:12.5px;margin-bottom:10px}
+
+  .structure-grid{display:grid;grid-template-columns:1fr 230px;gap:10px;align-items:start}
+
+  .meta-grid{display:grid;grid-template-columns:76px 1fr;gap:6px 8px;margin-bottom:4px}
+  .key{color:var(--muted)}
+  .candidate{display:grid;grid-template-columns:20px 1fr;gap:6px;border:1px solid var(--line);border-radius:7px;
+    background:#fff;padding:8px;margin-bottom:6px;cursor:pointer}
+  .candidate.active{border-color:var(--accent);background:var(--accent-soft)}
+  .candidate-title{font-weight:700;font-size:13px}
+  .candidate-detail{color:var(--muted);font-size:11.5px}
+  .action-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+
+  /* ---------- bottom tabs: pending / problems ---------- */
+  .bottom-tabs{display:flex;gap:3px;padding:5px 8px 0;border-bottom:1px solid var(--line);background:#fff}
+  .bottom-tab{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:7px 10px;font-size:12.5px;color:var(--muted)}
+  .bottom-tab.active{color:var(--accent);border-color:var(--accent);font-weight:700}
+  .bottom-panel .panel-body{padding:0;height:calc(100% - 40px)}
+  .bottom-view{height:100%;display:flex;flex-direction:column}
+  .bottom-head{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:7px 10px;
+    border-bottom:1px solid var(--line);background:#fff;flex:0 0 auto}
+  .filter-group{display:flex;gap:5px;align-items:center}
+  .filter-btn{padding:5px 9px;font-size:12.5px}
+  .filter-btn.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .change-list,.problem-list{flex:1;overflow:auto;padding:8px 10px;display:grid;gap:7px}
+  .change-row{border:1px solid var(--line);border-radius:7px;background:#fff;display:grid;
+    grid-template-columns:26px 1.1fr 1.3fr .8fr .8fr 100px;gap:8px;align-items:center;padding:8px}
+  .problem-row{border:1px solid var(--line);border-left:3px solid var(--danger);border-radius:7px;background:#fff;
+    display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:center;padding:8px 10px;font-size:13px}
+  .problem-row.level-warn{border-left-color:var(--warn)}
+
+  /* ---------- inspector notes / validation ---------- */
+  .note-box textarea{min-height:52px;font-family:inherit}
+
+  /* ---------- dictionary drawer ---------- */
+  .dict-drawer{position:fixed;top:52px;right:0;bottom:0;width:420px;display:grid;grid-template-rows:44px auto;
+    border-left:1px solid var(--line);background:#fff;box-shadow:-6px 0 20px rgba(20,30,34,.16);
+    transform:translateX(100%);transition:transform .16s ease;z-index:30}
+  .dict-drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;
+    border-bottom:1px solid var(--line);background:var(--soft);font-weight:700}
+  .drawer-body{overflow:auto;padding:10px}
+  .dict-editor{display:grid;gap:8px}
+
+  /* ---------- command palette ---------- */
+  .cp-backdrop{position:fixed;inset:0;background:rgba(20,28,32,.35);z-index:40;display:flex;
+    align-items:flex-start;justify-content:center;padding-top:12vh}
+  .cp-backdrop.hidden{display:none}
+  .cp-box{width:min(620px,92vw);background:#fff;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.28);overflow:hidden}
+  .cp-input{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:13px 14px;font-size:15px}
+  .cp-input:focus-visible{outline:none}
+  .cp-list{max-height:52vh;overflow:auto;padding:6px}
+  .cp-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:13.5px}
+  .cp-item:hover,.cp-item.hi{background:var(--accent-soft)}
+  .cp-item .cp-cat{margin-left:auto;color:var(--muted);font-size:11px;text-transform:uppercase}
+  .cp-group{padding:8px 10px 3px;color:var(--muted);font-size:11px;text-transform:uppercase;font-weight:700}
+
+  body.left-collapsed{--left:0px}
+  body.right-collapsed{--right:0px}
+  body.left-collapsed .left-panel,body.right-collapsed .right-panel{display:none}
+  body.left-collapsed #leftHandle,body.right-collapsed #rightHandle{display:none}
+
+  /* ---------- narrow-width fallback (VS Code side-panel scenario) ---------- */
+  @media (max-width:980px){
+    .shell{grid-template-columns:46px minmax(0,1fr);grid-template-rows:auto auto auto}
+    .rail{grid-row:1;flex-direction:row;height:46px;width:100%;padding:0 6px}
+    .left-panel,.center-col,.right-panel,.bottom-panel{grid-column:2;grid-row:auto}
+    #leftHandle,#rightHandle,#bottomHandleWrap{display:none}
+    .center-col{grid-template-rows:auto auto auto}
+    .left-panel,.right-panel,.bottom-panel{margin:8px 8px 0}
+    body.narrow-stack .left-panel,body.narrow-stack .right-panel{max-height:320px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">編</div><span data-i18n="appTitle">ONCOJ XML 编辑工作台</span></div>
+  <span class="branch-pill"><span class="dot"></span><span data-i18n="branchStatus">main · 已与本地文件同步</span></span>
+  <div class="tgroup">
+    <button data-i18n="openWorkspace">打开工作区</button>
+    <button data-i18n="save">保存 (⌘S)</button>
+    <button id="openPalette" class="primary" data-i18n="commandPalette">命令面板 (⌘K)</button>
+    <button id="openDictionary" data-i18n="dictionary">词典</button>
+  </div>
+  <div class="tgroup">
+    <button class="icon" title="撤销" data-i18n-title="undo">↶</button>
+    <button class="icon" title="重做" data-i18n-title="redo">↷</button>
+  </div>
+  <div class="tgroup spacer" style="border-left:0">
+    <span class="pill warn" id="pendingPill">5 <span data-i18n="pendingCountLabel">条待确认</span></span>
+    <span class="pill danger" id="problemPill">2 <span data-i18n="problemCountLabel">个问题</span></span>
+  </div>
+  <div class="tgroup">
+    <select id="languageSelect" class="lang-select" aria-label="Language">
+      <option value="zh" selected>简体中文</option>
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+    </select>
+  </div>
+</header>
+
+<main class="shell" id="shell">
+  <nav class="rail" aria-label="Activity">
+    <button id="navSearch" class="active" data-i18n-title="navSearch" title="检索与文件">⌕</button>
+    <button id="navScripts" data-i18n-title="navScripts" title="脚本任务">⚙</button>
+    <button id="navReview" data-i18n-title="navReview" title="待确认与问题">✓</button>
+    <button id="navInput" data-i18n-title="navInput" title="输入新文本">＋</button>
+    <button id="navHistory" data-i18n-title="navHistory" title="版本历史">🕘</button>
+    <div class="rspacer"></div>
+    <button id="collapseLeftBtn" title="折叠左栏">◧</button>
+    <button id="collapseRightBtn" title="折叠右栏">◨</button>
+  </nav>
+
+  <aside class="panel left-panel">
+    <div class="panel-title"><span id="leftTitle" data-i18n="navSearch">检索与文件</span><button class="icon subtle" id="collapseLeft">×</button></div>
+    <div class="panel-body">
+
+      <div id="explorerPanel">
+        <div class="search-tabs">
+          <button class="search-tab active" data-stab="structured" data-i18n="structuredQuery">结构查询</button>
+          <button class="search-tab" data-stab="text" data-i18n="fullTextQuery">全文检索</button>
+        </div>
+
+        <div id="structuredQueryBox" class="section" style="padding-top:0;border-top:0">
+          <div class="field">
+            <label data-i18n="queryType">查询类型</label>
+            <select id="queryType">
+              <option value="form" data-i18n="qForm">form</option>
+              <option value="tag" data-i18n="qTag">tag</option>
+              <option value="lemma" data-i18n="qLemma">lemma id</option>
+              <option value="path" selected data-i18n="qPath">路径结构，例如 NP &gt; N</option>
+              <option value="siblings" data-i18n="qSiblings">同节点含多个成分，例如 N + P</option>
+              <option value="missing" data-i18n="qMissing">缺失 lemma id</option>
+            </select>
+          </div>
+          <div class="field"><label data-i18n="queryContent">查询内容</label><input id="queryInput" value="NP > N"></div>
+          <div class="row"><button class="primary" data-i18n="runQuery">在选中范围检索</button><button data-i18n="saveQuery">保存为常用查询</button></div>
+          <div class="muted" style="margin-top:6px" data-i18n="syntaxHint">路径语法参考 Tregex：<code>&gt;</code> 父子，<code>+</code> 同级并存。点击输入框右侧 “?” 查看完整语法与示例。</div>
+        </div>
+
+        <div id="fullTextQueryBox" class="section hidden" style="padding-top:0;border-top:0">
+          <div class="field"><label data-i18n="fullTextInput">检索文本 / 正则</label><input placeholder="ugonapar|kamu"></div>
+          <div class="row"><label class="switch"><input type="checkbox"> <span data-i18n="regexMode">正则模式</span></label></div>
+          <div class="row"><button class="primary" data-i18n="runQuery">在选中范围检索</button></div>
+        </div>
+
+        <div class="section">
+          <div class="small-title" data-i18n="commonQueries">常用查询</div>
+          <div class="stack">
+            <div class="card" style="cursor:pointer" data-i18n="cMissing">有 form 但缺 lemma id</div>
+            <div class="card" style="cursor:pointer" data-i18n="cCompound">bare N 子节点均带 lemma（复合词候选）</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="small-title" data-i18n="fileScope">文件范围</div>
+          <div class="stack">
+            <div class="file-node">
+              <div class="folder-head"><button class="icon subtle folder-toggle">▾</button><input type="checkbox" checked>
+                <strong>data/xml/text/</strong><span class="muted">128</span></div>
+              <div class="file-children">
+                <label class="file-leaf"><input type="checkbox" checked> EN_01.xml <span class="pill warn fpill">3</span></label>
+                <label class="file-leaf"><input type="checkbox" checked> EN_02.xml <span class="pill danger fpill">1</span></label>
+                <label class="file-leaf"><input type="checkbox"> EN_03.xml</label>
+                <label class="file-leaf"><input type="checkbox"> SM_01.xml</label>
+              </div>
+            </div>
+            <div class="file-node">
+              <div class="folder-head"><button class="icon subtle folder-toggle">▸</button><input type="checkbox">
+                <strong>data/xml/trees/</strong><span class="muted">76</span></div>
+              <div class="file-children hidden">
+                <label class="file-leaf"><input type="checkbox"> MYS_01.xml</label>
+                <label class="file-leaf"><input type="checkbox"> KK_01.xml</label>
+              </div>
+            </div>
+          </div>
+          <div class="muted" style="margin-top:6px" data-i18n="fpillHint">徽标数字＝该文件中的待确认修改／问题数。</div>
+        </div>
+      </div>
+
+      <div id="scriptsPanel" class="hidden">
+        <div class="section">
+          <div class="small-title" data-i18n="scriptsRegistered">脚本是可注册工具，不是固定按钮</div>
+          <div class="card muted" data-i18n="scriptsIntroText">左侧结构/全文检索处理通用查询；脚本任务处理批量候选生成。任意脚本的输出都会统一进入“结果列表”和“待确认修改”，因此新增脚本无需改动其余界面。</div>
+          <button style="margin-top:8px;width:100%" data-i18n="addScript">＋ 导入新脚本（.py / .js manifest）</button>
+        </div>
+        <div class="section stack">
+          <div class="script-card active">
+            <div class="sc-head"><strong>lemmas_processor</strong><button class="icon subtle sc-toggle">⚙</button></div>
+            <div class="muted" data-i18n="scriptLemmaDesc">搜索未标 lemma 的可注释词；按 dictionary form 匹配；多候选可用前一 syntactic tag 消歧；未知 form 可生成新词典项。</div>
+            <div class="script-meta"><span class="pill ok" data-i18n="candLemma">候选 lemma</span><span class="pill warn" data-i18n="mayAddDict">可能新增词典项</span></div>
+            <div class="script-params">
+              <div class="field"><label data-i18n="scopeParam">作用域</label><select><option data-i18n="scopeSelected">仅已选文件</option><option data-i18n="scopeAll">全部语料</option></select></div>
+              <div class="field"><label data-i18n="thresholdParam">候选置信度下限</label><input type="number" value="0.6" step="0.05" min="0" max="1"></div>
+              <button class="primary" data-i18n="runScript">配置并运行</button>
+            </div>
+          </div>
+          <div class="script-card">
+            <div class="sc-head"><strong>compound_lemma_processor</strong><button class="icon subtle sc-toggle">⚙</button></div>
+            <div class="muted" data-i18n="scriptCompoundDesc">检测内部 bare &lt;N&gt;，其直接子节点均为带 lemma 的 &lt;N&gt;；可做 NP expansion；分层生成 compound lemma；补写 .COMPOUND。</div>
+            <div class="script-meta"><span class="pill ok" data-i18n="structCand">结构候选</span><span class="pill warn" data-i18n="dictAddFix">词典新增/修正</span></div>
+            <div class="script-params hidden"></div>
+          </div>
+          <div class="script-card">
+            <div class="sc-head"><strong>mk_lemma_processor</strong><button class="icon subtle sc-toggle">⚙</button></div>
+            <div class="muted" data-i18n="scriptMkDesc">查找 L099999 sentinel；按 MK block 分组；替换为新/已有 makura-kotoba ID；新增或规范化 .COMPOUND / .MKTARGETNEW。</div>
+            <div class="script-meta"><span class="pill ok" data-i18n="batchReplace">批量替换</span><span class="pill warn" data-i18n="mkDict">MK 词典项</span></div>
+            <div class="script-params hidden"></div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="small-title" data-i18n="runLog">最近一次运行日志</div>
+          <div class="progress" style="margin-bottom:6px"><i></i></div>
+          <div class="run-log">[12:04:03] lemmas_processor 启动 · scope=EN_01.xml,EN_02.xml
+[12:04:04] 扫描 214 个未标 form
+[12:04:06] 生成候选 37 条（置信度≥0.6）
+[12:04:06] 3 条多候选，已转入 结果列表 / 待确认修改
+[12:04:06] 完成，未写入任何 XML</div>
+        </div>
+      </div>
+
+      <div id="reviewPanel" class="hidden">
+        <div class="section">
+          <div class="small-title" data-i18n="reviewSummaryTitle">待确认概览</div>
+          <div class="card"><span class="pill ok">3 <span data-i18n="single">单一候选</span></span> <span class="pill warn">1 <span data-i18n="multi">多候选</span></span> <span class="pill blue">1 <span data-i18n="dictChange">词典修改</span></span></div>
+          <button class="primary" style="margin-top:8px;width:100%" id="jumpPending" data-i18n="jumpToPending">跳转到待确认列表 ↓</button>
+        </div>
+        <div class="section">
+          <div class="small-title" data-i18n="problemSummaryTitle">校验问题</div>
+          <div class="card"><span class="pill danger">1 <span data-i18n="errorLevel">错误</span></span> <span class="pill warn">1 <span data-i18n="warnLevel">警告</span></span></div>
+          <button style="margin-top:8px;width:100%" id="jumpProblems" data-i18n="jumpToProblems">跳转到问题列表 ↓</button>
+        </div>
+        <div class="section">
+          <div class="small-title" data-i18n="reviewNotesTitle">协作批注</div>
+          <div class="card muted" data-i18n="reviewNotesHint">团队成员在节点上留下的存疑批注会汇总在这里，点击可定位到对应节点。</div>
+        </div>
+      </div>
+
+      <div id="inputPanel" class="hidden">
+        <div class="section">
+          <div class="small-title" data-i18n="inputModeTitle">输入新文本 / 注释</div>
+          <div class="field"><label data-i18n="newBlockHeader">新 block header</label><textarea>ugonapar eru kamu nusi ...</textarea></div>
+          <div class="field"><label data-i18n="initialTemplate">初始结构模板</label>
+            <select><option data-i18n="tplBlank">空白 block</option><option data-i18n="tplIpMat">IP-MAT 模板</option><option data-i18n="tplCopy">从当前句复制结构</option></select>
+          </div>
+          <div class="row"><button class="primary" data-i18n="createDraft">创建草稿 block</button><button data-i18n="importText">导入文本</button></div>
+        </div>
+        <div class="section"><div class="card muted" data-i18n="inputSharedNote">输入模式与编辑模式共用同一套树形编辑、词典查询、待确认修改机制；区别只是数据来源是“新建草稿”还是“已有 XML”。</div></div>
+      </div>
+
+      <div id="historyPanel" class="hidden">
+        <div class="section">
+          <div class="small-title" data-i18n="historyTitle">版本历史（本地提交 + 写入记录）</div>
+          <div class="stack">
+            <div class="history-item current">
+              <div class="h-top"><span>HEAD</span><span>12:04</span></div>
+              <div data-i18n="hMsg1">写入 3 条 lemma 候选（lemmas_processor）</div>
+            </div>
+            <div class="history-item">
+              <div class="h-top"><span>a1b2c3d</span><span>09:47</span></div>
+              <div data-i18n="hMsg2">手动修正 EN_01.xml 中 1 处 branch 结构</div>
+            </div>
+            <div class="history-item">
+              <div class="h-top"><span>7f0e912</span><span>昨天</span></div>
+              <div data-i18n="hMsg3">导入 mk_lemma_processor 批量替换（12 条）</div>
+            </div>
+          </div>
+          <button style="margin-top:8px;width:100%" data-i18n="viewDiff">查看与当前版本的差异</button>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <div id="leftHandle" class="resize-x"></div>
+
+  <div class="center-col">
+    <section class="panel main-panel">
+      <div class="file-tabs" id="fileTabs">
+        <div class="file-tab active" data-tab="en01">EN_01.xml<span class="dot" title="未保存"></span><span class="x">×</span></div>
+        <div class="file-tab" data-tab="en02">EN_02.xml<span class="x">×</span></div>
+        <div class="file-tab addtab">＋ <span data-i18n="openMore">打开更多</span></div>
+      </div>
+      <div class="panel-title">
+        <span data-i18n="mainWorkspace">主工作区</span>
+        <label class="switch"><input id="renderTree" type="checkbox" checked> <span data-i18n="renderTreeLabel">渲染树形图</span></label>
+      </div>
+      <div class="workspace-head">
+        <div class="tabs">
+          <button class="tab active" data-view="list" data-i18n="listView">列表</button>
+          <button class="tab" data-view="tree" data-i18n="treeView">树形</button>
+          <button class="tab" data-view="full" data-i18n="fullView">全文</button>
+          <button class="tab" data-view="structure" data-i18n="structureEdit">结构编辑</button>
+          <button class="tab" data-view="script" data-i18n="scriptResults">脚本结果</button>
+        </div>
+        <div class="count" data-i18n="currentScope">当前范围：EN_01.xml、EN_02.xml</div>
+      </div>
+
+      <div class="view-scroll">
+        <div id="listView">
+          <table class="result-table">
+            <thead><tr>
+              <th data-i18n="colFile">文件</th><th data-i18n="colPos">位置</th><th data-i18n="colPath">路径</th>
+              <th data-i18n="colForm">form</th><th data-i18n="colLemma">lemma</th><th data-i18n="colConf">置信度</th><th data-i18n="colAction">操作</th>
+            </tr></thead>
+            <tbody>
+              <tr class="selected">
+                <td>EN_01.xml</td><td>1_EN_01</td>
+                <td><span class="tag t-v">IP-MAT &gt; IP-ARG &gt; IP-REL &gt; VB &gt; VB-STM</span></td>
+                <td>ugonapar</td><td><span class="lemma-link" data-lemma="L000001">L000001</span></td>
+                <td><span class="confidence" style="--c:88%"><i></i>0.88</span></td>
+                <td><button class="showTree" data-i18n="btnTree">树形</button></td>
+              </tr>
+              <tr>
+                <td>EN_01.xml</td><td>1_EN_01</td><td><span class="tag t-np">C-NP &gt; N</span></td>
+                <td>kamu+nusi</td><td><span class="pill warn" data-i18n="compoundCand">compound 候选</span></td>
+                <td><span class="confidence" style="--c:54%"><i></i>0.54</span></td>
+                <td><button class="showTree" data-i18n="btnExpand">展开</button></td>
+              </tr>
+              <tr>
+                <td>EN_02.xml</td><td>14_EN_02</td><td><span class="tag t-x">MK block</span></td>
+                <td>L099999</td><td><span class="pill danger">sentinel</span></td>
+                <td><span class="confidence" style="--c:71%"><i></i>0.71</span></td>
+                <td><button data-i18n="btnScriptDetail">脚本详情</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="treeView" class="tree-box hidden">
+          <div class="tnode">
+            <div class="row-line"><span class="twisty">▾</span><span class="tag t-ip">IP-MAT</span></div>
+            <div class="tchildren">
+              <div class="tnode">
+                <div class="row-line"><span class="twisty">▾</span><span class="tag t-ip">IP-ARG</span></div>
+                <div class="tchildren">
+                  <div class="tnode">
+                    <div class="row-line"><span class="twisty">▾</span><span class="tag t-ip">IP-REL</span></div>
+                    <div class="tchildren">
+                      <div class="tnode">
+                        <div class="row-line"><span class="twisty">▾</span><span class="tag t-v">VB</span></div>
+                        <div class="tchildren">
+                          <div class="tnode">
+                            <div class="row-line current"><span class="twisty">•</span>
+                              <span class="tag t-v">VB-STM</span>
+                              <span class="attr">phon=LOG form=ugonapar lemma=</span><span class="lemma-link" data-lemma="L000001">L000001</span>
+                              <span class="flag-note" title="有协作批注">💬</span>
+                            </div>
+                          </div>
+                          <div class="tnode">
+                            <div class="row-line"><span class="twisty">•</span><span class="tag t-v">VAX-STV-ADN</span><span class="attr">phon=LOG form=eru</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tnode">
+                <div class="row-line"><span class="twisty">▾</span><span class="tag t-np">C-NP</span><span class="attr">index=1</span></div>
+                <div class="tchildren">
+                  <div class="tnode">
+                    <div class="row-line missing-node"><span class="twisty">•</span><span class="tag t-np">N</span>
+                      <span class="pill warn" data-i18n="compoundCand2">compound candidate</span>
+                      <span class="flag-missing" data-i18n="lemmaMissing">lemma 缺失</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="muted" style="margin-top:8px" data-i18n="treeHint">点击节点选中；点击 ▾/▸ 折叠子树；虚线框＝缺 lemma；💬＝有协作批注。</div>
+        </div>
+
+        <div id="fullView" class="hidden stack">
+          <div class="facsimile-toggle">
+            <label class="switch"><input type="checkbox" id="facsimileSwitch"> <span data-i18n="showFacsimile">对照写本影印页</span></label>
+          </div>
+          <div class="facsimile-box hidden" id="facsimileBox" data-i18n="facsimileHint">此处将显示对应页面的写本影印图像（占位），支持缩放与逐字对齐高亮。</div>
+          <div class="card"><strong>1_EN_01</strong>
+            <div class="muted">header: ugonapar eru kamu nusi papuri ra moromoro...</div>
+            <div style="margin-top:8px">
+              <span class="tag t-v">VB-STM form="ugonapar" lemma="L000001"</span>
+              <span class="tag t-np">N form="kamu"</span>
+              <span class="tag t-np">N form="nusi"</span>
+            </div>
+          </div>
+          <div class="card"><strong>2_EN_01</strong><div class="muted" data-i18n="fullViewNote">可作为上下文审阅，也可从这里进入结构编辑。</div></div>
+        </div>
+
+        <div id="structureView" class="hidden">
+          <div class="structure-grid">
+            <div class="tree-box" id="editableTree">
+              <div class="tnode"><div class="row-line"><span class="twisty">▾</span><span class="tag t-np">C-NP</span></div>
+                <div class="tchildren">
+                  <div class="tnode"><div class="row-line current"><span class="twisty">▾</span><span class="tag t-np">N</span>
+                    <span class="attr" data-i18n="bareInternal">bare internal compound marker</span></div>
+                    <div class="tchildren">
+                      <div class="tnode"><div class="row-line"><span class="twisty">•</span><span class="tag t-np">N</span><span class="attr">form=kamu lemma=L000040</span></div></div>
+                      <div class="tnode"><div class="row-line"><span class="twisty">•</span><span class="tag t-np">N</span><span class="attr">form=nusi lemma=L000120</span></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card stack">
+              <div class="small-title" data-i18n="structureEditTitle">结构修改</div>
+              <button id="demoAddBranch" class="primary" data-i18n="addBranch">新增 branch</button>
+              <button data-i18n="moveBranch">移动 branch</button>
+              <button data-i18n="deleteBranch">删除 branch</button>
+              <div class="muted" data-i18n="structureLivePreview">真实版本会修改 XML DOM 后立刻重新渲染，并把结构变更加入待确认。</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="scriptView" class="hidden stack">
+          <div class="card"><strong>compound_lemma_processor</strong><br data-i18n-skip>
+            <span data-i18n="scriptResult1">检测到 EN_01.xml / 1_EN_01 中 bare &lt;N&gt;: kamu + nusi。建议为外层 &lt;N&gt; 写入 compound lemma，并补充词典 .COMPOUND。</span></div>
+          <div class="card"><strong>mk_lemma_processor</strong><br>
+            <span data-i18n="scriptResult2">检测到 EN_02.xml 中 L099999 MK block。建议替换 sentinel，并新建或复用 makura-kotoba entry。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="bottomHandleWrap"><div id="bottomHandle" class="resize-y" style="width:100%;cursor:row-resize"></div></div>
+
+    <section class="panel bottom-panel">
+      <div class="bottom-tabs">
+        <button class="bottom-tab active" data-btab="pending" data-i18n="pendingChanges">待确认修改</button>
+        <button class="bottom-tab" data-btab="problems" data-i18n="problems">问题（校验）</button>
+      </div>
+      <div class="panel-body">
+        <div id="pendingView" class="bottom-view">
+          <div class="bottom-head">
+            <div class="filter-group">
+              <button class="filter-btn active" data-filter="all" data-i18n="fAll">全部</button>
+              <button class="filter-btn" data-filter="pending" data-i18n="fPending">待确认</button>
+              <button class="filter-btn" data-filter="multi" data-i18n="fMulti">多候选</button>
+              <button class="filter-btn" data-filter="dict" data-i18n="fDict">词典修改</button>
+            </div>
+            <div class="row"><button id="selectVisible" class="primary" data-i18n="selectVisible">一键选中当前过滤结果</button>
+              <button data-i18n="approveSelected">确认选中</button><button data-i18n="rejectSelected">拒绝选中</button><button data-i18n="writeXml">写入</button></div>
+            <div class="count" id="visibleCount" data-i18n="visibleCount">显示 5 条</div>
+          </div>
+          <div id="changeList" class="change-list">
+            <div class="change-row" data-status="pending"><input type="checkbox"><div>EN_01.xml · 1_EN_01</div><div><span class="tag t-v">VB-STM</span> add lemma</div><div>ugonapar</div><div>L000001</div><div><span class="pill ok" data-i18n="pending">待确认</span></div></div>
+            <div class="change-row" data-status="multi"><input type="checkbox"><div>EN_01.xml · 1_EN_01</div><div><span class="tag t-np">compound N</span></div><div>kamu+nusi</div><div>2 candidates</div><div><span class="pill warn" data-i18n="multiCandidate">多候选</span></div></div>
+            <div class="change-row" data-status="pending"><input type="checkbox"><div>EN_02.xml · 14_EN_02</div><div>replace L099999</div><div>MK block</div><div>L050999</div><div><span class="pill ok" data-i18n="pending">待确认</span></div></div>
+            <div class="change-row" data-status="dict"><input type="checkbox"><div>dictionary.xml</div><div>add .COMPOUND</div><div>compound entry</div><div>L050001</div><div><span class="pill blue" data-i18n="dictChangeFull">词典修改</span></div></div>
+            <div class="change-row" data-status="dict"><input type="checkbox"><div>dictionary.xml</div><div>edit entry</div><div>L000001</div><div>FORM ugonapar</div><div><span class="pill blue" data-i18n="dictChangeFull">词典修改</span></div></div>
+          </div>
+        </div>
+
+        <div id="problemsView" class="bottom-view hidden">
+          <div class="bottom-head">
+            <div class="filter-group">
+              <button class="filter-btn active" data-i18n="fAll">全部</button>
+              <button class="filter-btn" data-i18n="errorLevel">错误</button>
+              <button class="filter-btn" data-i18n="warnLevel">警告</button>
+            </div>
+            <div class="count" data-i18n="problemsHint">写入 XML 前会自动阻断错误级问题；警告级可选择忽略。</div>
+            <div></div>
+          </div>
+          <div class="problem-list">
+            <div class="problem-row"><span class="pill danger">✕</span>
+              <div><strong>EN_02.xml · 14_EN_02</strong> — <span data-i18n="prob1">MK block 引用了不存在的 makura-kotoba entry L099999</span></div>
+              <button data-i18n="goFix">前往修复</button></div>
+            <div class="problem-row level-warn"><span class="pill warn">!</span>
+              <div><strong>EN_01.xml · 1_EN_01</strong> — <span data-i18n="prob2">C-NP 下存在 bare &lt;N&gt; 未生成 compound lemma</span></div>
+              <button data-i18n="goFix">前往修复</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="rightHandle" class="resize-x"></div>
+
+  <aside class="panel right-panel">
+    <div class="panel-title"><span data-i18n="inspector">检查器</span><button class="icon subtle" id="collapseRight">×</button></div>
+    <div class="panel-body">
+      <div class="section">
+        <div class="small-title" data-i18n="currentNode">当前节点</div>
+        <div class="meta-grid">
+          <div class="key" data-i18n="colFile">文件</div><div>EN_01.xml</div>
+          <div class="key" data-i18n="colPos">位置</div><div>1_EN_01</div>
+          <div class="key" data-i18n="colTag">tag</div><div><span class="tag t-v">VB-STM</span></div>
+          <div class="key" data-i18n="colForm">form</div><div>ugonapar</div>
+          <div class="key" data-i18n="colLemma">lemma</div><div><span class="lemma-link" data-lemma="L000001">L000001</span></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="small-title" data-i18n="dictCandidates">词典候选（当前 lemma）</div>
+        <label class="candidate active"><input type="radio" name="cand" checked>
+          <div><div class="candidate-title">L000001 · ugonapar</div>
+          <div class="candidate-detail" data-i18n="candSource">来自 dictionary.xml：&lt;form phonemic="ugonapar" /&gt;</div></div></label>
+        <label class="candidate"><input type="radio" name="cand">
+          <div><div class="candidate-title" data-i18n="markPending">标记待查</div>
+          <div class="candidate-detail" data-i18n="markPendingHint">不写入，进入校对队列。</div></div></label>
+        <div class="muted" style="margin:2px 0 8px" data-i18n="dictSingleSource">词典的完整编辑只在“词典”面板进行，这里只做候选选择，避免两处内容不一致。</div>
+        <div class="action-grid">
+          <button class="primary" data-i18n="addPending">加入待确认</button>
+          <button id="openDictionary2" data-i18n="openDict">打开词典</button>
+          <button data-i18n="editNode">编辑节点</button>
+          <button data-i18n="replaceLemma">替换 lemma</button>
+        </div>
+      </div>
+
+      <div class="section note-box">
+        <div class="small-title" data-i18n="nodeNote">协作批注</div>
+        <textarea placeholder="记录存疑判断，供其他标注者查看…" data-i18n-placeholder="notePlaceholder"></textarea>
+        <button style="margin-top:6px;width:100%" data-i18n="addNote">添加批注</button>
+      </div>
+
+      <div class="section">
+        <div class="small-title" data-i18n="nodeValidation">此节点的校验</div>
+        <div class="card"><span class="pill ok" data-i18n="noIssue">未发现问题</span></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<aside id="dictionaryDrawer" class="dict-drawer">
+  <div class="drawer-head"><span data-i18n="dictDrawerTitle">词典面板</span><button id="closeDictionary" class="icon subtle">×</button></div>
+  <div class="drawer-body">
+    <div class="section">
+      <div class="field"><label data-i18n="dictSearch">词典检索</label><input id="dictSearch" value="L000001"></div>
+      <div class="row"><button class="primary" data-i18n="search">检索</button><button data-i18n="newEntry">新建 entry</button></div>
+    </div>
+    <div class="section">
+      <div class="small-title" data-i18n="currentEntry">当前词条</div>
+      <div id="dictContent" class="card">
+        <strong>L000001 · ugonapar</strong>
+        <div class="muted" data-i18n="dictSample">真实词典样例：&lt;entry id="L000001"&gt; ... &lt;form phonemic="ugonapar" kana="" /&gt;</div>
+        <div><span data-i18n="glossLabel">gloss</span>: — · <span data-i18n="formsLabel">forms</span>: ugonapar</div>
+      </div>
+    </div>
+    <div class="section dict-editor">
+      <div class="small-title" data-i18n="dictEditDraft">词典编辑草稿（同样先进入待确认）</div>
+      <div class="field"><label>entry id</label><input id="dictId" value="L000001"></div>
+      <div class="field"><label data-i18n="glossLabel">gloss</label><input value=""></div>
+      <div class="field"><label data-i18n="formsLabel">forms</label><input value="ugonapar"></div>
+      <div class="field"><label>POS</label><input value=""></div>
+      <div class="field"><label>.COMPOUND / .MKTARGETNEW</label><textarea placeholder="ref_target=L000040 kamu"></textarea></div>
+      <div class="row"><button class="primary" data-i18n="addPending">加入待确认</button><button data-i18n="reset">重置</button></div>
+    </div>
+  </div>
+</aside>
+
+<div id="cpBackdrop" class="cp-backdrop hidden">
+  <div class="cp-box">
+    <input id="cpInput" class="cp-input" placeholder="搜索脚本、查询、文件、命令…" data-i18n-placeholder="cpPlaceholder">
+    <div id="cpList" class="cp-list">
+      <div class="cp-group" data-i18n="cpGroupNav">导航</div>
+      <div class="cp-item" data-action="view:list"><span>☰</span><span data-i18n="listView">列表</span><span class="cp-cat" data-i18n="cpNav">导航</span></div>
+      <div class="cp-item" data-action="view:tree"><span>🌳</span><span data-i18n="treeView">树形</span><span class="cp-cat" data-i18n="cpNav">导航</span></div>
+      <div class="cp-item" data-action="open:dict"><span>📖</span><span data-i18n="dictionary">词典</span><span class="cp-cat" data-i18n="cpNav">导航</span></div>
+      <div class="cp-group" data-i18n="cpGroupScripts">脚本</div>
+      <div class="cp-item" data-action="run:lemmas_processor"><span>⚙</span><span>lemmas_processor</span><span class="cp-cat" data-i18n="cpRun">运行</span></div>
+      <div class="cp-item" data-action="run:compound_lemma_processor"><span>⚙</span><span>compound_lemma_processor</span><span class="cp-cat" data-i18n="cpRun">运行</span></div>
+      <div class="cp-item" data-action="run:mk_lemma_processor"><span>⚙</span><span>mk_lemma_processor</span><span class="cp-cat" data-i18n="cpRun">运行</span></div>
+      <div class="cp-group" data-i18n="cpGroupActions">操作</div>
+      <div class="cp-item" data-action="do:writeXml"><span>💾</span><span data-i18n="writeXml">写入 XML</span><span class="cp-cat" data-i18n="cpAction">操作</span></div>
+      <div class="cp-item" data-action="do:undo"><span>↶</span><span data-i18n="undo">撤销</span><span class="cp-cat" data-i18n="cpAction">操作</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------------- i18n ---------------- */
+const translations = {
+  zh: {
+    appTitle:"ONCOJ XML 编辑工作台", branchStatus:"main · 已与本地文件同步", openWorkspace:"打开工作区", save:"保存 (⌘S)",
+    commandPalette:"命令面板 (⌘K)", dictionary:"词典", pendingCountLabel:"条待确认", problemCountLabel:"个问题",
+    undo:"撤销", redo:"重做", navSearch:"检索与文件", navScripts:"脚本任务", navReview:"待确认与问题", navInput:"输入新文本", navHistory:"版本历史",
+    structuredQuery:"结构查询", fullTextQuery:"全文检索", queryType:"查询类型",
+    qForm:"form", qTag:"tag", qLemma:"lemma id", qPath:"路径结构，例如 NP > N", qSiblings:"同节点含多个成分，例如 N + P", qMissing:"缺失 lemma id",
+    queryContent:"查询内容", runQuery:"在选中范围检索", saveQuery:"保存为常用查询",
+    syntaxHint:'路径语法参考 Tregex：> 父子，+ 同级并存。点击输入框右侧 “?” 查看完整语法与示例。',
+    fullTextInput:"检索文本 / 正则", regexMode:"正则模式",
+    commonQueries:"常用查询", cMissing:"有 form 但缺 lemma id", cCompound:"bare N 子节点均带 lemma（复合词候选）",
+    fileScope:"文件范围", fpillHint:"徽标数字＝该文件中的待确认修改／问题数。",
+    scriptsRegistered:"脚本是可注册工具，不是固定按钮",
+    scriptsIntroText:"左侧结构/全文检索处理通用查询；脚本任务处理批量候选生成。任意脚本的输出都会统一进入“结果列表”和“待确认修改”，因此新增脚本无需改动其余界面。",
+    addScript:"＋ 导入新脚本（.py / .js manifest）",
+    scriptLemmaDesc:"搜索未标 lemma 的可注释词；按 dictionary form 匹配；多候选可用前一 syntactic tag 消歧；未知 form 可生成新词典项。",
+    candLemma:"候选 lemma", mayAddDict:"可能新增词典项",
+    scopeParam:"作用域", scopeSelected:"仅已选文件", scopeAll:"全部语料", thresholdParam:"候选置信度下限", runScript:"配置并运行",
+    scriptCompoundDesc:"检测内部 bare <N>，其直接子节点均为带 lemma 的 <N>；可做 NP expansion；分层生成 compound lemma；补写 .COMPOUND。",
+    structCand:"结构候选", dictAddFix:"词典新增/修正",
+    scriptMkDesc:"查找 L099999 sentinel；按 MK block 分组；替换为新/已有 makura-kotoba ID；新增或规范化 .COMPOUND / .MKTARGETNEW。",
+    batchReplace:"批量替换", mkDict:"MK 词典项", runLog:"最近一次运行日志",
+    reviewSummaryTitle:"待确认概览", single:"单一候选", multi:"多候选", dictChange:"词典修改", jumpToPending:"跳转到待确认列表 ↓",
+    problemSummaryTitle:"校验问题", errorLevel:"错误", warnLevel:"警告", jumpToProblems:"跳转到问题列表 ↓",
+    reviewNotesTitle:"协作批注", reviewNotesHint:"团队成员在节点上留下的存疑批注会汇总在这里，点击可定位到对应节点。",
+    inputModeTitle:"输入新文本 / 注释", newBlockHeader:"新 block header", initialTemplate:"初始结构模板",
+    tplBlank:"空白 block", tplIpMat:"IP-MAT 模板", tplCopy:"从当前句复制结构", createDraft:"创建草稿 block", importText:"导入文本",
+    inputSharedNote:"输入模式与编辑模式共用同一套树形编辑、词典查询、待确认修改机制；区别只是数据来源是“新建草稿”还是“已有 XML”。",
+    historyTitle:"版本历史（本地提交 + 写入记录）",
+    hMsg1:"写入 3 条 lemma 候选（lemmas_processor）", hMsg2:"手动修正 EN_01.xml 中 1 处 branch 结构", hMsg3:"导入 mk_lemma_processor 批量替换（12 条）",
+    viewDiff:"查看与当前版本的差异",
+    openMore:"打开更多", mainWorkspace:"主工作区", renderTreeLabel:"渲染树形图",
+    listView:"列表", treeView:"树形", fullView:"全文", structureEdit:"结构编辑", scriptResults:"脚本结果",
+    currentScope:"当前范围：EN_01.xml、EN_02.xml",
+    colFile:"文件", colPos:"位置", colPath:"路径", colForm:"form", colLemma:"lemma", colConf:"置信度", colAction:"操作", colTag:"tag",
+    btnTree:"树形", btnExpand:"展开", btnScriptDetail:"脚本详情", compoundCand:"compound 候选",
+    compoundCand2:"compound candidate", lemmaMissing:"lemma 缺失",
+    treeHint:"点击节点选中；点击 ▾/▸ 折叠子树；虚线框＝缺 lemma；💬＝有协作批注。",
+    showFacsimile:"对照写本影印页", facsimileHint:"此处将显示对应页面的写本影印图像（占位），支持缩放与逐字对齐高亮。",
+    fullViewNote:"可作为上下文审阅，也可从这里进入结构编辑。",
+    bareInternal:"bare internal compound marker", structureEditTitle:"结构修改",
+    addBranch:"新增 branch", moveBranch:"移动 branch", deleteBranch:"删除 branch",
+    structureLivePreview:"真实版本会修改 XML DOM 后立刻重新渲染，并把结构变更加入待确认。",
+    scriptResult1:"检测到 EN_01.xml / 1_EN_01 中 bare <N>: kamu + nusi。建议为外层 <N> 写入 compound lemma，并补充词典 .COMPOUND。",
+    scriptResult2:"检测到 EN_02.xml 中 L099999 MK block。建议替换 sentinel，并新建或复用 makura-kotoba entry。",
+    pendingChanges:"待确认修改", problems:"问题（校验）",
+    fAll:"全部", fPending:"待确认", fMulti:"多候选", fDict:"词典修改",
+    selectVisible:"一键选中当前过滤结果", approveSelected:"确认选中", rejectSelected:"拒绝选中", writeXml:"写入",
+    visibleCount:"显示 5 条", pending:"待确认", multiCandidate:"多候选", dictChangeFull:"词典修改",
+    problemsHint:"写入 XML 前会自动阻断错误级问题；警告级可选择忽略。",
+    prob1:"MK block 引用了不存在的 makura-kotoba entry L099999",
+    prob2:"C-NP 下存在 bare <N> 未生成 compound lemma", goFix:"前往修复",
+    inspector:"检查器", currentNode:"当前节点", dictCandidates:"词典候选（当前 lemma）",
+    candSource:'来自 dictionary.xml：<form phonemic="ugonapar" />',
+    markPending:"标记待查", markPendingHint:"不写入，进入校对队列。",
+    dictSingleSource:"词典的完整编辑只在“词典”面板进行，这里只做候选选择，避免两处内容不一致。",
+    addPending:"加入待确认", openDict:"打开词典", editNode:"编辑节点", replaceLemma:"替换 lemma",
+    nodeNote:"协作批注", notePlaceholder:"记录存疑判断，供其他标注者查看…", addNote:"添加批注",
+    nodeValidation:"此节点的校验", noIssue:"未发现问题",
+    dictDrawerTitle:"词典面板", dictSearch:"词典检索", search:"检索", newEntry:"新建 entry",
+    currentEntry:"当前词条", dictSample:'真实词典样例：<entry id="L000001"> ... <form phonemic="ugonapar" kana="" />',
+    glossLabel:"gloss", formsLabel:"forms", dictEditDraft:"词典编辑草稿（同样先进入待确认）", reset:"重置",
+    cpPlaceholder:"搜索脚本、查询、文件、命令…", cpGroupNav:"导航", cpGroupScripts:"脚本", cpGroupActions:"操作",
+    cpNav:"导航", cpRun:"运行", cpAction:"操作"
+  },
+  en: {
+    appTitle:"ONCOJ XML Editor Workbench", branchStatus:"main · synced with local files", openWorkspace:"Open workspace", save:"Save (⌘S)",
+    commandPalette:"Command palette (⌘K)", dictionary:"Dictionary", pendingCountLabel:"pending", problemCountLabel:"issues",
+    undo:"Undo", redo:"Redo", navSearch:"Search & files", navScripts:"Scripts", navReview:"Review & problems", navInput:"New text", navHistory:"History",
+    structuredQuery:"Structured query", fullTextQuery:"Full-text search", queryType:"Query type",
+    qForm:"form", qTag:"tag", qLemma:"lemma id", qPath:"Path pattern, e.g. NP > N", qSiblings:"Sibling components, e.g. N + P", qMissing:"Missing lemma id",
+    queryContent:"Query content", runQuery:"Search selected scope", saveQuery:"Save as common query",
+    syntaxHint:'Path syntax follows Tregex: > for parent-child, + for co-occurring siblings. Click the "?" next to the input for full syntax and examples.',
+    fullTextInput:"Search text / regex", regexMode:"Regex mode",
+    commonQueries:"Common queries", cMissing:"form exists but lemma id is missing", cCompound:"bare N whose children all have lemma (compound candidate)",
+    fileScope:"File scope", fpillHint:"Badge number = pending changes / problems in that file.",
+    scriptsRegistered:"Scripts are registered tools, not fixed buttons",
+    scriptsIntroText:"The left panel's structured/full-text search handles general queries; scripts handle batch candidate generation. Any script's output flows into the same Results list and Pending changes, so adding a script needs no other UI changes.",
+    addScript:"+ Import a new script (.py / .js manifest)",
+    scriptLemmaDesc:"Finds annotatable words without a lemma; matches dictionary forms; multiple candidates can be disambiguated using the preceding syntactic tag; unknown forms can create a new dictionary entry.",
+    candLemma:"Lemma candidates", mayAddDict:"May add dictionary entries",
+    scopeParam:"Scope", scopeSelected:"Selected files only", scopeAll:"Entire corpus", thresholdParam:"Minimum candidate confidence", runScript:"Configure & run",
+    scriptCompoundDesc:"Detects internal bare <N> whose direct children are all lemma-tagged <N>; supports NP expansion; builds layered compound lemmas; writes .COMPOUND.",
+    structCand:"Structural candidates", dictAddFix:"Dictionary add/fix",
+    scriptMkDesc:"Finds the L099999 sentinel; groups by MK block; replaces with a new or existing makura-kotoba ID; adds or normalizes .COMPOUND / .MKTARGETNEW.",
+    batchReplace:"Batch replace", mkDict:"MK dictionary entries", runLog:"Latest run log",
+    reviewSummaryTitle:"Pending overview", single:"single candidate", multi:"multiple candidates", dictChange:"dictionary change", jumpToPending:"Jump to pending list ↓",
+    problemSummaryTitle:"Validation problems", errorLevel:"error", warnLevel:"warning", jumpToProblems:"Jump to problem list ↓",
+    reviewNotesTitle:"Collaborative notes", reviewNotesHint:"Notes left by teammates on nodes are summarized here; click to jump to the node.",
+    inputModeTitle:"New text / annotation", newBlockHeader:"New block header", initialTemplate:"Initial structure template",
+    tplBlank:"Blank block", tplIpMat:"IP-MAT template", tplCopy:"Copy structure from current sentence", createDraft:"Create draft block", importText:"Import text",
+    inputSharedNote:"Input mode shares the same tree editor, dictionary lookup, and pending-change workflow as edit mode; only the data source differs (new draft vs. existing XML).",
+    historyTitle:"Version history (local commits + writes)",
+    hMsg1:"Wrote 3 lemma candidates (lemmas_processor)", hMsg2:"Manually fixed 1 branch structure in EN_01.xml", hMsg3:"Imported mk_lemma_processor batch replace (12 items)",
+    viewDiff:"View diff against current version",
+    openMore:"Open more", mainWorkspace:"Main workspace", renderTreeLabel:"Render tree diagram",
+    listView:"List", treeView:"Tree", fullView:"Full text", structureEdit:"Structure edit", scriptResults:"Script results",
+    currentScope:"Current scope: EN_01.xml, EN_02.xml",
+    colFile:"File", colPos:"Position", colPath:"Path", colForm:"form", colLemma:"lemma", colConf:"Confidence", colAction:"Action", colTag:"tag",
+    btnTree:"Tree", btnExpand:"Expand", btnScriptDetail:"Script detail", compoundCand:"compound candidate",
+    compoundCand2:"compound candidate", lemmaMissing:"lemma missing",
+    treeHint:"Click a node to select it; click ▾/▸ to collapse a subtree; dashed outline = missing lemma; 💬 = has a collaborative note.",
+    showFacsimile:"Show manuscript facsimile", facsimileHint:"The manuscript facsimile image for this page will render here (placeholder), with zoom and character-level alignment highlighting.",
+    fullViewNote:"Can be reviewed as context, or used to jump into structure editing.",
+    bareInternal:"bare internal compound marker", structureEditTitle:"Structure edits",
+    addBranch:"Add branch", moveBranch:"Move branch", deleteBranch:"Delete branch",
+    structureLivePreview:"The real version updates the XML DOM and re-renders immediately, queuing the structural change for review.",
+    scriptResult1:"Detected a bare <N> in EN_01.xml / 1_EN_01: kamu + nusi. Suggest writing a compound lemma on the outer <N> and adding a dictionary .COMPOUND entry.",
+    scriptResult2:"Detected an L099999 MK block in EN_02.xml. Suggest replacing the sentinel and creating or reusing a makura-kotoba entry.",
+    pendingChanges:"Pending changes", problems:"Problems (validation)",
+    fAll:"All", fPending:"Pending", fMulti:"Multiple", fDict:"Dictionary",
+    selectVisible:"Select all filtered results", approveSelected:"Approve selected", rejectSelected:"Reject selected", writeXml:"Write",
+    visibleCount:"Showing 5 items", pending:"Pending", multiCandidate:"Multiple", dictChangeFull:"Dictionary change",
+    problemsHint:"Errors block writing to XML automatically; warnings can be dismissed.",
+    prob1:"MK block references a non-existent makura-kotoba entry L099999",
+    prob2:"A bare <N> under C-NP has no compound lemma generated", goFix:"Go fix",
+    inspector:"Inspector", currentNode:"Current node", dictCandidates:"Dictionary candidates (current lemma)",
+    candSource:'From dictionary.xml: <form phonemic="ugonapar" />',
+    markPending:"Mark for review", markPendingHint:"Not written yet; queued for review.",
+    dictSingleSource:"Full dictionary editing happens only in the Dictionary panel; this only selects a candidate, to avoid the two places drifting apart.",
+    addPending:"Add to pending", openDict:"Open dictionary", editNode:"Edit node", replaceLemma:"Replace lemma",
+    nodeNote:"Collaborative note", notePlaceholder:"Record an uncertain judgment for other annotators to see…", addNote:"Add note",
+    nodeValidation:"Validation for this node", noIssue:"No issues found",
+    dictDrawerTitle:"Dictionary panel", dictSearch:"Dictionary search", search:"Search", newEntry:"New entry",
+    currentEntry:"Current entry", dictSample:'Real dictionary sample: <entry id="L000001"> ... <form phonemic="ugonapar" kana="" />',
+    glossLabel:"gloss", formsLabel:"forms", dictEditDraft:"Dictionary edit draft (also goes to pending first)", reset:"Reset",
+    cpPlaceholder:"Search scripts, queries, files, commands…", cpGroupNav:"Navigation", cpGroupScripts:"Scripts", cpGroupActions:"Actions",
+    cpNav:"Nav", cpRun:"Run", cpAction:"Action"
+  },
+  ja: {
+    appTitle:"ONCOJ XML 編集ワークベンチ", branchStatus:"main ・ ローカルファイルと同期済み", openWorkspace:"フォルダを開く", save:"保存 (⌘S)",
+    commandPalette:"コマンドパレット (⌘K)", dictionary:"辞書", pendingCountLabel:"件確認待ち", problemCountLabel:"件の問題",
+    undo:"元に戻す", redo:"やり直す", navSearch:"検索とファイル", navScripts:"スクリプト", navReview:"確認待ちと問題", navInput:"新規入力", navHistory:"履歴",
+    structuredQuery:"構造検索", fullTextQuery:"全文検索", queryType:"検索タイプ",
+    qForm:"form", qTag:"tag", qLemma:"lemma id", qPath:"パス構造、例：NP > N", qSiblings:"同一ノード内の複数成分、例：N + P", qMissing:"lemma id 欠落",
+    queryContent:"検索内容", runQuery:"選択範囲で検索", saveQuery:"よく使う検索として保存",
+    syntaxHint:"パス構文は Tregex に準拠：> は親子関係、+ は同一階層の共起。入力欄右の「?」で構文と例を確認できます。",
+    fullTextInput:"検索テキスト／正規表現", regexMode:"正規表現モード",
+    commonQueries:"よく使う検索", cMissing:"form はあるが lemma id がない", cCompound:"子がすべて lemma 付き N の bare N（複合語候補）",
+    fileScope:"対象ファイル", fpillHint:"バッジの数字＝そのファイルの確認待ち／問題件数。",
+    scriptsRegistered:"スクリプトは登録型ツールであり、固定ボタンではありません",
+    scriptsIntroText:"左側の構造／全文検索は一般的な検索を、スクリプトは一括候補生成を担当します。どのスクリプトの出力も「結果リスト」と「確認待ち修正」に統一的に入るため、スクリプトを追加しても他の UI を変更する必要はありません。",
+    addScript:"＋ 新しいスクリプトを取り込む（.py / .js manifest）",
+    scriptLemmaDesc:"lemma 未付与の注釈可能な語を検索し、辞書の form と照合。複数候補は直前の統語タグで曖昧性解消可能。未知の form は新規辞書項目を生成できます。",
+    candLemma:"lemma 候補", mayAddDict:"辞書項目を追加する可能性",
+    scopeParam:"対象範囲", scopeSelected:"選択済みファイルのみ", scopeAll:"コーパス全体", thresholdParam:"候補の信頼度下限", runScript:"設定して実行",
+    scriptCompoundDesc:"直下の子がすべて lemma 付き <N> である内部の bare <N> を検出。NP expansion 可。階層的に compound lemma を生成し .COMPOUND を書き込みます。",
+    structCand:"構造候補", dictAddFix:"辞書の追加・修正",
+    scriptMkDesc:"L099999 の sentinel を検索し、MK block 単位でグループ化。新規または既存の makura-kotoba ID に置換し、.COMPOUND / .MKTARGETNEW を追加・正規化します。",
+    batchReplace:"一括置換", mkDict:"MK 辞書項目", runLog:"直近の実行ログ",
+    reviewSummaryTitle:"確認待ち概要", single:"単一候補", multi:"多候補", dictChange:"辞書修正", jumpToPending:"確認待ちリストへ ↓",
+    problemSummaryTitle:"検証結果の問題", errorLevel:"エラー", warnLevel:"警告", jumpToProblems:"問題リストへ ↓",
+    reviewNotesTitle:"共同注記", reviewNotesHint:"メンバーがノードに残した注記をここに集約します。クリックで該当ノードへ移動します。",
+    inputModeTitle:"新規テキスト／注釈の入力", newBlockHeader:"新しい block header", initialTemplate:"初期構造テンプレート",
+    tplBlank:"空白 block", tplIpMat:"IP-MAT テンプレート", tplCopy:"現在の文から構造をコピー", createDraft:"下書き block を作成", importText:"テキストを取り込む",
+    inputSharedNote:"入力モードと編集モードは同じ木構造編集・辞書検索・確認待ち機構を共有します。違いはデータの出所が「新規下書き」か「既存 XML」かだけです。",
+    historyTitle:"バージョン履歴（ローカルコミット＋書き込み記録）",
+    hMsg1:"lemma 候補 3 件を書き込み（lemmas_processor）", hMsg2:"EN_01.xml の branch 構造を 1 箇所手動修正", hMsg3:"mk_lemma_processor の一括置換を取り込み（12 件）",
+    viewDiff:"現在バージョンとの差分を見る",
+    openMore:"さらに開く", mainWorkspace:"主作業領域", renderTreeLabel:"木構造図を描画",
+    listView:"リスト", treeView:"木構造", fullView:"全文", structureEdit:"構造編集", scriptResults:"スクリプト結果",
+    currentScope:"対象範囲：EN_01.xml、EN_02.xml",
+    colFile:"ファイル", colPos:"位置", colPath:"パス", colForm:"form", colLemma:"lemma", colConf:"信頼度", colAction:"操作", colTag:"tag",
+    btnTree:"木構造", btnExpand:"展開", btnScriptDetail:"スクリプト詳細", compoundCand:"compound 候補",
+    compoundCand2:"compound candidate", lemmaMissing:"lemma 欠落",
+    treeHint:"ノードをクリックして選択。▾/▸ で部分木を折りたたみ。破線＝lemma 欠落。💬＝共同注記あり。",
+    showFacsimile:"写本影印ページと対照", facsimileHint:"該当ページの写本影印画像がここに表示されます（プレースホルダー）。拡大表示と文字単位の対照ハイライトに対応予定。",
+    fullViewNote:"文脈確認に使えるほか、ここから構造編集にも進めます。",
+    bareInternal:"bare internal compound marker", structureEditTitle:"構造修正",
+    addBranch:"branch を追加", moveBranch:"branch を移動", deleteBranch:"branch を削除",
+    structureLivePreview:"実装版では XML DOM を更新して即座に再描画し、構造変更を確認待ちに追加します。",
+    scriptResult1:"EN_01.xml / 1_EN_01 で bare <N>: kamu + nusi を検出。外側の <N> に compound lemma を書き込み、辞書に .COMPOUND を追加することを推奨します。",
+    scriptResult2:"EN_02.xml で L099999 の MK block を検出。sentinel を置換し、makura-kotoba entry を新規作成または再利用することを推奨します。",
+    pendingChanges:"確認待ち修正", problems:"問題（検証）",
+    fAll:"すべて", fPending:"確認待ち", fMulti:"多候補", fDict:"辞書修正",
+    selectVisible:"表示中の項目をすべて選択", approveSelected:"選択を承認", rejectSelected:"選択を拒否", writeXml:"書き込み",
+    visibleCount:"5 件表示中", pending:"確認待ち", multiCandidate:"多候補", dictChangeFull:"辞書修正",
+    problemsHint:"エラーレベルは書き込み前に自動でブロックされます。警告レベルは無視を選択できます。",
+    prob1:"MK block が存在しない makura-kotoba entry L099999 を参照しています",
+    prob2:"C-NP 配下の bare <N> に compound lemma が生成されていません", goFix:"修正へ",
+    inspector:"インスペクター", currentNode:"現在のノード", dictCandidates:"辞書候補（現在の lemma）",
+    candSource:'dictionary.xml より：<form phonemic="ugonapar" />',
+    markPending:"要確認としてマーク", markPendingHint:"書き込まず、校正キューに入れます。",
+    dictSingleSource:"辞書の完全な編集は「辞書」パネルでのみ行います。ここでは候補選択のみとし、内容の不一致を防ぎます。",
+    addPending:"確認待ちに追加", openDict:"辞書を開く", editNode:"ノードを編集", replaceLemma:"lemma を置換",
+    nodeNote:"共同注記", notePlaceholder:"他の注釈者に見えるよう、疑わしい判断を記録…", addNote:"注記を追加",
+    nodeValidation:"このノードの検証", noIssue:"問題は見つかりません",
+    dictDrawerTitle:"辞書パネル", dictSearch:"辞書検索", search:"検索", newEntry:"新規 entry",
+    currentEntry:"現在の項目", dictSample:'実際の辞書サンプル：<entry id="L000001"> ... <form phonemic="ugonapar" kana="" />',
+    glossLabel:"gloss", formsLabel:"forms", dictEditDraft:"辞書編集の下書き（こちらも先に確認待ちへ）", reset:"リセット",
+    cpPlaceholder:"スクリプト・検索・ファイル・コマンドを検索…", cpGroupNav:"ナビゲーション", cpGroupScripts:"スクリプト", cpGroupActions:"操作",
+    cpNav:"ナビ", cpRun:"実行", cpAction:"操作"
+  }
+};
+
+function applyLanguage(lang){
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+  const dict = translations[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if(dict[key]!==undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{
+    const key = el.dataset.i18nTitle;
+    if(dict[key]!==undefined) el.title = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    const key = el.dataset.i18nPlaceholder;
+    if(dict[key]!==undefined) el.placeholder = dict[key];
+  });
+}
+document.getElementById("languageSelect").addEventListener("change", e=>applyLanguage(e.target.value));
+
+/* ---------------- view / tab switching ---------------- */
+const viewIds = {list:"listView", tree:"treeView", full:"fullView", structure:"structureView", script:"scriptView"};
+function setView(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active", t.dataset.view===name));
+  Object.entries(viewIds).forEach(([k,id])=>document.getElementById(id).classList.toggle("hidden", k!==name));
+}
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click", ()=>setView(t.dataset.view)));
+document.querySelectorAll(".showTree").forEach(b=>b.addEventListener("click", ()=>setView("tree")));
+
+/* left rail / activity panels */
+const leftPanels = {search:"explorerPanel", scripts:"scriptsPanel", review:"reviewPanel", input:"inputPanel", history:"historyPanel"};
+function setLeftPanel(name){
+  Object.values(leftPanels).forEach(id=>document.getElementById(id).classList.add("hidden"));
+  document.getElementById(leftPanels[name]).classList.remove("hidden");
+  document.querySelectorAll(".rail button[id^=nav]").forEach(b=>b.classList.remove("active"));
+  const map = {search:"navSearch", scripts:"navScripts", review:"navReview", input:"navInput", history:"navHistory"};
+  document.getElementById(map[name]).classList.add("active");
+  const titleKey = {search:"navSearch", scripts:"navScripts", review:"navReview", input:"navInput", history:"navHistory"}[name];
+  document.getElementById("leftTitle").dataset.i18n = titleKey;
+  applyLanguage(document.getElementById("languageSelect").value);
+  document.body.classList.remove("left-collapsed");
+}
+document.getElementById("navSearch").addEventListener("click", ()=>setLeftPanel("search"));
+document.getElementById("navScripts").addEventListener("click", ()=>setLeftPanel("scripts"));
+document.getElementById("navReview").addEventListener("click", ()=>setLeftPanel("review"));
+document.getElementById("navInput").addEventListener("click", ()=>{ setLeftPanel("input"); });
+document.getElementById("navHistory").addEventListener("click", ()=>setLeftPanel("history"));
+document.getElementById("collapseLeftBtn").addEventListener("click", ()=>document.body.classList.toggle("left-collapsed"));
+document.getElementById("collapseLeft").addEventListener("click", ()=>document.body.classList.add("left-collapsed"));
+document.getElementById("collapseRightBtn").addEventListener("click", ()=>document.body.classList.toggle("right-collapsed"));
+document.getElementById("collapseRight").addEventListener("click", ()=>document.body.classList.add("right-collapsed"));
+
+/* review panel jump links -> bottom tabs */
+function setBottomTab(name){
+  document.querySelectorAll(".bottom-tab").forEach(t=>t.classList.toggle("active", t.dataset.btab===name));
+  document.getElementById("pendingView").classList.toggle("hidden", name!=="pending");
+  document.getElementById("problemsView").classList.toggle("hidden", name!=="problems");
+}
+document.querySelectorAll(".bottom-tab").forEach(t=>t.addEventListener("click", ()=>setBottomTab(t.dataset.btab)));
+document.getElementById("jumpPending").addEventListener("click", ()=>setBottomTab("pending"));
+document.getElementById("jumpProblems").addEventListener("click", ()=>setBottomTab("problems"));
+
+/* search-tabs (structured vs full text) */
+document.querySelectorAll(".search-tab").forEach(t=>{
+  t.addEventListener("click", ()=>{
+    document.querySelectorAll(".search-tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById("structuredQueryBox").classList.toggle("hidden", t.dataset.stab!=="structured");
+    document.getElementById("fullTextQueryBox").classList.toggle("hidden", t.dataset.stab!=="text");
+  });
+});
+
+/* script params toggle */
+document.querySelectorAll(".sc-toggle").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const params = btn.closest(".script-card").querySelector(".script-params");
+    params.classList.toggle("hidden");
+  });
+});
+
+/* folder toggles */
+document.querySelectorAll(".folder-toggle").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const kids = btn.closest(".file-node").querySelector(".file-children");
+    kids.classList.toggle("hidden");
+    btn.textContent = kids.classList.contains("hidden") ? "▸" : "▾";
+  });
+});
+
+/* tree node collapse + select */
+document.querySelectorAll(".tnode > .row-line").forEach(row=>{
+  row.addEventListener("click", (e)=>{
+    document.querySelectorAll(".row-line.current").forEach(r=>r.classList.remove("current"));
+    row.classList.add("current");
+  });
+});
+document.querySelectorAll(".twisty").forEach(tw=>{
+  tw.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    const kids = tw.closest(".tnode").querySelector(".tchildren");
+    if(!kids) return;
+    const collapsed = kids.classList.toggle("hidden");
+    tw.textContent = collapsed ? "▸" : "▾";
+  });
+});
+
+/* facsimile toggle */
+document.getElementById("facsimileSwitch").addEventListener("change", e=>{
+  document.getElementById("facsimileBox").classList.toggle("hidden", !e.target.checked);
+});
+
+/* file tabs */
+document.querySelectorAll(".file-tab:not(.addtab)").forEach(tab=>{
+  tab.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("x")){ tab.remove(); return; }
+    document.querySelectorAll(".file-tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+  });
+});
+
+/* bottom filters */
+document.querySelectorAll(".filter-btn[data-filter]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".filter-btn[data-filter]").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const filter = btn.dataset.filter;
+    let count = 0;
+    document.querySelectorAll(".change-row").forEach(row=>{
+      const visible = filter==="all" || row.dataset.status===filter;
+      row.classList.toggle("hidden", !visible);
+      if(visible) count++;
+    });
+    document.getElementById("visibleCount").textContent =
+      (translations[document.getElementById("languageSelect").value].visibleCount || "").replace(/\d+/, count) ||
+      `${count}`;
+  });
+});
+document.getElementById("selectVisible").addEventListener("click", ()=>{
+  document.querySelectorAll(".change-row:not(.hidden) input[type=checkbox]").forEach(cb=>cb.checked=true);
+});
+
+/* dictionary drawer */
+const dictDrawer = document.getElementById("dictionaryDrawer");
+function openDrawer(){ dictDrawer.classList.add("open"); }
+document.getElementById("openDictionary").addEventListener("click", openDrawer);
+document.getElementById("openDictionary2").addEventListener("click", openDrawer);
+document.getElementById("closeDictionary").addEventListener("click", ()=>dictDrawer.classList.remove("open"));
+document.querySelectorAll(".lemma-link").forEach(el=>el.addEventListener("click", ()=>{ openDrawer(); }));
+
+/* command palette */
+const cpBackdrop = document.getElementById("cpBackdrop");
+const cpInput = document.getElementById("cpInput");
+function openPalette(){
+  cpBackdrop.classList.remove("hidden");
+  cpInput.value = "";
+  filterPalette("");
+  setTimeout(()=>cpInput.focus(), 0);
+}
+function closePalette(){ cpBackdrop.classList.add("hidden"); }
+document.getElementById("openPalette").addEventListener("click", openPalette);
+cpBackdrop.addEventListener("click", e=>{ if(e.target===cpBackdrop) closePalette(); });
+document.addEventListener("keydown", e=>{
+  if((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==="k"){ e.preventDefault(); openPalette(); }
+  if(e.key==="Escape") closePalette();
+});
+function filterPalette(q){
+  q = q.toLowerCase();
+  document.querySelectorAll(".cp-item").forEach(item=>{
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(q) ? "flex" : "none";
+  });
+}
+cpInput.addEventListener("input", e=>filterPalette(e.target.value));
+document.querySelectorAll(".cp-item").forEach(item=>{
+  item.addEventListener("click", ()=>{
+    const action = item.dataset.action;
+    if(action.startsWith("view:")) setView(action.split(":")[1]);
+    if(action==="open:dict") openDrawer();
+    if(action.startsWith("run:")){ setLeftPanel("scripts"); }
+    closePalette();
+  });
+});
+
+/* resizable panels */
+function dragVar(handleId, varName, axis, invert=false, min=140, max=560){
+  const el = document.getElementById(handleId);
+  if(!el) return;
+  el.addEventListener("mousedown", e=>{
+    e.preventDefault();
+    const move = ev=>{
+      let value;
+      if(axis==="x"){ value = invert ? (window.innerWidth - ev.clientX - 10) : (ev.clientX - 46); }
+      else { value = window.innerHeight - ev.clientY - 8; }
+      value = Math.max(min, Math.min(max, value));
+      document.documentElement.style.setProperty(varName, `${value}px`);
+    };
+    const up = ()=>{ window.removeEventListener("mousemove", move); window.removeEventListener("mouseup", up); };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", up);
+  });
+}
+dragVar("leftHandle", "--left", "x", false, 220, 480);
+dragVar("rightHandle", "--right", "x", true, 260, 520);
+dragVar("bottomHandle", "--bottom", "y", false, 140, 420);
+
+/* renderTree toggle disabling tree/structure tabs */
+document.getElementById("renderTree").addEventListener("change", e=>{
+  document.querySelectorAll('[data-view="tree"],[data-view="structure"]').forEach(tab=>{
+    tab.disabled = !e.target.checked;
+    tab.style.opacity = e.target.checked ? "1" : ".4";
+  });
+  if(!e.target.checked){
+    const activeView = document.querySelector(".tab.active").dataset.view;
+    if(activeView==="tree" || activeView==="structure") setView("list");
+  }
+});
+
+/* narrow width class toggle for stacked fallback niceties */
+function checkNarrow(){ document.body.classList.toggle("narrow-stack", window.innerWidth < 980); }
+window.addEventListener("resize", checkNarrow);
+checkNarrow();
+
+applyLanguage("zh");
+</script>
+</body>
+</html>
