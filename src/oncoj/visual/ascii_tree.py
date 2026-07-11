@@ -12,6 +12,7 @@ from __future__ import annotations
 import sys
 import xml.etree.ElementTree as ET
 
+from oncoj.common.ansi import bold as _b, blue as _bl, magenta as _mg, yellow as _yl
 from oncoj.core.corpus import Utterance, _utterance_to_elem
 
 # Box-drawing characters
@@ -19,29 +20,6 @@ _TEE    = "├── "
 _CORNER = "└── "
 _BLANK  = "    "
 _CONT   = "│   "
-
-# ANSI escape sequences
-_BOLD    = "\033[1m"
-_BLUE    = "\033[34m"
-_MAGENTA = "\033[35m"
-_YELLOW  = "\033[33m"
-_RESET   = "\033[0m"
-
-
-def _b(s: str, c: bool) -> str:
-    return f"{_BOLD}{s}{_RESET}" if c else s
-
-
-def _bl(s: str, c: bool) -> str:
-    return f"{_BLUE}{s}{_RESET}" if c else s
-
-
-def _mg(s: str, c: bool) -> str:
-    return f"{_MAGENTA}{s}{_RESET}" if c else s
-
-
-def _yl(s: str, c: bool) -> str:
-    return f"{_YELLOW}{s}{_RESET}" if c else s
 
 
 def _node_label(elem: ET.Element, show_annotations: bool, colour: bool) -> str:

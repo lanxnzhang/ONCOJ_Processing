@@ -78,9 +78,15 @@ Handles Old Japanese poetic pillow words marked with the sentinel `L099999`. Rep
 
 ## Core Data Model (`src/oncoj/`)
 
-A shared Python package formalising the domain objects. Use `sys.path.insert(0, 'src')` to import.
+A shared Python package formalising the domain objects. Installable as `coj` (`pip install -e .`); use `sys.path.insert(0, 'src')` for in-tree development.
 
-The package has two sub-packages:
+The package has three sub-packages:
+
+### `oncoj.common` — shared utilities
+
+| Module | Key exports |
+|---|---|
+| `oncoj.common.ansi` | `bold`, `blue`, `magenta`, `yellow` — ANSI colour helpers used by `oncoj.visual` |
 
 ### `oncoj.core` — domain model
 

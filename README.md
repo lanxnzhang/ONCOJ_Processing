@@ -29,7 +29,8 @@ scripts/
     txt2xml.py                    — convert data/txt/ → data/xml/
     xml2txt.py                    — convert data/xml/ → data/txt/
     export.py                     — generate data/xml/ exports
-src/oncoj/              — Python package: core data model
+src/oncoj/              — Python package: core data model (pip install coj)
+  common/               — shared utilities (ANSI colour helpers, …)
   core/                 — domain objects (corpus, dictionary, kana, …)
   xml/                  — XML serialisation helpers (thin wrappers)
   visual/               — visualisation utilities (ascii_tree, print_tree)
@@ -191,7 +192,7 @@ python3 -m pytest tests/    # 221 unit and integration tests
 ruff check .                # lint (config in pyproject.toml)
 ```
 
-Requires only the Python standard library, `pytest`, and `ruff`.
+Install dev dependencies with `pip install -e ".[dev]"`. Runtime has no external dependencies (stdlib only).
 
 ---
 
