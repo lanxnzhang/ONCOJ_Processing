@@ -159,12 +159,18 @@ function maxLabelWidthAtLeaves(node, opts) {
 }
 
 // ── Step 3: assign x (leaf positions) ────────────────────────────────────
-function assignX(node, leafCounter, colW) {
+function leafXValues(node) {
+  if (!node.children) return [node._x];
+  return node.children.flatMap(leafXValues);
+}
+
+function assignX(node, leafCounter) {
   if (!node.children) {
     node._x = leafCounter.n++;
   } else {
-    node.children.forEach(c => assignX(c, leafCounter, colW));
-    node._x = (node.children[0]._x + node.children[node.children.length - 1]._x) / 2;
+    node.children.forEach(c => assignX(c, leafCounter));
+    const xs = leafXValues(node);
+    node._x = xs.reduce((a, b) => a + b, 0) / xs.length;
   }
 }
 
@@ -268,7 +274,7 @@ function renderSvgTree(data) {
 
   // X positions
   const leafCounter = { n: 0 };
-  assignX(tree, leafCounter, colW);
+  assignX(tree, leafCounter);
   const totalLeaves = leafCounter.n;
 
   // Row assignments
