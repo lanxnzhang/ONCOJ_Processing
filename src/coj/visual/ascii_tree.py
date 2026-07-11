@@ -12,8 +12,8 @@ from __future__ import annotations
 import sys
 import xml.etree.ElementTree as ET
 
-from oncoj.common.ansi import bold as _b, blue as _bl, magenta as _mg, yellow as _yl
-from oncoj.core.corpus import Utterance, _utterance_to_elem
+from coj.common.ansi import bold as _b, blue as _bl, magenta as _mg, yellow as _yl
+from coj.core.corpus import Utterance, _utterance_to_elem
 
 # Box-drawing characters
 _TEE    = "├── "

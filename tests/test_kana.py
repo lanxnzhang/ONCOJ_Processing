@@ -1,5 +1,5 @@
-"""Tests for oncoj.kana — phonemic_to_kana conversion."""
-from oncoj.core.kana import phonemic_to_kana
+"""Tests for coj.kana — phonemic_to_kana conversion."""
+from coj.core.kana import phonemic_to_kana
 
 
 class TestPhonemicToKana:

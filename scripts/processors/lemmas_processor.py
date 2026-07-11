@@ -50,10 +50,10 @@ AUTO_MATCH_MODE = "strict"   # "strict" | "loose"
 
 from collections import defaultdict
 
-from oncoj.core.corpus import CorpusDocument, CorpusLine
-from oncoj.core.dictionary import Dictionary, DictEntry
-from oncoj.core.lemma_id import IDGenerator
-from oncoj.core.tags import strip_disambig
+from coj.core.corpus import CorpusDocument, CorpusLine
+from coj.core.dictionary import Dictionary, DictEntry
+from coj.core.lemma_id import IDGenerator
+from coj.core.tags import strip_disambig
 
 
 # ══════════════════════════════════════════════════════════════════════════════

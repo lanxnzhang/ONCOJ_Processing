@@ -29,8 +29,8 @@ import re
 import xml.etree.ElementTree as ET
 from typing import Iterator
 
-from oncoj.core.lemma_id import LemmaID
-from oncoj.core.tags import PHON_TAGS, strip_disambig
+from coj.core.lemma_id import LemmaID
+from coj.core.tags import PHON_TAGS, strip_disambig
 
 # ── regexes ───────────────────────────────────────────────────────────────────
 

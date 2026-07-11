@@ -29,10 +29,10 @@ OUTPUT_BASE = "data/xml"
 
 # ──────────────────────────────────────────────────────────────────────────────
 
-from oncoj.core.corpus import CorpusDocument
-from oncoj.core.dictionary import Dictionary
-from oncoj.xml.corpus_xml import corpus_to_xml_file
-from oncoj.xml.dictionary_xml import dictionary_to_xml_file
+from coj.core.corpus import CorpusDocument
+from coj.core.dictionary import Dictionary
+from coj.xml.corpus_xml import corpus_to_xml_file
+from coj.xml.dictionary_xml import dictionary_to_xml_file
 
 
 def main() -> None:

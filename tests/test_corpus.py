@@ -1,10 +1,10 @@
-"""Tests for oncoj.corpus — CorpusLine, CommentLine, Utterance, CorpusDocument."""
+"""Tests for coj.corpus — CorpusLine, CommentLine, Utterance, CorpusDocument."""
 import pytest
-from oncoj.core.corpus import (
+from coj.core.corpus import (
     CorpusLine, CommentLine, Utterance, CorpusDocument,
     _is_corpus_line, _classify_line,
 )
-from oncoj.core.lemma_id import LemmaID
+from coj.core.lemma_id import LemmaID
 
 
 # ── sample lines ──────────────────────────────────────────────────────────────

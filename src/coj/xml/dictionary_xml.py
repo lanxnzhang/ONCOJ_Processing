@@ -19,7 +19,7 @@ import io
 import os
 import xml.etree.ElementTree as ET
 
-from oncoj.core.dictionary import DictEntry, Dictionary
+from coj.core.dictionary import DictEntry, Dictionary
 
 
 # ── Field mapping tables ───────────────────────────────────────────────────────

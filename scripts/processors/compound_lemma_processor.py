@@ -50,10 +50,10 @@ LEMMA_START       = 50001
 #  IMPORTS
 # ══════════════════════════════════════════════════════════════════════════════
 
-from oncoj.core.corpus import CorpusDocument
-from oncoj.core.dictionary import Dictionary, DictEntry
-from oncoj.core.lemma_id import IDGenerator
-from oncoj.core.kana import phonemic_to_kana
+from coj.core.corpus import CorpusDocument
+from coj.core.dictionary import Dictionary, DictEntry
+from coj.core.lemma_id import IDGenerator
+from coj.core.kana import phonemic_to_kana
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -73,7 +73,7 @@ def _elem_children(elem: ET.Element) -> list[ET.Element]:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  DICTIONARY HELPERS  (working with oncoj.Dictionary / DictEntry)
+#  DICTIONARY HELPERS  (working with coj.Dictionary / DictEntry)
 # ══════════════════════════════════════════════════════════════════════════════
 
 def _pos_priority(entry: DictEntry) -> int:

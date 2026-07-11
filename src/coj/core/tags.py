@@ -4,7 +4,7 @@ ONCOJ annotation tag reference.
 Derived from:
   - Corpus data mining (data/text/, data/trees/trees/) — 460 unique tags observed
   - Dictionary field analysis (data/dict/dictionary.txt)
-  - ONCOJ project website: https://oncoj.ninjal.ac.jp/
+  - ONCOJ project website: https://coj.ninjal.ac.jp/
   - GitHub release: https://github.com/ONCOJ/data
 
 This module is purely informational: sets and dicts used for validation,

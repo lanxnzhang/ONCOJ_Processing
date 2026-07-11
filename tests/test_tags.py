@@ -1,5 +1,5 @@
-"""Tests for oncoj.tags — tag sets, dicts, and strip_disambig."""
-from oncoj.core.tags import (
+"""Tests for coj.tags — tag sets, dicts, and strip_disambig."""
+from coj.core.tags import (
     PHON_TAGS, MULTI_VALUE_FIELDS, REQUIRED_FIELDS,
     strip_disambig, is_phon_tag,
     DICT_FIELDS, POS_VALUES, ITYPE_VALUES, GEO_VALUES, TEXT_COLLECTIONS,

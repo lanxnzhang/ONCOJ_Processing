@@ -3,7 +3,7 @@ ANSI escape-code constants and single-character colouring helpers.
 
 Usage
 -----
-from oncoj.common.ansi import bold, blue, magenta, yellow
+from coj.common.ansi import bold, blue, magenta, yellow
 
 s = bold("NP", colour=True)   # "\033[1mNP\033[0m"  when colour is True
 s = bold("NP", colour=False)  # "NP"                 when colour is False

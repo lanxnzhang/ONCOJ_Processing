@@ -53,11 +53,11 @@ import re
 from collections import Counter
 from datetime import datetime
 
-from oncoj.core.corpus import CorpusDocument, CorpusLine
-from oncoj.core.dictionary import Dictionary, DictEntry
-from oncoj.core.lemma_id import IDGenerator, LemmaID
-from oncoj.core.kana import phonemic_to_kana
-from oncoj.core.tags import PHON_TAGS, strip_disambig
+from coj.core.corpus import CorpusDocument, CorpusLine
+from coj.core.dictionary import Dictionary, DictEntry
+from coj.core.lemma_id import IDGenerator, LemmaID
+from coj.core.kana import phonemic_to_kana
+from coj.core.tags import PHON_TAGS, strip_disambig
 
 
 # ══════════════════════════════════════════════════════════════════════════════

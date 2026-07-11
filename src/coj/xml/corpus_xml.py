@@ -1,7 +1,7 @@
 """
 XML serialisation and deserialisation for ONCOJ corpus documents.
 
-All heavy lifting lives in ``oncoj.core.corpus``; this module is thin wrappers
+All heavy lifting lives in ``coj.core.corpus``; this module is thin wrappers
 that expose a stable public API.
 
 Public API
@@ -21,7 +21,7 @@ from __future__ import annotations
 import io
 import xml.etree.ElementTree as ET
 
-from oncoj.core.corpus import (
+from coj.core.corpus import (
     CorpusDocument,
     Utterance,
     _utterance_to_elem,
@@ -75,5 +75,5 @@ def utterance_from_xml(xml_str: str) -> Utterance:
 
 def utterance_to_tree_str(utt: Utterance) -> str:
     """Render an Utterance as a human-readable ASCII tree."""
-    from oncoj.visual.ascii_tree import ascii_tree
+    from coj.visual.ascii_tree import ascii_tree
     return ascii_tree(utt)

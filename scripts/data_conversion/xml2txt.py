@@ -29,8 +29,8 @@ OUTPUT_BASE = "data/txt"
 
 # ──────────────────────────────────────────────────────────────────────────────
 
-from oncoj.xml.corpus_xml import corpus_from_xml_file
-from oncoj.xml.dictionary_xml import dictionary_from_xml_file
+from coj.xml.corpus_xml import corpus_from_xml_file
+from coj.xml.dictionary_xml import dictionary_from_xml_file
 
 
 def main() -> None:

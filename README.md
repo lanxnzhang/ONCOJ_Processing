@@ -1,6 +1,6 @@
-# ONCOJ Processing
+# COJ
 
-Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](https://oncoj.ninjal.ac.jp/) — a parsed corpus of mainly 7th–8th century Japanese texts (_Man'yōshū_, _Kojiki kayō_, _Nihon shoki kayō_, and others) totalling ~100,000 lexical items. Licensed CC BY 4.0.
+Tools and data model for the [Oxford-NINJAL Corpus of Old Japanese (ONCOJ)](https://coj.ninjal.ac.jp/) — a parsed corpus of mainly 7th–8th century Japanese texts (_Man'yōshū_, _Kojiki kayō_, _Nihon shoki kayō_, and others) totalling ~100,000 lexical items. Licensed CC BY 4.0.
 
 ---
 
@@ -29,13 +29,13 @@ scripts/
     txt2xml.py                    — convert data/txt/ → data/xml/
     xml2txt.py                    — convert data/xml/ → data/txt/
     export.py                     — generate data/xml/ exports
-src/oncoj/              — Python package: core data model (pip install coj)
+src/coj/              — Python package: core data model (pip install coj)
   common/               — shared utilities (ANSI colour helpers, …)
   core/                 — domain objects (corpus, dictionary, kana, …)
   xml/                  — XML serialisation helpers (thin wrappers)
   visual/               — visualisation utilities (ascii_tree, print_tree)
 notebooks/
-  oncoj_usage.ipynb               — src/oncoj package walkthrough
+  coj_usage.ipynb               — src/coj package walkthrough
   lemmas_processor.ipynb          — demo of the lemma annotator algorithm
   compound_lemma_processor.ipynb  — demo of the compound noun algorithm
   mk_lemma_processor.ipynb        — demo of the makura-kotoba algorithm
@@ -46,36 +46,36 @@ pyproject.toml          — ruff linter configuration
 
 ---
 
-## `src/oncoj` — core data model
+## `src/coj` — core data model
 
-A pure Python 3 package (no external dependencies) formalising the ONCOJ domain objects.
+A pure Python 3 package (no external dependencies) formalising the COJ domain objects.
 All in-memory objects are XML-backed: `CorpusLine`, `Utterance`, and `CorpusDocument` wrap
 `xml.etree.ElementTree` elements directly, so mutations write through to the XML tree.
 
-### `oncoj.core`
+### `coj.core`
 
 | Module | Key exports |
 |---|---|
-| `oncoj.core.kana` | `phonemic_to_kana(form)` — Frellesvig-Whitman romanisation → historical katakana |
-| `oncoj.core.lemma_id` | `LemmaID` (immutable, hashable, orderable), `IDGenerator` |
-| `oncoj.core.dictionary` | `DictEntry`, `Dictionary` — load, query, mutate, serialise |
-| `oncoj.core.corpus` | `CorpusLine`, `CommentLine`, `Utterance`, `CorpusDocument` |
-| `oncoj.core.tags` | `PHON_TAGS`, `MULTI_VALUE_FIELDS`, `REQUIRED_FIELDS`, reference dicts, `strip_disambig()` |
+| `coj.core.kana` | `phonemic_to_kana(form)` — Frellesvig-Whitman romanisation → historical katakana |
+| `coj.core.lemma_id` | `LemmaID` (immutable, hashable, orderable), `IDGenerator` |
+| `coj.core.dictionary` | `DictEntry`, `Dictionary` — load, query, mutate, serialise |
+| `coj.core.corpus` | `CorpusLine`, `CommentLine`, `Utterance`, `CorpusDocument` |
+| `coj.core.tags` | `PHON_TAGS`, `MULTI_VALUE_FIELDS`, `REQUIRED_FIELDS`, reference dicts, `strip_disambig()` |
 
-### `oncoj.xml`
+### `coj.xml`
 
-Thin wrappers that delegate to `oncoj.core`:
-
-| Module | Key exports |
-|---|---|
-| `oncoj.xml.corpus_xml` | `corpus_to_xml_file`, `corpus_from_xml_file`, `utterance_to_tree_str` |
-| `oncoj.xml.dictionary_xml` | `dictionary_to_xml_file`, `dictionary_from_xml_file`, `entry_to_str` |
-
-### `oncoj.visual`
+Thin wrappers that delegate to `coj.core`:
 
 | Module | Key exports |
 |---|---|
-| `oncoj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True, colour=False) → str` |
+| `coj.xml.corpus_xml` | `corpus_to_xml_file`, `corpus_from_xml_file`, `utterance_to_tree_str` |
+| `coj.xml.dictionary_xml` | `dictionary_to_xml_file`, `dictionary_from_xml_file`, `entry_to_str` |
+
+### `coj.visual`
+
+| Module | Key exports |
+|---|---|
+| `coj.visual.ascii_tree` | `ascii_tree(utt, *, show_comments=True, show_annotations=True, colour=False) → str` |
 | | `print_tree(utt, *, show_comments=True, show_annotations=True, colour=None)` |
 
 Renders an `Utterance` as a box-drawing syntax tree. The title line shows the sentence ID and the header word list (stored clean in XML; `=N("…")` wrapper is a `.txt`-only artefact). Sibling indices are suppressed in the visual output. All annotated nodes use the same `TAG  ( annotations… )` format. Optional ANSI colour: tags bold, word forms blue, phon/script tags magenta, lemma IDs yellow. `print_tree` auto-detects TTY when `colour=None` (default); `ascii_tree` defaults to `colour=False` so captured strings stay plain.
@@ -86,9 +86,9 @@ Renders an `Utterance` as a box-drawing syntax tree. The title line shows the se
 import sys
 sys.path.insert(0, 'src')
 
-from oncoj.core.dictionary import Dictionary
-from oncoj.core.corpus import CorpusDocument
-from oncoj.core.kana import phonemic_to_kana
+from coj.core.dictionary import Dictionary
+from coj.core.corpus import CorpusDocument
+from coj.core.kana import phonemic_to_kana
 
 # Load the dictionary (XML canonical format)
 d = Dictionary.from_file('data/xml/dict/dictionary.xml')
@@ -107,7 +107,7 @@ for utt, cl in hits:
     print(utt.sentence_id, cl)
 ```
 
-See [`notebooks/oncoj_usage.ipynb`](notebooks/oncoj_usage.ipynb) for a fully executed walkthrough of all five modules.
+See [`notebooks/coj_usage.ipynb`](notebooks/coj_usage.ipynb) for a fully executed walkthrough of all five modules.
 
 ---
 
@@ -164,7 +164,7 @@ Examples: `L000006a`, `N000001`, `T050877`
 
 Each processing task has two script editions:
 
-- **Package-based** (`scripts/processors/`): imports `src/oncoj`; reads/writes `data/xml/`.
+- **Package-based** (`scripts/processors/`): imports `src/coj`; reads/writes `data/xml/`.
 - **Standalone** (`scripts/standalone_processors/`): self-contained with no external dependencies beyond the Python standard library; reads/writes `data/txt/`.
 
 Run directly — no build step required:

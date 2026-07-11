@@ -1,8 +1,8 @@
-"""Tests for oncoj.dictionary — DictEntry and Dictionary."""
+"""Tests for coj.dictionary — DictEntry and Dictionary."""
 import pytest
-from oncoj.core.dictionary import DictEntry, Dictionary, ENTRY_SEP
-from oncoj.core.lemma_id import LemmaID
-from oncoj.core.tags import REQUIRED_FIELDS
+from coj.core.dictionary import DictEntry, Dictionary, ENTRY_SEP
+from coj.core.lemma_id import LemmaID
+from coj.core.tags import REQUIRED_FIELDS
 
 
 # ── minimal entry text used across tests ──────────────────────────────────────
@@ -318,7 +318,7 @@ class TestDictionaryRealFile:
         # Round-trip through text to get an independent copy, then normalise
         d2 = Dictionary.from_text(dictionary.to_text())
         d2.normalise_all()
-        from oncoj.core.tags import REQUIRED_FIELDS
+        from coj.core.tags import REQUIRED_FIELDS
         for entry in d2:
             for tag in REQUIRED_FIELDS:
                 assert entry.has(tag), f"{entry.eid} missing {tag}"

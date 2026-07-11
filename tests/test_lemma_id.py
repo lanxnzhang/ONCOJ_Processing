@@ -1,6 +1,6 @@
-"""Tests for oncoj.lemma_id — LemmaID and IDGenerator."""
+"""Tests for coj.lemma_id — LemmaID and IDGenerator."""
 import pytest
-from oncoj.core.lemma_id import LemmaID, IDGenerator
+from coj.core.lemma_id import LemmaID, IDGenerator
 
 
 class TestLemmaID:

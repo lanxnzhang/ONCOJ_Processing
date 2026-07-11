@@ -35,9 +35,9 @@ import re
 from collections import OrderedDict
 from typing import Iterator
 
-from oncoj.core.kana import phonemic_to_kana
-from oncoj.core.lemma_id import LemmaID
-from oncoj.core.tags import MULTI_VALUE_FIELDS, REQUIRED_FIELDS
+from coj.core.kana import phonemic_to_kana
+from coj.core.lemma_id import LemmaID
+from coj.core.tags import MULTI_VALUE_FIELDS, REQUIRED_FIELDS
 
 # ── file-format constants ──────────────────────────────────────────────────────
 
@@ -295,13 +295,13 @@ class Dictionary:
     def from_file(cls, path: str) -> "Dictionary":
         """
         Load a dictionary from *path*.  Detects format by extension:
-        ``.xml`` → delegate to ``oncoj.xml.dictionary_xml``; anything else
+        ``.xml`` → delegate to ``coj.xml.dictionary_xml``; anything else
         → parse comma-separated text.
         """
         import os
         ext = os.path.splitext(path)[1].lower()
         if ext == ".xml":
-            from oncoj.xml.dictionary_xml import dictionary_from_xml_file
+            from coj.xml.dictionary_xml import dictionary_from_xml_file
             return dictionary_from_xml_file(path)
         with open(path, encoding="utf-8") as fh:
             return cls.from_text(fh.read())
@@ -313,14 +313,14 @@ class Dictionary:
     def to_file(self, path: str) -> None:
         """
         Write to *path*.  Detects format by extension:
-        ``.xml`` → delegate to ``oncoj.xml.dictionary_xml``; anything else
+        ``.xml`` → delegate to ``coj.xml.dictionary_xml``; anything else
         → comma-separated text.
         """
         import os
         ext = os.path.splitext(path)[1].lower()
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         if ext == ".xml":
-            from oncoj.xml.dictionary_xml import dictionary_to_xml_file
+            from coj.xml.dictionary_xml import dictionary_to_xml_file
             dictionary_to_xml_file(self, path)
         else:
             with open(path, "w", encoding="utf-8") as fh:

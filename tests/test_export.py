@@ -1,4 +1,4 @@
-"""Tests for oncoj.export — XML and text-tree serialisation."""
+"""Tests for coj.export — XML and text-tree serialisation."""
 # Hurdles fixed and covered below:
 #   1. multi-sentence / multi-clause root nodes: lines starting with a
 #      lowercase token were silently classified as comments and lost from
@@ -15,16 +15,16 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
-from oncoj.core.corpus import CorpusDocument
-from oncoj.core.dictionary import Dictionary
-from oncoj.xml.corpus_xml import (
+from coj.core.corpus import CorpusDocument
+from coj.core.dictionary import Dictionary
+from coj.xml.corpus_xml import (
     corpus_from_xml,
     corpus_to_xml,
     utterance_from_xml,
     utterance_to_xml,
     utterance_to_tree_str,
 )
-from oncoj.xml.dictionary_xml import (
+from coj.xml.dictionary_xml import (
     dictionary_from_xml,
     dictionary_to_xml,
     entry_from_xml,
@@ -433,7 +433,7 @@ class TestMultiRoot:
         # comments the block would contain only a <comment> element and no tree nodes
         doc = CorpusDocument.from_text(_MULTI_ROOT_DOC)
         utt = doc[0]
-        from oncoj.core.corpus import CorpusLine
+        from coj.core.corpus import CorpusLine
         assert any(isinstance(ln, CorpusLine) for ln in utt.lines), (
             "multi-sentence lines were classified as CommentLines"
         )
