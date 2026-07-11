@@ -16,17 +16,7 @@ function clearActive(list) {
   list.querySelectorAll("li.active").forEach(el => el.classList.remove("active"));
 }
 
-// ── Toggle state ───────────────────────────────────────────────────────────
-function toggles() {
-  return {
-    lemma:    document.getElementById("tog-lemma").checked,
-    phon:     document.getElementById("tog-phon").checked,
-    null_:    document.getElementById("tog-null").checked,
-    comments: document.getElementById("tog-comments").checked,
-  };
-}
-
-["tog-lemma","tog-phon","tog-null","tog-comments"].forEach(id => {
+["tog-lemma","tog-phon","tog-null","tog-comments","tog-bottomup"].forEach(id => {
   document.getElementById(id).addEventListener("change", () => {
     if (currentTreeData) renderSvgTree(currentTreeData);
   });
@@ -109,12 +99,12 @@ async function selectUtterance(docId, sentenceId, liElem) {
 // ══════════════════════════════════════════════════════════════════════════
 
 // Layout constants
-const COL_W    = 90;  // horizontal cell width per leaf
-const ROW_H    = 48;  // vertical spacing between tree levels
-const ANN_GAP  = 38;  // gap from leaf tag baseline to word-form row
-const LEAF_H   = 96;  // extra SVG height below leaf level for annotation block
-const PAD_X    = 40;  // horizontal padding
-const PAD_TOP  = 32;  // space above root
+const ROW_H   = 44;   // vertical spacing between levels
+const ANN_H   = 72;   // height of annotation block below leaves (form+phon+lemma)
+const PAD_X   = 32;   // horizontal padding
+const PAD_TOP = 28;   // space above root
+const CH_PX   = 7.5;  // approx px per character (for label width estimation)
+const MIN_COL = 60;   // minimum column width (px)
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
@@ -125,160 +115,176 @@ function svgElem(tag, attrs = {}, text = null) {
   return el;
 }
 
-// ── Step 1: prune the tree according to toggles ───────────────────────────
+// ── Toggles ───────────────────────────────────────────────────────────────
+function toggles() {
+  return {
+    lemma:    document.getElementById("tog-lemma").checked,
+    phon:     document.getElementById("tog-phon").checked,
+    null_:    document.getElementById("tog-null").checked,
+    comments: document.getElementById("tog-comments").checked,
+    bottomup: document.getElementById("tog-bottomup").checked,
+  };
+}
+
+// ── Step 1: prune ─────────────────────────────────────────────────────────
 function isNullNode(node) {
   return node.form !== undefined && node.form === "" && node.phon === "";
 }
 
 function pruneNode(node, opts) {
   if (!opts.null_ && isNullNode(node)) return null;
-  if (!node.children) return { ...node }; // leaf
-  const children = node.children
-    .map(c => pruneNode(c, opts))
-    .filter(Boolean);
+  if (!node.children) return { ...node };
+  const children = node.children.map(c => pruneNode(c, opts)).filter(Boolean);
   if (children.length === 0) return null;
   return { ...node, children };
 }
 
-// ── Step 2: assign leaf positions (Reingold-Tilford simplified) ───────────
-// Returns { leaves, depth } for each node:
-//   leaves: number of leaf descendants
-//   xCenter: center x (in leaf units)
-//   depth: depth in tree
-
-function assignX(node, leafCounter = { n: 0 }) {
+// ── Step 2: measure label widths, compute column width ────────────────────
+function labelWidth(node, opts) {
+  // widest label this node will display
+  let w = node.tag.length * CH_PX;
   if (!node.children) {
-    const x = leafCounter.n;
-    leafCounter.n++;
-    node._x = x;
-    node._leaves = 1;
+    if (node.form) w = Math.max(w, node.form.length * CH_PX);
+    if (opts.phon  && node.phon)  w = Math.max(w, node.phon.length  * CH_PX);
+    if (opts.lemma && node.lemma) w = Math.max(w, node.lemma.length * CH_PX);
   } else {
-    node.children.forEach(c => assignX(c, leafCounter));
-    const first = node.children[0]._x;
-    const last  = node.children[node.children.length - 1]._x;
-    node._x = (first + last) / 2;
-    node._leaves = node.children.reduce((s, c) => s + c._leaves, 0);
+    if (opts.lemma && node.lemma) w = Math.max(w, node.lemma.length * CH_PX);
+  }
+  return w + 16; // 8px padding each side
+}
+
+function maxLabelWidthAtLeaves(node, opts) {
+  if (!node.children) return labelWidth(node, opts);
+  return Math.max(...node.children.map(c => maxLabelWidthAtLeaves(c, opts)));
+}
+
+// ── Step 3: assign x (leaf positions) ────────────────────────────────────
+function assignX(node, leafCounter, colW) {
+  if (!node.children) {
+    node._x = leafCounter.n++;
+  } else {
+    node.children.forEach(c => assignX(c, leafCounter, colW));
+    node._x = (node.children[0]._x + node.children[node.children.length - 1]._x) / 2;
   }
 }
 
-function assignDepth(node, d = 0) {
-  node._depth = d;
-  if (node.children) node.children.forEach(c => assignDepth(c, d + 1));
+// ── Step 4a: top-down depth ───────────────────────────────────────────────
+function assignDepthTopDown(node, d = 0) {
+  node._row = d;
+  if (node.children) node.children.forEach(c => assignDepthTopDown(c, d + 1));
 }
 
-function maxDepth(node) {
-  if (!node.children) return node._depth;
-  return Math.max(...node.children.map(maxDepth));
+// ── Step 4b: bottom-up height (leaves at row = maxHeight) ────────────────
+function assignHeight(node) {
+  if (!node.children) { node._h = 0; return 0; }
+  const maxH = Math.max(...node.children.map(assignHeight));
+  node._h = maxH + 1;
+  return node._h;
 }
 
-// ── Step 3: render into SVG ───────────────────────────────────────────────
-
-function xPx(leafX, totalLeaves) {
-  // map 0-based leaf index to pixel center
-  return PAD_X + (leafX + 0.5) * COL_W;
+function assignRowsBottomUp(node, totalHeight) {
+  node._row = totalHeight - node._h;
+  if (node.children) node.children.forEach(c => assignRowsBottomUp(c, totalHeight));
 }
 
-function yPx(depth, bottomDepth) {
-  // internal levels grow downward; leaves are at the bottom
-  return PAD_TOP + depth * ROW_H;
-}
+// ── Step 5: render ────────────────────────────────────────────────────────
+function xPx(leafX, colW) { return PAD_X + (leafX + 0.5) * colW; }
+function yPx(row)          { return PAD_TOP + row * ROW_H; }
 
-function renderNode(node, svg, totalLeaves, bottomDepth, opts) {
-  const cx  = xPx(node._x, totalLeaves);
-  const cy  = PAD_TOP + node._depth * ROW_H;
+function renderNode(node, svg, colW, maxRow, opts) {
+  const cx = xPx(node._x, colW);
+  const cy = yPx(node._row);
 
-  // ── Internal node ──────────────────────────────────────────────────────
-  if (node.children) {
-    // tag label
-    svg.appendChild(svgElem("text", {
-      x: cx, y: cy + 5, class: "lbl-tag", "text-anchor": "middle",
-    }, node.tag));
-    // embedded lemma on compound/MK nodes
-    if (opts.lemma && node.lemma) {
-      svg.appendChild(svgElem("text", {
-        x: cx, y: cy + 18, class: "lbl-lemma", "text-anchor": "middle",
-      }, node.lemma));
-    }
-    // edges to children
-    node.children.forEach(child => {
-      const ccx = xPx(child._x, totalLeaves);
-      const ccy = PAD_TOP + child._depth * ROW_H;
-      svg.appendChild(svgElem("line", {
-        x1: cx, y1: cy, x2: ccx, y2: ccy, class: "tree-edge",
-      }));
-      renderNode(child, svg, totalLeaves, bottomDepth, opts);
-    });
-    return;
-  }
-
-  // ── Leaf node ──────────────────────────────────────────────────────────
-  // 1. Leaf syntactic tag at tree-level row (same y as any internal node at this depth)
+  // tag label (all nodes)
   svg.appendChild(svgElem("text", {
     x: cx, y: cy + 5, class: "lbl-tag", "text-anchor": "middle",
   }, node.tag));
 
-  // 2. Short edge from leaf tag down to annotation block
-  const annY = PAD_TOP + bottomDepth * ROW_H + ANN_GAP;
-  svg.appendChild(svgElem("line", {
-    x1: cx, y1: cy + 8, x2: cx, y2: annY - 14, class: "tree-edge tree-edge-leaf",
-  }));
-
-  // 3. Annotation block: word form, phon, lemma
-  let yOff = annY;
-
-  if (node.form) {
+  // embedded lemma on internal compound/MK nodes
+  if (node.children && opts.lemma && node.lemma) {
     svg.appendChild(svgElem("text", {
-      x: cx, y: yOff, class: "lbl-form", "text-anchor": "middle",
-    }, node.form));
-  }
-  yOff += 15;
-
-  if (opts.phon && node.phon) {
-    svg.appendChild(svgElem("text", {
-      x: cx, y: yOff, class: "lbl-phon", "text-anchor": "middle",
-    }, node.phon));
-    yOff += 14;
-  }
-
-  if (opts.lemma && node.lemma) {
-    svg.appendChild(svgElem("text", {
-      x: cx, y: yOff, class: "lbl-lemma", "text-anchor": "middle",
+      x: cx, y: cy + 18, class: "lbl-lemma", "text-anchor": "middle",
     }, node.lemma));
+  }
+
+  if (node.children) {
+    // edges + recurse
+    node.children.forEach(child => {
+      const ccx = xPx(child._x, colW);
+      const ccy = yPx(child._row);
+      svg.appendChild(svgElem("line", {
+        x1: cx, y1: cy + 8, x2: ccx, y2: ccy - 2, class: "tree-edge",
+      }));
+      renderNode(child, svg, colW, maxRow, opts);
+    });
+  } else {
+    // leaf: dashed edge down to annotation block
+    const annY = yPx(maxRow) + ANN_H * 0.3;
+    if (node._row < maxRow) {
+      svg.appendChild(svgElem("line", {
+        x1: cx, y1: cy + 8, x2: cx, y2: annY - 4,
+        class: "tree-edge tree-edge-leaf",
+      }));
+    }
+
+    // annotation block
+    let yOff = yPx(maxRow) + 26;
+    if (node.form) {
+      svg.appendChild(svgElem("text", {
+        x: cx, y: yOff, class: "lbl-form", "text-anchor": "middle",
+      }, node.form));
+    }
+    yOff += 15;
+    if (opts.phon && node.phon) {
+      svg.appendChild(svgElem("text", {
+        x: cx, y: yOff, class: "lbl-phon", "text-anchor": "middle",
+      }, node.phon));
+      yOff += 14;
+    }
+    if (opts.lemma && node.lemma) {
+      svg.appendChild(svgElem("text", {
+        x: cx, y: yOff, class: "lbl-lemma", "text-anchor": "middle",
+      }, node.lemma));
+    }
   }
 }
 
 // ── Main entry point ──────────────────────────────────────────────────────
-
 function renderSvgTree(data) {
   const container = document.getElementById("tree-container");
   container.innerHTML = "";
   const opts = toggles();
 
-  // Prune each root and collect non-null ones
   const roots = data.roots.map(r => pruneNode(r, opts)).filter(Boolean);
   if (roots.length === 0) {
     container.innerHTML = '<p class="tree-placeholder">Nothing to display.</p>';
     return;
   }
 
-  // Wrap multiple roots in a synthetic root if needed
-  let tree;
-  if (roots.length === 1) {
-    tree = roots[0];
+  const tree = roots.length === 1 ? roots[0] : { tag: "", children: roots, lemma: null };
+
+  // Column width: driven by widest leaf label
+  const colW = Math.max(MIN_COL, maxLabelWidthAtLeaves(tree, opts));
+
+  // X positions
+  const leafCounter = { n: 0 };
+  assignX(tree, leafCounter, colW);
+  const totalLeaves = leafCounter.n;
+
+  // Row assignments
+  let maxRow;
+  if (opts.bottomup) {
+    const totalH = assignHeight(tree);
+    assignRowsBottomUp(tree, totalH);
+    maxRow = totalH;
   } else {
-    tree = { tag: "", children: roots, lemma: null };
+    assignDepthTopDown(tree);
+    maxRow = (() => { let m = 0; const walk = n => { m = Math.max(m, n._row); if (n.children) n.children.forEach(walk); }; walk(tree); return m; })();
   }
 
-  // Assign layout
-  const leafCounter = { n: 0 };
-  assignX(tree, leafCounter);
-  assignDepth(tree);
-  const totalLeaves = leafCounter.n;
-  const bottom = maxDepth(tree);
-
-  // SVG dimensions
-  const svgW = totalLeaves * COL_W + PAD_X * 2;
-  const svgH = PAD_TOP + bottom * ROW_H + LEAF_H;
+  // SVG sizing
+  const svgW = totalLeaves * colW + PAD_X * 2;
+  const svgH = PAD_TOP + maxRow * ROW_H + ANN_H + 16;
 
   const svg = svgElem("svg", {
     width: svgW, height: svgH,
@@ -286,19 +292,16 @@ function renderSvgTree(data) {
     class: "tree-svg",
   });
 
-  // Comments header
+  // Comments
   if (opts.comments && data.comments && data.comments.length) {
     data.comments.forEach((c, i) => {
       svg.appendChild(svgElem("text", {
-        x: PAD_X, y: 14 + i * 14,
-        class: "lbl-comment",
+        x: PAD_X, y: 13 + i * 13, class: "lbl-comment",
       }, `# ${c}`));
     });
   }
 
-  // Render edges first (so labels draw on top)
-  renderNode(tree, svg, totalLeaves, bottom, opts);
-
+  renderNode(tree, svg, colW, maxRow, opts);
   container.appendChild(svg);
 }
 

@@ -114,6 +114,7 @@ header {
   user-select: none;
 }
 .toggle input { cursor: pointer; }
+.toolbar-sep { width: 1px; background: var(--border); align-self: stretch; margin: 0 4px; }
 
 /* ── Tree container ── */
 #tree-container {
