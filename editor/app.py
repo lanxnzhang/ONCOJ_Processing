@@ -7,7 +7,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from flask import Flask, abort, jsonify, render_template, request
 
-from coj.core.corpus import CorpusDocument
+import xml.etree.ElementTree as ET
+
+from coj.core.corpus import CorpusDocument, _utterance_to_elem
 from coj.core.dictionary import Dictionary
 from coj.xml.corpus_xml import utterance_to_tree_str
 
@@ -163,6 +165,45 @@ def dictionary_entry(entry_id: str):
             fields.append({"tag": tag, "value": value or ""})
 
     return jsonify({"id": str(entry.eid), "fields": fields})
+
+
+def _elem_to_node(elem: ET.Element) -> dict:
+    """Recursively convert an XML element to a plain-dict tree for JSON."""
+    children = [c for c in elem if c.tag != "comment"]
+    comments  = [c.get("raw", "") for c in elem if c.tag == "comment"]
+    tag = elem.get("raw_tag") or elem.tag
+    node: dict = {"tag": tag}
+    if comments:
+        node["comments"] = comments
+    if elem.get("lemma"):
+        node["lemma"] = elem.get("lemma")
+    if children:
+        node["children"] = [_elem_to_node(c) for c in children]
+    else:
+        node["form"]  = elem.get("form", "")
+        node["phon"]  = elem.get("phon", "")
+        if elem.get("lemma"):
+            node["lemma"] = elem.get("lemma")
+    return node
+
+
+@app.route("/api/utterances/<doc_id>/<path:sentence_id>/tree")
+def utterance_tree(doc_id: str, sentence_id: str):
+    doc = get_doc(doc_id)
+    utt = doc.find_utterance(sentence_id)
+    if utt is None:
+        abort(404, description=f"Utterance '{sentence_id}' not found in '{doc_id}'")
+
+    block = _utterance_to_elem(utt)
+    roots = [c for c in block if c.tag != "comment"]
+    top_comments = [c.get("raw", "") for c in block if c.tag == "comment"]
+
+    return jsonify({
+        "sentence_id": utt.sentence_id or "",
+        "header":      block.get("header", ""),
+        "comments":    top_comments,
+        "roots":       [_elem_to_node(r) for r in roots],
+    })
 
 
 if __name__ == "__main__":

@@ -32,7 +32,15 @@
       </div>
 
       <div class="tab-content" id="tab-tree">
-        <pre id="tree-display" class="tree-pre">Select an utterance.</pre>
+        <div class="tree-toolbar">
+          <label class="toggle"><input type="checkbox" id="tog-lemma" checked> Lemma IDs</label>
+          <label class="toggle"><input type="checkbox" id="tog-phon"  checked> Script tags</label>
+          <label class="toggle"><input type="checkbox" id="tog-null"> Null nodes</label>
+          <label class="toggle"><input type="checkbox" id="tog-comments"> Comments</label>
+        </div>
+        <div id="tree-container">
+          <p class="tree-placeholder">Select an utterance.</p>
+        </div>
       </div>
 
       <div class="tab-content hidden" id="tab-dict">
