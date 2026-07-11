@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COJ Editor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <span class="logo">COJ Editor</span>
+  </header>
+
+  <div class="workspace">
+    <!-- Pane 1: Documents -->
+    <div class="pane" id="pane-docs">
+      <div class="pane-header">Documents</div>
+      <ul id="doc-list" class="item-list"></ul>
+    </div>
+
+    <!-- Pane 2: Utterances -->
+    <div class="pane" id="pane-utts">
+      <div class="pane-header">Utterances</div>
+      <ul id="utt-list" class="item-list"></ul>
+    </div>
+
+    <!-- Pane 3: Tree / Dictionary -->
+    <div class="pane" id="pane-detail">
+      <div class="tab-bar">
+        <button class="tab active" data-tab="tree">Tree</button>
+        <button class="tab" data-tab="dict">Dictionary</button>
+      </div>
+
+      <div class="tab-content" id="tab-tree">
+        <pre id="tree-display" class="tree-pre">Select an utterance.</pre>
+      </div>
+
+      <div class="tab-content hidden" id="tab-dict">
+        <div class="dict-search-row">
+          <input id="dict-input" type="text" placeholder="Search form, gloss, or ID…">
+        </div>
+        <ul id="dict-results" class="item-list"></ul>
+        <div id="dict-entry" class="dict-entry-detail hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
