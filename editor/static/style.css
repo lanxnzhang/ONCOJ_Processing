@@ -115,6 +115,9 @@ header {
 }
 .toggle input { cursor: pointer; }
 .toolbar-sep { width: 1px; background: var(--border); align-self: stretch; margin: 0 4px; }
+.slider-label { gap: 6px; }
+.slider-label input[type=range] { width: 80px; cursor: pointer; accent-color: var(--accent); }
+#slider-rowh-val { font-variant-numeric: tabular-nums; min-width: 2ch; }
 
 /* ── Tree container ── */
 #tree-container {

@@ -16,6 +16,11 @@ function clearActive(list) {
   list.querySelectorAll("li.active").forEach(el => el.classList.remove("active"));
 }
 
+document.getElementById("slider-rowh").addEventListener("input", e => {
+  document.getElementById("slider-rowh-val").textContent = e.target.value;
+  if (currentTreeData) renderSvgTree(currentTreeData);
+});
+
 ["tog-lemma","tog-phon","tog-null","tog-comments","tog-bottomup"].forEach(id => {
   document.getElementById(id).addEventListener("change", () => {
     if (currentTreeData) renderSvgTree(currentTreeData);
@@ -98,8 +103,8 @@ async function selectUtterance(docId, sentenceId, liElem) {
 // SVG Tree Renderer
 // ══════════════════════════════════════════════════════════════════════════
 
-// Layout constants
-const ROW_H   = 44;   // vertical spacing between levels
+// Layout constants (ROW_H is read live from the slider)
+function rowH() { return parseInt(document.getElementById("slider-rowh").value, 10); }
 const ANN_H   = 72;   // height of annotation block below leaves (form+phon+lemma)
 const PAD_X   = 32;   // horizontal padding
 const PAD_TOP = 28;   // space above root
@@ -195,7 +200,7 @@ function assignRowsBottomUp(node, totalHeight) {
 
 // ── Step 5: render ────────────────────────────────────────────────────────
 function xPx(leafX, colW) { return PAD_X + (leafX + 0.5) * colW; }
-function yPx(row)          { return PAD_TOP + row * ROW_H; }
+function yPx(row)          { return PAD_TOP + row * rowH(); }
 
 function renderNode(node, svg, colW, maxRow, opts) {
   const cx = xPx(node._x, colW);
@@ -290,7 +295,7 @@ function renderSvgTree(data) {
 
   // SVG sizing
   const svgW = totalLeaves * colW + PAD_X * 2;
-  const svgH = PAD_TOP + maxRow * ROW_H + ANN_H + 16;
+  const svgH = PAD_TOP + maxRow * rowH() + ANN_H + 16;
 
   const svg = svgElem("svg", {
     width: svgW, height: svgH,
