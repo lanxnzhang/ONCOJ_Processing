@@ -1,5 +1,23 @@
 # TODO
 
+## Build script editor
+An essential purpose for this repository is to facilitate editing of data, with the help of scripts. It is inconvenient for users to revise scripts, download the results, read them in txt, and edit data in different softwares.
+Create a simple GUI which allows the user to run scripts, see the running results, and edit the data.
+
+### Features
+
+- For right now:
+  1. User can import scripts, make settings, and run them.
+  2. User can see the running results, in particular the processed text lines and processed dictionary entries. Show processed text lines and dictionary entries in two areas/pages. For processed text lines, the results should show their file, position, syntax tree path, categories (new or existing) and so on, like the output information in reports. For processed dictionary entries, the results should show the lemma ID and revised contents.
+
+-Next Step:
+  1. Differentiate the text lines having single or multiple search/processed results.
+  2. User can use dictionary.
+  3. User can see the context of processed text lines.
+  4. User can render syntax trees.
+  5. User can modify the result.
+
+
 ## Build interactive editor
 
 An essential purpose for this repository is to facilitate research for linguists. The conventional text-declarative way of uploading and editing data poses a significant hurdle.

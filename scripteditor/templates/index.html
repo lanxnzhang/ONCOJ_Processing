@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COJ Script Editor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header><div><strong>COJ</strong><span>Script Editor</span></div><span class="safe">Runs use copied data</span></header>
+  <main>
+    <aside>
+      <p class="eyebrow">PROCESSOR</p>
+      <select id="script"></select>
+      <div id="settings"></div>
+      <button id="run">Run processor</button>
+      <div id="status">Choose a processor and review its settings.</div>
+      <details><summary>Console output</summary><pre id="console"></pre></details>
+    </aside>
+    <section class="results">
+      <div class="summary"><div><span id="line-count">0</span><small>processed lines</small></div><div><span id="dict-count">0</span><small>dictionary changes</small></div></div>
+      <nav><button class="tab active" data-tab="lines">Text lines</button><button class="tab" data-tab="dictionary">Dictionary entries</button><button class="tab" data-tab="files">Output files</button></nav>
+      <div id="lines" class="panel"></div>
+      <div id="dictionary" class="panel hidden"></div>
+      <div id="files" class="panel hidden"></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
