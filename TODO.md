@@ -17,6 +17,29 @@ Create a simple GUI which allows the user to run scripts, see the running result
   4. User can render syntax trees.
   5. User can modify the result.
 
+### After commit d77c4ce
+
+Currently, there are still issues with .py scripts. Do not make any change to the current scripts. Copy them(compound_lemma_processor, lemmas_processor, mk_lemma_processor) under the folder scripteditor, then only revise the new copied scripts. Rename the copied scripts as compound_lemma_forgui, lemma_forgui, mk_lemma_forgui. When show the choice of scripts in the GUI, do not show the '_' and 'forgui'. For example, in drop-down menu, their name should be shown as 'compound lemma','lemma','mk lemma'.
+
+#### Refine the lemmas_forgui.py to a version suitable for the GUI
+1. First, check if the script works properly. Make sure its function is: 
+  Based on the xml data (not the txt); 
+  Searched items should be leaves without 'lemma' tag. For example,  <N index="1" phon="LOG" form="papuri" /> should be detected and automatically assigned a lemma ID. <P-COMP lemma="L000530" phon="PHON" form="to" /> should be kept since it has a 'lemma' tag;
+  When a form is in the dictionary, the lemma should equal to its lemma in the dictionary;
+  When a form is not in the dictionary, a new unique lemma ID should be generated, and the user can choose to automatically add the new form in the dictionary;
+  The object searched by AUTO_POS_QUERY is the content in leaves. For example, it is N in <N index="1" phon="LOG" form="papuri" />. 
+2. In GUI, for the left part about settings:
+  put the settings about True/False at the top, then the settings requiring user to type something;
+  Put the checkbox at the right of the setting, not below it;
+  Add discriptions of settings. When users put their mouse on an icon like ⍰, they will be able to see the discriptions of this setting. The discriptions disappear when user move away their mouse.
+3. For realisation of functions in GUI:
+  Move all lemma id settings to advanced settings (LEMMA_PREFIX  = "N"    # prefix for newly generated IDs  (L, N, F, T, …)LEMMA_DIGITS  = 6      # zero-padded width  (6 → N000001)LEMMA_START   = 1      # minimum numeric value for new IDs DICT_ID_PREFIX = "T"   # prefix applied when inserting an existing dict ID);
+  The default lemma prefix is L, digits=6, start=1;
+  Differentiate existing lemma been added and newly generated lemma in the output result, such as mark them or put them in different categories. Same as for dictionary entries - differenciate the existing and newly created;
+  NORMALIZE_DICT is not needed. Do not run it in this script. But it may be added back in the future at another place or in another script.
+4. For the realisation of ADVANCED_DISAMBIG in GUI: 
+  Move it to the advanced settings. The default status is true.
+  Mark the result with multiple candidates in the result.
 
 ## Build interactive editor
 

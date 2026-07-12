@@ -13,6 +13,26 @@ from coj.core.corpus import CorpusDocument
 from coj.core.dictionary import Dictionary
 
 LOCKED = {"TEXT_FOLDER", "DICT_FILE", "OUTPUT_FOLDER", "OVERWRITE_SOURCE"}
+ADVANCED = {"LEMMA_PREFIX", "LEMMA_DIGITS", "LEMMA_START", "DICT_ID_PREFIX",
+            "ADVANCED_DISAMBIG"}
+DESCRIPTIONS = {
+    "DICT_ENTRY_CREATE": "Automatically create a dictionary entry for a form that is not found.",
+    "CREATE_DICT_ENTRIES": "Automatically create dictionary entries produced by this processor.",
+    "ADVANCED_DISAMBIG": "When a form has several dictionary candidates, score them against the leaf tag.",
+    "AUTO_POS_QUERY": "Leaf tag to process, such as N or VB. Use ALL! for every leaf tag.",
+    "AUTO_MATCH_MODE": "Strict requires an exact leaf-tag match; loose allows a partial match.",
+    "LEMMA_PREFIX": "Prefix used only for newly generated lemma IDs.",
+    "LEMMA_DIGITS": "Number of zero-padded digits in newly generated lemma IDs.",
+    "LEMMA_START": "Lowest number that may be used for a newly generated lemma ID.",
+    "DICT_ID_PREFIX": "Optional legacy prefix rewrite for dictionary matches; blank preserves the exact dictionary ID.",
+    "DICT_SEARCH": "Search the dictionary before creating a compound entry.",
+    "DICT_REFINE": "Refine an existing dictionary entry when compound information is found.",
+    "NP_EXPANSION": "Expand eligible noun phrase structures before compound detection.",
+    "SAVE_REVISED": "Write an additional file containing revised entries.",
+    "TARGET_ID": "Placeholder lemma ID that the makura-kotoba processor replaces.",
+    "RELATED_TOP_N": "Maximum number of related target words to record.",
+    "NORMALISE_EXISTING": "Fill missing relations on existing makura-kotoba entries.",
+}
 
 
 def inspect_settings(path: Path) -> list[dict]:
@@ -38,8 +58,10 @@ def inspect_settings(path: Path) -> list[dict]:
             choices = None
             if target.id == "AUTO_MATCH_MODE": choices = ["strict", "loose"]
             result.append({"name": target.id, "value": value,
-                           "type": type(value).__name__, "choices": choices})
-    return result
+                           "type": type(value).__name__, "choices": choices,
+                           "advanced": target.id in ADVANCED,
+                           "description": DESCRIPTIONS.get(target.id, "Configure this processor option.")})
+    return sorted(result, key=lambda item: (item["advanced"], item["type"] != "bool"))
 
 
 def load_module(path: Path):
@@ -52,6 +74,12 @@ def load_module(path: Path):
 
 
 def line_records(before_dir: Path, output: Path) -> list[dict]:
+    metadata = {}
+    metadata_path = output / "gui_results.json"
+    if metadata_path.exists():
+        raw_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata = {(item["file"], item["before"]): item
+                    for item in raw_metadata.get("lines", [])}
     records = []
     for produced in sorted(output.glob("*_processed.xml")):
         source_name = produced.name.removesuffix("_processed.xml") + ".xml"
@@ -66,10 +94,14 @@ def line_records(before_dir: Path, output: Path) -> list[dict]:
                     continue
                 old_id = str(old.lemma_id) if old.lemma_id else None
                 new_id = str(new.lemma_id) if new.lemma_id else None
+                decision = metadata.get((source_name, old.to_text()), {})
                 records.append({
                     "file": source_name, "utterance": old_utt.sentence_id or str(ui),
                     "position": li, "form": new.word_form or old.word_form or "",
-                    "path": new.synt_path, "category": "new" if not old_id and new_id else "existing",
+                    "path": new.synt_path,
+                    "category": decision.get("category", "changed"),
+                    "multiple_candidates": decision.get("multiple_candidates", False),
+                    "candidates": decision.get("candidates", []),
                     "old_lemma": old_id, "new_lemma": new_id,
                     "before": old.to_text(), "after": new.to_text(),
                 })

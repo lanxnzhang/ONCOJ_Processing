@@ -18,14 +18,17 @@ async function loadScripts() {
 }
 async function loadSettings() {
   descriptors = await json(`/api/scripts/${$("script").value}/settings`);
-  $("settings").innerHTML = descriptors.map(d => {
+  const renderSetting = d => {
     const id = `setting-${d.name}`;
     let input;
     if (d.type === "bool") input = `<input id="${id}" type="checkbox" ${d.value ? "checked" : ""}>`;
     else if (d.choices) input = `<select id="${id}">${d.choices.map(v => `<option ${v === d.value ? "selected" : ""}>${v}</option>`).join("")}</select>`;
     else input = `<input id="${id}" type="${d.type === "int" ? "number" : "text"}" value="${escapeHtml(d.value)}">`;
-    return `<label><span>${d.name.replaceAll("_", " ")}</span>${input}</label>`;
-  }).join("");
+    return `<label class="setting ${d.type === "bool" ? "boolean" : ""}"><span>${d.name.replaceAll("_", " ")} <i class="help" title="${escapeHtml(d.description)}">?</i></span>${input}</label>`;
+  };
+  const general = descriptors.filter(d => !d.advanced).map(renderSetting).join("");
+  const advanced = descriptors.filter(d => d.advanced).map(renderSetting).join("");
+  $("settings").innerHTML = `${general}${advanced ? `<details class="advanced"><summary>Advanced settings</summary>${advanced}</details>` : ""}`;
 }
 function settings() {
   return Object.fromEntries(descriptors.map(d => {
@@ -36,9 +39,10 @@ function settings() {
 function renderLines(lines) {
   const shown = lines.slice(0, 1000);
   $("lines").innerHTML = lines.length ? `${lines.length > shown.length ? `<div class="notice">Showing the first ${shown.length.toLocaleString()} of ${lines.length.toLocaleString()} changes.</div>` : ""}${shown.map(r => `<article>
-    <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span><code>${escapeHtml(r.new_lemma || "—")}</code></div>
+    <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${escapeHtml(r.new_lemma || "—")}</code></div>
     <p>${escapeHtml(r.file)} · utterance ${escapeHtml(r.utterance)} · line ${r.position}</p>
     <div class="path">${r.path.map(escapeHtml).join(" <b>›</b> ")}</div>
+    ${r.multiple_candidates ? `<p class="candidates">Candidates: ${r.candidates.map(escapeHtml).join(", ")}</p>` : ""}
     <details><summary>Before / after</summary><pre>${escapeHtml(r.before)}\n${escapeHtml(r.after)}</pre></details>
   </article>`).join("")}` : '<div class="empty">No processed text lines.</div>';
 }

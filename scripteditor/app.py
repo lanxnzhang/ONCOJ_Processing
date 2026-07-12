@@ -12,7 +12,11 @@ from flask import Flask, abort, jsonify, render_template, request
 ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "runs"
-PROCESSORS = ROOT / "scripts" / "processors"
+PROCESSORS = {
+    "compound_lemma_forgui": (HERE / "compound_lemma_forgui.py", "compound lemma"),
+    "lemma_forgui": (HERE / "lemma_forgui.py", "lemma"),
+    "mk_lemma_forgui": (HERE / "mk_lemma_forgui.py", "mk lemma"),
+}
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
@@ -20,17 +24,16 @@ app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
 
 def _builtins() -> list[dict[str, str]]:
     return [
-        {"id": p.stem, "name": p.name, "source": "COJ processor"}
-        for p in sorted(PROCESSORS.glob("*_processor.py"))
+        {"id": script_id, "name": label, "source": "GUI processor"}
+        for script_id, (_, label) in PROCESSORS.items()
     ]
 
 
 def _script_path(script_id: str) -> Path:
-    candidates = {p.stem: p for p in PROCESSORS.glob("*_processor.py")}
-    path = candidates.get(script_id)
-    if path is None:
+    item = PROCESSORS.get(script_id)
+    if item is None:
         abort(404, description="Unknown processor")
-    return path
+    return item[0]
 
 
 @app.get("/")
