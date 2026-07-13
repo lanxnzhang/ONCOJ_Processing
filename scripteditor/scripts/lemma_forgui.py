@@ -22,14 +22,6 @@ TEXT_FOLDER   = "data/xml/text"              # folder containing .xml files to p
 DICT_FILE     = "data/xml/dict/dictionary.xml"  # dictionary file path
 OUTPUT_FOLDER = "data/xml/text"              # folder for all output files
 
-# ── Lemma ID settings ─────────────────────────────────────────────────────────
-LEMMA_PREFIX  = "L"    # prefix for newly generated IDs  (L, N, F, T, …)
-LEMMA_DIGITS  = 6      # zero-padded width  (6 → N000001)
-LEMMA_START   = 1      # minimum numeric value for new IDs
-
-# ── Existing-entry ID rewrite ─────────────────────────────────────────────────
-DICT_ID_PREFIX = ""    # optional legacy rewrite; blank preserves dictionary IDs
-
 # ── Core behaviour switches ───────────────────────────────────────────────────
 OVERWRITE_SOURCE  = False  # True  → overwrite source .txt files in place
                             # False → write *_processed.txt to OUTPUT_FOLDER
@@ -59,27 +51,66 @@ from coj.core.tags import strip_disambig
 #  DISAMBIGUATION
 # ══════════════════════════════════════════════════════════════════════════════
 
-def disambiguate(candidates: list[DictEntry], preceding_tag: str) -> DictEntry:
-    """Score each candidate against the preceding syntactic tag; return the best."""
-    best       = candidates[0]
-    best_score = -1
-    tag_upper  = preceding_tag.upper()
+TAG_TO_DICTIONARY_POS: dict[str, tuple[str, ...]] = {
+    "N": ("noun",),
+    "N-DVB": ("noun (deverbal)", "noun"),
+    "N-COMP": ("noun",),
+    "N-PRD": ("noun",),
+    "DVN": ("noun (deverbal)", "noun"),
+    "PRO-N": ("pronoun",),
+    "PRO-ADV": ("adverb", "pronoun"),
+    "NUM": ("numeral",),
+    "NUMCL": ("classifier", "numeral"),
+    "CL": ("classifier",),
+    "ADV": ("adverb",),
+    "ADJ": ("adjective",),
+    "VB": ("verb",),
+    "PFX": ("prefix",),
+    "SFX": ("suffix",),
+    "ACP": ("adjectival copula",),
+    "COP": ("copula",),
+    "XTN": ("extension",),
+    "VAX": ("auxiliary",),
+    "P-CASE": ("case particle",),
+    "P-TOP": ("topic particle",),
+    "P-FOC": ("focus particle",),
+    "P-RES": ("restrictive particle",),
+    "P-COMP": ("complementizer particle",),
+    "P-CONN": ("conjunctional particle",),
+    "P-FNL": ("final particle",),
+}
 
-    for entry in candidates:
-        gloss = (entry.get_first(".GLOSS") or "").upper()
-        if not gloss:
-            score = 0
-        elif tag_upper.startswith(gloss):
-            score = 3
-        elif gloss in tag_upper:
-            score = 2
-        else:
-            score = 0
-        if score > best_score:
-            best_score = score
-            best       = entry
 
+def expected_pos_for_tag(tag: str) -> tuple[str, ...]:
+    """Map an ONCOJ leaf tag to preferred dictionary POS values."""
+    base = strip_disambig(tag)
+    if base in TAG_TO_DICTIONARY_POS:
+        return TAG_TO_DICTIONARY_POS[base]
+    for prefix in ("VAX", "P-CASE", "P-FNL", "ADJ", "VB", "PFX", "ACP", "COP"):
+        if base.startswith(prefix + "-"):
+            return TAG_TO_DICTIONARY_POS[prefix]
+    return ()
+
+
+def candidate_pos_score(entry: DictEntry, tag: str) -> int:
+    """Score a dictionary candidate using its .POS values and the leaf tag."""
+    expected = expected_pos_for_tag(tag)
+    actual = [value.strip().lower() for value in entry.get_all(".POS")]
+    best = 0
+    for preference_index, wanted in enumerate(expected):
+        for value in actual:
+            if value == wanted:
+                best = max(best, 100 - preference_index * 5)
+            elif value.startswith(wanted + " (") or wanted == "pronoun" and value.startswith("pronoun"):
+                best = max(best, 90 - preference_index * 5)
+            elif wanted in value:
+                best = max(best, 70 - preference_index * 5)
     return best
+
+
+def rank_candidates(candidates: list[DictEntry], leaf_tag: str) -> list[DictEntry]:
+    """Return candidates from best to worst POS match, preserving ties."""
+    return sorted(candidates, key=lambda entry: candidate_pos_score(entry, leaf_tag), reverse=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -123,9 +154,10 @@ def process_file_standard(
 
             if form in form_to_entries:
                 candidates = form_to_entries[form]
-                entry = (disambiguate(candidates, prev)
-                         if ADVANCED_DISAMBIG and len(candidates) > 1
-                         else candidates[0])
+                ranked_candidates = (rank_candidates(candidates, prev)
+                                     if ADVANCED_DISAMBIG and len(candidates) > 1
+                                     else candidates)
+                entry = ranked_candidates[0]
                 if ADVANCED_DISAMBIG and len(candidates) > 1:
                     stats["disambiguations_applied"] += 1
 
@@ -134,12 +166,7 @@ def process_file_standard(
                     stats["unchanged_lines"] += 1
                     continue
 
-                raw_id = str(entry.eid)
-                if DICT_ID_PREFIX:
-                    num_part = raw_id.lstrip("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
-                    lemma_id = f"{DICT_ID_PREFIX}{num_part}"
-                else:
-                    lemma_id = raw_id
+                lemma_id = str(entry.eid)
                 original = cl.to_text()
                 cl.insert_lemma(lemma_id)
                 stats["dict_matches_inserted"] += 1
@@ -148,7 +175,7 @@ def process_file_standard(
                     "lemma": lemma_id,
                     "category": "existing",
                     "multiple_candidates": len(candidates) > 1,
-                    "candidates": [str(candidate.eid) for candidate in candidates],
+                    "candidates": [str(candidate.eid) for candidate in ranked_candidates],
                 })
 
             elif form in new_id_cache:
@@ -204,7 +231,7 @@ def process_unknown_words(
                   f"found {len(lines)} time(s) in {doc.filename} "
                   f"→ auto-annotating POS='{AUTO_POS_QUERY}', mode='{AUTO_MATCH_MODE}'")
 
-            lemma_id = str(id_gen.next_id(prefix=LEMMA_PREFIX))
+            lemma_id = str(id_gen.next_id())
             new_id_cache[form] = lemma_id
             stats["new_ids_created"] += 1
 
@@ -295,9 +322,9 @@ def process_files() -> None:
     dictionary = Dictionary.from_file(DICT_FILE)
     id_gen     = IDGenerator(
         existing=dictionary.used_numbers(),
-        start=LEMMA_START,
-        prefix=LEMMA_PREFIX,
-        digits=LEMMA_DIGITS,
+        start=1,
+        prefix="L",
+        digits=6,
     )
 
     # IDs present in corpus XML may not yet exist in the dictionary. Reserve
@@ -407,8 +434,6 @@ if __name__ == "__main__":
     print(f"  Text folder   : {TEXT_FOLDER}")
     print(f"  Dictionary    : {DICT_FILE}")
     print(f"  Output folder : {OUTPUT_FOLDER}")
-    print(f"  New ID prefix : {LEMMA_PREFIX}  (dict IDs use prefix: {DICT_ID_PREFIX})")
-    print(f"  ID width      : {LEMMA_DIGITS} digits  (start ≥ {LEMMA_START})")
     print(f"  Overwrite src : {OVERWRITE_SOURCE}")
     print(f"  Create entry  : {DICT_ENTRY_CREATE}")
     print(f"  Adv. disambig : {ADVANCED_DISAMBIG}")

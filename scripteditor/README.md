@@ -16,6 +16,8 @@ The editor exposes `compound lemma`, `lemma`, and `mk lemma`, backed by the
 requires an OS-level sandbox: Python code must otherwise be considered fully
 trusted.
 
-Open **Processing scope** to run a processor on selected XML files only. After
-a run, text-line results can be filtered by result type, candidate count, and
-file, with a configurable maximum number of rendered results.
+Open **Processing scope** to run a processor on selected XML files from either
+`data/xml/text/` or `data/xml/trees/`; the two collections are grouped in the
+selector. After a run, text-line results can be filtered by result type,
+candidate count, and file. **Start at result**, Previous/Next, and **Maximum
+displayed** provide range-based browsing without rendering the entire result set.

@@ -46,21 +46,12 @@ Currently, there are still issues with .py scripts. Do not make any change to th
 Create a new folder named scripts under scripteditor, and move the py scripts into this new folder.
 Since the output results of processed lines are too many, user needs some methods to manage them. Add a filter to sort through different types of results. Advanced filter would allow user to limit the scope of files processed by the script, as well as the scope and quantity of the displayed results. 
 
-### Pending for next step
-Style
-  change theme colour and interface style
-  change the name of this tool
-Function
-  Advanced search
-  dictionary
-  Editor choose
-  Too many settings are displayed on the left, which can sometimes be confusing; they need to be categorized.
-#### Refine compound_lemma_forgui.py
-After running the script it returns no result.
-This script should:
-1. detect 
-
-
+### After commit 9b52355
+The processing files should also include files in COJ/data/xml/trees, such as BS.xml. Add them in processing scope. Categorise them, since there are lots of files and it would be inconvenient for the users to browse and choose. 
+For lemma_forgui.py:
+  1. The disambig logic in lemma_forgui.py is wrong. The content in leaf should be matched with the pos part in the dictionary. For example, nwo has two candidates L000520, L051650. Since the leaf <N phon="LOG" form="nwo" /> is N, the first choice should be <entry id="L051650"> with <pos> <value>noun</value> but not  <entry id="L000520"> <value>case particle</value>. N means noun - there should be a mapping table for POS (part of speech) abbreviations in this repository. Candidates should be ranked from highest to lowest score. But the scores do not need to be shown in GUI at the current stage.
+  2. LEMMA PREFIX, LEMMA DIGITS, LEMMA START, DICT ID PREFIX - these functions are currently unused. Remove them without affecting any other functionality.
+In filter, add the function to customise displayed result scope in advanced filters. For example, showing 100-200 of 380 matching changes. This function should not go against with 'Maximum displayed'. Consider refine them and make it more convenient for user to browse the result.
 
 
 ## Build interactive editor

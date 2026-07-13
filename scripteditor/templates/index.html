@@ -34,7 +34,9 @@
           <summary>Advanced filters</summary>
           <div class="advanced-filter-grid">
             <label>Result file<select id="filter-file"><option value="all">All processed files</option></select></label>
+            <label>Start at result<input id="filter-start" type="number" min="1" value="1"></label>
             <label>Maximum displayed<input id="filter-limit" type="number" min="1" max="10000" value="200"></label>
+            <div class="range-actions"><button type="button" id="range-prev">Previous</button><button type="button" id="range-next">Next</button></div>
           </div>
         </details>
         <span id="visible-count"></span>

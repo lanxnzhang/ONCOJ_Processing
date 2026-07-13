@@ -2,6 +2,7 @@
 const $ = id => document.getElementById(id);
 let descriptors = [];
 let allLines = [];
+let filteredLineCount = 0;
 
 async function json(url, options) {
   const response = await fetch(url, options);
@@ -15,7 +16,9 @@ function escapeHtml(value) {
 async function loadScripts() {
   const [scripts, documents] = await Promise.all([json("/api/scripts"), json("/api/documents")]);
   $("script").innerHTML = scripts.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
-  $("process-files").innerHTML = documents.map(name => `<option selected value="${name}">${name}</option>`).join("");
+  $("process-files").innerHTML = documents.map(group =>
+    `<optgroup label="${escapeHtml(group.label)}">${group.files.map(file => `<option selected value="${file.id}">${file.name}</option>`).join("")}</optgroup>`
+  ).join("");
   await loadSettings();
 }
 async function loadSettings() {
@@ -46,23 +49,31 @@ function applyLineFilters() {
   const candidates = $("filter-candidates").value;
   const file = $("filter-file").value;
   const limit = Math.max(1, Math.min(10000, Number($("filter-limit").value) || 200));
+  const requestedStart = Math.max(1, Number($("filter-start").value) || 1);
   const filtered = allLines.filter(row =>
     (category === "all" || row.category === category) &&
     (file === "all" || row.file === file) &&
     (candidates === "all" || (candidates === "multiple") === Boolean(row.multiple_candidates))
   );
-  renderLines(filtered, limit);
-  $("visible-count").textContent = `${Math.min(limit, filtered.length).toLocaleString()} shown · ${filtered.length.toLocaleString()} matched`;
+  filteredLineCount = filtered.length;
+  const start = filtered.length ? Math.min(requestedStart, filtered.length) : 1;
+  if (start !== requestedStart) $("filter-start").value = start;
+  const shown = renderLines(filtered, start - 1, limit);
+  const end = shown ? start + shown - 1 : 0;
+  $("visible-count").textContent = shown
+    ? `${start.toLocaleString()}–${end.toLocaleString()} of ${filtered.length.toLocaleString()} matched`
+    : "0 matched";
 }
-function renderLines(lines, limit = 200) {
-  const shown = lines.slice(0, limit);
-  $("lines").innerHTML = lines.length ? `${lines.length > shown.length ? `<div class="notice">Showing ${shown.length.toLocaleString()} of ${lines.length.toLocaleString()} matching changes. Adjust “Maximum displayed” to show more.</div>` : ""}${shown.map(r => `<article>
+function renderLines(lines, offset = 0, limit = 200) {
+  const shown = lines.slice(offset, offset + limit);
+  $("lines").innerHTML = lines.length ? `${lines.length > shown.length ? `<div class="notice">Browsing a selected range of ${lines.length.toLocaleString()} matching changes.</div>` : ""}${shown.map(r => `<article>
     <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${escapeHtml(r.new_lemma || "—")}</code></div>
     <p>${escapeHtml(r.file)} · utterance ${escapeHtml(r.utterance)} · line ${r.position}</p>
     <div class="path">${r.path.map(escapeHtml).join(" <b>›</b> ")}</div>
     ${r.multiple_candidates ? `<p class="candidates">Candidates: ${r.candidates.map(escapeHtml).join(", ")}</p>` : ""}
     <details><summary>Before / after</summary><pre>${escapeHtml(r.before)}\n${escapeHtml(r.after)}</pre></details>
   </article>`).join("")}` : '<div class="empty">No processed text lines.</div>';
+  return shown.length;
 }
 function renderDictionary(entries) {
   $("dictionary").innerHTML = entries.length ? entries.map(e => `<article>
@@ -92,7 +103,10 @@ document.querySelectorAll(".tab").forEach(button => button.onclick = () => {
   document.querySelectorAll(".panel").forEach(p => p.classList.toggle("hidden", p.id !== button.dataset.tab));
   $("line-filters").classList.toggle("hidden", button.dataset.tab !== "lines");
 });
-[$("filter-category"), $("filter-candidates"), $("filter-file"), $("filter-limit")].forEach(control => control.oninput = applyLineFilters);
+[$("filter-category"), $("filter-candidates"), $("filter-file")].forEach(control => control.oninput = () => { $("filter-start").value = 1; applyLineFilters(); });
+[$("filter-start"), $("filter-limit")].forEach(control => control.oninput = applyLineFilters);
+$("range-prev").onclick = () => { const size = Math.max(1, Number($("filter-limit").value) || 200); $("filter-start").value = Math.max(1, Number($("filter-start").value) - size); applyLineFilters(); };
+$("range-next").onclick = () => { const size = Math.max(1, Number($("filter-limit").value) || 200); const next = Number($("filter-start").value) + size; if (next <= filteredLineCount) $("filter-start").value = next; applyLineFilters(); };
 $("select-all").onclick = () => [...$("process-files").options].forEach(option => option.selected = true);
 $("select-none").onclick = () => [...$("process-files").options].forEach(option => option.selected = false);
 $("script").onchange = loadSettings; $("run").onclick = run; loadScripts();

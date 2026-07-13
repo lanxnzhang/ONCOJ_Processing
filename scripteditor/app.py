@@ -48,8 +48,16 @@ def scripts():
 
 @app.get("/api/documents")
 def documents():
-    text_dir = ROOT / "data" / "xml" / "text"
-    return jsonify([path.name for path in sorted(text_dir.glob("*.xml"))])
+    xml_root = ROOT / "data" / "xml"
+    groups = []
+    for folder, label in (("text", "Texts under active editing"),
+                          ("trees", "Uploaded syntax trees")):
+        files = [
+            {"id": f"{folder}/{path.name}", "name": path.name}
+            for path in sorted((xml_root / folder).glob("*.xml"))
+        ]
+        groups.append({"id": folder, "label": label, "files": files})
+    return jsonify(groups)
 
 
 @app.get("/api/scripts/<script_id>/settings")
@@ -72,8 +80,12 @@ def run_script():
     if not isinstance(settings, dict):
         abort(400, description="settings must be an object")
 
-    text_dir = ROOT / "data" / "xml" / "text"
-    available = {path.name: path for path in text_dir.glob("*.xml")}
+    xml_root = ROOT / "data" / "xml"
+    available = {
+        f"{folder}/{path.name}": path
+        for folder in ("text", "trees")
+        for path in (xml_root / folder).glob("*.xml")
+    }
     requested_files = payload.get("files")
     if requested_files is None:
         selected = sorted(available)
@@ -93,7 +105,7 @@ def run_script():
     run_text = run_dir / "data" / "text"
     run_text.mkdir()
     for name in selected:
-        shutil.copy2(available[name], run_text / name)
+        shutil.copy2(available[name], run_text / Path(name).name)
     shutil.copytree(ROOT / "data" / "xml" / "dict", run_dir / "data" / "dict")
     (run_dir / "output").mkdir()
     config = run_dir / "config.json"
