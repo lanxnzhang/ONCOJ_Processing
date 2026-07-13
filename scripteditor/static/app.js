@@ -13,6 +13,10 @@ async function json(url, options) {
 function escapeHtml(value) {
   const div = document.createElement("div"); div.textContent = value ?? ""; return div.innerHTML;
 }
+function linkLemmaIds(value) {
+  return escapeHtml(value).replace(/\b[A-Za-z]+\d{6}[a-z]*\b/g,
+    id => `<button type="button" class="lemma-link" data-lemma="${id}">${id}</button>`);
+}
 async function loadScripts() {
   const [scripts, documents] = await Promise.all([json("/api/scripts"), json("/api/documents")]);
   $("script").innerHTML = scripts.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
@@ -67,10 +71,10 @@ function applyLineFilters() {
 function renderLines(lines, offset = 0, limit = 200) {
   const shown = lines.slice(offset, offset + limit);
   $("lines").innerHTML = lines.length ? `${lines.length > shown.length ? `<div class="notice">Browsing a selected range of ${lines.length.toLocaleString()} matching changes.</div>` : ""}${shown.map(r => `<article>
-    <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${escapeHtml(r.new_lemma || "—")}</code></div>
+    <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${r.new_lemma ? `<button type="button" class="lemma-link" data-lemma="${escapeHtml(r.new_lemma)}">${escapeHtml(r.new_lemma)}</button>` : "—"}</code></div>
     <p>${escapeHtml(r.file)} · utterance ${escapeHtml(r.utterance)} · line ${r.position}</p>
     <div class="path">${r.path.map(escapeHtml).join(" <b>›</b> ")}</div>
-    ${r.multiple_candidates ? `<p class="candidates">Candidates: ${r.candidates.map(escapeHtml).join(", ")}</p>` : ""}
+    ${r.multiple_candidates ? `<p class="candidates">Candidates: ${r.candidates.map(id => `<button type="button" class="candidate-link" data-lemma="${escapeHtml(id)}">${escapeHtml(id)}</button>`).join(", ")}</p>` : ""}
     <details><summary>Before / after</summary><pre>${escapeHtml(r.before)}\n${escapeHtml(r.after)}</pre></details>
   </article>`).join("")}` : '<div class="empty">No processed text lines.</div>';
   return shown.length;
@@ -81,6 +85,42 @@ function renderDictionary(entries) {
     <dl>${e.fields.map(f => `<dt>${escapeHtml(f.tag)}</dt><dd>${f.values.map(escapeHtml).join(" · ")}</dd>`).join("")}</dl>
     <details><summary>Full revised entry</summary><pre>${escapeHtml(e.after || "(deleted)")}</pre></details>
   </article>`).join("") : '<div class="empty">No dictionary changes.</div>';
+}
+function openDictionary() {
+  $("dictionary-drawer").classList.remove("hidden");
+  $("dictionary-query").focus();
+}
+function closeDictionary() {
+  $("dictionary-drawer").classList.add("hidden");
+}
+function dictionarySearchFields() {
+  return [...document.querySelectorAll("#dictionary-search-fields input:checked")].map(input => input.value);
+}
+async function searchDictionary() {
+  const query = $("dictionary-query").value.trim();
+  const fields = dictionarySearchFields();
+  if (!query) { $("dictionary-message").textContent = "Enter a form, lemma ID, or other search term."; return; }
+  if (!fields.length) { $("dictionary-message").textContent = "Select at least one search field."; return; }
+  const params = new URLSearchParams({q: query});
+  fields.forEach(field => params.append("field", field));
+  $("dictionary-message").textContent = "Searching…";
+  try {
+    const matches = await json(`/api/dictionary/search?${params}`);
+    $("dictionary-message").textContent = `${matches.length} result${matches.length === 1 ? "" : "s"}${matches.length === 100 ? " (first 100)" : ""}.`;
+    $("dictionary-reader-entry").classList.add("hidden");
+    $("dictionary-results").innerHTML = matches.map(entry => `<button type="button" class="dictionary-result" data-lemma="${escapeHtml(entry.id)}"><strong>${escapeHtml(entry.id)}</strong> ${escapeHtml(entry.gloss)}<span>${escapeHtml(entry.forms.join(", "))}${entry.pos.length ? ` · ${escapeHtml(entry.pos.join(", "))}` : ""}</span></button>`).join("");
+  } catch (error) { $("dictionary-message").textContent = error.message; }
+}
+async function openDictionaryEntry(entryId) {
+  openDictionary();
+  $("dictionary-message").textContent = `Opening ${entryId}…`;
+  try {
+    const entry = await json(`/api/dictionary/${encodeURIComponent(entryId)}`);
+    $("dictionary-query").value = entry.id;
+    $("dictionary-message").textContent = "Complete dictionary entry";
+    $("dictionary-reader-entry").innerHTML = `<h3>${escapeHtml(entry.id)}</h3><dl class="dictionary-fields">${entry.fields.map(field => `<dt>${escapeHtml(field.label)}</dt><dd>${field.values.map(value => `<div class="dictionary-field-value">${linkLemmaIds(value)}</div>`).join("")}</dd>`).join("")}</dl>`;
+    $("dictionary-reader-entry").classList.remove("hidden");
+  } catch (error) { $("dictionary-message").textContent = error.message; }
 }
 async function run() {
   const files = selectedProcessFiles();
@@ -109,4 +149,12 @@ $("range-prev").onclick = () => { const size = Math.max(1, Number($("filter-limi
 $("range-next").onclick = () => { const size = Math.max(1, Number($("filter-limit").value) || 200); const next = Number($("filter-start").value) + size; if (next <= filteredLineCount) $("filter-start").value = next; applyLineFilters(); };
 $("select-all").onclick = () => [...$("process-files").options].forEach(option => option.selected = true);
 $("select-none").onclick = () => [...$("process-files").options].forEach(option => option.selected = false);
+$("open-dictionary").onclick = openDictionary;
+$("close-dictionary").onclick = closeDictionary;
+$("dictionary-search-button").onclick = searchDictionary;
+$("dictionary-query").onkeydown = event => { if (event.key === "Enter") searchDictionary(); };
+document.addEventListener("click", event => {
+  const link = event.target.closest("[data-lemma]");
+  if (link) openDictionaryEntry(link.dataset.lemma);
+});
 $("script").onchange = loadSettings; $("run").onclick = run; loadScripts();

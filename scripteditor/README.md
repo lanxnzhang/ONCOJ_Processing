@@ -21,3 +21,12 @@ Open **Processing scope** to run a processor on selected XML files from either
 selector. After a run, text-line results can be filtered by result type,
 candidate count, and file. **Start at result**, Previous/Next, and **Maximum
 displayed** provide range-based browsing without rendering the entire result set.
+
+## Dictionary reader
+
+Use the **Dictionary** button to open or hide the read-only dictionary drawer.
+The default search covers lemma IDs and forms. Advanced search can independently
+include glosses, meanings, parts of speech, notes, compounds, and related-entry
+fields. Results display complete entries as labeled fields instead of raw XML.
+Lemma IDs in processor results, candidate lists, and dictionary cross-references
+open their entries directly in the reader.

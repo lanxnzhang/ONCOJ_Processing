@@ -53,6 +53,9 @@ For lemma_forgui.py:
   2. LEMMA PREFIX, LEMMA DIGITS, LEMMA START, DICT ID PREFIX - these functions are currently unused. Remove them without affecting any other functionality.
 In filter, add the function to customise displayed result scope in advanced filters. For example, showing 100-200 of 380 matching changes. This function should not go against with 'Maximum displayed'. Consider refine them and make it more convenient for user to browse the result.
 
+### After commit 9b7f7a9
+Now we need to add a dictionary in the GUI. The dictionary should be able to open and hide. Basically, the user can search for form or lemma id in the dictionary. When they do so, the result should display a complete dictionary entry, in a reader-friendly format (I mean not in the raw xml data format). Also add advanced search function, which currently allows user to customise the type of data they search in the dictionary(gloss, note...), and should be compatible with more complex future functions.
+The user can click the lemma id in the candidates to directly open that entry format. It should facilitate the review and search.
 
 ## Build interactive editor
 

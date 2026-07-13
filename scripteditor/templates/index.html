@@ -6,9 +6,10 @@
   <title>COJ Script Editor</title>
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/filters.css">
+  <link rel="stylesheet" href="/static/dictionary.css">
 </head>
 <body>
-  <header><div><strong>COJ</strong><span>Script Editor</span></div><span class="safe">Runs use copied data</span></header>
+  <header><div><strong>COJ</strong><span>Script Editor</span></div><div class="header-actions"><span class="safe">Runs use copied data</span><button id="open-dictionary" type="button">Dictionary</button></div></header>
   <main>
     <aside>
       <p class="eyebrow">PROCESSOR</p>
@@ -46,6 +47,30 @@
       <div id="files" class="panel hidden"></div>
     </section>
   </main>
+  <aside id="dictionary-drawer" class="dictionary-drawer hidden" aria-label="Dictionary reader">
+    <div class="dictionary-heading"><div><span class="eyebrow">COJ DICTIONARY</span><h2>Dictionary reader</h2></div><button id="close-dictionary" type="button" aria-label="Close dictionary">×</button></div>
+    <div class="dictionary-search">
+      <input id="dictionary-query" type="search" placeholder="Search form or lemma ID" autocomplete="off">
+      <button id="dictionary-search-button" type="button">Search</button>
+    </div>
+    <details class="dictionary-advanced">
+      <summary>Advanced search</summary>
+      <p>Select which kinds of dictionary data to search.</p>
+      <div id="dictionary-search-fields">
+        <label><input type="checkbox" value="id" checked> Lemma ID</label>
+        <label><input type="checkbox" value="form" checked> Form</label>
+        <label><input type="checkbox" value="gloss"> Gloss</label>
+        <label><input type="checkbox" value="meaning"> Meaning</label>
+        <label><input type="checkbox" value="pos"> Part of speech</label>
+        <label><input type="checkbox" value="note"> Note</label>
+        <label><input type="checkbox" value="compound"> Compound</label>
+        <label><input type="checkbox" value="related"> Related entries</label>
+      </div>
+    </details>
+    <div id="dictionary-message" class="dictionary-message">Search by form or lemma ID.</div>
+    <div id="dictionary-results" class="dictionary-results"></div>
+    <article id="dictionary-reader-entry" class="dictionary-reader-entry hidden"></article>
+  </aside>
   <script src="/static/app.js"></script>
 </body>
 </html>

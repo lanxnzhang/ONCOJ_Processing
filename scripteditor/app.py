@@ -12,6 +12,21 @@ from flask import Flask, abort, jsonify, render_template, request
 ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "runs"
+sys.path.insert(0, str(ROOT / "src"))
+
+from coj.core.dictionary import Dictionary, DictEntry
+
+DICTIONARY_PATH = ROOT / "data" / "xml" / "dict" / "dictionary.xml"
+_dictionary: Dictionary | None = None
+DICT_SEARCH_FIELDS = {
+    "form": (".FORM",),
+    "gloss": (".GLOSS",),
+    "meaning": (".MEANING",),
+    "pos": (".POS",),
+    "note": (".NOTE", ".NOTES"),
+    "compound": (".COMPOUND",),
+    "related": (".RELATED", ".MKTARGETNEW", ".DERIVATION", ".TRANSREL", ".PTR"),
+}
 PROCESSORS = {
     "compound_lemma_forgui": (HERE / "scripts" / "compound_lemma_forgui.py", "compound lemma"),
     "lemma_forgui": (HERE / "scripts" / "lemma_forgui.py", "lemma"),
@@ -20,6 +35,32 @@ PROCESSORS = {
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
+
+
+def get_dictionary() -> Dictionary:
+    global _dictionary
+    if _dictionary is None:
+        _dictionary = Dictionary.from_file(str(DICTIONARY_PATH))
+    return _dictionary
+
+
+def entry_payload(entry: DictEntry, *, complete: bool = True) -> dict:
+    payload = {
+        "id": str(entry.eid),
+        "forms": entry.get_all(".FORM"),
+        "gloss": entry.get_first(".GLOSS") or "",
+        "pos": entry.get_all(".POS"),
+    }
+    if complete:
+        payload["fields"] = [
+            {
+                "tag": tag,
+                "label": tag.lstrip(".").replace("_", " ").title(),
+                "values": entry.get_all(tag),
+            }
+            for tag in entry.tags()
+        ]
+    return payload
 
 
 def _builtins() -> list[dict[str, str]]:
@@ -58,6 +99,50 @@ def documents():
         ]
         groups.append({"id": folder, "label": label, "files": files})
     return jsonify(groups)
+
+
+@app.get("/api/dictionary/search")
+def dictionary_search():
+    query = request.args.get("q", "").strip()
+    if not query:
+        return jsonify([])
+    selected = request.args.getlist("field") or ["id", "form"]
+    invalid = [field for field in selected if field != "id" and field not in DICT_SEARCH_FIELDS]
+    if invalid:
+        abort(400, description=f"Unknown dictionary search field: {invalid[0]}")
+
+    needle = query.casefold()
+    matches: list[tuple[int, DictEntry]] = []
+    for entry in get_dictionary():
+        score = 0
+        values = []
+        if "id" in selected:
+            values.append(str(entry.eid))
+        for field in selected:
+            if field != "id":
+                values.extend(value for tag in DICT_SEARCH_FIELDS[field]
+                              for value in entry.get_all(tag))
+        for value in values:
+            folded = value.casefold()
+            if folded == needle:
+                score = max(score, 4 if value == str(entry.eid) else 3)
+            elif folded.startswith(needle):
+                score = max(score, 2)
+            elif needle in folded:
+                score = max(score, 1)
+        if score:
+            matches.append((score, entry))
+    matches.sort(key=lambda match: (-match[0], str(match[1].eid)))
+    return jsonify([entry_payload(entry, complete=False)
+                    for _, entry in matches[:100]])
+
+
+@app.get("/api/dictionary/<entry_id>")
+def dictionary_entry(entry_id: str):
+    entry = get_dictionary().get(entry_id)
+    if entry is None:
+        abort(404, description=f"Dictionary entry {entry_id!r} was not found")
+    return jsonify(entry_payload(entry))
 
 
 @app.get("/api/scripts/<script_id>/settings")
