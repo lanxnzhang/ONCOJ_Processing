@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/filters.css">
   <link rel="stylesheet" href="/static/dictionary.css">
+  <link rel="stylesheet" href="/static/review.css">
 </head>
 <body>
   <header><div><strong>COJ</strong><span>Script Editor</span></div><div class="header-actions"><span class="safe">Runs use copied data</span><button id="open-dictionary" type="button">Dictionary</button></div></header>
@@ -42,6 +43,15 @@
         </details>
         <span id="visible-count"></span>
       </div>
+      <div class="review-toolbar" id="review-toolbar">
+        <strong>Manual review</strong>
+        <label>Category<select id="review-category"><option value="visible">Currently filtered</option><option value="all">All results</option><option value="existing">Existing lemma</option><option value="new">New lemma</option><option value="changed">Other changes</option></select></label>
+        <button type="button" id="confirm-category">Confirm selected category</button>
+        <button type="button" id="unconfirm-category">Clear confirmations</button>
+        <label class="hide-confirmed"><input type="checkbox" id="hide-confirmed"> Hide confirmed</label>
+        <span id="confirmation-count">0 confirmed</span>
+        <button type="button" id="finalize-review" class="primary">Create final output</button>
+      </div>
       <div id="lines" class="panel"></div>
       <div id="dictionary" class="panel hidden"></div>
       <div id="files" class="panel hidden"></div>
@@ -70,6 +80,14 @@
     <div id="dictionary-message" class="dictionary-message">Search by form or lemma ID.</div>
     <div id="dictionary-results" class="dictionary-results"></div>
     <article id="dictionary-reader-entry" class="dictionary-reader-entry hidden"></article>
+    <section id="new-entry-editor" class="new-entry-editor hidden">
+      <div class="new-entry-heading"><h3>New dictionary entry</h3><button type="button" id="cancel-new-entry">Cancel</button></div>
+      <label>Lemma ID<input id="new-entry-id" type="text"></label>
+      <div id="new-entry-id-message"></div>
+      <div id="new-entry-fields"></div>
+      <button type="button" id="add-entry-field">Add tag</button>
+      <button type="button" id="save-new-entry" class="primary">Save for review</button>
+    </section>
   </aside>
   <script src="/static/app.js"></script>
 </body>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -8,6 +9,7 @@ import uuid
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, render_template, request
+from werkzeug.exceptions import HTTPException
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
@@ -15,9 +17,14 @@ RUNS = HERE / "runs"
 sys.path.insert(0, str(ROOT / "src"))
 
 from coj.core.dictionary import Dictionary, DictEntry
+from coj.core.corpus import CorpusDocument
+from coj.core.kana import phonemic_to_kana
+from coj.core.lemma_id import IDGenerator, LemmaID
+from coj.core.tags import MULTI_VALUE_FIELDS
 
 DICTIONARY_PATH = ROOT / "data" / "xml" / "dict" / "dictionary.xml"
 _dictionary: Dictionary | None = None
+_manual_id_reservations: dict[str, set[int]] = {}
 DICT_SEARCH_FIELDS = {
     "form": (".FORM",),
     "gloss": (".GLOSS",),
@@ -35,6 +42,11 @@ PROCESSORS = {
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
+
+
+@app.errorhandler(HTTPException)
+def json_http_error(error: HTTPException):
+    return jsonify({"error": error.description}), error.code
 
 
 def get_dictionary() -> Dictionary:
@@ -61,6 +73,37 @@ def entry_payload(entry: DictEntry, *, complete: bool = True) -> dict:
             for tag in entry.tags()
         ]
     return payload
+
+
+def _run_directory(run_id: str) -> Path:
+    if not run_id.isalnum():
+        abort(404)
+    run_dir = RUNS / run_id
+    if not run_dir.is_dir():
+        abort(404, description="Run not found")
+    return run_dir
+
+
+def _entry_from_review(raw: dict) -> DictEntry:
+    entry_id = str(raw.get("id", "")).strip()
+    if not LemmaID.is_valid(entry_id):
+        abort(400, description=f"Invalid lemma ID: {entry_id!r}")
+    entry = DictEntry(entry_id)
+    fields = raw.get("fields", [])
+    if not isinstance(fields, list):
+        abort(400, description="Dictionary fields must be a list")
+    for field in fields:
+        tag = str(field.get("tag", "")).strip().upper()
+        if not re.fullmatch(r"\.[A-Z][A-Z0-9_]*", tag):
+            abort(400, description=f"Invalid dictionary tag: {tag!r}")
+        values = field.get("values", [])
+        if not isinstance(values, list):
+            abort(400, description=f"Values for {tag} must be a list")
+        cleaned = [str(value).strip() for value in values]
+        if tag in entry.tags():
+            entry.remove(tag)
+        entry.set(tag, cleaned if tag in MULTI_VALUE_FIELDS else (cleaned[0] if cleaned else ""))
+    return entry
 
 
 def _builtins() -> list[dict[str, str]]:
@@ -145,6 +188,108 @@ def dictionary_entry(entry_id: str):
     return jsonify(entry_payload(entry))
 
 
+@app.post("/api/runs/<run_id>/dictionary/suggest-id")
+def suggest_dictionary_id(run_id: str):
+    run_dir = _run_directory(run_id)
+    raw = request.get_json(silent=True) or {}
+    form = str(raw.get("form", ""))
+    dictionary = Dictionary.from_file(str(run_dir / "data" / "dict" / "dictionary.xml"))
+    used = dictionary.used_numbers() | _manual_id_reservations.setdefault(run_id, set())
+    for candidate in (run_dir / "output" / "dictionary_processed.xml",
+                      run_dir / "output" / "dictionary.xml"):
+        if candidate.exists():
+            used |= Dictionary.from_file(str(candidate)).used_numbers()
+            break
+    generated = IDGenerator(existing=used, prefix="L", digits=6).next_id()
+    _manual_id_reservations[run_id].add(generated.number)
+    return jsonify({"id": str(generated), "form": form, "kana": phonemic_to_kana(form)})
+
+
+@app.get("/api/runs/<run_id>/dictionary/check-id/<entry_id>")
+def check_dictionary_id(run_id: str, entry_id: str):
+    run_dir = _run_directory(run_id)
+    if not LemmaID.is_valid(entry_id):
+        return jsonify({"valid": False, "conflict": False, "message": "Use an ID such as L000001."})
+    proposed = LemmaID.parse(entry_id)
+    dictionary = Dictionary.from_file(str(run_dir / "data" / "dict" / "dictionary.xml"))
+    conflicts = [str(entry.eid) for entry in dictionary if entry.eid.number == proposed.number]
+    return jsonify({
+        "valid": True,
+        "conflict": bool(conflicts),
+        "conflicts": conflicts,
+        "message": (f"Numeric portion already used by {', '.join(conflicts)}."
+                    if conflicts else "ID is available."),
+    })
+
+
+@app.post("/api/runs/<run_id>/finalize")
+def finalize_run(run_id: str):
+    run_dir = _run_directory(run_id)
+    payload = request.get_json(force=True)
+    reviewed_lines = payload.get("lines", [])
+    reviewed_entries = payload.get("dictionary", [])
+    if not isinstance(reviewed_lines, list) or not isinstance(reviewed_entries, list):
+        abort(400, description="Reviewed lines and dictionary entries must be lists")
+
+    final_dir = run_dir / "final"
+    if final_dir.exists():
+        shutil.rmtree(final_dir)
+    final_dir.mkdir()
+
+    lines_by_file: dict[str, list[dict]] = {}
+    for review in reviewed_lines:
+        if review.get("confirmed"):
+            lines_by_file.setdefault(str(review.get("file", "")), []).append(review)
+
+    final_files = []
+    for source in sorted((run_dir / "data" / "text").glob("*.xml")):
+        doc = CorpusDocument.from_file(str(source))
+        for review in lines_by_file.get(source.name, []):
+            utterance = doc.find_utterance(str(review.get("utterance", "")))
+            position = int(review.get("position", 0))
+            if utterance is None or position < 1 or position > len(utterance.corpus_lines()):
+                abort(400, description=f"Reviewed line no longer exists in {source.name}")
+            line = utterance.corpus_lines()[position - 1]
+            if review.get("before") and line.to_text() != review["before"]:
+                abort(409, description=f"Reviewed line changed in {source.name}")
+            lemma = str(review.get("lemma", ""))
+            if not LemmaID.is_valid(lemma):
+                abort(400, description=f"Invalid selected lemma ID: {lemma!r}")
+            if line.is_annotated:
+                line.replace_lemma(lemma)
+            else:
+                line.insert_lemma(lemma)
+        destination = final_dir / source.name
+        doc.to_file(str(destination))
+        final_files.append(source.name)
+
+    dictionary = Dictionary.from_file(str(run_dir / "data" / "dict" / "dictionary.xml"))
+    used_numbers = dictionary.used_numbers()
+    for raw in reviewed_entries:
+        if not raw.get("confirmed"):
+            continue
+        entry = _entry_from_review(raw)
+        existing = dictionary.get(entry.eid)
+        category = raw.get("category", "added")
+        if category == "added" and entry.eid.number in used_numbers:
+            conflicts = [str(item.eid) for item in dictionary if item.eid.number == entry.eid.number]
+            abort(409, description=f"Numeric ID conflict for {entry.eid}: {', '.join(conflicts)}")
+        dictionary.add(entry, allow_update=existing is not None and category != "added")
+        used_numbers.add(entry.eid.number)
+    dictionary.to_file(str(final_dir / "dictionary.xml"))
+    final_files.append("dictionary.xml")
+
+    manifest = {
+        "confirmed_lines": sum(bool(item.get("confirmed")) for item in reviewed_lines),
+        "confirmed_dictionary_entries": sum(bool(item.get("confirmed")) for item in reviewed_entries),
+        "files": final_files,
+    }
+    (final_dir / "review_manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    final_files.append("review_manifest.json")
+    return jsonify(manifest | {"files": final_files})
+
+
 @app.get("/api/scripts/<script_id>/settings")
 def script_settings(script_id: str):
     script = _script_path(script_id)
@@ -224,6 +369,18 @@ def run_file(run_id: str, name: str):
     if not run_id.isalnum():
         abort(404)
     base = (RUNS / run_id / "output").resolve()
+    path = (base / name).resolve()
+    if base not in path.parents or not path.is_file():
+        abort(404)
+    return path.read_text(encoding="utf-8", errors="replace"), 200, {
+        "Content-Type": "text/plain; charset=utf-8"
+    }
+
+
+@app.get("/api/runs/<run_id>/final/<path:name>")
+def final_file(run_id: str, name: str):
+    run_dir = _run_directory(run_id)
+    base = (run_dir / "final").resolve()
     path = (base / name).resolve()
     if base not in path.parents or not path.is_file():
         abort(404)

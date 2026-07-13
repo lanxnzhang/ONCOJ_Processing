@@ -30,3 +30,19 @@ include glosses, meanings, parts of speech, notes, compounds, and related-entry
 fields. Results display complete entries as labeled fields instead of raw XML.
 Lemma IDs in processor results, candidate lists, and dictionary cross-references
 open their entries directly in the reader.
+
+## Manual review and final output
+
+Processor results are proposals. Confirm individual lines or confirm/clear a
+filtered category, optionally hiding confirmed items while reviewing. Results
+with multiple candidates provide a chosen-lemma selector. **Create final output**
+rebuilds XML files from the untouched run inputs and applies only confirmed
+choices; generated processor output remains separate.
+
+For a multiple-candidate result, **Add new entry** creates a reviewable dictionary
+draft with a unique ID and automatic form/kana values. Its tags and values can be
+added, edited, deleted, and reopened before finalization. Numeric ID conflicts are
+shown immediately. New manual entries are selected for dictionary output by
+default, but can be deselected. Final reviewed files and a review manifest are
+stored under `scripteditor/runs/<run-id>/final/`; canonical repository data is not
+modified.

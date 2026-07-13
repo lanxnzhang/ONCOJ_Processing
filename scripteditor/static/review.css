@@ -1,0 +1,144 @@
+.review-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  max-width: 1000px;
+  margin-bottom: 16px;
+  padding: 11px 13px;
+  border: 1px solid #c8d4ca;
+  border-radius: 7px;
+  background: #f7fbf7;
+}
+
+.review-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.review-toolbar select {
+  width: auto;
+  min-width: 135px;
+  padding: 5px;
+}
+
+.review-toolbar button,
+.new-entry-editor button,
+.review-confirm {
+  padding: 6px 9px;
+  border: 1px solid #b8c5bb;
+  border-radius: 5px;
+  background: white;
+  color: var(--green);
+  cursor: pointer;
+}
+
+.review-toolbar .primary,
+.new-entry-editor .primary {
+  border-color: var(--green);
+  background: var(--green);
+  color: white;
+  font-weight: 700;
+}
+
+.hide-confirmed input,
+.review-confirm input,
+.dictionary-review-select input {
+  width: auto;
+}
+
+#confirmation-count {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.result-review {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.result-review label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.result-review select {
+  width: auto;
+  min-width: 115px;
+  padding: 5px;
+}
+
+.result-confirmed {
+  border-color: #80ad8d;
+  background: #fbfffc;
+}
+
+.dictionary-review-select {
+  margin-left: auto;
+}
+
+.new-entry-editor {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #bfcac1;
+  border-radius: 7px;
+  background: white;
+}
+
+.new-entry-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-entry-heading h3 {
+  margin: 0 0 12px;
+}
+
+.new-entry-editor > label {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+#new-entry-id-message {
+  min-height: 18px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+#new-entry-id-message.conflict {
+  color: #a33b2b;
+  font-weight: 700;
+}
+
+.entry-field-row {
+  display: grid;
+  grid-template-columns: 115px 1fr auto;
+  gap: 6px;
+  margin: 7px 0;
+}
+
+.entry-field-row input {
+  padding: 6px;
+}
+
+@media (max-width: 900px) {
+  .review-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
