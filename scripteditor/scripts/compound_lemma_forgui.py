@@ -19,7 +19,7 @@ Algorithm:
 import os
 import re
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
 
 import xml.etree.ElementTree as ET
 from pathlib import Path

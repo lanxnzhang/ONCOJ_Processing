@@ -11,7 +11,7 @@ Uses src/oncoj for all corpus and dictionary I/O.
 import os
 import json
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  USER SETTINGS

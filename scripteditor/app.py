@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "runs"
 PROCESSORS = {
-    "compound_lemma_forgui": (HERE / "compound_lemma_forgui.py", "compound lemma"),
-    "lemma_forgui": (HERE / "lemma_forgui.py", "lemma"),
-    "mk_lemma_forgui": (HERE / "mk_lemma_forgui.py", "mk lemma"),
+    "compound_lemma_forgui": (HERE / "scripts" / "compound_lemma_forgui.py", "compound lemma"),
+    "lemma_forgui": (HERE / "scripts" / "lemma_forgui.py", "lemma"),
+    "mk_lemma_forgui": (HERE / "scripts" / "mk_lemma_forgui.py", "mk lemma"),
 }
 
 app = Flask(__name__)
@@ -46,6 +46,12 @@ def scripts():
     return jsonify(_builtins())
 
 
+@app.get("/api/documents")
+def documents():
+    text_dir = ROOT / "data" / "xml" / "text"
+    return jsonify([path.name for path in sorted(text_dir.glob("*.xml"))])
+
+
 @app.get("/api/scripts/<script_id>/settings")
 def script_settings(script_id: str):
     script = _script_path(script_id)
@@ -66,10 +72,28 @@ def run_script():
     if not isinstance(settings, dict):
         abort(400, description="settings must be an object")
 
+    text_dir = ROOT / "data" / "xml" / "text"
+    available = {path.name: path for path in text_dir.glob("*.xml")}
+    requested_files = payload.get("files")
+    if requested_files is None:
+        selected = sorted(available)
+    elif not isinstance(requested_files, list):
+        abort(400, description="files must be a list")
+    else:
+        selected = list(dict.fromkeys(str(name) for name in requested_files))
+        if not selected:
+            abort(400, description="Select at least one XML file")
+        invalid = [name for name in selected if name not in available]
+        if invalid:
+            abort(400, description=f"Unknown XML file: {invalid[0]}")
+
     run_id = uuid.uuid4().hex[:12]
     run_dir = RUNS / run_id
     (run_dir / "data").mkdir(parents=True)
-    shutil.copytree(ROOT / "data" / "xml" / "text", run_dir / "data" / "text")
+    run_text = run_dir / "data" / "text"
+    run_text.mkdir()
+    for name in selected:
+        shutil.copy2(available[name], run_text / name)
     shutil.copytree(ROOT / "data" / "xml" / "dict", run_dir / "data" / "dict")
     (run_dir / "output").mkdir()
     config = run_dir / "config.json"
@@ -91,6 +115,7 @@ def run_script():
                         "details": proc.stderr}), 400
     result = json.loads(result_file.read_text(encoding="utf-8"))
     result["run_id"] = run_id
+    result["processed_files"] = selected
     result["console"] = proc.stdout
     if proc.stderr:
         result["warnings"] = proc.stderr

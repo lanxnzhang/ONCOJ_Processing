@@ -1,0 +1,84 @@
+.run-scope {
+  margin: 18px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.run-scope summary {
+  font-weight: 700;
+}
+
+.hint {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+#process-files {
+  width: 100%;
+  min-height: 150px;
+  font-family: ui-monospace, monospace;
+}
+
+.scope-actions {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+
+.scope-actions button {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: white;
+  color: var(--green);
+  cursor: pointer;
+}
+
+.result-filters {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 1000px;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: white;
+}
+
+.result-filters label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.result-filters select,
+.result-filters input {
+  min-width: 155px;
+  padding: 6px 8px;
+}
+
+.result-filters details {
+  margin: 0;
+}
+
+.advanced-filter-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#visible-count {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .advanced-filter-grid {
+    display: grid;
+  }
+}

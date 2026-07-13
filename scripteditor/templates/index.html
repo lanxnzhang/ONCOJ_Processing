@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>COJ Script Editor</title>
   <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/filters.css">
 </head>
 <body>
   <header><div><strong>COJ</strong><span>Script Editor</span></div><span class="safe">Runs use copied data</span></header>
@@ -13,6 +14,12 @@
       <p class="eyebrow">PROCESSOR</p>
       <select id="script"></select>
       <div id="settings"></div>
+      <details class="run-scope">
+        <summary>Processing scope</summary>
+        <p class="hint">Choose which XML files the script will process. Use Ctrl or Shift to select several.</p>
+        <div class="scope-actions"><button type="button" id="select-all">Select all</button><button type="button" id="select-none">Clear</button></div>
+        <select id="process-files" multiple size="9" aria-label="XML files to process"></select>
+      </details>
       <button id="run">Run processor</button>
       <div id="status">Choose a processor and review its settings.</div>
       <details><summary>Console output</summary><pre id="console"></pre></details>
@@ -20,6 +27,18 @@
     <section class="results">
       <div class="summary"><div><span id="line-count">0</span><small>processed lines</small></div><div><span id="dict-count">0</span><small>dictionary changes</small></div></div>
       <nav><button class="tab active" data-tab="lines">Text lines</button><button class="tab" data-tab="dictionary">Dictionary entries</button><button class="tab" data-tab="files">Output files</button></nav>
+      <div class="result-filters" id="line-filters">
+        <label>Type<select id="filter-category"><option value="all">All types</option><option value="existing">Existing lemma</option><option value="new">New lemma</option><option value="changed">Other changes</option></select></label>
+        <label>Candidates<select id="filter-candidates"><option value="all">All</option><option value="multiple">Multiple candidates</option><option value="single">Single candidate</option></select></label>
+        <details>
+          <summary>Advanced filters</summary>
+          <div class="advanced-filter-grid">
+            <label>Result file<select id="filter-file"><option value="all">All processed files</option></select></label>
+            <label>Maximum displayed<input id="filter-limit" type="number" min="1" max="10000" value="200"></label>
+          </div>
+        </details>
+        <span id="visible-count"></span>
+      </div>
       <div id="lines" class="panel"></div>
       <div id="dictionary" class="panel hidden"></div>
       <div id="files" class="panel hidden"></div>

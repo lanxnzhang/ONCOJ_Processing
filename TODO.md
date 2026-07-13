@@ -41,6 +41,28 @@ Currently, there are still issues with .py scripts. Do not make any change to th
   Move it to the advanced settings. The default status is true.
   Mark the result with multiple candidates in the result.
 
+### After commit 1c41a33
+
+Create a new folder named scripts under scripteditor, and move the py scripts into this new folder.
+Since the output results of processed lines are too many, user needs some methods to manage them. Add a filter to sort through different types of results. Advanced filter would allow user to limit the scope of files processed by the script, as well as the scope and quantity of the displayed results. 
+
+### Pending for next step
+Style
+  change theme colour and interface style
+  change the name of this tool
+Function
+  Advanced search
+  dictionary
+  Editor choose
+  Too many settings are displayed on the left, which can sometimes be confusing; they need to be categorized.
+#### Refine compound_lemma_forgui.py
+After running the script it returns no result.
+This script should:
+1. detect 
+
+
+
+
 ## Build interactive editor
 
 An essential purpose for this repository is to facilitate research for linguists. The conventional text-declarative way of uploading and editing data poses a significant hurdle.
