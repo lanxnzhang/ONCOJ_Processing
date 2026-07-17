@@ -13,7 +13,7 @@
         <COMMENT>
           <NP>
             <N>
-              <APP-N index="1">
+              <APP-N index="1" inferred_index="1">
                 <NP>
                   <PP-GEN>
                     <NP>
@@ -31,9 +31,9 @@
                       <PP-GEN>
                         <NP>
                           <N>
-                            <C-N index="1">
+                            <C-N index="1" inferred_index="1">
                               <N>
-                                <N index="1" phon="LOG" form="mina" />
+                                <N phon="LOG" form="mina" index="1" inferred_index="1" />
                                 <N index="2" phon="LOG" form="dukwi" />
                               </N>
                             </C-N>
@@ -49,7 +49,7 @@
                         <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                       </PP-GEN>
                       <N>
-                        <N index="1" phon="LOG" form="tukwi" />
+                        <N phon="LOG" form="tukwi" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="nami" />
                       </N>
                     </NP>
@@ -70,13 +70,13 @@
                     <NP-OB1>
                       <PP-GEN>
                         <NP>
-                          <N phon="LOG" form="sumyera" />
+                          <N lemma="L052019" phon="LOG" form="sumyera" />
                         </NP>
                         <P-CASE-GEN lemma="L000503" phon="PHON" form="ga" />
                       </PP-GEN>
                       <N>
                         <PFX-HON phon="LOG" form="opo" />
-                        <N index="1" phon="LOG" form="mi" />
+                        <N phon="LOG" form="mi" index="1" inferred_index="1" />
                         <N index="3" phon="LOG" form="koto" />
                       </N>
                     </NP-OB1>
@@ -108,7 +108,7 @@
                                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                               </PP-GEN>
                               <N lemma="L050215">
-                                <N index="1" phon="LOG" form="kapa" />
+                                <N phon="LOG" form="kapa" index="1" inferred_index="1" />
                                 <N index="2" phon="LOG" form="kami" />
                               </N>
                             </NP>
@@ -119,7 +119,7 @@
                         <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
                       </PP-GEN>
                       <N>
-                        <N index="1" phon="LOG" form="ipa" />
+                        <N phon="LOG" form="ipa" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="ne" />
                       </N>
                     </NP>
@@ -135,9 +135,9 @@
                   <VB-ADC phon="PHON" form="ru" />
                 </IP-REL>
                 <N>
-                  <N index="1" phon="LOG" form="sumye" />
+                  <N phon="LOG" form="sumye" index="1" inferred_index="1" />
                   <N index="2" phon="LOG" form="opo" />
-                  <N index="1" phon="LOG" form="mi" />
+                  <N phon="LOG" form="mi" index="1" inferred_index="1" />
                   <N index="4" phon="LOG" form="kamwi" />
                 </N>
               </NP>
@@ -145,7 +145,7 @@
             </PP-GEN>
             <N>
               <PFX-HON phon="LOG" form="opo" />
-              <N phon="LOG" form="mapye" />
+              <N lemma="L050052" phon="LOG" form="mapye" />
             </N>
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -232,7 +232,7 @@
                     </COMMENT>
                     <N>
                       <PFX-HON phon="LOG" form="opo" />
-                      <N phon="LOG" form="mitegura" />
+                      <N lemma="L052124" phon="LOG" form="mitegura" />
                     </N>
                   </NP>
                   <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
@@ -249,13 +249,13 @@
                             <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                           </PP-GEN>
                           <N>
-                            <C-NP index="1">
-                              <N phon="LOG" form="tukasa" />
+                            <C-NP index="1" inferred_index="1">
+                              <N lemma="L050144" phon="LOG" form="tukasa" />
                             </C-NP>
                             <C-NP index="2">
                               <N phon="LOG" form="kurawi" />
                             </C-NP>
-                            <C-NP index="1">
+                            <C-NP index="1" inferred_index="1">
                               <N phon="LOG" form="nanigasi" />
                             </C-NP>
                           </N>
@@ -274,14 +274,14 @@
                   <VB-GER phon="PHON" form="te" />
                 </IP-ADV>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="sasage" />
+                  <VB-STM phon="LOG" form="sasage" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="mota" />
                   <VAX-CTV-GER phon="LOG" form="sime" />
                   <VAX-CTV-GER phon="PHON" form="te" />
                 </VB>
               </IP-ADV>
               <VB>
-                <VB-STM index="1" phon="LOG" form="tate" />
+                <VB-STM phon="LOG" form="tate" index="1" inferred_index="1" />
                 <VB-STM index="2" phon="LOG" form="maturi" />
                 <VB-ADC phon="LOG" form="tama" />
                 <VB-ADC phon="PHON" form="pu" />
@@ -289,7 +289,7 @@
             </IP-REL>
             <N>
               <PFX-HON phon="LOG" form="opo" />
-              <PFX phon="LOG" form="mi" />
+              <PFX-HON lemma="L000035" phon="LOG" form="mi" />
               <N phon="LOG" form="koto" />
             </N>
           </NP>

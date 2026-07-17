@@ -5,13 +5,13 @@
     <IP-MAT>
       <PP-OB1>
         <NP>
-          <N index="1">
-            <N index="1" phon="LOG" form="sipo" />
+          <N index="1" inferred_index="1">
+            <N phon="LOG" form="sipo" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="yaki" />
             <SFX lemma="L001003" phon="LOG" form="ra" />
           </N>
           <N index="2">
-            <N index="1" phon="LOG" form="ituta" />
+            <N phon="LOG" form="ituta" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="ri" />
           </N>
         </NP>
@@ -19,9 +19,9 @@
       </PP-OB1>
       <IP-ADV>
         <NP>
-          <N index="1" phon="LOG" form="pito" />
+          <N phon="LOG" form="pito" index="1" inferred_index="1" />
           <N index="2" phon="LOG" form="mupon" />
-          <N index="1" phon="LOG" form="su" />
+          <N phon="LOG" form="su" index="1" inferred_index="1" />
         </NP>
         <P-COMP lemma="L000530" phon="LOG" form="to" />
       </IP-ADV>
@@ -56,17 +56,14 @@
         </IP-REL>
         <N phon="LOG" form="pito" />
       </NP>
-      <VB>
-        <VB-STM phon="LOG" form="n" />
-        <VB-IFC lemma="L030125a" phon="LOG" form="ari" />
-      </VB>
+      <COP-IFC lemma="L031966" phon="PHON" form="nari" />
     </IP-MAT>
   </block>
   <block id="3_SM_18" header="pito tu mo ware wo ura mu be ki koto pa omopo e zu">
     <comment raw="IP-MAT,0@一毛吾乎可怨,*" />
     <comment raw="IP-MAT,PP-TOP;@3,NP,1@事者不所念,*" />
     <IP-MAT>
-      <PP-TOP index="1">
+      <PP-TOP index="1" inferred_index="1">
         <NP>
           <NUMCLP>
             <NUM lemma="L002001" phon="LOG" form="pito" />
@@ -98,7 +95,7 @@
         <P-TOP lemma="L000522" phon="LOG" form="pa" />
       </PP-TOP>
       <VB>
-        <VB-STM index="1" lemma="L030402a" phon="LOG" form="omopo" />
+        <VB-STM lemma="L030402a" phon="LOG" form="omopo" index="1" inferred_index="1" />
         <VB-STM index="2" lemma="L030228a" phon="LOG" form="e" />
         <VAX phon="LOG" form="zu" />
       </VB>
@@ -126,7 +123,7 @@
             <NP>
               <PP-GEN>
                 <NP>
-                  <N phon="LOG" form="sumyera" />
+                  <N lemma="L052019" phon="LOG" form="sumyera" />
                 </NP>
                 <P-CASE lemma="L000503" phon="LOG" form="ga" />
               </PP-GEN>
@@ -135,7 +132,7 @@
             <P-TOP lemma="L000522" phon="LOG" form="pa" />
           </PP-TOP>
           <IP-ADV>
-            <IP-ADV index="1">
+            <IP-ADV index="1" inferred_index="1">
               <ADV phon="PHON" form="kokodaku" />
             </IP-ADV>
             <IP-ADV index="2">
@@ -230,7 +227,7 @@
       <IP-ADV>
         <VB>
           <VB-STM lemma="L031857a" phon="LOG" form="yurusi" />
-          <VB-ADC phon="LOG" form="tamapu" />
+          <VB-ADC lemma="L031077a" phon="LOG" form="tamapu" />
         </VB>
       </IP-ADV>
     </CP-FINAL>
@@ -240,7 +237,7 @@
     <comment raw="IP-MAT,IP-ADV,NP,1@前然莫為止宣,*" />
     <IP-MAT>
       <IP-ADV>
-        <NP index="1">
+        <NP index="1" inferred_index="1">
           <IP-REL>
             <NP>
               <N phon="LOG" form="ima" />
@@ -252,11 +249,13 @@
         <NP index="2">
           <N phon="LOG" form="sika" />
         </NP>
+        <NP-ADV>
+          <ADV lemma="L080450" phon="LOG" form="na" />
+        </NP-ADV>
         <VB>
-          <MORPHEME-PHB phon="LOG" form="na" />
-          <VB-STM lemma="L030919a" phon="LOG" form="se" />
-          <CFX-PHB lemma="L000037" phon="LOG" form="so" />
+          <VB-INF lemma="L030919a" phon="LOG" form="se" />
         </VB>
+        <P-FNL-PHB lemma="L000037a" phon="LOG" form="so" />
         <P-COMP lemma="L000530" phon="LOG" form="to" />
       </IP-ADV>
       <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />

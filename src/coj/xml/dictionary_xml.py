@@ -38,6 +38,7 @@ _MULTI_TAG_MAP: dict[str, tuple[str, str]] = {
 _CROSS_REF_MAP: dict[str, str] = {
     ".COMPOUND":    "compound",
     ".RELATED":     "related",
+    ".MKTARGET":    "mk-target-legacy",
     ".MKTARGETNEW": "mk-target",
     ".DERIVATION":  "derivation",
     ".TRANSREL":    "transrel",
@@ -74,9 +75,11 @@ def _entry_to_elem(entry: DictEntry) -> ET.Element:
     elem = ET.Element("entry")
     elem.set("id", str(entry.eid))
 
-    # .GLOSS — singular, always first
-    gloss_elem = ET.SubElement(elem, "gloss")
-    gloss_elem.text = entry.get_first(".GLOSS") or ""
+    # .GLOSS — singular, normally first.  Omit it when it was absent in the
+    # source rather than turning a missing field into an explicitly blank one.
+    if entry.has(".GLOSS"):
+        gloss_elem = ET.SubElement(elem, "gloss")
+        gloss_elem.text = entry.get_first(".GLOSS") or ""
 
     # .MEANING — multi-valued
     meanings = entry.get_all(".MEANING")
@@ -131,6 +134,11 @@ def _entry_to_elem(entry: DictEntry) -> ET.Element:
                 ref_elem = ET.SubElement(wrap, "ref")
                 ref_elem.set("target", parsed["target"])
                 ref_elem.set("form", parsed["form"])
+                # Some source values contain relation labels before ref_target,
+                # blank targets, or other legacy formatting.  Keep the exact
+                # value so XML -> text is lossless while target/form remain
+                # available as structured attributes.
+                ref_elem.set("raw", raw_ref)
 
     # Singular optional fields (omit if absent)
     for tag, xml_name in _SINGULAR_MAP.items():
@@ -189,11 +197,12 @@ _XML_TO_MULTI: dict[str, str] = {
 }
 
 _XML_TO_CROSS_REF: dict[str, str] = {
-    "compound":   ".COMPOUND",
-    "related":    ".RELATED",
-    "mk-target":  ".MKTARGETNEW",
-    "derivation": ".DERIVATION",
-    "transrel":   ".TRANSREL",
+    "compound":         ".COMPOUND",
+    "related":          ".RELATED",
+    "mk-target-legacy": ".MKTARGET",
+    "mk-target":        ".MKTARGETNEW",
+    "derivation":       ".DERIVATION",
+    "transrel":         ".TRANSREL",
 }
 
 _XML_TO_SINGULAR: dict[str, str] = {
@@ -234,6 +243,10 @@ def _entry_from_elem(elem: ET.Element) -> DictEntry:
         elif tag in _XML_TO_CROSS_REF:
             field = _XML_TO_CROSS_REF[tag]
             for ref in child:
+                raw_value = ref.get("raw")
+                if raw_value is not None:
+                    entry.append(field, raw_value)
+                    continue
                 target = ref.get("target") or ""
                 form = ref.get("form") or ""
                 raw = f"ref_target={target}\t{form}" if form else f"ref_target={target}"

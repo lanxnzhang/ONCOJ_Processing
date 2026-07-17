@@ -10,7 +10,7 @@
             <IP-REL>
               <PP-GEN>
                 <NP>
-                  <N phon="LOG" form="sumyera" />
+                  <N lemma="L052019" phon="LOG" form="sumyera" />
                 </NP>
                 <P-CASE lemma="L000503" phon="LOG" form="ga" />
               </PP-GEN>
@@ -18,7 +18,7 @@
                 <NP>
                   <N>
                     <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                    <N index="1" phon="LOG" form="mikoto" />
+                    <N phon="LOG" form="mikoto" index="1" inferred_index="1" />
                     <N index="3" phon="LOG" form="rama" />
                   </N>
                 </NP>
@@ -34,8 +34,8 @@
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP>
         <NP>
-          <N index="1">
-            <PFX phon="LOG" form="mi" />
+          <N index="1" inferred_index="1">
+            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
             <N phon="LOG" form="kwo" />
             <SFX lemma="L001004" phon="LOG" form="tati" />
           </N>
@@ -44,20 +44,20 @@
             <N phon="LOG" form="kimi" />
             <SFX lemma="L001004" phon="LOG" form="tati" />
           </N>
-          <N index="1">
+          <N index="1" inferred_index="1">
             <N phon="LOG" form="omi" />
             <SFX lemma="L001004" phon="LOG" form="tati" />
           </N>
           <N index="4">
-            <N index="1" phon="LOG" form="tukasa" />
-            <N index="2" phon="LOG" form="dukasa" />
+            <N lemma="L050144" phon="LOG" form="tukasa" index="1" inferred_index="1" />
+            <N index="2" lemma="L050144" phon="LOG" form="dukasa" />
           </N>
-          <N index="1" phon="LOG" form="no" />
+          <N phon="LOG" form="no" index="1" inferred_index="1" />
           <N index="6">
             <N phon="LOG" form="pito" />
             <SFX lemma="L001002" phon="LOG" form="domo" />
           </N>
-          <PP-GEN index="1">
+          <PP-GEN index="1" inferred_index="1">
             <NP>
               <N phon="LOG" form="ame" />
             </NP>
@@ -69,13 +69,13 @@
             </NP>
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N index="1">
+          <N index="1" inferred_index="1">
             <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-            <N index="1" phon="LOG" form="mi" />
+            <N phon="LOG" form="mi" index="1" inferred_index="1" />
             <N index="3" phon="LOG" form="takara" />
           </N>
           <N index="10">
-            <N index="1" phon="LOG" form="moro" />
+            <N phon="LOG" form="moro" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="moro" />
           </N>
         </NP>
@@ -116,7 +116,7 @@
             </WORD>
           </IP-REL>
           <N>
-            <N index="1" phon="LOG" form="maturi" />
+            <N phon="LOG" form="maturi" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="goto" />
           </N>
         </NP>
@@ -125,11 +125,11 @@
       </IP-ADV>
       <PP>
         <NP>
-          <N index="1" phon="LOG" form="sawa" />
-          <N index="1" phon="BPHON" form="ra" />
+          <N phon="LOG" form="sawa" index="1" inferred_index="1" />
+          <N phon="BPHON" form="ra" index="1" inferred_index="1" />
           <N index="2" phon="LOG" form="no" />
-          <N index="1">
-            <PFX phon="LOG" form="mi" />
+          <N index="1" inferred_index="1">
+            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
             <N phon="LOG" form="kwo" />
           </N>
         </NP>
@@ -138,13 +138,13 @@
       <IP-ADV>
         <VB-GER lemma="L031044a" phon="LOG" form="tatete" />
         <NP>
-          <N index="1">
-            <N index="1" phon="LOG" form="pi" />
+          <N index="1" inferred_index="1">
+            <N phon="LOG" form="pi" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="tugi" />
           </N>
           <N index="2" phon="LOG" form="no" />
-          <N index="1">
-            <PFX phon="LOG" form="mi" />
+          <N index="1" inferred_index="1">
+            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
             <N phon="LOG" form="kwo" />
           </N>
         </NP>
@@ -172,19 +172,19 @@
               <IP-ADV>
                 <IP-ADV>
                   <NP>
-                    <N index="1" phon="LOG" form="kaku" />
+                    <N phon="LOG" form="kaku" index="1" inferred_index="1" />
                     <N index="2" phon="LOG" form="no" />
-                    <N index="1" phon="LOG" form="sama" />
+                    <N phon="LOG" form="sama" index="1" inferred_index="1" />
                   </NP>
                   <VB-GER phon="LOG" form="satorite" />
                 </IP-ADV>
                 <NP>
-                  <N index="1">
-                    <N index="1" phon="LOG" form="tukasa" />
-                    <N index="2" phon="LOG" form="dukasa" />
+                  <N index="1" inferred_index="1">
+                    <N lemma="L050144" phon="LOG" form="tukasa" index="1" inferred_index="1" />
+                    <N index="2" lemma="L050144" phon="LOG" form="dukasa" />
                   </N>
                   <N index="2" phon="LOG" form="no" />
-                  <N index="1">
+                  <N index="1" inferred_index="1">
                     <N phon="LOG" form="pito" />
                     <SFX lemma="L001002" phon="LOG" form="domo" />
                   </N>
@@ -200,7 +200,7 @@
             </IP-REL>
             <PP-GEN>
               <NP>
-                <N phon="LOG" form="sumyera" />
+                <N lemma="L052019" phon="LOG" form="sumyera" />
               </NP>
               <P-CASE lemma="L000503" phon="LOG" form="ga" />
             </PP-GEN>
@@ -213,7 +213,7 @@
         </PP>
         <NP>
           <N>
-            <N index="1" phon="LOG" form="moro" />
+            <N phon="LOG" form="moro" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="moro" />
           </N>
         </NP>

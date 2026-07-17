@@ -67,6 +67,13 @@ This function includes the following:
   User can manually modify the ID number, but the system must display a warning if the numeric portion conflicts with an existing dictionary ID. 
   User can also edit the entry's content and click "Save" to add this new entry to the dictionary; however, manual confirmation is still required to commit the entries to the final output. Dictionary entries added via this method are selected by default within the dictionary output categories, though users can deselect them.
 
+### After commit 51f138e
+Currently the COJ/data is not the updatest ones. After studying scripts/data_conversion, please:
+  1. Read D:\Lanxin\Desktop\data.
+  2. Use these new data to substitute the old data in data/txt. (Do not change the data in D:\Lanxin\Desktop\data). Keep the original folder stucture in COJ, just substitute the files.
+  3. Convert the new data to xml. Make sure they can round trip.
+
+
 
 ## Build interactive editor
 

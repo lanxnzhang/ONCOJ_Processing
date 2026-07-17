@@ -54,7 +54,7 @@
         <PP>
           <NP>
             <N lemma="L050402">
-              <N index="1" lemma="L050641" phon="PHON" form="titi" />
+              <N lemma="L050641" phon="PHON" form="titi" index="1" inferred_index="1" />
               <N index="2" lemma="L051720" phon="PHON" form="papa" />
             </N>
           </NP>
@@ -104,7 +104,7 @@
                           <NP-PRD>
                             <N>
                               <NUM lemma="L080703">
-                                <NUM index="1" lemma="L002003" phon="PHON" form="mi" />
+                                <NUM lemma="L002003" phon="PHON" form="mi" index="1" inferred_index="1" />
                                 <NUM index="2" lemma="L002032" phon="PHON" form="swo" />
                               </NUM>
                               <CL lemma="L002015b" phon="PHON" form="ti" />
@@ -123,7 +123,7 @@
                     <NP>
                       <N>
                         <NUM lemma="L080437">
-                          <NUM index="1" lemma="L002008" phon="PHON" form="ya" />
+                          <NUM lemma="L002008" phon="PHON" form="ya" index="1" inferred_index="1" />
                           <NUM index="2" lemma="L002032" phon="PHON" form="swo" />
                         </NUM>
                         <N lemma="L052472" phon="PHON" form="kusa" />
@@ -147,7 +147,7 @@
           </VB-ADN>
         </IP-REL>
         <N lemma="L050665">
-          <N index="1" lemma="L050877" phon="PHON" form="ato" />
+          <N lemma="L050877" phon="PHON" form="ato" index="1" inferred_index="1" />
           <N index="2" lemma="L050060" phon="PHON" form="dokoro" />
         </N>
       </NP-SBJ>
@@ -168,7 +168,7 @@
     <comment raw="multi-sentence,IP-MAT,4@伊波爾恵利都久,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@多麻爾恵利都久,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP-OB1>
           <NP>
             <IP-REL>
@@ -253,7 +253,7 @@
     <comment raw="multi-sentence,IP-MAT,4@和多志多麻波奈,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@須久比多麻波奈,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP>
           <NP>
             <PP>
@@ -285,8 +285,8 @@
           </VB-INF>
           <NP-OB1>
             <N lemma="L051514">
-              <ADJ lemma="L007011" phon="PHON" form="moro" />
-              <ADJ_2_ raw_tag="ADJ;2@" lemma="L007011" phon="PHON" form="moro" />
+              <ADJ lemma="L007011" phon="PHON" form="moro" index="1" inferred_index="1" />
+              <ADJ index="2" lemma="L007011" phon="PHON" form="moro" />
             </N>
           </NP-OB1>
           <VB-INF lemma="L030928a" phon="PHON" form="sukupi" />
@@ -312,7 +312,7 @@
     <comment raw="multi-sentence,IP-MAT,4@阿止乃祁留良牟,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@多布刀久毛阿留可,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <NP-PRD>
             <IP-REL>
@@ -348,7 +348,7 @@
             </NP-PRD>
             <COP-INF lemma="L031968" phon="PHON" form="to" />
           </IP-ADV>
-          <VB-INF index="1" lemma="L031553a" phon="PHON" form="pumi" />
+          <VB-INF lemma="L031553a" phon="PHON" form="pumi" index="1" inferred_index="1" />
           <VB-INF index="5" lemma="L031279a" phon="PHON" form="nasi" />
         </IP-ADV>
         <NP-OB1>
@@ -392,7 +392,7 @@
                 </NP>
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-SBJ>
-              <IP-ADV index="1">
+              <IP-ADV index="1" inferred_index="1">
                 <VB-INF lemma="L030937a" phon="PHON" form="susumi" />
               </IP-ADV>
               <IP-ADV index="4">
@@ -461,7 +461,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-SBJ>
               <VB-ADN>
-                <VB-STM index="1" lemma="L031553a" phon="PHON" form="pumi" />
+                <VB-STM lemma="L031553a" phon="PHON" form="pumi" index="1" inferred_index="1" />
                 <VB-STM index="2" lemma="L030327a" phon="PHON" form="ok" />
                 <VAX-STV-ADN lemma="L000024" phon="PHON" form="yeru" />
               </VB-ADN>
@@ -493,7 +493,7 @@
           <VAX-STV-CLS lemma="L000024" phon="PHON" form="eri" />
         </VB-CLS>
       </IP-SUB>
-      <IP-ADV index="1">
+      <IP-ADV index="1" inferred_index="1">
         <IP-ADV>
           <VB-CTT lemma="L031712a" phon="PHON" form="mitutu" />
         </IP-ADV>
@@ -586,8 +586,8 @@
         <PP-OB1>
           <NP>
             <N lemma="L051514">
-              <ADJ lemma="L007011" phon="PHON" form="moro" />
-              <ADJ_2_ raw_tag="ADJ;2@" lemma="L007011" phon="PHON" form="moro" />
+              <ADJ lemma="L007011" phon="PHON" form="moro" index="1" inferred_index="1" />
+              <ADJ index="2" lemma="L007011" phon="PHON" form="moro" />
             </N>
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
@@ -604,7 +604,7 @@
     <comment raw="multi-sentence,IP-MAT,4@由豆利麻都良牟,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@佐佐義麻宇佐牟,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <NP-OB1>
             <PP>
@@ -648,14 +648,14 @@
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-OB2>
         <VB-ADC>
-          <VB-STM index="1" lemma="L031845a" phon="PHON" form="yuduri" />
+          <VB-STM lemma="L031845a" phon="PHON" form="yuduri" index="1" inferred_index="1" />
           <VB-STM index="2" lemma="L031649a" phon="PHON" form="matura" />
           <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
         </VB-ADC>
       </IP-MAT>
       <IP-MAT index="2">
         <VB-ADC>
-          <VB-STM index="1" lemma="L030794a" phon="PHON" form="sasage" />
+          <VB-STM lemma="L030794a" phon="PHON" form="sasage" index="1" inferred_index="1" />
           <VB-STM index="2" lemma="L031605a" phon="PHON" form="mausa" />
           <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
         </VB-ADC>
@@ -831,7 +831,7 @@
     <comment raw="multi-sentence,IP-MAT,4@宇都志麻都礼利,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@都加閇麻都礼利,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <PP-SBJ>
             <NP>
@@ -879,7 +879,7 @@
           <N lemma="L050063g" phon="PHON" form="tameto" />
         </NP-ADV>
         <VB-CLS>
-          <VB-STM index="1" lemma="L030270a" phon="PHON" form="utusi" />
+          <VB-STM lemma="L030270a" phon="PHON" form="utusi" index="1" inferred_index="1" />
           <VB-STM index="2" lemma="L031649a" phon="PHON" form="matur" />
           <VAX-STV-CLS lemma="L000024" phon="PHON" form="eri" />
         </VB-CLS>
@@ -887,7 +887,7 @@
       <IP-MAT index="2">
         <VB-CLS>
           <VB-STM lemma="L031121a">
-            <VB-STM index="1" lemma="L031119a" phon="PHON" form="tukape" />
+            <VB-STM lemma="L031119a" phon="PHON" form="tukape" index="1" inferred_index="1" />
             <VB-STM index="2" lemma="L031649a" phon="PHON" form="matur" />
           </VB-STM>
           <VAX-STV-CLS lemma="L000024" phon="PHON" form="eri" />
@@ -903,8 +903,8 @@
     <comment raw="multi-sentence,IP-MAT,4@和我与波乎閇牟,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@己乃与波乎閇牟,*" />
     <multi-sentence>
-      <IP-MAT index="1">
-        <IP-ADV index="1">
+      <IP-MAT index="1" inferred_index="1">
+        <IP-ADV index="1" inferred_index="1">
           <NP-OB1>
             <PP>
               <NP>
@@ -934,7 +934,7 @@
             <VB-INF lemma="L031748a" phon="PHON" form="meguri" />
           </VB-INF>
         </IP-ADV>
-        <IP-ADV index="1">
+        <IP-ADV index="1" inferred_index="1">
           <VB-INF>
             <VB-STM lemma="L030296a" phon="PHON" form="uyamapi" />
             <VB-INF lemma="L031649a" phon="PHON" form="maturi" />
@@ -985,7 +985,7 @@
     <comment raw="multi-sentence,IP-MAT,4@多布止可理家利,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@米太志加利鶏利,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <PP-HST>
             <NP>
@@ -1074,7 +1074,7 @@
           <PP>
             <NP>
               <N lemma="L090532">
-                <N index="1" lemma="L050877" phon="PHON" form="ato" />
+                <N lemma="L050877" phon="PHON" form="ato" index="1" inferred_index="1" />
                 <N index="2" lemma="L050024" phon="PHON" form="nusi" />
               </N>
             </NP>
@@ -1108,7 +1108,7 @@
     <comment raw="multi-sentence,IP-MAT,IP-ARG,4@保呂夫止曾伊布,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@乃曾久止叙伎久,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <NP>
           <IP-REL>
             <NP-GOL>
@@ -1233,14 +1233,14 @@
           <VAX-STV-CLS lemma="L000024" phon="PHON" form="eri" />
         </VB-CLS>
       </IP-MAT>
-      <CP-FINAL index="1">
+      <CP-FINAL index="1" inferred_index="1">
         <IP-SUB>
           <VB-IMP lemma="L031161a" phon="PHON" form="tutome" />
         </IP-SUB>
         <NP-VOC>
           <N lemma="L051514">
-            <ADJ lemma="L007011" phon="PHON" form="moro" />
-            <ADJ_2_ raw_tag="ADJ;2@" lemma="L007011" phon="PHON" form="moro" />
+            <ADJ lemma="L007011" phon="PHON" form="moro" index="1" inferred_index="1" />
+            <ADJ index="2" lemma="L007011" phon="PHON" form="moro" />
           </N>
         </NP-VOC>
       </CP-FINAL>
@@ -1250,8 +1250,8 @@
         </IP-SUB>
         <NP-VOC>
           <N lemma="L051514">
-            <ADJ lemma="L007011" phon="PHON" form="moro" />
-            <ADJ_2_ raw_tag="ADJ;2@" lemma="L007011" phon="PHON" form="moro" />
+            <ADJ lemma="L007011" phon="PHON" form="moro" index="1" inferred_index="1" />
+            <ADJ index="2" lemma="L007011" phon="PHON" form="moro" />
           </N>
         </NP-VOC>
       </CP-FINAL>
@@ -1265,7 +1265,7 @@
     <comment raw="multi-sentence,IP-MAT,4@伊止比須都閇志,*" />
     <comment raw="multi-sentence,IP-MAT;@2,5@波奈礼須都倍志,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP-OB1>
           <NP>
             <IP-REL>

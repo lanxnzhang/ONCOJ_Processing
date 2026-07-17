@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_47.txt">
-  <block id="1_SM_47" header="ima nori tamapa ku koto nipaka ni aru ni yori te omi tati pakari te sira kabye no opo kimi pa opo kimi tati no naka ni yopapi mo ko no kami nari mata saki no mikadwo no mi isawo mo aru yuwe ni pi tugi no mi kwo to sadame te mawose ba mawos e ru manima sadame tama pu to nori tamapa ku to noritamapu">
+  <block id="1_SM_47" header="ima nori tamapa ku koto nipaka ni aru ni yori te omi tati pakari te sira kabe no opo kimi pa opo kimi tati no naka ni yopapi mo ko no kami nari mata saki no mikadwo no mi isawo mo aru yuwe ni pi tugi no mi kwo to sadame te mawose ba mawos e ru manima sadame tama pu to nori tamapa ku to noritamapu">
     <comment raw="IP-MAT,0@今詔久事卒然尔有依天,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,1@諸臣等議天,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,2@白壁王波諸王乃中尔,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,3@年歯毛長奈利,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,4@又先帝乃功毛在,*" />
+    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-EMB,IP-ADV,3@年歯毛長奈利,*" />
+    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-EMB,4@又先帝乃功毛在,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,5@故仁,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,6@太子止定天奏波,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,7@奏流,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,NP,IP-REL,IP-ADV,NP,8@麻尔麻定給布止勅久止宣,*" />
     <IP-MAT>
-      <IP-ADV index="1">
+      <IP-ADV index="1" inferred_index="1">
         <NP>
           <N phon="LOG" form="ima" />
         </NP>
@@ -33,7 +33,7 @@
                         <PP-DAT>
                           <NP>
                             <IP-REL>
-                              <NP index="1">
+                              <NP index="1" inferred_index="1">
                                 <N phon="LOG" form="koto" />
                               </NP>
                               <NP index="2">
@@ -62,8 +62,8 @@
                         <PP-GEN>
                           <NP>
                             <N>
-                              <N index="1" phon="LOG" form="sira" />
-                              <N index="2" phon="LOG" form="kabye" />
+                              <N phon="LOG" form="sira" index="1" inferred_index="1" />
+                              <N index="2" phon="LOG" form="kabe" />
                             </N>
                           </NP>
                           <P-CASE lemma="L000520" phon="LOG" form="no" />
@@ -78,7 +78,7 @@
                     <IP-ADV>
                       <IP-ADV>
                         <NP>
-                          <IP-REL>
+                          <IP-EMB>
                             <IP-ADV>
                               <IP-ADV>
                                 <NP>
@@ -119,7 +119,7 @@
                             <IP-ADV>
                               <PP-TOP>
                                 <NP>
-                                  <PP-GEN index="1">
+                                  <PP-GEN index="1" inferred_index="1">
                                     <NP>
                                       <N phon="LOG" form="saki" />
                                     </NP>
@@ -132,7 +132,7 @@
                                     <P-CASE lemma="L000520" phon="PHON" form="no" />
                                   </PP-GEN>
                                   <N>
-                                    <PFX phon="LOG" form="mi" />
+                                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                                     <N phon="LOG" form="isawo" />
                                   </N>
                                 </NP>
@@ -140,19 +140,19 @@
                               </PP-TOP>
                               <VB-ADN lemma="L030125a" phon="LOG" form="aru" />
                             </IP-ADV>
-                          </IP-REL>
+                          </IP-EMB>
                           <N phon="LOG" form="yuwe" />
                         </NP>
                         <COP-INF lemma="L031965" phon="PHON" form="ni" />
                       </IP-ADV>
                       <NP>
-                        <N index="1">
-                          <N index="1" phon="LOG" form="pi" />
+                        <N index="1" inferred_index="1">
+                          <N phon="LOG" form="pi" index="1" inferred_index="1" />
                           <N index="2" phon="LOG" form="tugi" />
                         </N>
                         <N index="2" phon="LOG" form="no" />
-                        <N index="1">
-                          <PFX phon="LOG" form="mi" />
+                        <N index="1" inferred_index="1">
+                          <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                           <N phon="LOG" form="kwo" />
                         </N>
                       </NP>

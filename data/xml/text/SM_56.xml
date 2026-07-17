@@ -14,13 +14,13 @@
                 <NP>
                   <PP-GEN>
                     <NP>
-                      <N phon="LOG" form="sumyera" />
+                      <N lemma="L052019" phon="LOG" form="sumyera" />
                     </NP>
                     <P-CASE lemma="L000503" phon="PHON" form="ga" />
                   </PP-GEN>
                   <N>
                     <PFX-HON lemma="L000038" phon="LOG" form="opo" />
-                    <N index="1" phon="LOG" form="mikoto" />
+                    <N phon="LOG" form="mikoto" index="1" inferred_index="1" />
                     <N index="3" phon="PHON" form="rama" />
                   </N>
                 </NP>
@@ -71,7 +71,7 @@
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,5@其国尔遣之,*" />
     <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,6@其国与利進渡祁里,*" />
     <IP-MAT>
-      <IP-ADV index="1">
+      <IP-ADV index="1" inferred_index="1">
         <NP>
           <N phon="LOG" form="ima" />
         </NP>
@@ -88,15 +88,15 @@
             </NP>
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N index="1" phon="LOG" form="ima" />
+          <N phon="LOG" form="ima" index="1" inferred_index="1" />
           <PP-GEN>
             <NP>
               <N phon="LOG" form="emisi" />
             </NP>
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N index="1" phon="LOG" form="suku" />
-          <N index="1" phon="BPHON" form="ne" />
+          <N phon="LOG" form="suku" index="1" inferred_index="1" />
+          <N phon="BPHON" form="ne" index="1" inferred_index="1" />
           <PP-GEN>
             <NP>
               <N>
@@ -106,10 +106,10 @@
             </NP>
             <P-CASE lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N index="1" phon="LOG" form="suku" />
-          <N index="1" phon="BPHON" form="ne" />
+          <N phon="LOG" form="suku" index="1" inferred_index="1" />
+          <N phon="BPHON" form="ne" index="1" inferred_index="1" />
           <N index="7" phon="LOG" form="masu" />
-          <N index="1" phon="LOG" form="tatu" />
+          <N phon="LOG" form="tatu" index="1" inferred_index="1" />
           <NUMCLP>
             <NUM lemma="L002002" phon="LOG" form="puta" />
             <CL lemma="L002016" phon="LOG" form="ri" />
@@ -173,7 +173,7 @@
               <VAX-NEG-IFC lemma="L000006" phon="LOG" form="zu" />
             </VB>
             <NP>
-              <N index="1" phon="LOG" form="moto" />
+              <N phon="LOG" form="moto" index="1" inferred_index="1" />
               <N index="2" phon="PHON" form="ywori" />
             </NP>
             <PP>
@@ -191,7 +191,7 @@
                   </NP>
                   <P-CASE lemma="L000520" phon="LOG" form="no" />
                 </PP-GEN>
-                <N phon="LOG" form="kuni" />
+                <N lemma="L051337" phon="LOG" form="kuni" />
               </NP>
               <P-CASE lemma="L000519" phon="PHON" form="ni" />
             </PP-DAT>
@@ -206,12 +206,12 @@
                 </NP>
                 <P-CASE lemma="L000520" phon="LOG" form="no" />
               </PP-GEN>
-              <N phon="LOG" form="kuni" />
+              <N lemma="L051337" phon="LOG" form="kuni" />
             </NP>
             <VB-INF phon="PHON" form="yori" />
           </IP-ADV>
           <VB>
-            <VB-STM index="1" lemma="L031643a" phon="LOG" form="madasi" />
+            <VB-STM lemma="L031643a" phon="LOG" form="madasi" index="1" inferred_index="1" />
             <VB-STM index="2" lemma="L031908a" phon="LOG" form="watasi" />
             <VAX-MPST-CLS lemma="L000016" phon="PHON" form="kyeri" />
           </VB>
@@ -272,7 +272,7 @@
                 </NP>
                 <P-CASE lemma="L000520" phon="LOG" form="no" />
               </PP-GEN>
-              <N phon="LOG" form="kokoro" />
+              <N lemma="L050037" phon="LOG" form="kokoro" />
             </NP>
             <P-CASE-ACC lemma="L000534" phon="LOG" form="wo" />
           </PP-OB1>
@@ -295,7 +295,7 @@
             </NP>
             <P-CASE lemma="L000520" phon="PHON" form="no" />
           </PP-GEN>
-          <IP-REL index="1">
+          <IP-REL index="1" inferred_index="1">
             <ADJ>
               <ADJ phon="LOG" form="nikwo" />
               <ACP phon="PHON" form="mi" />
@@ -328,22 +328,24 @@
       <NP>
         <IP-REL>
           <ADJ>
-            <ADJ index="1" phon="LOG" form="odo" />
-            <ADJ index="1" phon="PHON" form="ro" />
+            <ADJ phon="LOG" form="odo" index="1" inferred_index="1" />
+            <ADJ phon="PHON" form="ro" index="1" inferred_index="1" />
             <ADJ index="2" phon="LOG" form="odo" />
             <ADJ index="2" phon="PHON" form="rosi" />
             <ACP-ADN lemma="L000033" phon="PHON" form="ki" />
           </ADJ>
         </IP-REL>
         <N>
-          <N index="1" phon="LOG" form="koto" />
+          <N phon="LOG" form="koto" index="1" inferred_index="1" />
           <N index="2" phon="LOG" form="waza" />
         </N>
       </NP>
+      <NP-ADV>
+        <ADV lemma="L080450" phon="PHON" form="na" />
+      </NP-ADV>
       <VB>
-        <MORPHEME-PHB phon="PHON" form="na" />
-        <VB-STM lemma="L030919a" phon="PHON" form="se" />
-        <SFX-PHB phon="PHON" form="so" />
+        <VB-INF lemma="L030919a" phon="PHON" form="se" />
+        <P-FNL-PHB lemma="L000037a" phon="PHON" form="so" />
       </VB>
     </IP-MAT>
   </block>
@@ -383,9 +385,9 @@
                     <PP>
                       <NP>
                         <N>
-                          <N index="1" phon="LOG" form="maturi" />
+                          <N phon="LOG" form="maturi" index="1" inferred_index="1" />
                           <N index="2" phon="LOG" form="goto" />
-                          <N index="1" phon="LOG" form="pito" />
+                          <N phon="LOG" form="pito" index="1" inferred_index="1" />
                         </N>
                       </NP>
                       <P-CASE-ABL lemma="L000540" phon="LOG" form="ywori" />

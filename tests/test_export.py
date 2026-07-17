@@ -693,3 +693,23 @@ class TestDictionaryRoundTrip:
         e_o12 = orig["L000012"]
         e_r12 = rt["L000012"]
         assert e_r12.get_all(".COMPOUND") == e_o12.get_all(".COMPOUND")
+
+    def test_legacy_and_nonstandard_cross_refs_preserved(self):
+        source = """---------------------------------------------------
+=== L080501
+.FORM\tparu-puyu
+.KANA\t
+.POS\tnoun
+.COMPOUND\t(dvandva)\tref_target=L051724\tparu
+.MKTARGET\tref_target=L090004\tmikasa
+
+"""
+        orig = Dictionary.from_text(source)
+        rt = dictionary_from_xml(dictionary_to_xml(orig))
+        assert rt["L080501"].get_all(".COMPOUND") == [
+            "(dvandva)\tref_target=L051724\tparu"
+        ]
+        assert rt["L080501"].get_all(".MKTARGET") == [
+            "ref_target=L090004\tmikasa"
+        ]
+        assert not rt["L080501"].has(".GLOSS")

@@ -22,7 +22,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
             </PP>
-            <DVN lemma="L031416b" phon="LOG" form="pazime" />
+            <N lemma="L031416b" phon="LOG" form="pazime" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
           <NP>
@@ -33,7 +33,7 @@
         </PP>
         <VB-EXC>
           <VB-STM lemma="L031121a">
-            <VB-STM index="1" lemma="L031119a" phon="LOG" form="tukape" />
+            <VB-STM lemma="L031119a" phon="LOG" form="tukape" index="1" inferred_index="1" />
             <VB-STM index="2" lemma="L031649a" phon="LOG" form="matura" />
           </VB-STM>
           <VAX-CJR-EXC lemma="L000002" phon="PHON" form="me" />
@@ -144,8 +144,10 @@
           </PP>
           <N>
             <ADJ-STM lemma="L004134" phon="PHON" form="toyo" />
-            <PFX-HON lemma="L000035" phon="PHON" form="mi" />
-            <N lemma="L052476" phon="PHON" form="ki" />
+            <N lemma="L050750">
+              <PFX-HON lemma="L000035" phon="PHON" form="mi" />
+              <N lemma="L052476" phon="PHON" form="ki" />
+            </N>
           </N>
         </NP>
         <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
@@ -198,8 +200,10 @@
       <NP>
         <N>
           <ADJ-STM lemma="L004134" phon="PHON" form="toyo" />
-          <PFX-HON lemma="L000035" phon="PHON" form="mi" />
-          <N lemma="L052476" phon="PHON" form="ki" />
+          <N lemma="L050750">
+            <PFX-HON lemma="L000035" phon="PHON" form="mi" />
+            <N lemma="L052476" phon="PHON" form="ki" />
+          </N>
         </N>
       </NP>
       <VB-ADC lemma="L031649a" phon="PHON" form="maturu" />
@@ -214,7 +218,7 @@
     <comment raw="multi-sentence,IP-MAT,PP,NP,5@幣爾去曾死米,*" />
     <comment raw="multi-sentence,IP-MAT;@4,6@能杼爾波不死,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <NP>
             <N lemma="L052517" phon="LOG" form="umi" />
@@ -250,7 +254,7 @@
           <N lemma="L051157" phon="LOG" form="kabane" />
         </NP-PRD>
       </IP-MAT>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP>
           <NP>
             <PP>
@@ -290,7 +294,7 @@
     <comment raw="multi-sentence,IP-MAT;@2,3@爾詩乃美夜古波,*" />
     <comment raw="multi-sentence,IP-MAT;@2,4@与呂豆与乃美夜,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <PP>
             <NP>
@@ -349,7 +353,7 @@
     <comment raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,IP-ADV,3@知止世乎麻知弖,*" />
     <comment raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,4@須賣流可波可母,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP-SBJ>
           <CONJP>
             <PP>
@@ -427,7 +431,7 @@
     <comment raw="multi-sentence,IP-MAT,14@於志止度,*" />
     <comment raw="multi-sentence,IP-MAT,NP-ADV,15@刀志止度,*" />
     <multi-sentence>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <PP>
           <NP>
             <PP>
@@ -469,7 +473,7 @@
         <VB-ADN lemma="L030125a" phon="LOG" form="aru" />
         <P-FOC lemma="L000537" phon="PHON" form="ya" />
       </IP-MAT>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <NP-ADV>
           <CONJP>
             <NP>
@@ -484,8 +488,8 @@
       <IP-MAT index="4">
         <PP>
           <NP>
-            <N>
-              <N index="1" lemma="L051875" phon="LOG" form="sakura" />
+            <N lemma="L051063">
+              <N lemma="L051875" phon="LOG" form="sakura" index="1" inferred_index="1" />
               <N index="2" lemma="L052496" phon="LOG" form="wi" />
             </N>
           </NP>
@@ -500,7 +504,7 @@
         <VB-ADC lemma="L030874a" phon="PHON" form="siduku" />
         <P-FOC lemma="L000537" phon="PHON" form="ya" />
       </IP-MAT>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <NP-SBJ>
           <IP-REL>
             <ADJ-ADN>
@@ -525,7 +529,7 @@
           </NP>
         </NP>
       </IP-MAT>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
           <NP-ADV>
             <PRO-ADV lemma="L042047" phon="LOG" form="sika" />
@@ -560,7 +564,7 @@
         <VB-ADN lemma="L030768a" phon="PHON" form="yuru" />
         <P-FOC lemma="L000537" phon="PHON" form="ya" />
       </IP-MAT>
-      <IP-MAT index="1">
+      <IP-MAT index="1" inferred_index="1">
         <NP-ADV>
           <CONJP>
             <NP>

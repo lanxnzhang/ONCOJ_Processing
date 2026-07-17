@@ -12,15 +12,15 @@
             <VAX-STV-ADN phon="LOG" form="eru" />
           </VB>
         </IP-REL>
-        <C-NP index="1">
+        <C-NP index="1" inferred_index="1">
           <N>
-            <N index="1" phon="LOG" form="kamu" />
+            <N phon="LOG" form="kamu" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="nusi" />
           </N>
         </C-NP>
         <C-NP index="5">
           <N>
-            <N index="1" phon="LOG" form="papuri" />
+            <N phon="LOG" form="papuri" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="ra" />
           </N>
         </C-NP>
@@ -53,7 +53,7 @@
         <PP-DAT>
           <NP>
             <PP-GEN>
-              <NP index="1">
+              <NP index="1" inferred_index="1">
                 <IP-REL>
                   <IP-ADV>
                     <NP>
@@ -77,7 +77,7 @@
                         </VB>
                       </IP-REL>
                       <N>
-                        <C-N index="1">
+                        <C-N index="1" inferred_index="1">
                           <PP-GEN>
                             <NP>
                               <N phon="LOG" form="sumyemutukamu" />
@@ -85,8 +85,12 @@
                             </NP>
                             <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                           </PP-GEN>
+                          <N>
+                            <L050752N>
+                              <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                            </L050752N>
+                          </N>
                           <N lemma="L050752">
-                            <PFX phon="LOG" form="mi" />
                             <N phon="LOG" form="koto" />
                           </N>
                         </C-N>
@@ -98,8 +102,12 @@
                             </NP>
                             <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                           </PP-GEN>
+                          <N>
+                            <L050752N>
+                              <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                            </L050752N>
+                          </N>
                           <N lemma="L050752">
-                            <PFX phon="LOG" form="mi" />
                             <N phon="LOG" form="koto" />
                           </N>
                         </C-N>
@@ -107,7 +115,7 @@
                     </NP>
                     <VB-GER phon="LOG" form="motite" />
                     <NP-PRD>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <PP-GEN>
                           <NP>
                             <N phon="LOG" form="ama" />
@@ -119,7 +127,7 @@
                       <C-N index="2">
                         <PP-GEN>
                           <NP>
-                            <N phon="LOG" form="kuni" />
+                            <N lemma="L051337" phon="LOG" form="kuni" />
                           </NP>
                           <P-CASE-GEN lemma="L000532" phon="LOG" form="tu" />
                         </PP-GEN>
@@ -141,7 +149,7 @@
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </NP>
               <NP index="2">
-                <N phon="LOG" form="mapye" />
+                <N lemma="L050052" phon="LOG" form="mapye" />
               </NP>
             </PP-GEN>
             <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -164,12 +172,12 @@
             </PP-DAT>
             <NP>
               <N>
-                <PFX phon="LOG" form="mi" />
+                <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                 <N phon="LOG" form="tosi" />
               </N>
             </NP>
             <VB>
-              <VB-STM index="1" phon="LOG" form="padime" />
+              <VB-STM phon="LOG" form="padime" index="1" inferred_index="1" />
               <VB-STM index="2" phon="LOG" form="tamapa" />
               <VAX-CJR-ADC lemma="L000002" phon="LOG" form="mu" />
             </VB>
@@ -187,8 +195,12 @@
                   </NP-PRD>
                   <COP-ADI lemma="L031965" phon="LOG" form="no" />
                 </IP-REL>
+                <N>
+                  <L080203N>
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                  </L080203N>
+                </N>
                 <N lemma="L080203">
-                  <PFX phon="LOG" form="mi" />
                   <N phon="LOG" form="koto" />
                 </N>
               </NP>
@@ -198,7 +210,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -236,7 +248,7 @@
     <comment raw="IP-MAT,IP-ADV,PP-OB1,C-PP;@2,NP,IP-REL,3@向股爾泥畫寄弖取作牟,*" />
     <comment raw="IP-MAT,IP-ADV,PP-OB1,C-PP;@2,NP,4@奧津御年乎八束穗能,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,5@伊加志,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,IP-REL,ACP-CLS,L000033,NULL,*" />
+    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,IP-REL,ADJ-CLS,ACP-CLS,L000033,NULL,*" />
     <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,6@穗爾,*" />
     <comment raw="IP-MAT,IP-ADV,7@皇神等能依左之奉者,*" />
     <comment raw="IP-MAT,8@初穗乎波千穎八百穎爾奉置弖,*" />
@@ -255,20 +267,20 @@
                 <PP-GEN>
                   <NP>
                     <N>
-                      <PFX phon="LOG" form="mi" />
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                       <N phon="LOG" form="tosi" />
                     </N>
                   </NP>
                   <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                 </PP-GEN>
                 <N>
-                  <N index="1" phon="LOG" form="sumyegamwi" />
+                  <N phon="LOG" form="sumyegamwi" index="1" inferred_index="1" />
                   <N index="2" phon="LOG" form="tati" />
                 </N>
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -277,12 +289,12 @@
       </IP-NMZ-FRM>
       <IP-ADV>
         <PP-OB1>
-          <C-PP index="1">
+          <C-PP index="1" inferred_index="1">
             <IP-REL>
               <PP-GEN>
                 <NP>
                   <N>
-                    <N index="1" phon="LOG" form="sumyegamwi" />
+                    <N phon="LOG" form="sumyegamwi" index="1" inferred_index="1" />
                     <N index="2" phon="LOG" form="tati" />
                   </N>
                 </NP>
@@ -302,7 +314,7 @@
               </NP>
               <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
             </PP-GEN>
-            <N index="1" phon="LOG" form="mi" />
+            <N phon="LOG" form="mi" index="1" inferred_index="1" />
             <N index="5" phon="LOG" form="tosi" />
             <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
           </C-PP>
@@ -313,7 +325,7 @@
                   <PP-DAT>
                     <NP>
                       <N>
-                        <N index="1" phon="LOG" form="tana" />
+                        <N phon="LOG" form="tana" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="pidi" />
                       </N>
                     </NP>
@@ -329,7 +341,7 @@
                   <PP-DAT>
                     <NP>
                       <N>
-                        <N index="1" phon="LOG" form="muka" />
+                        <N phon="LOG" form="muka" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="momo" />
                       </N>
                     </NP>
@@ -345,7 +357,7 @@
                   </VB>
                 </IP-ADV>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="tori" />
+                  <VB-STM phon="LOG" form="tori" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="tukura" />
                   <VAX-CJR-ADC lemma="L000002" phon="PHON" form="mu" />
                 </VB>
@@ -356,7 +368,7 @@
                 </NP>
                 <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
               </PP-GEN>
-              <N index="1" phon="LOG" form="mi" />
+              <N phon="LOG" form="mi" index="1" inferred_index="1" />
               <N index="5" phon="LOG" form="tosi" />
             </NP>
             <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
@@ -373,9 +385,9 @@
                 </N>
               </NP-PRD>
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
-              <ADJ>
+              <ADJ-CLS>
                 <ADJ-STM phon="PHON" form="ikasi" />
-              </ADJ>
+              </ADJ-CLS>
             </IP-REL>
             <N phon="LOG" form="po" />
           </NP-PRD>
@@ -401,7 +413,7 @@
       <PP-OB1>
         <NP>
           <N>
-            <N index="1" phon="LOG" form="patu" />
+            <N phon="LOG" form="patu" index="1" inferred_index="1" />
             <N index="2" phon="LOG" form="po" />
           </N>
         </NP>
@@ -411,7 +423,7 @@
         <IP-ADV>
           <NP-PRD>
             <N>
-              <C-N index="1">
+              <C-N index="1" inferred_index="1">
                 <NUMCLP>
                   <NUM phon="LOG" form="ti" />
                   <N phon="LOG" form="kapi" />
@@ -419,7 +431,7 @@
               </C-N>
               <C-N index="2">
                 <N>
-                  <NUM index="1" phon="LOG" form="ya" />
+                  <NUM phon="LOG" form="ya" index="1" inferred_index="1" />
                   <NUM index="2" phon="LOG" form="po" />
                   <N phon="LOG" form="kapi" />
                 </N>
@@ -429,12 +441,12 @@
           <COP-INF lemma="L031965" phon="PHON" form="ni" />
         </IP-ADV>
         <VB>
-          <VB-STM index="1" phon="LOG" form="tate" />
+          <VB-STM phon="LOG" form="tate" index="1" inferred_index="1" />
           <VB-STM index="2" phon="LOG" form="maturi" />
           <VB-GER phon="LOG" form="oki" />
           <VB-GER phon="PHON" form="te" />
         </VB>
-        <NP index="1">
+        <NP index="1" inferred_index="1">
           <N phon="LOG" form="mika" />
         </NP>
         <NP index="2">
@@ -445,7 +457,7 @@
           <ADJ-STM phon="LOG" form="taka" />
           <VB-INF phon="LOG" form="siri" />
         </VB>
-        <NP index="1">
+        <NP index="1" inferred_index="1">
           <PP-GEN>
             <NP>
               <N phon="LOG" form="mika" />
@@ -469,7 +481,7 @@
         </NP-PRD>
         <COP-INF lemma="L031965" phon="PHON" form="ni" />
         <P-TOP lemma="L000514" phon="PHON" form="mo" />
-        <NP index="1">
+        <NP index="1" inferred_index="1">
           <N phon="LOG" form="tatapegoto" />
         </NP>
         <VB-INF phon="LOG" form="wope" />
@@ -518,7 +530,7 @@
         </PP-TOP>
         <NP-PRD>
           <N>
-            <C-N index="1">
+            <C-N index="1" inferred_index="1">
               <N>
                 <ADJ-STM phon="LOG" form="ama" />
                 <N phon="LOG" form="na" />
@@ -561,7 +573,7 @@
             <PP-DAT>
               <NP>
                 <N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PP-GEN>
                       <NP>
                         <N phon="LOG" form="pata" />
@@ -585,7 +597,7 @@
                       <N phon="LOG" form="mono" />
                     </N>
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PP-GEN>
                       <NP>
                         <N phon="LOG" form="oki" />
@@ -593,7 +605,7 @@
                       <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
                     </PP-GEN>
                     <N>
-                      <N index="1" phon="LOG" form="mo" />
+                      <N phon="LOG" form="mo" index="1" inferred_index="1" />
                       <N index="2" phon="LOG" form="pa" />
                     </N>
                   </C-N>
@@ -605,7 +617,7 @@
                       <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
                     </PP-GEN>
                     <N>
-                      <N index="1" phon="LOG" form="mo" />
+                      <N phon="LOG" form="mo" index="1" inferred_index="1" />
                       <N index="2" phon="LOG" form="pa" />
                     </N>
                   </C-N>
@@ -620,14 +632,14 @@
         </PP-RES>
         <PP-TOP lemma="L000522">
           <N>
-            <PFX phon="LOG" form="mi" />
+            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
             <N phon="LOG" form="so" />
           </N>
           <P-TOP lemma="L000522" phon="LOG" form="pa" />
         </PP-TOP>
         <NP-PRD>
           <N>
-            <C-N index="1">
+            <C-N index="1" inferred_index="1">
               <IP-REL>
                 <VB-ADC phon="LOG" form="akaru" />
               </IP-REL>
@@ -641,7 +653,7 @@
                 <N phon="LOG" form="tape" />
               </NP>
             </C-N>
-            <C-N index="1">
+            <C-N index="1" inferred_index="1">
               <N>
                 <ADJ-STM phon="LOG" form="nigi" />
                 <N phon="LOG" form="tape" />
@@ -687,7 +699,7 @@
                       <PP-GEN>
                         <NP>
                           <N>
-                            <PFX phon="LOG" form="mi" />
+                            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                             <N phon="LOG" form="tosi" />
                           </N>
                         </NP>
@@ -697,12 +709,12 @@
                     </NP>
                     <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                   </PP-GEN>
-                  <N phon="LOG" form="mapye" />
+                  <N lemma="L050052" phon="LOG" form="mapye" />
                 </NP>
                 <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
               </PP-DAT>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <IP-REL>
                     <ADJ>
                       <ADJ-STM phon="LOG" form="sirwo" />
@@ -720,7 +732,7 @@
                   </IP-REL>
                   <N phon="LOG" form="wi" />
                 </C-N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <IP-REL>
                     <ADJ>
                       <ADJ-STM phon="LOG" form="sirwo" />
@@ -735,7 +747,7 @@
                     <COP-ADN phon="LOG" form="no" />
                   </IP-REL>
                   <N>
-                    <N index="1" phon="LOG" form="iro" />
+                    <N phon="LOG" form="iro" index="1" inferred_index="1" />
                     <N index="2" phon="LOG" form="mono" />
                   </N>
                 </C-N>
@@ -759,8 +771,12 @@
                   </NP-PRD>
                   <COP-ADI lemma="L031965" phon="LOG" form="no" />
                 </IP-REL>
+                <N>
+                  <L080203N>
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                  </L080203N>
+                </N>
                 <N lemma="L080203">
-                  <PFX phon="LOG" form="mi" />
                   <N phon="LOG" form="koto" />
                 </N>
               </NP>
@@ -770,7 +786,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -820,7 +836,7 @@
                   <PP-GEN>
                     <NP>
                       <N>
-                        <PFX index="1" phon="LOG" form="opo" />
+                        <PFX phon="LOG" form="opo" index="1" inferred_index="1" />
                         <PFX index="2" phon="LOG" form="mi" />
                         <N phon="LOG" form="kamunagi" />
                       </N>
@@ -842,7 +858,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -855,25 +871,25 @@
             <IP-ADV>
               <NP>
                 <N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="kamumusubi" />
                   </C-N>
                   <C-N index="2">
                     <PEN phon="LOG" form="takamimusubi" />
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="ikumusubi" />
                   </C-N>
                   <C-N index="4">
                     <PEN phon="LOG" form="tarumusubi" />
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="tamatumemusubi" />
                   </C-N>
                   <C-N index="6">
                     <PEN phon="LOG" form="opomiyanomye" />
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="opomiketukamwi" />
                   </C-N>
                   <C-N index="8">
@@ -886,7 +902,7 @@
             <PP-TOP>
               <NP>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="na" />
                 </N>
               </NP>
@@ -913,15 +929,19 @@
                         </NP-PRD>
                         <COP-ADI lemma="L031965" phon="LOG" form="no" />
                       </IP-REL>
+                      <N>
+                        <L080203N>
+                          <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                        </L080203N>
+                      </N>
                       <N lemma="L080203">
-                        <PFX phon="LOG" form="mi" />
                         <N phon="LOG" form="koto" />
                       </N>
                     </NP>
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="yo" />
                   </N>
                 </NP>
@@ -932,12 +952,12 @@
                   <IP-REL>
                     <ADJ>
                       <N phon="LOG" form="ta" />
-                      <ADJ-STM phon="LOG" form="naga" />
+                      <ADJ-STM lemma="L007007" phon="LOG" form="naga" />
                     </ADJ>
                     <COP-ADN phon="LOG" form="no" />
                   </IP-REL>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="yo" />
                   </N>
                 </NP-PRD>
@@ -951,7 +971,7 @@
                 <COP-INF lemma="L031965" phon="PHON" form="ni" />
                 <NP-PRD>
                   <N>
-                    <N index="1" phon="LOG" form="tok" />
+                    <N phon="LOG" form="tok" index="1" inferred_index="1" />
                     <N index="2" phon="LOG" form="ipa" />
                   </N>
                 </NP-PRD>
@@ -969,7 +989,7 @@
                   </ADJ>
                 </IP-REL>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="yo" />
                 </N>
               </NP-PRD>
@@ -988,8 +1008,8 @@
           <COP-INF lemma="L031965" phon="LOG" form="ni" />
           <NP-PRD>
             <N>
-              <APP-N index="1">
-                <N phon="LOG" form="sumyera" />
+              <APP-N index="1" inferred_index="1">
+                <N lemma="L052019" phon="LOG" form="sumyera" />
               </APP-N>
               <APP-N index="2">
                 <PP-GEN>
@@ -998,7 +1018,7 @@
                   </NP>
                   <P-CASE-GEN lemma="L000503" phon="LOG" form="ga" />
                 </PP-GEN>
-                <C-NP index="1">
+                <C-NP index="1" inferred_index="1">
                   <IP-REL>
                     <NP-PRD>
                       <N phon="LOG" form="mutukamu" />
@@ -1006,8 +1026,12 @@
                     </NP-PRD>
                     <COP-ADI lemma="L031965" phon="LOG" form="no" />
                   </IP-REL>
+                  <N>
+                    <L080203N>
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                    </L080203N>
+                  </N>
                   <N lemma="L080203">
-                    <PFX phon="LOG" form="mi" />
                     <N phon="LOG" form="koto" />
                   </N>
                 </C-NP>
@@ -1019,8 +1043,12 @@
                     </NP-PRD>
                     <COP-ADI lemma="L031965" phon="LOG" form="no" />
                   </IP-REL>
+                  <N>
+                    <L080203N>
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                    </L080203N>
+                  </N>
                   <N lemma="L080203">
-                    <PFX phon="LOG" form="mi" />
                     <N phon="LOG" form="koto" />
                   </N>
                 </C-NP>
@@ -1038,8 +1066,12 @@
                 </NP-PRD>
                 <COP-ADI lemma="L031965" phon="LOG" form="no" />
               </IP-REL>
+              <N>
+                <L080203N>
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                </L080203N>
+              </N>
               <N lemma="L080203">
-                <PFX phon="LOG" form="mi" />
                 <N phon="LOG" form="koto" />
               </N>
             </NP>
@@ -1050,7 +1082,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -1081,7 +1113,7 @@
     <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,10@御舍乎仕奉弖,*" />
     <comment raw="IP-MAT,IP-ARG,11@天御蔭日御蔭登隱坐弖,*" />
     <comment raw="IP-MAT,IP-ARG,12@四方國乎安國登平久,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-EMP,13@知食,*" />
+    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-EMB,13@知食,*" />
     <comment raw="IP-MAT,IP-ARG,IP-ADV,14@故,*" />
     <comment raw="IP-MAT,IP-ARG,15@皇御孫,*" />
     <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,PP-GEN,NP,16@命能宇豆乃,*" />
@@ -1105,7 +1137,7 @@
                             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                           </PP-GEN>
                           <N>
-                            <PFX phon="LOG" form="mi" />
+                            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                             <N phon="LOG" form="kamunagi" />
                           </N>
                         </NP>
@@ -1124,7 +1156,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -1137,19 +1169,19 @@
             <IP-ADV>
               <NP>
                 <N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="ikuwi" />
                   </C-N>
                   <C-N index="2">
                     <PEN phon="LOG" form="sakuwi" />
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="tunagawi" />
                   </C-N>
                   <C-N index="4">
                     <PEN phon="PHON" form="asupa" />
                   </C-N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="PHON" form="papiki" />
                   </C-N>
                 </N>
@@ -1159,7 +1191,7 @@
             <PP-OB1>
               <NP>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="na" />
                 </N>
               </NP>
@@ -1195,7 +1227,7 @@
                 <P-CASE-GEN lemma="L000532" phon="PHON" form="tu" />
               </PP>
               <N>
-                <N index="1" phon="LOG" form="ipa" />
+                <N phon="LOG" form="ipa" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="ne" />
               </N>
             </NP>
@@ -1203,7 +1235,7 @@
           </PP-DAT>
           <NP-OB1>
             <N lemma="L050416">
-              <N index="1" phon="LOG" form="miya" />
+              <N phon="LOG" form="miya" index="1" inferred_index="1" />
               <N index="2" phon="LOG" form="basira" />
             </N>
           </NP-OB1>
@@ -1245,8 +1277,12 @@
                     </NP-PRD>
                     <COP-ADI lemma="L031965" phon="LOG" form="no" />
                   </IP-REL>
+                  <N>
+                    <L080203N>
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                    </L080203N>
+                  </N>
                   <N lemma="L080203">
-                    <PFX phon="LOG" form="mi" />
                     <N phon="LOG" form="koto" />
                   </N>
                 </NP>
@@ -1257,7 +1293,7 @@
                 <COP-ADI lemma="L031965" phon="PHON" form="no" />
               </IP-REL>
               <N>
-                <PFX phon="LOG" form="mi" />
+                <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                 <N phon="LOG" form="araka" />
               </N>
             </NP>
@@ -1271,7 +1307,7 @@
           <IP-ADV>
             <NP-PRD>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <PP-GEN>
                     <NP>
                       <N phon="LOG" form="ame" />
@@ -1279,7 +1315,7 @@
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="kage" />
                   </N>
                 </C-N>
@@ -1291,7 +1327,7 @@
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="kage" />
                   </N>
                 </C-N>
@@ -1304,7 +1340,7 @@
             <VB-GER phon="LOG" form="masi" />
             <VB-GER phon="PHON" form="te" />
           </VB>
-          <IP-EMP>
+          <IP-EMB>
             <PP-OB1>
               <NP>
                 <PP-GEN>
@@ -1313,15 +1349,15 @@
                   </NP>
                   <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                 </PP-GEN>
-                <N phon="LOG" form="kuni" />
+                <N lemma="L051337" phon="LOG" form="kuni" />
               </NP>
               <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
             </PP-OB1>
-            <IP-ADV index="1">
+            <IP-ADV index="1" inferred_index="1">
               <NP-PRD>
                 <N>
                   <ADJ-STM phon="LOG" form="yasu" />
-                  <N phon="LOG" form="kuni" />
+                  <N lemma="L051337" phon="LOG" form="kuni" />
                 </N>
               </NP-PRD>
               <P-COMP lemma="L000530" phon="PHON" form="to" />
@@ -1337,7 +1373,7 @@
               <VP-ADC phon="LOG" form="myesu" />
             </VB>
             <P-COMP lemma="L090436" phon="LOG" form="ga" />
-          </IP-EMP>
+          </IP-EMB>
           <NP-PRD>
             <N phon="LOG" form="yuwe" />
           </NP-PRD>
@@ -1353,8 +1389,12 @@
                   </NP-PRD>
                   <COP-ADI lemma="L031965" phon="LOG" form="no" />
                 </IP-REL>
+                <N>
+                  <L080203N>
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                  </L080203N>
+                </N>
                 <N lemma="L080203">
-                  <PFX phon="LOG" form="mi" />
                   <N phon="LOG" form="koto" />
                 </N>
               </NP>
@@ -1364,7 +1404,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -1423,7 +1463,7 @@
                             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                           </PP-GEN>
                           <N>
-                            <PFX phon="LOG" form="mi" />
+                            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                             <N phon="LOG" form="kamunagi" />
                           </N>
                         </NP>
@@ -1442,7 +1482,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -1455,7 +1495,7 @@
             <IP-ADV>
               <NP>
                 <N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <IP-REL>
                       <NP-PRD>
                         <PEN phon="LOG" form="kusiipamatwo" />
@@ -1480,7 +1520,7 @@
             <PP-OB1>
               <NP>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="na" />
                 </N>
               </NP>
@@ -1503,8 +1543,12 @@
                 </NP>
                 <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
               </PP-GEN>
+              <N>
+                <L050749N>
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                </L050749N>
+              </N>
               <N lemma="L050749">
-                <PFX phon="LOG" form="mi" />
                 <N phon="LOG" form="kadwo" />
               </N>
             </NP>
@@ -1518,7 +1562,7 @@
                   <COP-ADN lemma="L031968" phon="PHON" form="tu" />
                 </IP-REL>
                 <N>
-                  <N index="1" phon="LOG" form="ipa" />
+                  <N phon="LOG" form="ipa" index="1" inferred_index="1" />
                   <N index="2" phon="LOG" form="mura" />
                 </N>
               </NP>
@@ -1618,7 +1662,7 @@
                 </IP-ADV>
                 <NP-PRD>
                   <N>
-                    <C-N index="1">
+                    <C-N index="1" inferred_index="1">
                       <PP-GEN>
                         <NP>
                           <N phon="LOG" form="ywo" />
@@ -1660,8 +1704,12 @@
                   </NP-PRD>
                   <COP-ADI lemma="L031965" phon="PHON" form="no" />
                 </IP-REL>
+                <N>
+                  <L080203N>
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                  </L080203N>
+                </N>
                 <N lemma="L080203">
-                  <PFX phon="LOG" form="mi" />
                   <N phon="LOG" form="koto" />
                 </N>
               </NP>
@@ -1671,7 +1719,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -1729,7 +1777,7 @@
                             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                           </PP-GEN>
                           <N>
-                            <N index="1" phon="LOG" form="mi" />
+                            <N phon="LOG" form="mi" index="1" inferred_index="1" />
                             <N index="2" phon="LOG" form="kamunagi" />
                           </N>
                         </NP>
@@ -1748,7 +1796,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -1761,7 +1809,7 @@
             <IP-ADV>
               <NP>
                 <N>
-                  <C-N index="1">
+                  <C-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="ikukuni" />
                   </C-N>
                   <C-N index="2">
@@ -1774,7 +1822,7 @@
             <PP-OB1>
               <NP>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="na" />
                 </N>
               </NP>
@@ -1812,14 +1860,14 @@
                     <COP-ADI lemma="L031965" phon="PHON" form="no" />
                   </IP-REL>
                   <N>
-                    <NUM index="1" phon="LOG" form="ya" />
+                    <NUM phon="LOG" form="ya" index="1" inferred_index="1" />
                     <NUM index="2" phon="LOG" form="swo" />
                     <N phon="LOG" form="sima" />
                   </N>
                 </NP>
                 <P-TOP lemma="L000522" phon="LOG" form="pa" />
               </PP-TOP>
-              <NP index="1">
+              <NP index="1" inferred_index="1">
                 <IP-REL>
                   <PP-GEN>
                     <NP>
@@ -1839,7 +1887,7 @@
                   <PP-GEN>
                     <NP>
                       <N>
-                        <N index="1" phon="LOG" form="sipo" />
+                        <N phon="LOG" form="sipo" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="nawa" />
                       </N>
                     </NP>
@@ -1847,7 +1895,7 @@
                   </PP-GEN>
                   <VB-ADC phon="LOG" form="todomaru" />
                 </IP-REL>
-                <N phon="LOG" form="kagiri" />
+                <N lemma="L030438b" phon="LOG" form="kagiri" />
               </NP>
               <IP-ADV>
                 <PP-TOP>
@@ -1855,10 +1903,12 @@
                     <IP-REL>
                       <ADJ>
                         <ADJ-STM phon="LOG" form="sa" />
-                        <ACP-ADN phon="" form="ki" />
+                        <ACP-ADN>
+                          <L000033 phon="" form="ki" />
+                        </ACP-ADN>
                       </ADJ>
                     </IP-REL>
-                    <N phon="LOG" form="kuni" />
+                    <N lemma="L051337" phon="LOG" form="kuni" />
                   </NP>
                   <P-TOP lemma="L000522" phon="LOG" form="pa" />
                 </PP-TOP>
@@ -1874,7 +1924,7 @@
                         <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
                       </ADJ>
                     </IP-REL>
-                    <N phon="LOG" form="kuni" />
+                    <N lemma="L051337" phon="LOG" form="kuni" />
                   </NP>
                   <P-TOP lemma="L000522" phon="LOG" form="pa" />
                 </PP-TOP>
@@ -1893,7 +1943,7 @@
                       </IP-REL>
                       <N>
                         <NUM phon="LOG" form="ya" />
-                        <N index="1" phon="LOG" form="swo" />
+                        <N phon="LOG" form="swo" index="1" inferred_index="1" />
                         <N index="3" phon="LOG" form="sima" />
                       </N>
                     </NP-SBJ>
@@ -1902,7 +1952,7 @@
                   <N phon="LOG" form="koto" />
                 </NP>
                 <ADJ>
-                  <ADJ-STM phon="LOG" form="na" />
+                  <ADJ-STM lemma="L007028" phon="LOG" form="na" />
                   <ACP-INF lemma="L000033" phon="LOG" form="ku" />
                 </ADJ>
               </IP-ADV>
@@ -1944,7 +1994,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -2011,13 +2061,13 @@
                   <VB-ADC phon="LOG" form="masu" />
                 </IP-REL>
                 <N>
-                  <APP-N index="1">
+                  <APP-N index="1" inferred_index="1">
                     <PEN phon="LOG" form="amaterasu" />
                   </APP-N>
                   <APP-N index="2">
                     <N>
                       <PFX phon="LOG" form="opo" />
-                      <N index="1" phon="LOG" form="mi" />
+                      <N phon="LOG" form="mi" index="1" inferred_index="1" />
                       <N index="3" phon="LOG" form="kamwi" />
                     </N>
                   </APP-N>
@@ -2027,7 +2077,7 @@
             </PP-GEN>
             <N>
               <PFX-HON phon="LOG" form="opo" />
-              <N phon="LOG" form="mapye" />
+              <N lemma="L050052" phon="LOG" form="mapye" />
             </N>
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -2047,7 +2097,7 @@
                   <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                 </PP-SBJ>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="mi" />
+                  <VB-STM phon="LOG" form="mi" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="paruka" />
                   <VAX-RSP-STM lemma="L000009" phon="PHON" form="si" />
                   <VB-ADC phon="LOG" form="masu" />
@@ -2057,11 +2107,11 @@
             </NP>
             <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
           </PP-GEN>
-          <N phon="LOG" form="kuni" />
+          <N lemma="L051337" phon="LOG" form="kuni" />
         </NP>
         <P-TOP lemma="L000522" phon="LOG" form="pa" />
       </PP-TOP>
-      <NP index="1">
+      <NP index="1" inferred_index="1">
         <IP-REL>
           <PP-GEN>
             <NP>
@@ -2080,7 +2130,7 @@
         <IP-REL>
           <PP-GEN>
             <NP>
-              <N phon="LOG" form="kuni" />
+              <N lemma="L051337" phon="LOG" form="kuni" />
             </NP>
             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
           </PP-GEN>
@@ -2089,14 +2139,14 @@
             <VB-ADC phon="LOG" form="tatu" />
           </VB>
         </IP-REL>
-        <N phon="LOG" form="kagiri" />
+        <N lemma="L030438b" phon="LOG" form="kagiri" />
       </NP>
-      <NP index="1">
+      <NP index="1" inferred_index="1">
         <IP-REL>
           <PP-GEN>
             <NP>
               <N>
-                <N index="1" phon="LOG" form="awo" />
+                <N phon="LOG" form="awo" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="kumwo" />
               </N>
             </NP>
@@ -2111,26 +2161,26 @@
           <PP-GEN>
             <NP>
               <N>
-                <N index="1" phon="LOG" form="sirwo" />
+                <N phon="LOG" form="sirwo" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="kumo" />
               </N>
             </NP>
             <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
           </PP-GEN>
           <VB>
-            <VB-STM index="1" phon="LOG" form="ori" />
+            <VB-STM phon="LOG" form="ori" index="1" inferred_index="1" />
             <VB-STM index="2" phon="LOG" form="wi" />
             <VB-ADC phon="LOG" form="mukabusu" />
           </VB>
         </IP-REL>
-        <N phon="LOG" form="kagiri" />
+        <N lemma="L030438b" phon="LOG" form="kagiri" />
       </NP>
       <PP-TOP>
         <NP>
           <PP-GEN>
             <NP>
               <N>
-                <N index="1" phon="LOG" form="awo" />
+                <N phon="LOG" form="awo" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="mi" />
               </N>
             </NP>
@@ -2140,12 +2190,12 @@
         </NP>
         <P-TOP lemma="L000522" phon="LOG" form="pa" />
       </PP-TOP>
-      <NP index="1">
+      <NP index="1" inferred_index="1">
         <IP-REL>
           <IP-ADV>
             <NP-OB1>
               <N>
-                <C-NP index="1">
+                <C-NP index="1" inferred_index="1">
                   <N phon="LOG" form="sawo" />
                 </C-NP>
                 <C-NP index="2">
@@ -2158,7 +2208,7 @@
               <VAX-ADI phon="LOG" form="zu" />
             </VB>
           </IP-ADV>
-          <PP-GEN index="1">
+          <PP-GEN index="1" inferred_index="1">
             <NP>
               <N phon="LOG" form="puna" />
             </NP>
@@ -2237,14 +2287,14 @@
           </VB>
           <NP>
             <N>
-              <C-N index="1">
+              <C-N index="1" inferred_index="1">
                 <N>
-                  <N index="1" phon="LOG" form="ipa" />
+                  <N phon="LOG" form="ipa" index="1" inferred_index="1" />
                   <N index="2" phon="LOG" form="ne" />
                 </N>
               </C-N>
               <C-N index="2">
-                <N index="1">
+                <N index="1" inferred_index="1">
                   <N phon="LOG" form="ki" />
                 </N>
                 <N index="2" phon="LOG" form="ne" />
@@ -2275,11 +2325,11 @@
               <VB-ADC phon="LOG" form="todomaru" />
             </VB>
           </IP-REL>
-          <N phon="LOG" form="kagiri" />
+          <N lemma="L030438b" phon="LOG" form="kagiri" />
         </NP>
         <NP-OB1>
           <N>
-            <ADJ-STM phon="LOG" form="naga" />
+            <ADJ-STM lemma="L007007" phon="LOG" form="naga" />
             <N phon="LOG" form="di" />
           </N>
         </NP-OB1>
@@ -2288,7 +2338,7 @@
             <N phon="LOG" form="pima" />
           </NP>
           <ADJ>
-            <ADJ-STM phon="LOG" form="na" />
+            <ADJ-STM lemma="L007028" phon="LOG" form="na" />
             <ACP-INF lemma="L000033" phon="PHON" form="ku" />
           </ADJ>
         </IP-ADV>
@@ -2305,7 +2355,7 @@
                   <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
                 </ADJ>
               </IP-REL>
-              <N phon="LOG" form="kuni" />
+              <N lemma="L051337" phon="LOG" form="kuni" />
             </NP>
             <P-TOP lemma="L000522" phon="LOG" form="pa" />
           </PP-TOP>
@@ -2316,12 +2366,12 @@
           <PP-TOP>
             <NP>
               <IP-REL>
-                <ADJ>
+                <ADJ-ADN>
                   <ADJ-STM phon="LOG" form="sagasi" />
-                </ADJ>
-                <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
+                  <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
+                </ADJ-ADN>
               </IP-REL>
-              <N phon="LOG" form="kuni" />
+              <N lemma="L051337" phon="LOG" form="kuni" />
             </NP>
             <P-TOP lemma="L000522" phon="LOG" form="pa" />
           </PP-TOP>
@@ -2337,7 +2387,7 @@
                   <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
                 </ADJ>
               </IP-REL>
-              <N phon="LOG" form="kuni" />
+              <N lemma="L051337" phon="LOG" form="kuni" />
             </NP>
             <P-TOP lemma="L000522" phon="LOG" form="pa" />
           </PP-TOP>
@@ -2347,7 +2397,7 @@
                 <IP-ADV>
                   <NP>
                     <N>
-                      <NUM index="1" phon="LOG" form="ya" />
+                      <NUM phon="LOG" form="ya" index="1" inferred_index="1" />
                       <NUM index="2" phon="LOG" form="swo" />
                       <N phon="LOG" form="tuna" />
                     </N>
@@ -2376,9 +2426,9 @@
           <NP>
             <N>
               <N phon="LOG" form="sumye" />
-              <PFX index="1" phon="LOG" form="opo" />
+              <PFX phon="LOG" form="opo" index="1" inferred_index="1" />
               <PFX index="3" phon="LOG" form="mi" />
-              <N phon="LOG" form="kamwi" />
+              <N lemma="L050005a" phon="LOG" form="kamwi" />
             </N>
           </NP>
           <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
@@ -2401,16 +2451,16 @@
               <NP>
                 <N>
                   <N phon="LOG" form="sumye" />
-                  <PFX index="1" phon="LOG" form="opo" />
+                  <PFX phon="LOG" form="opo" index="1" inferred_index="1" />
                   <PFX index="3" phon="LOG" form="mi" />
-                  <N phon="LOG" form="kamwi" />
+                  <N lemma="L050005a" phon="LOG" form="kamwi" />
                 </N>
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
             <N>
               <PFX-HON phon="LOG" form="opo" />
-              <N phon="LOG" form="mapye" />
+              <N lemma="L050052" phon="LOG" form="mapye" />
             </N>
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
@@ -2419,7 +2469,7 @@
           <PP-GEN>
             <NP>
               <N>
-                <N index="1" phon="LOG" form="yoko" />
+                <N phon="LOG" form="yoko" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="yama" />
               </N>
             </NP>
@@ -2452,7 +2502,7 @@
         </ADJ>
       </IP-ADV>
       <VB>
-        <VB-STM index="1" phon="LOG" form="kikosi" />
+        <VB-STM phon="LOG" form="kikosi" index="1" inferred_index="1" />
         <VB-STM index="2" phon="LOG" form="myesa" />
         <VAX-ADC phon="LOG" form="mu" />
       </VB>
@@ -2500,7 +2550,7 @@
                       <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                     </PP-GEN>
                     <N>
-                      <PFX phon="LOG" form="mi" />
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                       <N phon="LOG" form="yo" />
                     </N>
                   </NP>
@@ -2511,26 +2561,26 @@
                     <IP-REL>
                       <ADJ>
                         <N phon="LOG" form="ta" />
-                        <ADJ-STM phon="LOG" form="naga" />
+                        <ADJ-STM lemma="L007007" phon="LOG" form="naga" />
                       </ADJ>
                       <COP-ADI lemma="L031965" phon="LOG" form="no" />
                     </IP-REL>
                     <N>
-                      <PFX phon="LOG" form="mi" />
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                       <N phon="LOG" form="yo" />
                     </N>
                   </NP-PRD>
                   <COP-INF lemma="L031968" phon="PHON" form="to" />
                   <NP-PRD>
                     <N lemma="L050379">
-                      <N index="1" phon="LOG" form="kak" />
+                      <N phon="LOG" form="kak" index="1" inferred_index="1" />
                       <N index="2" phon="LOG" form="ipa" />
                     </N>
                   </NP-PRD>
                   <COP-INF lemma="L031965" phon="PHON" form="ni" />
                   <NP-PRD>
                     <N>
-                      <N index="1" phon="LOG" form="tok" />
+                      <N phon="LOG" form="tok" index="1" inferred_index="1" />
                       <N index="2" phon="LOG" form="ipa" />
                     </N>
                   </NP-PRD>
@@ -2548,7 +2598,7 @@
                     </ADJ>
                   </IP-REL>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="yo" />
                   </N>
                 </NP-PRD>
@@ -2566,8 +2616,8 @@
           <COP-INF lemma="L031965" phon="LOG" form="ni" />
           <NP-PRD>
             <N>
-              <APP-N index="1">
-                <N phon="LOG" form="sumyera" />
+              <APP-N index="1" inferred_index="1">
+                <N lemma="L052019" phon="LOG" form="sumyera" />
               </APP-N>
               <APP-N index="2">
                 <PP-GEN>
@@ -2579,7 +2629,7 @@
                 <IP-REL>
                   <NP-PRD>
                     <N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <N phon="LOG" form="mutukamu" />
                         <N phon="PHON" form="rwoki" />
                       </C-N>
@@ -2605,7 +2655,7 @@
           </NP>
           <NP-OBJ>
             <N>
-              <N index="1" phon="LOG" form="una" />
+              <N phon="LOG" form="una" index="1" inferred_index="1" />
               <N index="2" phon="LOG" form="ne" />
             </N>
           </NP-OBJ>
@@ -2633,7 +2683,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -2650,7 +2700,7 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="12_EN_01" header="mi agata ni masu sumyegami tati no mapye ni mawosa ku taketi kadurakwi towoti sikwi yamanobye sopu to mi na pa mawosi te ko no mu tsu no mi agata ni nari iduru ama na kara na wo moti mawi ki te sumyemima no mikoto no naga mi ke no topo mi ke to kikosi myesu ga yuwe ni sumyemima no mikoto no udu no mitegura wo tatapegoto wope matura ku to noru">
+  <block id="12_EN_01" header="mi agata ni masu sumyegami tati no mapye ni mawosa ku taketi kadurakwi towoti sikwi yamanobye sopu to mi na pa mawosi te ko no mu tu no mi agata ni nari iduru ama na kara na wo moti mawi ki te sumyemima no mikoto no naga mi ke no topo mi ke to kikosi myesu ga yuwe ni sumyemima no mikoto no udu no mitegura wo tatapegoto wope matura ku to noru">
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,0@御懸爾坐,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,1@皇神等乃前爾白久,*" />
     <comment raw="IP-MAT,2@高市葛木十市志貴山邊曾布止,*" />
@@ -2677,7 +2727,7 @@
                   <PP-DAT>
                     <NP>
                       <N>
-                        <N index="1" phon="LOG" form="mi" />
+                        <N phon="LOG" form="mi" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="agata" />
                       </N>
                     </NP>
@@ -2692,7 +2742,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -2707,19 +2757,19 @@
                 <IP-ADV>
                   <NP>
                     <N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <PEN phon="LOG" form="taketi" />
                       </C-N>
                       <C-N index="2">
                         <PEN phon="LOG" form="kadurakwi" />
                       </C-N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <PEN phon="LOG" form="towoti" />
                       </C-N>
                       <C-N index="4">
                         <PEN phon="LOG" form="sikwi" />
                       </C-N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <PEN phon="LOG" form="yamanobye" />
                       </C-N>
                       <C-N index="6">
@@ -2732,7 +2782,7 @@
                 <PP-OB1>
                   <NP>
                     <N>
-                      <PFX phon="LOG" form="mi" />
+                      <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                       <N phon="LOG" form="na" />
                     </N>
                   </NP>
@@ -2755,13 +2805,13 @@
                             <NP-PRD>
                               <N>
                                 <NUM phon="LOG" form="mu" />
-                                <CL phon="LOG" form="tsu" />
+                                <CL phon="LOG" form="tu" />
                               </N>
                             </NP-PRD>
                             <COP-ADI lemma="L031965" phon="LOG" form="no" />
                           </IP-REL>
                           <N>
-                            <PFX phon="LOG" form="mi" />
+                            <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                             <N phon="LOG" form="agata" />
                           </N>
                         </NP>
@@ -2773,7 +2823,7 @@
                       </VB>
                     </IP-REL>
                     <N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <N>
                           <ADJ-STM phon="LOG" form="ama" />
                           <N phon="LOG" form="na" />
@@ -2790,7 +2840,7 @@
                   <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
                 </PP-OB1>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="moti" />
+                  <VB-STM phon="LOG" form="moti" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="mawi" />
                   <VB-GER phon="LOG" form="ki" />
                   <VB-GER phon="PHON" form="te" />
@@ -2811,8 +2861,8 @@
                   <IP-REL>
                     <NP-PRD>
                       <N>
-                        <ADJ-STM phon="LOG" form="naga" />
-                        <N index="1" phon="LOG" form="mi" />
+                        <ADJ-STM lemma="L007007" phon="LOG" form="naga" />
+                        <N phon="LOG" form="mi" index="1" inferred_index="1" />
                         <N index="3" phon="LOG" form="ke" />
                       </N>
                     </NP-PRD>
@@ -2820,7 +2870,7 @@
                   </IP-REL>
                   <N>
                     <ADJ-STM phon="LOG" form="topo" />
-                    <N index="1" phon="LOG" form="mi" />
+                    <N phon="LOG" form="mi" index="1" inferred_index="1" />
                     <N index="3" phon="LOG" form="ke" />
                   </N>
                 </NP-PRD>
@@ -2854,7 +2904,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -2917,7 +2967,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -2929,19 +2979,19 @@
           <IP-ADV>
             <NP>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <PLN phon="LOG" form="asuka" />
                 </C-N>
                 <C-N index="2">
                   <PLN phon="LOG" form="ipare" />
                 </C-N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <PLN phon="LOG" form="osaka" />
                 </C-N>
                 <C-N index="4">
                   <PLN phon="LOG" form="patuse" />
                 </C-N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <PLN phon="LOG" form="unebwi" />
                 </C-N>
                 <C-N index="6">
@@ -2954,7 +3004,7 @@
           <PP-OB1>
             <NP>
               <N>
-                <MORPHEME phon="LOG" form="mi" />
+                <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                 <N phon="LOG" form="na" />
               </N>
             </NP>
@@ -2968,7 +3018,7 @@
                 <PP-DAT>
                   <NP>
                     <N>
-                      <C-N index="1">
+                      <C-N index="1" inferred_index="1">
                         <N>
                           <ADJ-STM phon="LOG" form="topo" />
                           <N phon="LOG" form="yama" />
@@ -2985,13 +3035,13 @@
                   <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
                 </PP-DAT>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="opwi" />
+                  <VB-STM phon="LOG" form="opwi" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="tat" />
                   <VAX-STV-ADN phon="PHON" form="eru" />
                 </VB>
               </IP-REL>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <N>
                     <PFX-HON phon="LOG" form="opo" />
                     <N phon="LOG" form="kwi" />
@@ -2999,7 +3049,7 @@
                 </C-N>
                 <C-N index="2">
                   <N>
-                    <N index="1" phon="LOG" form="wo" />
+                    <N phon="LOG" form="wo" index="1" inferred_index="1" />
                     <N index="2" phon="LOG" form="gwi" />
                   </N>
                 </C-N>
@@ -3010,7 +3060,7 @@
           <IP-ADV>
             <NP-OB1>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <N phon="LOG" form="moto" />
                 </C-N>
                 <C-N index="2">
@@ -3025,7 +3075,7 @@
             </VB>
           </IP-ADV>
           <VB>
-            <VB-STM index="1" phon="LOG" form="moti" />
+            <VB-STM phon="LOG" form="moti" index="1" inferred_index="1" />
             <VB-STM index="2" phon="LOG" form="mawi" />
             <VB-GER phon="LOG" form="ki" />
             <VB-GER phon="PHON" form="te" />
@@ -3048,7 +3098,7 @@
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
             <N>
-              <PFX phon="LOG" form="mi" />
+              <PFX-HON lemma="L000035" phon="LOG" form="mi" />
               <N phon="LOG" form="araka" />
             </N>
           </NP>
@@ -3060,7 +3110,7 @@
           <IP-ADV>
             <NP-PRD>
               <N>
-                <C-N index="1">
+                <C-N index="1" inferred_index="1">
                   <PP-GEN>
                     <NP>
                       <N phon="LOG" form="ame" />
@@ -3068,7 +3118,7 @@
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="kage" />
                   </N>
                 </C-N>
@@ -3080,7 +3130,7 @@
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="kage" />
                   </N>
                 </C-N>
@@ -3106,7 +3156,7 @@
                     </NP>
                     <P-CASE-GEN lemma="L000520" phon="LOG" form="no" />
                   </PP-GEN>
-                  <N phon="LOG" form="kuni" />
+                  <N lemma="L051337" phon="LOG" form="kuni" />
                 </NP>
                 <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
               </PP-OB1>
@@ -3114,7 +3164,7 @@
                 <NP-PRD>
                   <N>
                     <ADJ-STM phon="LOG" form="yasu" />
-                    <N phon="LOG" form="kuni" />
+                    <N lemma="L051337" phon="LOG" form="kuni" />
                   </N>
                 </NP-PRD>
                 <COP-INF lemma="L031968" phon="PHON" form="to" />
@@ -3152,7 +3202,7 @@
               <ADJ-STM phon="PHON" form="udu" />
               <COP-ADI lemma="L031965" phon="PHON" form="no" />
             </IP-REL>
-            <N phon="LOG" form="mitegura" />
+            <N lemma="L052124" phon="LOG" form="mitegura" />
           </NP>
           <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
         </PP-OB1>
@@ -3169,7 +3219,7 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="14_EN_01" header="mi kumari ni masu sumyegami tati no mapye ni mawosa ku yosi nwo uda tuge kadurakwi to mi na pa mawosi te koto wope matura ba sumeygami tati no yosa si matura mu okitumitosi wo ya tuka po no ikasi po ni yosa si matura ba sumyegami tati ni patu po pa kapi ni mo siru ni mo mika no pe taka siri mika no para mite narabe te tatapegoto wope maturi te nokori woba sumyemima no mikoto no asa mi ke yupubye mi ke no kamukapi ni naga mi ke no topo mi ke to akani no po ni kikosi myesu ga yuwe ni sumyemima no mikoto no udu no mitegura wo tatapegoto wope matura ku to moromoro kikosi myese to noru">
+  <block id="14_EN_01" header="mi kumari ni masu sumyegami tati no mapye ni mawosa ku yosi nwo uda tuge kadurakwi to mi na pa mawosi te koto wope matura ba sumyegami tati no yosa si matura mu okitumitosi wo ya tuka po no ikasi po ni yosa si matura ba sumyegami tati ni patu po pa kapi ni mo siru ni mo mika no pe taka siri mika no para mite narabe te tatapegoto wope maturi te nokori woba sumyemima no mikoto no asa mi ke yupubye mi ke no kamukapi ni naga mi ke no topo mi ke to akani no po ni kikosi myesu ga yuwe ni sumyemima no mikoto no udu no mitegura wo tatapegoto wope matura ku to moromoro kikosi myese to noru">
     <comment raw="IP-MAT,0@水分坐,*" />
     <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,1@皇神等乃前爾白久,*" />
     <comment raw="IP-MAT,2@吉野宇陀都祁葛木止,*" />
@@ -3207,7 +3257,7 @@
                   <PP-DAT>
                     <NP>
                       <N>
-                        <N index="1" phon="LOG" form="mi" />
+                        <N phon="LOG" form="mi" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="kumari" />
                       </N>
                     </NP>
@@ -3222,7 +3272,7 @@
               </NP>
               <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
             </PP-GEN>
-            <N phon="LOG" form="mapye" />
+            <N lemma="L050052" phon="LOG" form="mapye" />
           </NP>
           <P-CASE-DAT lemma="L000519" phon="PHON" form="ni" />
         </PP-DAT>
@@ -3236,16 +3286,16 @@
               <IP-ADV>
                 <NP>
                   <N>
-                    <C-N index="1">
+                    <C-N index="1" inferred_index="1">
                       <PEN>
-                        <N index="1" phon="LOG" form="yosi" />
+                        <N phon="LOG" form="yosi" index="1" inferred_index="1" />
                         <N index="2" phon="LOG" form="nwo" />
                       </PEN>
                     </C-N>
                     <C-N index="2">
                       <PEN phon="LOG" form="uda" />
                     </C-N>
-                    <C-N index="1">
+                    <C-N index="1" inferred_index="1">
                       <PEN phon="LOG" form="tuge" />
                     </C-N>
                     <C-N index="4">
@@ -3258,7 +3308,7 @@
               <PP-OB1>
                 <NP>
                   <N>
-                    <PFX phon="LOG" form="mi" />
+                    <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                     <N phon="LOG" form="na" />
                   </N>
                 </NP>
@@ -3279,7 +3329,7 @@
                   <PP-SBJ>
                     <NP>
                       <N>
-                        <N phon="LOG" form="sumeygami" />
+                        <N phon="LOG" form="sumyegami" />
                         <SFX phon="LOG" form="tati" />
                       </N>
                     </NP>
@@ -3298,7 +3348,7 @@
             </PP-OB1>
             <IP-ADV>
               <NP-PRD>
-                <IP-REL index="1">
+                <IP-REL index="1" inferred_index="1">
                   <NP-PRD>
                     <N>
                       <NUM phon="LOG" form="ya" />
@@ -3336,7 +3386,7 @@
           <IP-ADV>
             <PP-TOP lemma="L000522">
               <N>
-                <N index="1" phon="LOG" form="patu" />
+                <N phon="LOG" form="patu" index="1" inferred_index="1" />
                 <N index="2" phon="LOG" form="po" />
               </N>
               <P-TOP lemma="L000522" phon="LOG" form="pa" />
@@ -3413,18 +3463,18 @@
                           <P-CASE-GEN lemma="L000520" phon="PHON" form="no" />
                         </PP-GEN>
                         <N>
-                          <C-N index="1">
+                          <C-N index="1" inferred_index="1">
                             <N>
-                              <N index="1" phon="LOG" form="asa" />
+                              <N phon="LOG" form="asa" index="1" inferred_index="1" />
                               <N index="2" phon="LOG" form="mi" />
-                              <N index="1" phon="LOG" form="ke" />
+                              <N phon="LOG" form="ke" index="1" inferred_index="1" />
                             </N>
                           </C-N>
                           <C-N index="2">
                             <N>
-                              <N index="1" phon="LOG" form="yupubye" />
+                              <N phon="LOG" form="yupubye" index="1" inferred_index="1" />
                               <N index="2" phon="LOG" form="mi" />
-                              <N index="1" phon="LOG" form="ke" />
+                              <N phon="LOG" form="ke" index="1" inferred_index="1" />
                             </N>
                           </C-N>
                         </N>
@@ -3440,8 +3490,8 @@
                     <IP-REL>
                       <NP-PRD>
                         <N>
-                          <ADJ-STM phon="LOG" form="naga" />
-                          <N index="1" phon="LOG" form="mi" />
+                          <ADJ-STM lemma="L007007" phon="LOG" form="naga" />
+                          <N phon="LOG" form="mi" index="1" inferred_index="1" />
                           <N index="3" phon="LOG" form="ke" />
                         </N>
                       </NP-PRD>
@@ -3449,7 +3499,7 @@
                     </IP-REL>
                     <N>
                       <ADJ-STM phon="LOG" form="topo" />
-                      <N index="1" phon="LOG" form="mi" />
+                      <N phon="LOG" form="mi" index="1" inferred_index="1" />
                       <N index="3" phon="LOG" form="ke" />
                     </N>
                   </NP-PRD>
@@ -3493,7 +3543,7 @@
                 <ADJ-STM phon="PHON" form="udu" />
                 <COP-ADI lemma="L031965" phon="PHON" form="no" />
               </IP-REL>
-              <N phon="LOG" form="mitegura" />
+              <N lemma="L052124" phon="LOG" form="mitegura" />
             </NP>
             <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
           </PP-OB1>
@@ -3535,7 +3585,7 @@
           <PP-OB1>
             <NP>
               <IP-REL>
-                <IP-ADV index="1">
+                <IP-ADV index="1" inferred_index="1">
                   <PP-DAT>
                     <NP>
                       <PP-GEN>
@@ -3564,18 +3614,18 @@
                   </VB>
                 </IP-ADV>
                 <VB>
-                  <VB-STM index="1" phon="LOG" form="tukape" />
+                  <VB-STM phon="LOG" form="tukape" index="1" inferred_index="1" />
                   <VB-STM index="2" phon="LOG" form="matur" />
                   <VAX-STV-ADN phon="PHON" form="eru" />
                 </VB>
               </IP-REL>
-              <N phon="LOG" form="mitegura" />
+              <N lemma="L052124" phon="LOG" form="mitegura" />
             </NP>
             <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
           </PP-OB1>
           <NP-SBJ>
             <N>
-              <C-N index="1">
+              <C-N index="1" inferred_index="1">
                 <N phon="LOG" form="kamunusi" />
               </C-N>
               <C-N index="2">

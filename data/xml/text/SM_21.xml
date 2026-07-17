@@ -4,7 +4,7 @@
     <comment raw="IP-MAT,0@今宣久奈良麻呂我兵起尔被雇多利志,*" />
     <comment raw="IP-MAT,IP-ADV;@3,PP-OB1,NP,1@秦等乎婆遠流賜都,*" />
     <IP-MAT>
-      <IP-ADV index="1">
+      <IP-ADV index="1" inferred_index="1">
         <NP>
           <N phon="LOG" form="ima" />
         </NP>
@@ -33,7 +33,7 @@
               </IP-ADV>
               <VB>
                 <VB-STM lemma="L031806a" phon="LOG" form="yatopare" />
-                <MORPHEME-STV-STM lemma="L000022" phon="PHON" form="tari" />
+                <VAX-STV-STM lemma="L000022" phon="PHON" form="tari" />
                 <VAX-SPST-ADN lemma="L000015" phon="PHON" form="si" />
               </VB>
             </IP-REL>
@@ -51,7 +51,7 @@
           </ADJ>
         </IP-ADV>
         <VB>
-          <VB-STM index="1" lemma="L031263a" phon="LOG" form="nagasi" />
+          <VB-STM lemma="L031263a" phon="LOG" form="nagasi" index="1" inferred_index="1" />
           <VB-STM index="2" lemma="L031077a" phon="LOG" form="tamapi" />
           <VAX phon="PHON" form="tu" />
         </VB>
@@ -86,7 +86,7 @@
           <P-TOP lemma="L000522" phon="LOG" form="pa" />
         </PP-TOP>
         <IP-ADV>
-          <IP-ADV index="1">
+          <IP-ADV index="1" inferred_index="1">
             <NP-SBJ>
               <IP-REL>
                 <ADJ>
@@ -94,7 +94,7 @@
                   <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
                 </ADJ>
               </IP-REL>
-              <N phon="LOG" form="kokoro" />
+              <N lemma="L050037" phon="LOG" form="kokoro" />
             </NP-SBJ>
             <ADJ>
               <ADJ phon="LOG" form="na" />
@@ -108,7 +108,7 @@
               <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
             </ADJ>
           </IP-ADV>
-          <IP-ADV index="1">
+          <IP-ADV index="1" inferred_index="1">
             <PP-OB1>
               <NP>
                 <IP-REL>
@@ -117,7 +117,7 @@
                     <ACP-ADN lemma="L000033" phon="LOG" form="ki" />
                   </ADJ>
                 </IP-REL>
-                <N phon="LOG" form="kokoro" />
+                <N lemma="L050037" phon="LOG" form="kokoro" />
               </NP>
               <P-CASE-ACC lemma="L000534" phon="PHON" form="wo" />
             </PP-OB1>

@@ -16,14 +16,14 @@
       <NP>
         <IP-REL>
           <NP>
-            <PP-GEN index="1">
+            <PP-GEN index="1" inferred_index="1">
               <NP>
                 <N lemma="L050641" phon="LOG" form="titi" />
               </NP>
               <P-CASE lemma="L000503" phon="PHON" form="ga" />
             </PP-GEN>
             <N phon="PHON" form="kata" />
-            <PP-GEN index="1">
+            <PP-GEN index="1" inferred_index="1">
               <NP>
                 <N phon="LOG" form="papa" />
               </NP>
@@ -56,7 +56,7 @@
     <IP-MAT>
       <IP-ADV>
         <VB-ADN lemma="L030848a" phon="LOG" form="sikaru" />
-        <COP-INF lemma="L031965" phon="LOG" form="ni" />
+        <P-CONN lemma="L000551" phon="NLOG" form="ni" />
         <PP-SBJ-TOP>
           <NP>
             <PP>
@@ -69,9 +69,9 @@
               </NP>
               <P-COMP lemma="L000530" phon="PHON" form="to" />
             </PP>
-            <N index="1" phon="LOG" form="pudipara" />
+            <N phon="LOG" form="pudipara" index="1" inferred_index="1" />
             <N index="3" phon="LOG" form="no" />
-            <N index="1">
+            <N index="1" inferred_index="1">
               <N phon="LOG" form="asomi" />
               <SFX lemma="L001004" phon="LOG" form="tati" />
             </N>
@@ -102,7 +102,7 @@
             <NP-OB1>
               <PP-GEN>
                 <NP>
-                  <IP-REL index="1">
+                  <IP-REL index="1" inferred_index="1">
                     <ADJ>
                       <ADJ phon="LOG" form="kurwo" />
                       <ACP-ADN lemma="L000033" phon="BPHON" form="ki" />
@@ -117,8 +117,12 @@
                 </NP>
                 <P-CASE phon="LOG" form="no" />
               </PP-GEN>
+              <N>
+                <L050750N>
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
+                </L050750N>
+              </N>
               <N lemma="L050750">
-                <PFX phon="LOG" form="mi" />
                 <N phon="LOG" form="ki" />
               </N>
             </NP-OB1>
@@ -128,7 +132,7 @@
             <PP-GEN>
               <NP>
                 <N>
-                  <PFX phon="LOG" form="mi" />
+                  <PFX-HON lemma="L000035" phon="LOG" form="mi" />
                   <N phon="LOG" form="te" />
                 </N>
               </NP>
