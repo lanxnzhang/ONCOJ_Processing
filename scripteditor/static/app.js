@@ -79,14 +79,15 @@ function applyLineFilters() {
 function renderLines(lines, offset = 0, limit = 200) {
   const shown = lines.slice(offset, offset + limit);
   $("lines").innerHTML = lines.length ? `${lines.length > shown.length ? `<div class="notice">Browsing a selected range of ${lines.length.toLocaleString()} matching changes.</div>` : ""}${shown.map(r => `<article class="${r.confirmed ? "result-confirmed" : ""}">
-    <div class="card-head"><strong>${escapeHtml(r.form)}</strong><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${r.new_lemma ? `<button type="button" class="lemma-link" data-lemma="${escapeHtml(r.new_lemma)}">${escapeHtml(r.new_lemma)}</button>` : "—"}</code></div>
+    <div class="card-head"><button type="button" class="context-word" data-context-result="${escapeHtml(r.reviewId)}" title="Show this word in its passage">${escapeHtml(r.form)}</button><span class="badge ${r.category}">${r.category}</span>${r.multiple_candidates ? '<span class="badge multiple">multiple candidates</span>' : ""}<code>${r.new_lemma ? `<button type="button" class="lemma-link" data-lemma="${escapeHtml(r.new_lemma)}">${escapeHtml(r.new_lemma)}</button>` : "—"}</code></div>
     <p>${escapeHtml(r.file)} · utterance ${escapeHtml(r.utterance)} · line ${r.position}</p>
     <div class="path">${r.path.map(escapeHtml).join(" <b>›</b> ")}</div>
     ${r.multiple_candidates ? `<p class="candidates">Candidates: ${r.candidates.map(id => `<button type="button" class="candidate-link" data-lemma="${escapeHtml(id)}">${escapeHtml(id)}</button>`).join(", ")}</p>` : ""}
     <details><summary>Before / after</summary><pre>${escapeHtml(r.before)}\n${escapeHtml(r.after)}</pre></details>
     <div class="result-review">
       <label class="review-confirm"><input type="checkbox" data-review-confirm="${escapeHtml(r.reviewId)}" ${r.confirmed ? "checked" : ""}> Confirm</label>
-      ${r.candidates.length > 1 ? `<label>Chosen lemma<select data-review-choice="${escapeHtml(r.reviewId)}">${r.candidates.map(id => `<option value="${escapeHtml(id)}" ${id === r.selectedLemma ? "selected" : ""}>${escapeHtml(id)}</option>`).join("")}</select></label><button type="button" data-add-entry="${escapeHtml(r.reviewId)}">Add new entry</button>` : ""}
+      ${r.candidates.length > 1 ? `<label>Chosen lemma<select data-review-choice="${escapeHtml(r.reviewId)}">${r.candidates.map(id => `<option value="${escapeHtml(id)}" ${id === r.selectedLemma ? "selected" : ""}>${escapeHtml(id)}</option>`).join("")}</select></label>` : ""}
+      <button type="button" data-add-entry="${escapeHtml(r.reviewId)}">Add new entry</button>
       <span>Selected: <button type="button" class="lemma-link" data-lemma="${escapeHtml(r.selectedLemma)}">${escapeHtml(r.selectedLemma)}</button></span>
     </div>
   </article>`).join("")}` : '<div class="empty">No processed text lines.</div>';
@@ -115,11 +116,39 @@ function setScopeConfirmation(confirmed) {
   applyLineFilters();
 }
 function openDictionary() {
+  closeContext();
   $("dictionary-drawer").classList.remove("hidden");
   $("dictionary-query").focus();
 }
 function closeDictionary() {
   $("dictionary-drawer").classList.add("hidden");
+}
+function closeContext() {
+  $("context-drawer").classList.add("hidden");
+}
+async function openContext(reviewId) {
+  if (!currentRunId) return;
+  const row = allLines.find(item => item.reviewId === reviewId);
+  if (!row) return;
+  closeDictionary();
+  $("context-drawer").classList.remove("hidden");
+  $("context-location").textContent = `${row.file} · ${row.utterance}`;
+  $("context-message").textContent = "Loading passage…";
+  $("context-content").classList.add("hidden");
+  const params = new URLSearchParams({file: row.file, utterance: row.utterance, position: row.position});
+  try {
+    const context = await json(`/api/runs/${currentRunId}/context?${params}`);
+    $("context-location").textContent = `${context.file} · ${context.utterance}`;
+    $("context-transcription").innerHTML = context.tokens.map(token =>
+      `<span class="context-token ${token.highlighted ? "selected" : ""}">${escapeHtml(token.text)}</span>`
+    ).join(" ");
+    $("context-kanji").textContent = context.kanji || "No kanji text is recorded for this passage.";
+    $("context-message").textContent = "";
+    $("context-content").classList.remove("hidden");
+    $("context-transcription").querySelector(".selected")?.scrollIntoView({block: "center", inline: "center"});
+  } catch (error) {
+    $("context-message").textContent = error.message;
+  }
 }
 function dictionarySearchFields() {
   return [...document.querySelectorAll("#dictionary-search-fields input:checked")].map(input => input.value);
@@ -275,9 +304,12 @@ $("select-all").onclick = () => [...$("process-files").options].forEach(option =
 $("select-none").onclick = () => [...$("process-files").options].forEach(option => option.selected = false);
 $("open-dictionary").onclick = openDictionary;
 $("close-dictionary").onclick = closeDictionary;
+$("close-context").onclick = closeContext;
 $("dictionary-search-button").onclick = searchDictionary;
 $("dictionary-query").onkeydown = event => { if (event.key === "Enter") searchDictionary(); };
 document.addEventListener("click", event => {
+  const contextWord = event.target.closest("[data-context-result]");
+  if (contextWord) { openContext(contextWord.dataset.contextResult); return; }
   const addEntry = event.target.closest("[data-add-entry]");
   if (addEntry) { openNewEntryEditor(addEntry.dataset.addEntry); return; }
   const editEntry = event.target.closest("[data-edit-entry]");

@@ -1,5 +1,38 @@
 # TODO
 
+## Build comprehensive editor
+The user need a more comprehensive editor tool to facilitate the edit of data. Different functions need to be modularized to allow for the expansion of new features in the future. Create a GUI which allows the user to create, delete, read, update. Create a new folder named compreditor to store all these data and changes. Do not change data in other part of the repository. 
+
+### Features
+  1. Data layers
+  User can open and edit the data in different layers: document, text (such as EN_01_1), sentence, and word. User can switch the focused layer among them. When read and edit the text at the sentence or word level, the user can see the context in bigger (sentence and text) level.
+  User can also open and edit the dictionary.
+  Generate the structure outline for the entire data. For example, text - EN - EN1 - EN1.1.
+  2. Functional zones of the interface
+  It should have a clean editing zone at the middle place to ensure the user's attention is focused on editing. The left and right function areas can be collapsed or popped up. 
+  3. Edit mode
+  Most users are not accustomed to editing raw XML data directly. So it is necessary to add other view and editing modes:
+    text mode: the raw xml data is displayed in the form of plain text to show hierarchy and items. When click an item the user can change its tag or annotations, or add some annotations. The user can add branches, change the hierarchy structure. 
+    table mode: all items is displayed in a table and the user can edit the table.
+    tree mode: raw xml data is displayed in the syntax tree, and the user can add/delete/copy and paste/move the item/branches/annotations.
+  4. Modularized fuctions
+    3.1 Search
+    The user can search the whole data (or choose a scope). The searched object can be a word (kamu), a lemma id (L000002), a tag (N), and so on. Or, it can also be a hierarchy structure of syntax tree. Or, it can be a relation of items.
+    In advanced search, Users can feel free to specify inclusion or exclusion searching criteria at every logic point.
+    3.2 Insert
+    The user can insert a tag, a branch, some contents, and even add a new text. 
+    Specially, when insert lemma ids, the word form can be searched in the dictionary. If it has multiple candidates, the user can choose one. Or, the user can create a new dictionary id and insert this lemma (in general create, no matter single or multiple). The user can set the beginning number of the automatical generated new lemma.
+    The function can be combined with Search
+    3.3 Delete
+    The user can delete items.
+    This function can be combined with search and/or insert to substitute.
+    3.4 Revise
+    The user can revise existing items.
+  5. Validation
+  The entire document is continuously checked. For example: A missing attribute; An element in the wrong location; A duplicate ID; An unclosed tag. These errors appear immediately in the Problems panel. Users can click on an error to navigate directly to it. After adding or deleting content, the interface needs to be updated in real time.
+
+
+
 ## Build script editor
 An essential purpose for this repository is to facilitate editing of data, with the help of scripts. It is inconvenient for users to revise scripts, download the results, read them in txt, and edit data in different softwares.
 Create a simple GUI which allows the user to run scripts, see the running results, and edit the data.
@@ -73,7 +106,13 @@ Currently the COJ/data is not the updatest ones. After studying scripts/data_con
   2. Use these new data to substitute the old data in data/txt. (Do not change the data in D:\Lanxin\Desktop\data). Keep the original folder stucture in COJ, just substitute the files.
   3. Convert the new data to xml. Make sure they can round trip.
 
+### After commit a188e2f
+For scripteditor app:
+The single candidate output do not have the option to add new entry (Multiple candidates output has). But The user need this function. Add it and improve the GUI.
 
+### After commit a188e2f (2)
+For scripteditor app:
+The user need to see the context of a word. Please add a function, when the user click a word, it will be shown in the whole passage and highlighted to facilitate the read and search. The whole passage only need to have the transcriptions and kanji texts. The context should be shown at the right part of this app - do not mess up the editing area.
 
 ## Build interactive editor
 

@@ -22,6 +22,10 @@ selector. After a run, text-line results can be filtered by result type,
 candidate count, and file. **Start at result**, Previous/Next, and **Maximum
 displayed** provide range-based browsing without rendering the entire result set.
 
+Click a result word to open its passage in a separate right-side context drawer.
+The drawer shows only the full transcription and kanji text, with the selected
+transcription token highlighted, so the review controls remain unobstructed.
+
 ## Dictionary reader
 
 Use the **Dictionary** button to open or hide the read-only dictionary drawer.
@@ -39,7 +43,7 @@ with multiple candidates provide a chosen-lemma selector. **Create final output*
 rebuilds XML files from the untouched run inputs and applies only confirmed
 choices; generated processor output remains separate.
 
-For a multiple-candidate result, **Add new entry** creates a reviewable dictionary
+For any result, **Add new entry** creates a reviewable dictionary
 draft with a unique ID and automatic form/kana values. Its tags and values can be
 added, edited, deleted, and reopened before finalization. Numeric ID conflicts are
 shown immediately. New manual entries are selected for dictionary output by

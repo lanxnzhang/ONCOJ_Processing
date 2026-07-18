@@ -222,6 +222,52 @@ def check_dictionary_id(run_id: str, entry_id: str):
     })
 
 
+@app.get("/api/runs/<run_id>/context")
+def run_context(run_id: str):
+    run_dir = _run_directory(run_id)
+    filename = request.args.get("file", "").strip()
+    utterance_id = request.args.get("utterance", "").strip()
+    position_raw = request.args.get("position", "").strip()
+    if not filename or Path(filename).name != filename or not filename.endswith(".xml"):
+        abort(400, description="A valid XML result filename is required")
+    source = run_dir / "data" / "text" / filename
+    if not source.is_file():
+        abort(404, description="Context file was not found in this run")
+    try:
+        position = int(position_raw)
+    except ValueError:
+        abort(400, description="A valid result position is required")
+
+    document = CorpusDocument.from_file(str(source))
+    utterance = document.find_utterance(utterance_id)
+    if utterance is None and utterance_id.isdigit():
+        fallback_index = int(utterance_id) - 1
+        if 0 <= fallback_index < len(document):
+            utterance = document[fallback_index]
+    if utterance is None:
+        abort(404, description="Passage was not found")
+    lines = utterance.corpus_lines()
+    if position < 1 or position > len(lines):
+        abort(400, description="The selected word is outside this passage")
+
+    kanji_parts: list[tuple[int, str]] = []
+    for comment in utterance.comment_lines():
+        match = re.search(r"(?:^|,)(\d+)@(.*),\*$", comment.raw)
+        if match:
+            kanji_parts.append((int(match.group(1)), match.group(2)))
+    kanji_parts.sort(key=lambda item: item[0])
+    return jsonify({
+        "file": filename,
+        "utterance": utterance.sentence_id or utterance_id,
+        "tokens": [
+            {"text": line.word_form or "", "highlighted": index == position}
+            for index, line in enumerate(lines, 1)
+            if line.word_form
+        ],
+        "kanji": "".join(text for _, text in kanji_parts),
+    })
+
+
 @app.post("/api/runs/<run_id>/finalize")
 def finalize_run(run_id: str):
     run_dir = _run_directory(run_id)

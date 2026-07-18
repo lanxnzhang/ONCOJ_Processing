@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COJ Comprehensive Editor</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">COJ</span><div><strong>Comprehensive Editor</strong><small>Structured XML workspace</small></div></div>
+    <div class="top-actions">
+      <span class="safety">Canonical data stays read-only</span>
+      <button id="toggle-left" title="Toggle structure outline">☰ Outline</button>
+      <button id="toggle-right" title="Toggle tools panel">Tools ☷</button>
+    </div>
+  </header>
+
+  <main id="app-shell" class="app-shell">
+    <aside id="left-panel" class="side-panel outline-panel">
+      <div class="panel-heading"><div><span class="eyebrow">DATA LAYERS</span><h2>Structure outline</h2></div><button id="new-document" class="icon-button" title="Create text">＋</button></div>
+      <input id="outline-filter" type="search" placeholder="Filter texts…">
+      <div id="outline" class="outline"><div class="loading">Loading structure…</div></div>
+    </aside>
+
+    <section class="editor-zone">
+      <div class="editor-header">
+        <div>
+          <div id="breadcrumbs" class="breadcrumbs">COJ / Select a text</div>
+          <h1 id="editor-title">No text selected</h1>
+        </div>
+        <div class="save-state"><span id="source-badge" class="source-badge">read only</span><span id="save-message">Choose a text from the outline.</span><button id="delete-document" class="danger hidden">Delete text</button></div>
+      </div>
+
+      <div class="layer-switcher" aria-label="Focused data layer">
+        <button data-layer="document">Document</button>
+        <button data-layer="text" class="active">Text</button>
+        <button data-layer="sentence">Sentence</button>
+        <button data-layer="word">Word</button>
+      </div>
+
+      <div id="context-strip" class="context-strip hidden"></div>
+
+      <div class="mode-and-actions">
+        <div class="mode-tabs" role="tablist">
+          <button class="active" data-mode="text">Text mode</button>
+          <button data-mode="table">Table mode</button>
+          <button data-mode="tree">Tree mode</button>
+        </div>
+        <div class="node-actions">
+          <button data-operation="add" title="Insert child branch">＋ Insert</button>
+          <button data-operation="delete" title="Delete selected item">Delete</button>
+          <button data-operation="copy">Copy</button>
+          <button data-operation="paste">Paste</button>
+          <button data-operation="up" title="Move selected item up">↑</button>
+          <button data-operation="down" title="Move selected item down">↓</button>
+          <button data-operation="reparent" title="Move selected branch under another node">Move to…</button>
+          <button id="find-lemma" title="Search or create a lemma">Lemma…</button>
+        </div>
+      </div>
+
+      <div id="editor-empty" class="editor-empty"><strong>Select a text to begin.</strong><span>Edits will be stored only inside compreditor/workspace.</span></div>
+      <div id="mode-text" class="mode-view hidden"></div>
+      <div id="mode-table" class="mode-view hidden"></div>
+      <div id="mode-tree" class="mode-view tree-canvas hidden"></div>
+    </section>
+
+    <aside id="right-panel" class="side-panel tools-panel">
+      <nav class="tool-tabs">
+        <button class="active" data-tool="inspector">Inspector</button>
+        <button data-tool="search">Search</button>
+        <button data-tool="dictionary">Dictionary</button>
+        <button data-tool="problems">Problems <span id="problem-count" class="count">0</span></button>
+      </nav>
+
+      <section id="tool-inspector" class="tool-view">
+        <div class="tool-heading"><span class="eyebrow">SELECTED ITEM</span><h2>Inspector</h2></div>
+        <div id="inspector-empty" class="quiet">Select an item in any editing mode.</div>
+        <form id="inspector-form" class="hidden">
+          <label>Tag<input id="node-tag" required></label>
+          <label>Text content<textarea id="node-text" rows="2"></textarea></label>
+          <div class="subheading"><strong>Attributes / annotations</strong><button id="add-attribute" type="button">＋ Add</button></div>
+          <div id="attribute-rows"></div>
+          <button class="primary" type="submit">Apply changes</button>
+        </form>
+      </section>
+
+      <section id="tool-search" class="tool-view hidden">
+        <div class="tool-heading"><span class="eyebrow">MODULAR TOOL</span><h2>Search data</h2></div>
+        <form id="search-form">
+          <label>Search<input id="search-query" placeholder="kamu, L000002, N…"></label>
+          <div class="two-cols"><label>Scope<select id="search-scope"><option value="all">All data</option><option value="current">Current text</option><option value="text">Editing texts</option><option value="trees">Uploaded trees</option><option value="dictionary">Dictionary</option></select></label><label>Logic<select id="search-logic"><option value="all">All criteria (AND)</option><option value="any">Any criterion (OR)</option></select></label></div>
+          <label>Structure path<input id="search-structure" placeholder="NP > N"></label>
+          <details><summary>Advanced inclusion / exclusion</summary><div id="search-criteria"></div><button id="add-criterion" type="button">＋ Criterion</button></details>
+          <button class="primary" type="submit">Search</button>
+        </form>
+        <div id="search-results" class="result-list"></div>
+      </section>
+
+      <section id="tool-dictionary" class="tool-view hidden">
+        <div class="tool-heading"><span class="eyebrow">LEXICON</span><h2>Dictionary</h2></div>
+        <div class="search-row"><input id="dictionary-query" type="search" placeholder="Form, ID, gloss…"><button id="dictionary-search">Search</button></div>
+        <button id="dictionary-new" class="secondary">＋ New entry</button>
+        <div id="dictionary-results" class="result-list compact"></div>
+        <form id="dictionary-editor" class="hidden">
+          <label>Lemma ID<input id="dictionary-id" required></label>
+          <div class="subheading"><strong>Fields</strong><button id="dictionary-add-field" type="button">＋ Field</button></div>
+          <div id="dictionary-fields"></div>
+          <div class="form-actions"><button class="primary" type="submit">Save entry</button><button id="dictionary-delete" class="danger" type="button">Delete</button></div>
+        </form>
+      </section>
+
+      <section id="tool-problems" class="tool-view hidden">
+        <div class="tool-heading"><span class="eyebrow">CONTINUOUS VALIDATION</span><h2>Problems</h2></div>
+        <p class="quiet">Select a problem to navigate to the affected item.</p>
+        <div id="problems" class="problem-list"></div>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="new-document-dialog">
+    <form id="new-document-form" method="dialog">
+      <div class="dialog-heading"><h2>Create a new text</h2><button value="cancel" class="icon-button">×</button></div>
+      <label>Collection<select id="new-document-collection"><option value="text">Texts under editing</option><option value="trees">Uploaded trees</option></select></label>
+      <label>Filename<input id="new-document-name" placeholder="EN_28.xml" required></label>
+      <button class="primary" value="default">Create</button>
+    </form>
+  </dialog>
+
+  <dialog id="lemma-dialog">
+    <div class="dialog-heading"><div><span class="eyebrow">DICTIONARY LINK</span><h2>Insert lemma</h2></div><button id="close-lemma" class="icon-button">×</button></div>
+    <p id="lemma-form-label"></p>
+    <div id="lemma-candidates" class="result-list"></div>
+    <div class="new-lemma-controls"><label>New ID starts at<input id="lemma-start" type="number" min="1" value="1"></label><button id="create-lemma">Create dictionary entry</button></div>
+  </dialog>
+
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
