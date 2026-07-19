@@ -1,12 +1,40 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_11.txt">
-  <block id="1_SM_11" header="sumyera ga opo mikoto rama to nori tamapa ku kyepu okonapi tama pi tukape maturi tamapu waza ni yorite miyo miyo ni atari te tukape matu r eru mi kwo tati opo mapye tu kimi tati no kwo domo wo pazimete wosame tamapu be ki pito puta ri domo erabi tama pi wosame tama pu">
-    <comment raw="IP-MAT,IP-ADV,0@天皇大命良麻等勅久今日行賜比供奉賜,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,PP-DAT,NP,1@態尓依而,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,2@御世御世当弖供奉礼留,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,PP-OB1,NP,PP-GEN,NP,3@親王等大臣等乃子等乎始而,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,4@可治賜伎,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,NP-OB1,5@一二人等選給比治給布,*" />
+  <block id="SM.11.1" header="sumyera ga opo mikoto rama to nori tamapa ku kyepu okonapi tama pi tukape maturi tamapu waza ni yorite miyo miyo ni atari te tukape matu r eru mi kwo tati opo mapye tu kimi tati no kwo domo wo pazimete wosame tamapu be ki pito puta ri domo erabi tama pi wosame tama pu">
+    <roundtrip-data format="coj-txt" source-id="1_SM_11">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@天皇大命良麻等勅久今日行賜比供奉賜,*" />
+      <comment position="16" raw="IP-MAT,IP-ADV;@2,IP-ADV,PP-DAT,NP,1@態尓依而,*" />
+      <comment position="19" raw="IP-MAT,IP-ADV;@2,2@御世御世当弖供奉礼留,*" />
+      <comment position="28" raw="IP-MAT,IP-ADV;@2,IP-ADV,PP-OB1,NP,PP-GEN,NP,3@親王等大臣等乃子等乎始而,*" />
+      <comment position="41" raw="IP-MAT,IP-ADV;@2,4@可治賜伎,*" />
+      <comment position="45" raw="IP-MAT,IP-ADV;@2,IP-ADV,NP-OB1,5@一二人等選給比治給布,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>天皇大命良麻等勅久今日行賜比供奉賜</kanji>
+        <transcription>sumyera ga opo mikoto rama to nori tamapa ku kyepu okonapi tama pi tukape maturi tamapu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>態尓依而</kanji>
+        <transcription>waza ni yorite</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>御世御世当弖供奉礼留</kanji>
+        <transcription>miyo miyo ni atari te tukape matu r eru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>親王等大臣等乃子等乎始而</kanji>
+        <transcription>mi kwo tati opo mapye tu kimi tati no kwo domo wo pazimete</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>可治賜伎</kanji>
+        <transcription>wosame tamapu be ki</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>一二人等選給比治給布</kanji>
+        <transcription>pito puta ri domo erabi tama pi wosame tama pu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV index="1" inferred_index="1">
         <IP-ADV>
@@ -145,20 +173,76 @@
       </IP-ADV>
     </IP-MAT>
   </block>
-  <block id="2_SM_11" header="koko wo motite imasi tati mo kyepu noritamapu opo mikoto no goto kimi omi oya kwo no kotowari wo wasururu koto na ku tugi masa mu sumyera ga miyo miyo ni aka ki kiywo ki kokoro wo motite oya no na wo itadaki motite ame tuti to tomo ni naga ku topo ku tukape matu re to site kagapuri kurawi age tama pi wosame tama pu to noritamapu opo mikoto wo moro moro kiki tamapeyo to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,0@是以,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,1@汝等母今日詔,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,NP,2@大命乃期等君臣祖子乃理遠忘,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP-SBJ,3@事無久,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,4@継坐牟,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-DAT,NP,5@天皇御世御世尓明浄,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,6@心乎以而,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,7@祖名乎戴持而,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,8@天地与共尓長久遠久,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,9@仕奉礼等之弖,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,10@冠位上賜比,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,11@治賜布等勅,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,12@大命衆聞食宣,*" />
+  <block id="SM.11.2" header="koko wo motite imasi tati mo kyepu noritamapu opo mikoto no goto kimi omi oya kwo no kotowari wo wasururu koto na ku tugi masa mu sumyera ga miyo miyo ni aka ki kiywo ki kokoro wo motite oya no na wo itadaki motite ame tuti to tomo ni naga ku topo ku tukape matu re to site kagapuri kurawi age tama pi wosame tama pu to noritamapu opo mikoto wo moro moro kiki tamapeyo to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="2_SM_11">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,0@是以,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,1@汝等母今日詔,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,NP,2@大命乃期等君臣祖子乃理遠忘,*" />
+      <comment position="20" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP-SBJ,3@事無久,*" />
+      <comment position="23" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,4@継坐牟,*" />
+      <comment position="26" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-DAT,NP,5@天皇御世御世尓明浄,*" />
+      <comment position="35" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,6@心乎以而,*" />
+      <comment position="38" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,7@祖名乎戴持而,*" />
+      <comment position="44" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,8@天地与共尓長久遠久,*" />
+      <comment position="53" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,9@仕奉礼等之弖,*" />
+      <comment position="58" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,10@冠位上賜比,*" />
+      <comment position="63" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,11@治賜布等勅,*" />
+      <comment position="68" raw="IP-MAT,IP-ADV,PP-OB1,NP,12@大命衆聞食宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>是以</kanji>
+        <transcription>koko wo motite</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>汝等母今日詔</kanji>
+        <transcription>imasi tati mo kyepu noritamapu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>大命乃期等君臣祖子乃理遠忘</kanji>
+        <transcription>opo mikoto no goto kimi omi oya kwo no kotowari wo wasururu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>事無久</kanji>
+        <transcription>koto na ku</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>継坐牟</kanji>
+        <transcription>tugi masa mu</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>天皇御世御世尓明浄</kanji>
+        <transcription>sumyera ga miyo miyo ni aka ki kiywo ki</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>心乎以而</kanji>
+        <transcription>kokoro wo motite</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>祖名乎戴持而</kanji>
+        <transcription>oya no na wo itadaki motite</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>天地与共尓長久遠久</kanji>
+        <transcription>ame tuti to tomo ni naga ku topo ku</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>仕奉礼等之弖</kanji>
+        <transcription>tukape matu re to site</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>冠位上賜比</kanji>
+        <transcription>kagapuri kurawi age tama pi</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>治賜布等勅</kanji>
+        <transcription>wosame tama pu to noritamapu</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>大命衆聞食宣</kanji>
+        <transcription>opo mikoto wo moro moro kiki tamapeyo to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>
@@ -363,8 +447,16 @@
       <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
     </IP-MAT>
   </block>
-  <block id="3_SM_11" header="mata pi tugi no mi kwo no miya no tukasa bito ni kagapuri pito sina age tama pu">
-    <comment raw="IP-MAT,0@又皇太子宮乃官人尓冠一階上賜布,*" />
+  <block id="SM.11.3" header="mata pi tugi no mi kwo no miya no tukasa bito ni kagapuri pito sina age tama pu">
+    <roundtrip-data format="coj-txt" source-id="3_SM_11">
+      <comment position="0" raw="IP-MAT,0@又皇太子宮乃官人尓冠一階上賜布,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>又皇太子宮乃官人尓冠一階上賜布</kanji>
+        <transcription>mata pi tugi no mi kwo no miya no tukasa bito ni kagapuri pito sina age tama pu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <N phon="LOG" form="mata" />
@@ -414,11 +506,31 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_SM_11" header="ko no naka ni pakase to make tama p yeru simo tu miti no asomi ma ki bwi ni pa kagapuri puta sina age tama pi wosame tama paku to noritamapu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,PP-TOP,NP,0@此中博士等任賜部留,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,PP-TOP,NP,1@下道朝臣真備尓波冠二階上賜比,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,2@治賜波久等勅,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,3@天皇大命衆聞食宣,*" />
+  <block id="SM.11.4" header="ko no naka ni pakase to make tama p yeru simo tu miti no asomi ma ki bwi ni pa kagapuri puta sina age tama pi wosame tama paku to noritamapu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="4_SM_11">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,PP-TOP,NP,0@此中博士等任賜部留,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,PP-TOP,NP,1@下道朝臣真備尓波冠二階上賜比,*" />
+      <comment position="26" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,2@治賜波久等勅,*" />
+      <comment position="31" raw="IP-MAT,IP-ADV,PP-OB1,NP,3@天皇大命衆聞食宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>此中博士等任賜部留</kanji>
+        <transcription>ko no naka ni pakase to make tama p yeru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>下道朝臣真備尓波冠二階上賜比</kanji>
+        <transcription>simo tu miti no asomi ma ki bwi ni pa kagapuri puta sina age tama pi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>治賜波久等勅</kanji>
+        <transcription>wosame tama paku to noritamapu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>天皇大命衆聞食宣</kanji>
+        <transcription>sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>

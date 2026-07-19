@@ -4,7 +4,7 @@ import re
 import xml.etree.ElementTree as ET
 from collections import Counter
 
-from compreditor.services.xml_tools import iter_with_paths
+from compreditor.services.xml_tools import METADATA_TAGS, iter_with_paths
 
 LEMMA_RE = re.compile(r"^[A-Za-z]+\d{6}[a-z]*$")
 
@@ -36,7 +36,7 @@ def validate_document(root: ET.Element, dictionary_ids: set[str] | None = None) 
                 sentence_ids.append((sentence_id, path))
             if not elem.get("header"):
                 problems.append(problem("warning", "header", "Sentence has no transcription header.", path))
-        elif elem is not root and elem.tag != "comment" and len(elem) == 0:
+        elif elem is not root and elem.tag not in METADATA_TAGS and len(elem) == 0:
             if "form" not in elem.attrib:
                 problems.append(problem("error", "missing-form", "Leaf is missing a form attribute.", path))
             if "phon" not in elem.attrib:

@@ -1,7 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_18.txt">
-  <block id="1_EN_18" header="nagadukwi pa kore ni narapye">
-    <comment raw="COMMENT,0@九月准此,*" />
+  <block id="EN.18.1" header="nagadukwi pa kore ni narapye">
+    <roundtrip-data format="coj-txt" source-id="1_EN_18">
+      <comment position="0" raw="COMMENT,0@九月准此,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>九月准此</kanji>
+        <transcription>nagadukwi pa kore ni narapye</transcription>
+      </sentence>
+    </raw-text>
     <COMMENT>
       <IP-MAT>
         <PP-TOP>
@@ -20,15 +28,51 @@
       </IP-MAT>
     </COMMENT>
   </block>
-  <block id="2_EN_18" header="watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te taka ma no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosa ku patori womi no pito domo no tune mo tukape matu ru nigi tape ara tape no pata no mi so wo tate maturu koto wo mawosi tamapaku to mawosu">
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,0@度會乃宇治五十鈴川上爾大官柱太敷立弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,1@高天原千木高知弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,2@稱辭竟奉留,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,3@天照坐皇太神乃大前爾申久,*" />
-    <comment raw="IP-MAT,4@服織麻續乃人等乃常毛奉仕留,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,5@和妙荒妙乃,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,6@織乃御衣乎進,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,7@事乎申給止申,*" />
+  <block id="EN.18.2" header="watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te taka ma no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosa ku patori womi no pito domo no tune mo tukape matu ru nigi tape ara tape no pata no mi so wo tate maturu koto wo mawosi tamapaku to mawosu">
+    <roundtrip-data format="coj-txt" source-id="2_EN_18">
+      <comment position="0" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,0@度會乃宇治五十鈴川上爾大官柱太敷立弖,*" />
+      <comment position="16" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,1@高天原千木高知弖,*" />
+      <comment position="26" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,2@稱辭竟奉留,*" />
+      <comment position="30" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,3@天照坐皇太神乃大前爾申久,*" />
+      <comment position="41" raw="IP-MAT,4@服織麻續乃人等乃常毛奉仕留,*" />
+      <comment position="52" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,5@和妙荒妙乃,*" />
+      <comment position="57" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,6@織乃御衣乎進,*" />
+      <comment position="64" raw="IP-MAT,IP-ARG,PP-OB1,NP,7@事乎申給止申,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>度會乃宇治五十鈴川上爾大官柱太敷立弖</kanji>
+        <transcription>watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>高天原千木高知弖</kanji>
+        <transcription>taka ma no para ni pi gwi taka siri te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>稱辭竟奉留</kanji>
+        <transcription>tatapegoto wope matu ru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>天照坐皇太神乃大前爾申久</kanji>
+        <transcription>amaterasimasu sumye opo mi kamwi no opo mapye ni mawosa ku</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>服織麻續乃人等乃常毛奉仕留</kanji>
+        <transcription>patori womi no pito domo no tune mo tukape matu ru</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>和妙荒妙乃</kanji>
+        <transcription>nigi tape ara tape no</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>織乃御衣乎進</kanji>
+        <transcription>pata no mi so wo tate maturu</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>事乎申給止申</kanji>
+        <transcription>koto wo mawosi tamapaku to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-NMZ-FRM>
         <PP-DAT>
@@ -224,9 +268,21 @@
       <VB-ADC phon="PHON" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="3_EN_18" header="ara maturi no miya ni mo kaku mawosi te tate mature to noru">
-    <comment raw="IP-MAT,0@荒祭宮爾毛如是申弖,*" />
-    <comment raw="IP-MAT,IP-ARG,1@進止宣,*" />
+  <block id="EN.18.3" header="ara maturi no miya ni mo kaku mawosi te tate mature to noru">
+    <roundtrip-data format="coj-txt" source-id="3_EN_18">
+      <comment position="0" raw="IP-MAT,0@荒祭宮爾毛如是申弖,*" />
+      <comment position="9" raw="IP-MAT,IP-ARG,1@進止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>荒祭宮爾毛如是申弖</kanji>
+        <transcription>ara maturi no miya ni mo kaku mawosi te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>進止宣</kanji>
+        <transcription>tate mature to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <PP-DAT>
@@ -261,8 +317,16 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="4_EN_18" header="negi utibito wowo to mawosu">
-    <comment raw="COMMENT,0@禰宜内人稱唯,*" />
+  <block id="EN.18.4" header="negi utibito wowo to mawosu">
+    <roundtrip-data format="coj-txt" source-id="4_EN_18">
+      <comment position="0" raw="COMMENT,0@禰宜内人稱唯,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>禰宜内人稱唯</kanji>
+        <transcription>negi utibito wowo to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <COMMENT>
       <IP-MAT>
         <NP-SBJ>

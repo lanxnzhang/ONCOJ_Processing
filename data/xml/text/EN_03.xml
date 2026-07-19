@@ -1,18 +1,70 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_03.txt">
-  <block id="1_EN_03" header="pirose no kapapi ni tatapegoto wope matu ru sumyegamwi no mi na wo mawosa ku mi ke mota suru wakaukanomye no mikoto to mi na pa mawosi te ko no sumyegamwi no mapye ni koto wope matura ku sumyemima no mikoto no udu no mitegura wo sasage mota sime te opo kimi tati mapyetugimi tati wo tukapi to si te tatapegoto wope matura ku wo kamu nusi papuri ra moromoro kikosi myese to noru">
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-OB1,NP,PP-GEN,NP,0@廣瀨乃川合爾稱辭竟奉留,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-OB1,NP,PP-GEN,NP,1@皇神乃御名乎白久,*" />
-    <comment raw="IP-MAT,2@御膳持須留,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,IP-ADV,3@若宇加乃賣乃,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,IP-ADV,NP,4@命乃〈止〉,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,5@御名者白弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,6@此皇神前爾辭竟奉久,*" />
-    <comment raw="IP-MAT,7@皇御孫,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,IP-ADV,PP-OB1,NP,PP-GEN,NP,8@命乃宇豆乃,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,IP-ADV,PP-OB1,NP,9@幣帛乎令捧持弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,10@王臣等乎為使弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,11@稱辭竟奉久乎神主祝部等諸聞食止宣,*" />
+  <block id="EN.3.1" header="pirose no kapapi ni tatapegoto wope matu ru sumyegamwi no mi na wo mawosa ku mi ke mota suru wakaukanomye no mikoto to mi na pa mawosi te ko no sumyegamwi no mapye ni koto wope matura ku sumyemima no mikoto no udu no mitegura wo sasage mota sime te opo kimi tati mapyetugimi tati wo tukapi to si te tatapegoto wope matura ku wo kamu nusi papuri ra moromoro kikosi myese to noru">
+    <roundtrip-data format="coj-txt" source-id="1_EN_03">
+      <comment position="0" raw="IP-MAT,IP-NMZ-FRM,PP-OB1,NP,PP-GEN,NP,0@廣瀨乃川合爾稱辭竟奉留,*" />
+      <comment position="8" raw="IP-MAT,IP-NMZ-FRM,PP-OB1,NP,PP-GEN,NP,1@皇神乃御名乎白久,*" />
+      <comment position="15" raw="IP-MAT,2@御膳持須留,*" />
+      <comment position="19" raw="IP-MAT,IP-NMZ-FRM,IP-ADV,IP-ADV,3@若宇加乃賣乃,*" />
+      <comment position="21" raw="IP-MAT,IP-NMZ-FRM,IP-ADV,IP-ADV,NP,4@命乃〈止〉,*" />
+      <comment position="23" raw="IP-MAT,IP-NMZ-FRM,IP-ADV,5@御名者白弖,*" />
+      <comment position="28" raw="IP-MAT,IP-NMZ-FRM,6@此皇神前爾辭竟奉久,*" />
+      <comment position="38" raw="IP-MAT,7@皇御孫,*" />
+      <comment position="40" raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,IP-ADV,PP-OB1,NP,PP-GEN,NP,8@命乃宇豆乃,*" />
+      <comment position="44" raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,IP-ADV,PP-OB1,NP,9@幣帛乎令捧持弖,*" />
+      <comment position="50" raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,10@王臣等乎為使弖,*" />
+      <comment position="60" raw="IP-MAT,IP-ARG,PP-OB1,IP-NMZ,11@稱辭竟奉久乎神主祝部等諸聞食止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>廣瀨乃川合爾稱辭竟奉留</kanji>
+        <transcription>pirose no kapapi ni tatapegoto wope matu ru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>皇神乃御名乎白久</kanji>
+        <transcription>sumyegamwi no mi na wo mawosa ku</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>御膳持須留</kanji>
+        <transcription>mi ke mota suru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>若宇加乃賣乃</kanji>
+        <transcription>wakaukanomye no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>命乃〈止〉</kanji>
+        <transcription>mikoto to</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>御名者白弖</kanji>
+        <transcription>mi na pa mawosi te</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>此皇神前爾辭竟奉久</kanji>
+        <transcription>ko no sumyegamwi no mapye ni koto wope matura ku</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>皇御孫</kanji>
+        <transcription>sumyemima no</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>命乃宇豆乃</kanji>
+        <transcription>mikoto no udu no</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>幣帛乎令捧持弖</kanji>
+        <transcription>mitegura wo sasage mota sime te</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>王臣等乎為使弖</kanji>
+        <transcription>opo kimi tati mapyetugimi tati wo tukapi to si te</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>稱辭竟奉久乎神主祝部等諸聞食止宣</kanji>
+        <transcription>tatapegoto wope matura ku wo kamu nusi papuri ra moromoro kikosi myese to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-NMZ-FRM>
         <PP-OB1>
@@ -222,33 +274,125 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="2_EN_03" header="tate matu ru udu no mitegura pa mi so pa akaru tape teru tape nigi tape ara tape itu iro no mono tate poko mi ma mi ki pa mika no pe taka siri mika no para mite narabe te nigi sine ara sine ni yama ni sumu mono pa ke no nikwo ki mono ke no ara ki mono opo nwo no para ni opuru mono pa ama na kara na awo mi no para ni sumu mono pa pata no piro ki mono pata no sa ki mono oki tu mo pa pye tu mo pa ni itaru made oki tarapasi te tate matura ku to sumyegamwi no mapye ni mawosi tama pye to noru">
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,0@奉留,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,1@宇豆乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,2@幣帛者御服明,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-PRD,N,C-N,3@妙照,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-PRD,N,C-N;@2,4@妙和妙荒妙,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,COP-INF,NULL,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,5@五色,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-SBJ,6@物楯戈御馬,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,7@御酒者𤭖乃閇高知,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,8@𤭖乃腹滿雙弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,9@和稻荒稻爾,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,10@山爾住,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-TOP,NP,11@物者毛乃和支,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,NP-PRD,N,C-N,12@物毛乃荒支,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,NP-PRD,N,C-N;@2,13@物,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,14@大野乃原爾生,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-TOP,NP,15@物者甘菜辛菜,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,16@靑海原爾住,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,PP-TOP,NP,17@物者鰭乃廣支,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,N,C-N,18@物鰭乃狹支,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,N,C-N;@2,19@物奧津藻葉邊津藻葉爾至万弖置足弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,20@奉久止,*" />
-    <comment raw="IP-MAT,IP-ARG,21@皇神前爾白賜部止宣,*" />
+  <block id="EN.3.2" header="tate matu ru udu no mitegura pa mi so pa akaru tape teru tape nigi tape ara tape itu iro no mono tate poko mi ma mi ki pa mika no pe taka siri mika no para mite narabe te nigi sine ara sine ni yama ni sumu mono pa ke no nikwo ki mono ke no ara ki mono opo nwo no para ni opuru mono pa ama na kara na awo mi no para ni sumu mono pa pata no piro ki mono pata no sa ki mono oki tu mo pa pye tu mo pa ni itaru made oki tarapasi te tate matura ku to sumyegamwi no mapye ni mawosi tama pye to noru">
+    <roundtrip-data format="coj-txt" source-id="2_EN_03">
+      <comment position="0" raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,0@奉留,*" />
+      <comment position="3" raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,1@宇豆乃,*" />
+      <comment position="5" raw="IP-MAT,IP-ARG,IP-ARG,PP-TOP,NP,2@幣帛者御服明,*" />
+      <comment position="11" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-PRD,N,C-N,3@妙照,*" />
+      <comment position="13" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-PRD,N,C-N;@2,4@妙和妙荒妙,*" />
+      <comment position="18" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,COP-INF,NULL,*" />
+      <comment position="18" raw="IP-MAT,IP-ARG,IP-ARG,5@五色,*" />
+      <comment position="21" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,NP-SBJ,6@物楯戈御馬,*" />
+      <comment position="26" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
+      <comment position="26" raw="IP-MAT,IP-ARG,IP-ARG,7@御酒者𤭖乃閇高知,*" />
+      <comment position="34" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,8@𤭖乃腹滿雙弖,*" />
+      <comment position="40" raw="IP-MAT,IP-ARG,IP-ARG,9@和稻荒稻爾,*" />
+      <comment position="45" raw="IP-MAT,IP-ARG,IP-ARG,10@山爾住,*" />
+      <comment position="48" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-TOP,NP,11@物者毛乃和支,*" />
+      <comment position="54" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,NP-PRD,N,C-N,12@物毛乃荒支,*" />
+      <comment position="59" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,NP-PRD,N,C-N;@2,13@物,*" />
+      <comment position="60" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
+      <comment position="60" raw="IP-MAT,IP-ARG,IP-ARG,14@大野乃原爾生,*" />
+      <comment position="66" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-TOP,NP,15@物者甘菜辛菜,*" />
+      <comment position="72" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,COP-INF,NULL,*" />
+      <comment position="72" raw="IP-MAT,IP-ARG,IP-ARG,16@靑海原爾住,*" />
+      <comment position="78" raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,PP-TOP,NP,17@物者鰭乃廣支,*" />
+      <comment position="84" raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,N,C-N,18@物鰭乃狹支,*" />
+      <comment position="89" raw="IP-MAT,IP-ARG,IP-ARG,PP-RES,IP-NMZ,PP-DAT,N,C-N;@2,19@物奧津藻葉邊津藻葉爾至万弖置足弖,*" />
+      <comment position="104" raw="IP-MAT,IP-ARG,IP-ARG,20@奉久止,*" />
+      <comment position="108" raw="IP-MAT,IP-ARG,21@皇神前爾白賜部止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>奉留</kanji>
+        <transcription>tate matu ru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>宇豆乃</kanji>
+        <transcription>udu no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>幣帛者御服明</kanji>
+        <transcription>mitegura pa mi so pa akaru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>妙照</kanji>
+        <transcription>tape teru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>妙和妙荒妙</kanji>
+        <transcription>tape nigi tape ara tape</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>五色</kanji>
+        <transcription>itu iro no</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>物楯戈御馬</kanji>
+        <transcription>mono tate poko mi ma</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>御酒者𤭖乃閇高知</kanji>
+        <transcription>mi ki pa mika no pe taka siri</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>𤭖乃腹滿雙弖</kanji>
+        <transcription>mika no para mite narabe te</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>和稻荒稻爾</kanji>
+        <transcription>nigi sine ara sine ni</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>山爾住</kanji>
+        <transcription>yama ni sumu</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>物者毛乃和支</kanji>
+        <transcription>mono pa ke no nikwo ki</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>物毛乃荒支</kanji>
+        <transcription>mono ke no ara ki</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>物</kanji>
+        <transcription>mono</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>大野乃原爾生</kanji>
+        <transcription>opo nwo no para ni opuru</transcription>
+      </sentence>
+      <sentence n="16">
+        <kanji>物者甘菜辛菜</kanji>
+        <transcription>mono pa ama na kara na</transcription>
+      </sentence>
+      <sentence n="17">
+        <kanji>靑海原爾住</kanji>
+        <transcription>awo mi no para ni sumu</transcription>
+      </sentence>
+      <sentence n="18">
+        <kanji>物者鰭乃廣支</kanji>
+        <transcription>mono pa pata no piro ki</transcription>
+      </sentence>
+      <sentence n="19">
+        <kanji>物鰭乃狹支</kanji>
+        <transcription>mono pata no sa ki</transcription>
+      </sentence>
+      <sentence n="20">
+        <kanji>物奧津藻葉邊津藻葉爾至万弖置足弖</kanji>
+        <transcription>mono oki tu mo pa pye tu mo pa ni itaru made oki tarapasi te</transcription>
+      </sentence>
+      <sentence n="21">
+        <kanji>奉久止</kanji>
+        <transcription>tate matura ku to</transcription>
+      </sentence>
+      <sentence n="22">
+        <kanji>皇神前爾白賜部止宣</kanji>
+        <transcription>sumyegamwi no mapye ni mawosi tama pye to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <IP-ARG>
@@ -609,28 +753,116 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="3_EN_03" header="kaku tate maturu udu no mitegura wo yasu mitegura no tari mitegura to sumyegamwi no mi gokoro ni tapirake ku yasurake ku kikosi myesi te sumyemima no mikoto no naga mi ke no topo mi ke to aka ni no po ni kikosi myesa mu sumyegamwi no mi tosiro wo padime te mikwo tati opo kimi tati mapyetugimi tati ame no sita no opo mitakara no tori tukuru oki tu mi tosi pa tanapidi ni minawa kaki tari muka momo ni pidi kaki yose te tori tukura mu oki tu mi tosi wo ya tuka po ni sumyegamwi no nasi saki pape tamapa ba patu po pa siru ni mo kapi ni mo ti sine ya ti sine ni piki suwe te yoko yama no goto ku uti tumi oki te aki no maturi ni tate matura mu to sumyegamwi no mapye ni mawosi tamape to noru">
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,0@如此奉,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,1@宇豆乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,2@幣帛乎安幣帛乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP,3@足幣帛止,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,4@皇神御心平久安久聞食弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,5@皇御孫,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,NP-PRD,PP-GEN,NP,6@命乃長御膳乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,NP-PRD,7@遠御膳乃〈止〉,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,8@赤丹乃穗爾聞食,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,9@皇神乃御刀代乎如弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,10@親王等王等臣等天下公民乃取作,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N,PP-TOP,NP,11@奧都御歳者手肱爾水沫盡垂,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N;@2,PP-OB1,NP,IP-REL,12@向般爾埿盡寄弖取将作,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N;@2,PP-OB1,NP,13@奧都御歳乎八束穗爾,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,14@皇神乃成幸賜者,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,15@初穗者汁爾毛,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,16@穎爾毛,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,17@千稻八十稻爾引居弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,18@如橫山打積置弖,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ARG,19@秋祭爾奉牟止,*" />
-    <comment raw="IP-MAT,IP-ARG,20@皇神前爾白賜止宣,*" />
+  <block id="EN.3.3" header="kaku tate maturu udu no mitegura wo yasu mitegura no tari mitegura to sumyegamwi no mi gokoro ni tapirake ku yasurake ku kikosi myesi te sumyemima no mikoto no naga mi ke no topo mi ke to aka ni no po ni kikosi myesa mu sumyegamwi no mi tosiro wo padime te mikwo tati opo kimi tati mapyetugimi tati ame no sita no opo mitakara no tori tukuru oki tu mi tosi pa tanapidi ni minawa kaki tari muka momo ni pidi kaki yose te tori tukura mu oki tu mi tosi wo ya tuka po ni sumyegamwi no nasi saki pape tamapa ba patu po pa siru ni mo kapi ni mo ti sine ya ti sine ni piki suwe te yoko yama no goto ku uti tumi oki te aki no maturi ni tate matura mu to sumyegamwi no mapye ni mawosi tamape to noru">
+    <roundtrip-data format="coj-txt" source-id="3_EN_03">
+      <comment position="0" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,0@如此奉,*" />
+      <comment position="3" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,1@宇豆乃,*" />
+      <comment position="5" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,2@幣帛乎安幣帛乃,*" />
+      <comment position="10" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP,3@足幣帛止,*" />
+      <comment position="13" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,4@皇神御心平久安久聞食弖,*" />
+      <comment position="25" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,5@皇御孫,*" />
+      <comment position="27" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,NP-PRD,PP-GEN,NP,6@命乃長御膳乃,*" />
+      <comment position="33" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,NP-PRD,7@遠御膳乃〈止〉,*" />
+      <comment position="37" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,8@赤丹乃穗爾聞食,*" />
+      <comment position="45" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,9@皇神乃御刀代乎如弖,*" />
+      <comment position="52" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,10@親王等王等臣等天下公民乃取作,*" />
+      <comment position="68" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N,PP-TOP,NP,11@奧都御歳者手肱爾水沫盡垂,*" />
+      <comment position="78" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N;@2,PP-OB1,NP,IP-REL,12@向般爾埿盡寄弖取将作,*" />
+      <comment position="88" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,PP-OB1,N,APP-N;@2,PP-OB1,NP,13@奧都御歳乎八束穗爾,*" />
+      <comment position="97" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,14@皇神乃成幸賜者,*" />
+      <comment position="104" raw="IP-MAT,IP-ARG,IP-ARG,15@初穗者汁爾毛,*" />
+      <comment position="110" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,16@穎爾毛,*" />
+      <comment position="113" raw="IP-MAT,IP-ARG,IP-ARG,IP-ADV,17@千稻八十稻爾引居弖,*" />
+      <comment position="122" raw="IP-MAT,IP-ARG,IP-ARG,18@如橫山打積置弖,*" />
+      <comment position="131" raw="IP-MAT,IP-ARG,IP-ARG,19@秋祭爾奉牟止,*" />
+      <comment position="139" raw="IP-MAT,IP-ARG,20@皇神前爾白賜止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>如此奉</kanji>
+        <transcription>kaku tate maturu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>宇豆乃</kanji>
+        <transcription>udu no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>幣帛乎安幣帛乃</kanji>
+        <transcription>mitegura wo yasu mitegura no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>足幣帛止</kanji>
+        <transcription>tari mitegura to</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>皇神御心平久安久聞食弖</kanji>
+        <transcription>sumyegamwi no mi gokoro ni tapirake ku yasurake ku kikosi myesi te</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>皇御孫</kanji>
+        <transcription>sumyemima no</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>命乃長御膳乃</kanji>
+        <transcription>mikoto no naga mi ke no</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>遠御膳乃〈止〉</kanji>
+        <transcription>topo mi ke to</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>赤丹乃穗爾聞食</kanji>
+        <transcription>aka ni no po ni kikosi myesa mu</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>皇神乃御刀代乎如弖</kanji>
+        <transcription>sumyegamwi no mi tosiro wo padime te</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>親王等王等臣等天下公民乃取作</kanji>
+        <transcription>mikwo tati opo kimi tati mapyetugimi tati ame no sita no opo mitakara no tori tukuru</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>奧都御歳者手肱爾水沫盡垂</kanji>
+        <transcription>oki tu mi tosi pa tanapidi ni minawa kaki tari</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>向般爾埿盡寄弖取将作</kanji>
+        <transcription>muka momo ni pidi kaki yose te tori tukura mu</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>奧都御歳乎八束穗爾</kanji>
+        <transcription>oki tu mi tosi wo ya tuka po ni</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>皇神乃成幸賜者</kanji>
+        <transcription>sumyegamwi no nasi saki pape tamapa ba</transcription>
+      </sentence>
+      <sentence n="16">
+        <kanji>初穗者汁爾毛</kanji>
+        <transcription>patu po pa siru ni mo</transcription>
+      </sentence>
+      <sentence n="17">
+        <kanji>穎爾毛</kanji>
+        <transcription>kapi ni mo</transcription>
+      </sentence>
+      <sentence n="18">
+        <kanji>千稻八十稻爾引居弖</kanji>
+        <transcription>ti sine ya ti sine ni piki suwe te</transcription>
+      </sentence>
+      <sentence n="19">
+        <kanji>如橫山打積置弖</kanji>
+        <transcription>yoko yama no goto ku uti tumi oki te</transcription>
+      </sentence>
+      <sentence n="20">
+        <kanji>秋祭爾奉牟止</kanji>
+        <transcription>aki no maturi ni tate matura mu to</transcription>
+      </sentence>
+      <sentence n="21">
+        <kanji>皇神前爾白賜止宣</kanji>
+        <transcription>sumyegamwi no mapye ni mawosi tamape to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <IP-ARG>
@@ -1021,18 +1253,58 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="4_EN_03" header="yamato no kuni no mu tu no mi agata no yama no kuti ni masu sumyegamwi tati no mapye ni mo sumyemima no mikoto no udu no mitegura wo akaru tape teru tape nigi tape ara tape itu iro no mono tate poko ni itaru made tate maturu">
-    <comment raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,0@倭國乃六,*" />
-    <comment raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,IP-REL,PP-DAT,NP,PP-GEN,NP,PP-GEN,NP,1@御縣乃山口爾坐,*" />
-    <comment raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,2@皇神等前爾毛皇御孫,*" />
-    <comment raw="IP-MAT,PP-ACC,NP,PP-GEN,NP,3@命乃宇豆乃,*" />
-    <comment raw="IP-MAT,PP-ACC,NP,4@幣帛乎明,*" />
-    <comment raw="IP-MAT,IP-ADV,NP-PRD,N,C-N,5@妙照,*" />
-    <comment raw="IP-MAT,IP-ADV,NP-PRD,N,C-N;@2,6@妙和妙荒妙,*" />
-    <comment raw="IP-MAT,IP-ADV,COP-INF,NULL,*" />
-    <comment raw="IP-MAT,7@五色,*" />
-    <comment raw="IP-MAT,IP-ADV,NP,N,8@物楯戈至万弖奉,*" />
-    <comment raw="IP-MAT,IP-ADV,COP-INF,NULL,*" />
+  <block id="EN.3.4" header="yamato no kuni no mu tu no mi agata no yama no kuti ni masu sumyegamwi tati no mapye ni mo sumyemima no mikoto no udu no mitegura wo akaru tape teru tape nigi tape ara tape itu iro no mono tate poko ni itaru made tate maturu">
+    <roundtrip-data format="coj-txt" source-id="4_EN_03">
+      <comment position="0" raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,0@倭國乃六,*" />
+      <comment position="7" raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,IP-REL,PP-DAT,NP,PP-GEN,NP,PP-GEN,NP,1@御縣乃山口爾坐,*" />
+      <comment position="15" raw="IP-MAT,PP-DAT,NP,PP-GEN,NP,2@皇神等前爾毛皇御孫,*" />
+      <comment position="23" raw="IP-MAT,PP-ACC,NP,PP-GEN,NP,3@命乃宇豆乃,*" />
+      <comment position="27" raw="IP-MAT,PP-ACC,NP,4@幣帛乎明,*" />
+      <comment position="30" raw="IP-MAT,IP-ADV,NP-PRD,N,C-N,5@妙照,*" />
+      <comment position="32" raw="IP-MAT,IP-ADV,NP-PRD,N,C-N;@2,6@妙和妙荒妙,*" />
+      <comment position="37" raw="IP-MAT,IP-ADV,COP-INF,NULL,*" />
+      <comment position="37" raw="IP-MAT,7@五色,*" />
+      <comment position="40" raw="IP-MAT,IP-ADV,NP,N,8@物楯戈至万弖奉,*" />
+      <comment position="46" raw="IP-MAT,IP-ADV,COP-INF,NULL,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>倭國乃六</kanji>
+        <transcription>yamato no kuni no mu tu no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>御縣乃山口爾坐</kanji>
+        <transcription>mi agata no yama no kuti ni masu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>皇神等前爾毛皇御孫</kanji>
+        <transcription>sumyegamwi tati no mapye ni mo sumyemima no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>命乃宇豆乃</kanji>
+        <transcription>mikoto no udu no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>幣帛乎明</kanji>
+        <transcription>mitegura wo akaru</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>妙照</kanji>
+        <transcription>tape teru</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>妙和妙荒妙</kanji>
+        <transcription>tape nigi tape ara tape</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>五色</kanji>
+        <transcription>itu iro no</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>物楯戈至万弖奉</kanji>
+        <transcription>mono tate poko ni itaru made tate maturu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-DAT>
         <NP>
@@ -1192,30 +1464,126 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="5_EN_03" header="kaku matura ba sumyegamwi tati no siki ma su yama yama no kuti yori sakunadari ni kudasi tamapu midu wo ama ki midu to uke te ame no sita no opo mitakara no tori tukur eru oki tu mi tosi wo asi ki kaze ara ki midu ni apase tamapa zu na ga mikoto no nasi saki pape tamapa ba patu po pa siru ni mo kapi ni mo mika no pe taka siri mika no para mite narabe te yoko yama no goto ku uti tumi oki te tate matura mu to opo kimi tati mapyetugimi tati momo no tukasa bito tati yamato no kuni no mu tu no mi agata no twone wotokwowomina ni itaru made kotosi sore no tukwi no sore no pi moromoro mawi ide ki te sumyegamwi no mapye ni u zimono unane tuki nuki te asapi no toyosakanobori ni tatapegoto wope matura ku wo kamunusi papurira moromoro kikosi myese to noru">
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,0@如此奉者,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,1@皇神等乃敷坐,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,PP-CASE-ABL,NP,PP-GEN,NP,2@山〻乃自口狭久那多利爾下賜,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-OB1,NP,3@水乎甘,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,IP-ADV,NP-PRD,4@水止受而,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,5@天下乃公民乃取作禮留,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,PP-OB1,NP,6@奧都御歳乎惡,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,N,C-N,7@風荒水爾,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,N,C-N;@2,8@不相賜,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,9@汝命乃成幸波閇賜者,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,10@初穗者汁爾毛,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,11@穎爾毛,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,12@𤭖乃閇高知,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,13@𤭖腹滿雙弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,14@如橫山打滿置弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,15@奉牟止,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,16@王王等臣等百,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,PP-RES,IP-NMZ,PP-DAT,NP,N,C-N,17@官人等倭國乃六,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,PP-RES,IP-NMZ,PP-DAT,NP,N,C-N;@4,18@御縣乃刀禰男女爾至万弖今年某月某日諸參來弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,19@皇神前爾宇事物頸根築抜弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,20@朝日,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,21@乃豐逆祭爾,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,22@稱辭竟奉久乎神主祝部等諸聞食止宣,*" />
+  <block id="EN.3.5" header="kaku matura ba sumyegamwi tati no siki ma su yama yama no kuti yori sakunadari ni kudasi tamapu midu wo ama ki midu to uke te ame no sita no opo mitakara no tori tukur eru oki tu mi tosi wo asi ki kaze ara ki midu ni apase tamapa zu na ga mikoto no nasi saki pape tamapa ba patu po pa siru ni mo kapi ni mo mika no pe taka siri mika no para mite narabe te yoko yama no goto ku uti tumi oki te tate matura mu to opo kimi tati mapyetugimi tati momo no tukasa bito tati yamato no kuni no mu tu no mi agata no twone wotokwowomina ni itaru made kotosi sore no tukwi no sore no pi moromoro mawi ide ki te sumyegamwi no mapye ni u zimono unane tuki nuki te asapi no toyosakanobori ni tatapegoto wope matura ku wo kamunusi papurira moromoro kikosi myese to noru">
+    <roundtrip-data format="coj-txt" source-id="5_EN_03">
+      <comment position="0" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,0@如此奉者,*" />
+      <comment position="3" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,1@皇神等乃敷坐,*" />
+      <comment position="9" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,PP-CASE-ABL,NP,PP-GEN,NP,2@山〻乃自口狭久那多利爾下賜,*" />
+      <comment position="18" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-OB1,NP,3@水乎甘,*" />
+      <comment position="22" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,IP-ADV,NP-PRD,4@水止受而,*" />
+      <comment position="26" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,5@天下乃公民乃取作禮留,*" />
+      <comment position="36" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,PP-OB1,NP,6@奧都御歳乎惡,*" />
+      <comment position="43" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,N,C-N,7@風荒水爾,*" />
+      <comment position="46" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,PP-DAT,NP,N,C-N;@2,8@不相賜,*" />
+      <comment position="51" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,9@汝命乃成幸波閇賜者,*" />
+      <comment position="60" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,10@初穗者汁爾毛,*" />
+      <comment position="66" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,11@穎爾毛,*" />
+      <comment position="69" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,12@𤭖乃閇高知,*" />
+      <comment position="74" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,IP-ADV,13@𤭖腹滿雙弖,*" />
+      <comment position="80" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,14@如橫山打滿置弖,*" />
+      <comment position="89" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ARG,15@奉牟止,*" />
+      <comment position="93" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,16@王王等臣等百,*" />
+      <comment position="100" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,PP-RES,IP-NMZ,PP-DAT,NP,N,C-N,17@官人等倭國乃六,*" />
+      <comment position="110" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,PP-RES,IP-NMZ,PP-DAT,NP,N,C-N;@4,18@御縣乃刀禰男女爾至万弖今年某月某日諸參來弖,*" />
+      <comment position="131" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,19@皇神前爾宇事物頸根築抜弖,*" />
+      <comment position="141" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,20@朝日,*" />
+      <comment position="143" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,IP-ADV,21@乃豐逆祭爾,*" />
+      <comment position="145" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-NMZ,22@稱辭竟奉久乎神主祝部等諸聞食止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>如此奉者</kanji>
+        <transcription>kaku matura ba</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>皇神等乃敷坐</kanji>
+        <transcription>sumyegamwi tati no siki ma su</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>山〻乃自口狭久那多利爾下賜</kanji>
+        <transcription>yama yama no kuti yori sakunadari ni kudasi tamapu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>水乎甘</kanji>
+        <transcription>midu wo ama ki</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>水止受而</kanji>
+        <transcription>midu to uke te</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>天下乃公民乃取作禮留</kanji>
+        <transcription>ame no sita no opo mitakara no tori tukur eru</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>奧都御歳乎惡</kanji>
+        <transcription>oki tu mi tosi wo asi ki</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>風荒水爾</kanji>
+        <transcription>kaze ara ki</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>不相賜</kanji>
+        <transcription>midu ni apase tamapa zu</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>汝命乃成幸波閇賜者</kanji>
+        <transcription>na ga mikoto no nasi saki pape tamapa ba</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>初穗者汁爾毛</kanji>
+        <transcription>patu po pa siru ni mo</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>穎爾毛</kanji>
+        <transcription>kapi ni mo</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>𤭖乃閇高知</kanji>
+        <transcription>mika no pe taka siri</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>𤭖腹滿雙弖</kanji>
+        <transcription>mika no para mite narabe te</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>如橫山打滿置弖</kanji>
+        <transcription>yoko yama no goto ku uti tumi oki te</transcription>
+      </sentence>
+      <sentence n="16">
+        <kanji>奉牟止</kanji>
+        <transcription>tate matura mu to</transcription>
+      </sentence>
+      <sentence n="17">
+        <kanji>王王等臣等百</kanji>
+        <transcription>opo kimi tati mapyetugimi tati momo no</transcription>
+      </sentence>
+      <sentence n="18">
+        <kanji>官人等倭國乃六</kanji>
+        <transcription>tukasa bito tati yamato no kuni no mu tu no</transcription>
+      </sentence>
+      <sentence n="19">
+        <kanji>御縣乃刀禰男女爾至万弖今年某月某日諸參來弖</kanji>
+        <transcription>mi agata no twone wotokwowomina ni itaru made kotosi sore no tukwi no sore no pi moromoro mawi ide ki te</transcription>
+      </sentence>
+      <sentence n="20">
+        <kanji>皇神前爾宇事物頸根築抜弖</kanji>
+        <transcription>sumyegamwi no mapye ni u zimono unane tuki nuki te</transcription>
+      </sentence>
+      <sentence n="21">
+        <kanji>朝日</kanji>
+        <transcription>asapi no</transcription>
+      </sentence>
+      <sentence n="22">
+        <kanji>乃豐逆祭爾</kanji>
+        <transcription>toyosakanobori ni</transcription>
+      </sentence>
+      <sentence n="23">
+        <kanji>稱辭竟奉久乎神主祝部等諸聞食止宣</kanji>
+        <transcription>tatapegoto wope matura ku wo kamunusi papurira moromoro kikosi myese to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <PP-OB1>

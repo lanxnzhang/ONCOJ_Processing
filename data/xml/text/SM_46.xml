@@ -1,9 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_46.txt">
-  <block id="1_SM_46" header="ima nori tamapa ku kyepu pa nipi nape no napo rapi no toyo no akari ki kosi myesu pi ni ari">
-    <comment raw="IP-MAT,0@今勅久,*" />
-    <comment raw="IP-MAT,1@今日方新嘗乃猶良比乃豊乃明聞許之売湏,*" />
-    <comment raw="IP-MAT,NP,2@日仁在,*" />
+  <block id="SM.46.1" header="ima nori tamapa ku kyepu pa nipi nape no napo rapi no toyo no akari ki kosi myesu pi ni ari">
+    <roundtrip-data format="coj-txt" source-id="1_SM_46">
+      <comment position="0" raw="IP-MAT,0@今勅久,*" />
+      <comment position="4" raw="IP-MAT,1@今日方新嘗乃猶良比乃豊乃明聞許之売湏,*" />
+      <comment position="18" raw="IP-MAT,NP,2@日仁在,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>今勅久</kanji>
+        <transcription>ima nori tamapa ku</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>今日方新嘗乃猶良比乃豊乃明聞許之売湏</kanji>
+        <transcription>kyepu pa nipi nape no napo rapi no toyo no akari ki kosi myesu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>日仁在</kanji>
+        <transcription>pi ni ari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <NP>
@@ -56,16 +72,52 @@
       <VB-IFC lemma="L030125a" phon="LOG" form="ari" />
     </IP-MAT>
   </block>
-  <block id="2_SM_46" header="sikaru ni kinopu no puyu no kipami no pi ni ame puri te tuti mo urupopi yorodu no mono mo megumi moye pazime te yo ku aru ramu to omopu ni i yo no kuni yori sirwo ki sirusi no sika wo tatematuri te a reba uresi yorokobosi to namo mi ru">
-    <comment raw="IP-MAT,0@然昨日能冬至日仁,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,1@天雨天,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,2@地毛潤,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,3@万物毛萌毛延始天,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,4@好阿流良牟止念仁,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,5@伊豫国与利白,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,PP,NP,6@祥鹿乎献奉天在礼方有礼志,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,7@与呂許保志止奈毛見流,*" />
+  <block id="SM.46.2" header="sikaru ni kinopu no puyu no kipami no pi ni ame puri te tuti mo urupopi yorodu no mono mo megumi moye pazime te yo ku aru ramu to omopu ni i yo no kuni yori sirwo ki sirusi no sika wo tatematuri te a reba uresi yorokobosi to namo mi ru">
+    <roundtrip-data format="coj-txt" source-id="2_SM_46">
+      <comment position="0" raw="IP-MAT,0@然昨日能冬至日仁,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,1@天雨天,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,2@地毛潤,*" />
+      <comment position="16" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,IP-ADV,3@万物毛萌毛延始天,*" />
+      <comment position="24" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,4@好阿流良牟止念仁,*" />
+      <comment position="31" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,5@伊豫国与利白,*" />
+      <comment position="38" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,IP-ADV,PP,NP,6@祥鹿乎献奉天在礼方有礼志,*" />
+      <comment position="47" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
+      <comment position="47" raw="IP-MAT,IP-ADV;@3,IP-ADV,7@与呂許保志止奈毛見流,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>然昨日能冬至日仁</kanji>
+        <transcription>sikaru ni kinopu no puyu no kipami no pi ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>天雨天</kanji>
+        <transcription>ame puri te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>地毛潤</kanji>
+        <transcription>tuti mo urupopi</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>万物毛萌毛延始天</kanji>
+        <transcription>yorodu no mono mo megumi moye pazime te</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>好阿流良牟止念仁</kanji>
+        <transcription>yo ku aru ramu to omopu ni</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>伊豫国与利白</kanji>
+        <transcription>i yo no kuni yori sirwo ki</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>祥鹿乎献奉天在礼方有礼志</kanji>
+        <transcription>sirusi no sika wo tatematuri te a reba uresi</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>与呂許保志止奈毛見流</kanji>
+        <transcription>yorokobosi to namo mi ru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV index="1" inferred_index="1">
         <VB-ADN lemma="L030848a" phon="LOG" form="sikaru" />
@@ -189,15 +241,43 @@
       </IP-ADV>
     </IP-MAT>
   </block>
-  <block id="3_SM_46" header="mata mi tu no yo goto no oyazi toki ni atumari te aru koto ito medurasi to omoposi kasikwo mari taputwo bwi omi tati to tomo ni koto ni ayasi ku urupasi ki sirwo ki katati wo namo mi yorokobu ru">
-    <comment raw="IP-MAT,0@復三乃善事乃同,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,NP,IP-REL,ADJ,ACP-CLS,L000033,NULL,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,NP,1@時仁,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,2@集天在,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP,3@己止甚希有止念畏末利尊備,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
-    <comment raw="IP-MAT,4@諸臣等止共仁異奇久麗白伎,*" />
-    <comment raw="IP-MAT,PP,NP,5@形乎奈毛見喜流,*" />
+  <block id="SM.46.3" header="mata mi tu no yo goto no oyazi toki ni atumari te aru koto ito medurasi to omoposi kasikwo mari taputwo bwi omi tati to tomo ni koto ni ayasi ku urupasi ki sirwo ki katati wo namo mi yorokobu ru">
+    <roundtrip-data format="coj-txt" source-id="3_SM_46">
+      <comment position="0" raw="IP-MAT,0@復三乃善事乃同,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,NP,IP-REL,ADJ,ACP-CLS,L000033,NULL,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,IP-ADV,NP,1@時仁,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,IP-ADV,NP,IP-REL,2@集天在,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV,IP-ADV,NP,3@己止甚希有止念畏末利尊備,*" />
+      <comment position="16" raw="IP-MAT,IP-ADV,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
+      <comment position="22" raw="IP-MAT,4@諸臣等止共仁異奇久麗白伎,*" />
+      <comment position="35" raw="IP-MAT,PP,NP,5@形乎奈毛見喜流,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>復三乃善事乃同</kanji>
+        <transcription>mata mi tu no yo goto no oyazi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>時仁</kanji>
+        <transcription>toki ni</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>集天在</kanji>
+        <transcription>atumari te aru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>己止甚希有止念畏末利尊備</kanji>
+        <transcription>koto ito medurasi to omoposi kasikwo mari taputwo bwi</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>諸臣等止共仁異奇久麗白伎</kanji>
+        <transcription>omi tati to tomo ni koto ni ayasi ku urupasi ki sirwo ki</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>形乎奈毛見喜流</kanji>
+        <transcription>katati wo namo mi yorokobu ru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <N phon="LOG" form="mata" />
@@ -304,11 +384,31 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_SM_46" header="kare koko wo motite kurwo ki sirwo ki no mi ki tama pe weraki tune mo tamapu saka mapi no mono tamapa re to site opo mi mono tama paku to noritamapu">
-    <comment raw="IP-MAT,0@故是以黒記白記乃御酒食倍恵良伎,*" />
-    <comment raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,IP-ADV,1@常毛賜,*" />
-    <comment raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,IP-ADV,NP,2@酒幣乃物賜礼止之天,*" />
-    <comment raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,3@御物給波久止宣,*" />
+  <block id="SM.46.4" header="kare koko wo motite kurwo ki sirwo ki no mi ki tama pe weraki tune mo tamapu saka mapi no mono tamapa re to site opo mi mono tama paku to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="4_SM_46">
+      <comment position="0" raw="IP-MAT,0@故是以黒記白記乃御酒食倍恵良伎,*" />
+      <comment position="14" raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,IP-ADV,1@常毛賜,*" />
+      <comment position="17" raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,IP-ADV,NP,2@酒幣乃物賜礼止之天,*" />
+      <comment position="25" raw="IP-MAT,IP-ADV;@4,IP-ADV,NP,IP-REL,3@御物給波久止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>故是以黒記白記乃御酒食倍恵良伎</kanji>
+        <transcription>kare koko wo motite kurwo ki sirwo ki no mi ki tama pe weraki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>常毛賜</kanji>
+        <transcription>tune mo tamapu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>酒幣乃物賜礼止之天</kanji>
+        <transcription>saka mapi no mono tamapa re to site</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>御物給波久止宣</kanji>
+        <transcription>opo mi mono tama paku to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP-ADV>
         <ADV lemma="L004166" phon="LOG" form="kare" />

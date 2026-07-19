@@ -1,9 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_26.txt">
-  <block id="1_SM_26" header="kenzyau kwan no opo mapye tu kimi ni pa ape te tukape maturu be ki pito na ki toki pa munasi ku oki te aru tukasa ni ari">
-    <comment raw="IP-MAT,IP-ADV,0@乾政官大臣仁方敢天,*" />
-    <comment raw="IP-MAT,IP-ADV,1@仕奉倍伎,*" />
-    <comment raw="IP-MAT,2@人无時波空久置弖在官尔阿利,*" />
+  <block id="SM.26.1" header="kenzyau kwan no opo mapye tu kimi ni pa ape te tukape maturu be ki pito na ki toki pa munasi ku oki te aru tukasa ni ari">
+    <roundtrip-data format="coj-txt" source-id="1_SM_26">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@乾政官大臣仁方敢天,*" />
+      <comment position="11" raw="IP-MAT,IP-ADV,1@仕奉倍伎,*" />
+      <comment position="15" raw="IP-MAT,2@人无時波空久置弖在官尔阿利,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>乾政官大臣仁方敢天</kanji>
+        <transcription>kenzyau kwan no opo mapye tu kimi ni pa ape te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>仕奉倍伎</kanji>
+        <transcription>tukape maturu be ki</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>人无時波空久置弖在官尔阿利</kanji>
+        <transcription>pito na ki toki pa munasi ku oki te aru tukasa ni ari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <IP-ADV index="1" inferred_index="1">
@@ -63,20 +79,72 @@
       <N phon="PHON" form="ari" index="1" inferred_index="1" />
     </IP-MAT>
   </block>
-  <block id="2_SM_26" header="sikaredomo ima daipou pa kanarazu sikape maturu be si to omopo si ma se amata no tabi kasane te noritamape domo apu masizi to si te ina bwi mawosi mata uke tamaparu be ki mono n ari seba opo di tukape maturi te masi sika aru mono wo siru koto mo na ku tutana ku wodina ki osi katu ga e tukape maturu be ki tukasa ni pa ara zu kasikwo si to mawosu">
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ARG,0@然,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ARG,1@今大保方必可仕奉之止所念坐世,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,2@多能遍重天勅止毛,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,3@敢未之時止為弖辞備申復可受賜,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,WORD,ACP-CLS,L000033,NULL,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV;@2,IP-ADV,NP;@2,4@物奈利世波,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV;@2,5@祖父仕奉天麻自,*" />
-    <comment raw="CP-FINAL,IP-ADV,PP-ACC,NP,6@然有,*" />
-    <comment raw="CP-FINAL,IP-ADV,PP-ACC,7@物乎知,*" />
-    <comment raw="CP-FINAL,IP-ADV,PP-ACC,PP-TOP,NP,8@所毛無久怯久劣岐,*" />
-    <comment raw="CP-FINAL,IP-ADV,IP-ADV,NP,IP-REL,PP-GEN,NP,9@押勝我得仕奉倍岐,*" />
-    <comment raw="CP-FINAL,IP-ADV,IP-ADV,NP,10@官尔波不在,*" />
-    <comment raw="CP-FINAL,IP-ADV,11@恐止申,*" />
+  <block id="SM.26.2" header="sikaredomo ima daipou pa kanarazu sikape maturu be si to omopo si ma se amata no tabi kasane te noritamape domo apu masizi to si te ina bwi mawosi mata uke tamaparu be ki mono n ari seba opo di tukape maturi te masi sika aru mono wo siru koto mo na ku tutana ku wodina ki osi katu ga e tukape maturu be ki tukasa ni pa ara zu kasikwo si to mawosu">
+    <roundtrip-data format="coj-txt" source-id="2_SM_26">
+      <comment position="0" raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ARG,0@然,*" />
+      <comment position="1" raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ARG,1@今大保方必可仕奉之止所念坐世,*" />
+      <comment position="14" raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,IP-ADV,2@多能遍重天勅止毛,*" />
+      <comment position="21" raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,3@敢未之時止為弖辞備申復可受賜,*" />
+      <comment position="23" raw="CP-FINAL,IP-SUB,IP-ADV,IP-ADV,WORD,ACP-CLS,L000033,NULL,*" />
+      <comment position="34" raw="CP-FINAL,IP-SUB,IP-ADV;@2,IP-ADV,NP;@2,4@物奈利世波,*" />
+      <comment position="37" raw="CP-FINAL,IP-SUB,IP-ADV;@2,5@祖父仕奉天麻自,*" />
+      <comment position="45" raw="CP-FINAL,IP-ADV,PP-ACC,NP,6@然有,*" />
+      <comment position="47" raw="CP-FINAL,IP-ADV,PP-ACC,7@物乎知,*" />
+      <comment position="48" raw="CP-FINAL,IP-ADV,PP-ACC,PP-TOP,NP,8@所毛無久怯久劣岐,*" />
+      <comment position="56" raw="CP-FINAL,IP-ADV,IP-ADV,NP,IP-REL,PP-GEN,NP,9@押勝我得仕奉倍岐,*" />
+      <comment position="64" raw="CP-FINAL,IP-ADV,IP-ADV,NP,10@官尔波不在,*" />
+      <comment position="69" raw="CP-FINAL,IP-ADV,11@恐止申,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>然</kanji>
+        <transcription>sikaredomo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>今大保方必可仕奉之止所念坐世</kanji>
+        <transcription>ima daipou pa kanarazu sikape maturu be si to omopo si ma se</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>多能遍重天勅止毛</kanji>
+        <transcription>amata no tabi kasane te noritamape domo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>敢未之時止為弖辞備申復可受賜</kanji>
+        <transcription>apu masizi to si te ina bwi mawosi mata uke tamaparu be ki</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>物奈利世波</kanji>
+        <transcription>mono nari seba</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>祖父仕奉天麻自</kanji>
+        <transcription>opo di tukape maturi te masi sika aru</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>然有</kanji>
+        <transcription>mono wo</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>物乎知</kanji>
+        <transcription>siru</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>所毛無久怯久劣岐</kanji>
+        <transcription>koto mo na ku tutana ku wodina ki</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>押勝我得仕奉倍岐</kanji>
+        <transcription>osi katu ga e tukape maturu be ki</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>官尔波不在</kanji>
+        <transcription>tukasa ni pa ara zu</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>恐止申</kanji>
+        <transcription>kasikwo si to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <IP-ADV index="1" inferred_index="1">
@@ -111,7 +179,7 @@
                 </IP-ARG>
                 <VB>
                   <VB-STM lemma="L030402a" phon="LOG" form="omopo" />
-                  <VB-STM lemma="L030402a" phon="LOG" form="si" />
+                  <VB-STM lemma="L030402a" phon="LOG" phon_index="2" form="si" />
                   <VB-INF phon="LOG" form="ma" />
                   <VB-INF phon="PHON" form="se" />
                 </VB>
@@ -255,11 +323,31 @@
       <VB-ADC lemma="L031678a" phon="LOG" form="mawosu" />
     </CP-FINAL>
   </block>
-  <block id="3_SM_26" header="kaku mawo su wo mwina pito ni si mo ina to mawosu ni yori te ko no tukasa woba saduke tamapa zu to sira simu ru koto wo e zu">
-    <comment raw="IP-MAT,0@可久申湏乎,*" />
-    <comment raw="IP-MAT,1@皆人仁之毛辞止申仁依弖,*" />
-    <comment raw="IP-MAT,PP,NP,IP-REL,IP-ADV,2@此官乎婆授不給止令知流,*" />
-    <comment raw="IP-MAT,PP,NP,3@事不得,*" />
+  <block id="SM.26.3" header="kaku mawo su wo mwina pito ni si mo ina to mawosu ni yori te ko no tukasa woba saduke tamapa zu to sira simu ru koto wo e zu">
+    <roundtrip-data format="coj-txt" source-id="3_SM_26">
+      <comment position="0" raw="IP-MAT,0@可久申湏乎,*" />
+      <comment position="4" raw="IP-MAT,1@皆人仁之毛辞止申仁依弖,*" />
+      <comment position="15" raw="IP-MAT,PP,NP,IP-REL,IP-ADV,2@此官乎婆授不給止令知流,*" />
+      <comment position="26" raw="IP-MAT,PP,NP,3@事不得,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>可久申湏乎</kanji>
+        <transcription>kaku mawo su wo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>皆人仁之毛辞止申仁依弖</kanji>
+        <transcription>mwina pito ni si mo ina to mawosu ni yori te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>此官乎婆授不給止令知流</kanji>
+        <transcription>ko no tukasa woba saduke tamapa zu to sira simu ru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>事不得</kanji>
+        <transcription>koto wo e zu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <NP>
@@ -333,23 +421,87 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_SM_26" header="mata opo di opo mapye tu kimi no aka ku kiywo ki kokoro wo moti te mi yo kasane te ama no sita mawosi tama pi mikadwo tasuke matu ri tabu koto wo umuga si mi katadikena si to omoposite kake ma ku mo kasikwo ki piziri no sumyera ga mikadwo opo maturi goto no opo mapye tu kimi to site sikape mature to nori tamapi kyeredo siba siba ina bwi mawosi tabu ni yori te uke tamapari taba zu nari ni si koto mo kuyasi to omoposu ga yuwe ni ima ko no pudi para no wemi asomi no daipou wo daisi no tukasa ni tukape mature to saduke tama pu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,0@又祖父大臣乃明久浄岐,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP,NP,1@心以弖,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,IP-ADV,2@御世累弖,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,3@天下申給比,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,4@朝廷助仕奉利多夫,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,5@事乎宇牟我自弥,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,6@辱止念行弖,*" />
-    <comment raw="IP-MAT,IP-ADV,7@挂久毛畏岐,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ARG,IP-ADV,NP,8@聖天皇朝太政大臣止之弖,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ARG,9@仕奉止勅祁礼止,*" />
-    <comment raw="IP-MAT,IP-ADV,10@数々辞備申多夫仁依弖,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-TOP,NP,IP-REL,11@受賜多婆受成尔志,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-TOP,NP,12@事毛悔止,*" />
-    <comment raw="IP-MAT,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
-    <comment raw="IP-MAT,13@念賀故仁今此藤原恵美朝臣能大保乎大師乃官仁仕奉止授賜夫,*" />
-    <comment raw="IP-MAT,PP,NP,14@天皇御命衆聞食宣,*" />
+  <block id="SM.26.4" header="mata opo di opo mapye tu kimi no aka ku kiywo ki kokoro wo moti te mi yo kasane te ama no sita mawosi tama pi mikadwo tasuke matu ri tabu koto wo umuga si mi katadikena si to omoposite kake ma ku mo kasikwo ki piziri no sumyera ga mikadwo opo maturi goto no opo mapye tu kimi to site sikape mature to nori tamapi kyeredo siba siba ina bwi mawosi tabu ni yori te uke tamapari taba zu nari ni si koto mo kuyasi to omoposu ga yuwe ni ima ko no pudi para no wemi asomi no daipou wo daisi no tukasa ni tukape mature to saduke tama pu sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="4_SM_26">
+      <comment position="0" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,0@又祖父大臣乃明久浄岐,*" />
+      <comment position="12" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP,NP,1@心以弖,*" />
+      <comment position="16" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,IP-ADV,2@御世累弖,*" />
+      <comment position="20" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,IP-ADV,3@天下申給比,*" />
+      <comment position="26" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,IP-REL,4@朝廷助仕奉利多夫,*" />
+      <comment position="31" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP,NP,5@事乎宇牟我自弥,*" />
+      <comment position="36" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,6@辱止念行弖,*" />
+      <comment position="40" raw="IP-MAT,IP-ADV,7@挂久毛畏岐,*" />
+      <comment position="46" raw="IP-MAT,IP-ADV,IP-ADV,IP-ARG,IP-ADV,NP,8@聖天皇朝太政大臣止之弖,*" />
+      <comment position="61" raw="IP-MAT,IP-ADV,IP-ADV,IP-ARG,9@仕奉止勅祁礼止,*" />
+      <comment position="67" raw="IP-MAT,IP-ADV,10@数々辞備申多夫仁依弖,*" />
+      <comment position="76" raw="IP-MAT,IP-ADV,PP-TOP,NP,IP-REL,11@受賜多婆受成尔志,*" />
+      <comment position="83" raw="IP-MAT,IP-ADV,PP-TOP,NP,12@事毛悔止,*" />
+      <comment position="86" raw="IP-MAT,IP-ADV,ADJ,ACP-CLS,L000033,NULL,*" />
+      <comment position="87" raw="IP-MAT,13@念賀故仁今此藤原恵美朝臣能大保乎大師乃官仁仕奉止授賜夫,*" />
+      <comment position="112" raw="IP-MAT,PP,NP,14@天皇御命衆聞食宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>又祖父大臣乃明久浄岐</kanji>
+        <transcription>mata opo di opo mapye tu kimi no aka ku kiywo ki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>心以弖</kanji>
+        <transcription>kokoro wo moti te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>御世累弖</kanji>
+        <transcription>mi yo kasane te</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>天下申給比</kanji>
+        <transcription>ama no sita mawosi tama pi</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>朝廷助仕奉利多夫</kanji>
+        <transcription>mikadwo tasuke matu ri tabu</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>事乎宇牟我自弥</kanji>
+        <transcription>koto wo umuga si mi</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>辱止念行弖</kanji>
+        <transcription>katadikena si to omoposite</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>挂久毛畏岐</kanji>
+        <transcription>kake ma ku mo kasikwo ki</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>聖天皇朝太政大臣止之弖</kanji>
+        <transcription>piziri no sumyera ga mikadwo opo maturi goto no opo mapye tu kimi to site</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>仕奉止勅祁礼止</kanji>
+        <transcription>sikape mature to nori tamapi kyeredo</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>数々辞備申多夫仁依弖</kanji>
+        <transcription>siba siba ina bwi mawosi tabu ni yori te</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>受賜多婆受成尔志</kanji>
+        <transcription>uke tamapari taba zu nari ni si</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>事毛悔止</kanji>
+        <transcription>koto mo kuyasi to</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>念賀故仁今此藤原恵美朝臣能大保乎大師乃官仁仕奉止授賜夫</kanji>
+        <transcription>omoposu ga yuwe ni ima ko no pudi para no wemi asomi no daipou wo daisi no tukasa ni tukape mature to saduke tama pu</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>天皇御命衆聞食宣</kanji>
+        <transcription>sumyera ga opo mikoto wo moro moro kiki tamapeyo to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <IP-ADV>

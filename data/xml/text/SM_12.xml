@@ -1,15 +1,55 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_12.txt">
-  <block id="1_SM_12" header="san bou no ya tu kwo to tukape matu ru sumye ra ga opo mikoto rama to ru siya na no mi kata no opo mapye ni mawosi tama pe to mawosa ku ko no yamato no kuni pa ame tuti pirakete ywori ko no kata ni ku gane pa pito kuni ywori tatematuru koto pa are domo ko no kuni ni pa na ki mono to omo p yeru ni kikosi myesu wosu kuni no uti no pimukasi no kata mitinoku no kuni no kami piro ki itu tu no kurawi no kami tu sina kudara no konikisi kyaupuku i kuni no uti no wo da no kopori ni ku gane ide tari to mawosi te tatematur eri">
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,PP-GEN,NP,IP-REL,0@三宝乃奴止仕奉流,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,PP-GEN,NP,1@天皇羅我命,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,2@盧舍那像能大前仁奏賜部止奏久此大倭国者天地開闢以来尓黄金波人国用理献,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-TOP,NP,3@言波有登毛,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,4@斯地者無,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,5@物止,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,6@念部流仁,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,7@聞看,*" />
-    <comment raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,PP-DAT,NP,PP-GEN,NP,8@食国中能東方陸奥国守従五位上百済王敬福伊部内少田郡仁黄金出在奏弖献,*" />
+  <block id="SM.12.1" header="san bou no ya tu kwo to tukape matu ru sumye ra ga opo mikoto rama to ru siya na no mi kata no opo mapye ni mawosi tama pe to mawosa ku ko no yamato no kuni pa ame tuti pirakete ywori ko no kata ni ku gane pa pito kuni ywori tatematuru koto pa are domo ko no kuni ni pa na ki mono to omo p yeru ni kikosi myesu wosu kuni no uti no pimukasi no kata mitinoku no kuni no kami piro ki itu tu no kurawi no kami tu sina kudara no konikisi kyaupuku i kuni no uti no wo da no kopori ni ku gane ide tari to mawosi te tatematur eri">
+    <roundtrip-data format="coj-txt" source-id="1_SM_12">
+      <comment position="0" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,PP-GEN,NP,IP-REL,0@三宝乃奴止仕奉流,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,PP-GEN,NP,1@天皇羅我命,*" />
+      <comment position="17" raw="IP-MAT,IP-ADV,IP-ADV,2@盧舍那像能大前仁奏賜部止奏久此大倭国者天地開闢以来尓黄金波人国用理献,*" />
+      <comment position="54" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-TOP,NP,3@言波有登毛,*" />
+      <comment position="58" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,4@斯地者無,*" />
+      <comment position="65" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,5@物止,*" />
+      <comment position="67" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,IP-ADV,6@念部流仁,*" />
+      <comment position="71" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,7@聞看,*" />
+      <comment position="73" raw="IP-MAT,IP-ADV;@2,IP-ADV,IP-ADV,PP-DAT,NP,PP-GEN,NP,8@食国中能東方陸奥国守従五位上百済王敬福伊部内少田郡仁黄金出在奏弖献,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>三宝乃奴止仕奉流</kanji>
+        <transcription>san bou no ya tu kwo to tukape matu ru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>天皇羅我命</kanji>
+        <transcription>sumye ra ga opo mikoto rama to</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>盧舍那像能大前仁奏賜部止奏久此大倭国者天地開闢以来尓黄金波人国用理献</kanji>
+        <transcription>ru siya na no mi kata no opo mapye ni mawosi tama pe to mawosa ku ko no yamato no kuni pa ame tuti pirakete ywori ko no kata ni ku gane pa pito kuni ywori tatematuru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>言波有登毛</kanji>
+        <transcription>koto pa are domo</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>斯地者無</kanji>
+        <transcription>ko no kuni ni pa na ki</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>物止</kanji>
+        <transcription>mono to</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>念部流仁</kanji>
+        <transcription>omo p yeru ni</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>聞看</kanji>
+        <transcription>kikosi myesu</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>食国中能東方陸奥国守従五位上百済王敬福伊部内少田郡仁黄金出在奏弖献</kanji>
+        <transcription>wosu kuni no uti no pimukasi no kata mitinoku no kuni no kami piro ki itu tu no kurawi no kami tu sina kudara no konikisi kyaupuku i kuni no uti no wo da no kopori ni ku gane ide tari to mawosi te tatematur eri</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV index="1" inferred_index="1">
         <IP-ADV>
@@ -310,12 +350,36 @@
       </IP-ADV>
     </IP-MAT>
   </block>
-  <block id="2_SM_12" header="ko wo kiki tamape odoro ki yoroko bwi taputwo bwi omopa ku pa ru siya na potoke no utukusibwi tama pi saki pape tamapu mono ni ari to omo pe uke tamapa ri kasikwoma ri itadaki moti tukasa dukasa no pito domo wo piki wi te worogami tukape maturu koto wo kake maku mo kasikwo ki san bou no opo mapye ni kasikwo mi mo kasikwo mi mo mawosi tama paku to mawosu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,PP-TOP,NP,IP-REL,0@此遠聞食驚岐悦備貴備念久波盧舍那仏乃慈賜比福波陪賜,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,1@物尓有止念閉受賜里恐理戴持,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,2@百官乃人等率天礼拝仕奉,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,3@事遠挂畏,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-DAT,NP,NP,4@三宝乃大前尓恐毛恐美毛奏賜波久止奏,*" />
+  <block id="SM.12.2" header="ko wo kiki tamape odoro ki yoroko bwi taputwo bwi omopa ku pa ru siya na potoke no utukusibwi tama pi saki pape tamapu mono ni ari to omo pe uke tamapa ri kasikwoma ri itadaki moti tukasa dukasa no pito domo wo piki wi te worogami tukape maturu koto wo kake maku mo kasikwo ki san bou no opo mapye ni kasikwo mi mo kasikwo mi mo mawosi tama paku to mawosu">
+    <roundtrip-data format="coj-txt" source-id="2_SM_12">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,PP-TOP,NP,IP-REL,0@此遠聞食驚岐悦備貴備念久波盧舍那仏乃慈賜比福波陪賜,*" />
+      <comment position="24" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,1@物尓有止念閉受賜里恐理戴持,*" />
+      <comment position="37" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,2@百官乃人等率天礼拝仕奉,*" />
+      <comment position="49" raw="IP-MAT,IP-ADV,PP-OB1,NP,3@事遠挂畏,*" />
+      <comment position="56" raw="IP-MAT,IP-ADV,PP-DAT,NP,NP,4@三宝乃大前尓恐毛恐美毛奏賜波久止奏,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>此遠聞食驚岐悦備貴備念久波盧舍那仏乃慈賜比福波陪賜</kanji>
+        <transcription>ko wo kiki tamape odoro ki yoroko bwi taputwo bwi omopa ku pa ru siya na potoke no utukusibwi tama pi saki pape tamapu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>物尓有止念閉受賜里恐理戴持</kanji>
+        <transcription>mono ni ari to omo pe uke tamapa ri kasikwoma ri itadaki moti</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>百官乃人等率天礼拝仕奉</kanji>
+        <transcription>tukasa dukasa no pito domo wo piki wi te worogami tukape maturu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>事遠挂畏</kanji>
+        <transcription>koto wo kake maku mo kasikwo ki</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>三宝乃大前尓恐毛恐美毛奏賜波久止奏</kanji>
+        <transcription>san bou no opo mapye ni kasikwo mi mo kasikwo mi mo mawosi tama paku to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>

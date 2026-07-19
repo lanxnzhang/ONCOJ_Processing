@@ -169,7 +169,7 @@ def dictionary_entry(entry_id: str):
 
 def _elem_to_node(elem: ET.Element) -> dict:
     """Recursively convert an XML element to a plain-dict tree for JSON."""
-    children = [c for c in elem if c.tag != "comment"]
+    children = [c for c in elem if c.tag not in {"comment", "roundtrip-data", "raw-text"}]
     comments  = [c.get("raw", "") for c in elem if c.tag == "comment"]
     tag = elem.get("raw_tag") or elem.tag
     node: dict = {"tag": tag}
@@ -195,8 +195,10 @@ def utterance_tree(doc_id: str, sentence_id: str):
         abort(404, description=f"Utterance '{sentence_id}' not found in '{doc_id}'")
 
     block = _utterance_to_elem(utt)
-    roots = [c for c in block if c.tag != "comment"]
-    top_comments = [c.get("raw", "") for c in block if c.tag == "comment"]
+    roots = [c for c in block if c.tag not in {"comment", "roundtrip-data", "raw-text"}]
+    roundtrip = block.find("roundtrip-data")
+    comment_nodes = roundtrip.findall("comment") if roundtrip is not None else block.findall("comment")
+    top_comments = [c.get("raw", "") for c in comment_nodes]
 
     return jsonify({
         "sentence_id": utt.sentence_id or "",

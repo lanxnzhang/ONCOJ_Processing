@@ -1,12 +1,40 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_22.txt">
-  <block id="1_EN_22" header="watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te takama no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosi tatematu ru ama tu noritwo no putwo noritwo wo kamunusibe monoimi domo moromoro kikosi myese to noru">
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,0@度會乃宇治乃五十鈴乃川上爾大宮柱大敷立弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,1@高天原爾比木高知弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,2@稱辭竟奉留,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,3@天照坐皇大神乃大前爾申進留,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,4@天津祝詞乃,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,5@太祝詞牟〈乎〉神主部物忌等諸聞食止宣,*" />
+  <block id="EN.22.1" header="watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te takama no para ni pi gwi taka siri te tatapegoto wope matu ru amaterasimasu sumye opo mi kamwi no opo mapye ni mawosi tatematu ru ama tu noritwo no putwo noritwo wo kamunusibe monoimi domo moromoro kikosi myese to noru">
+    <roundtrip-data format="coj-txt" source-id="1_EN_22">
+      <comment position="0" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,0@度會乃宇治乃五十鈴乃川上爾大宮柱大敷立弖,*" />
+      <comment position="16" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,1@高天原爾比木高知弖,*" />
+      <comment position="25" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,IP-REL,2@稱辭竟奉留,*" />
+      <comment position="29" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,IP-EMB,PP-DAT,NP,PP-GEN,NP,3@天照坐皇大神乃大前爾申進留,*" />
+      <comment position="41" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,NP-PRD,4@天津祝詞乃,*" />
+      <comment position="45" raw="IP-MAT,IP-ARG,PP-OB1,NP,5@太祝詞牟〈乎〉神主部物忌等諸聞食止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>度會乃宇治乃五十鈴乃川上爾大宮柱大敷立弖</kanji>
+        <transcription>watarapi no udi no isuzu no kapa kami ni opo miya basira putwo siki ta te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>高天原爾比木高知弖</kanji>
+        <transcription>takama no para ni pi gwi taka siri te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>稱辭竟奉留</kanji>
+        <transcription>tatapegoto wope matu ru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>天照坐皇大神乃大前爾申進留</kanji>
+        <transcription>amaterasimasu sumye opo mi kamwi no opo mapye ni mawosi tatematu ru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>天津祝詞乃</kanji>
+        <transcription>ama tu noritwo no</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>太祝詞牟〈乎〉神主部物忌等諸聞食止宣</kanji>
+        <transcription>putwo noritwo wo kamunusibe monoimi domo moromoro kikosi myese to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <PP-OB1>
@@ -166,9 +194,21 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="2_EN_22" header="negwi utibito domo tomo ni wowo to mawosu">
-    <comment raw="COMMENT,0@禰宜内人等共,*" />
-    <comment raw="COMMENT,IP-MAT,1@稱唯,*" />
+  <block id="EN.22.2" header="negwi utibito domo tomo ni wowo to mawosu">
+    <roundtrip-data format="coj-txt" source-id="2_EN_22">
+      <comment position="0" raw="COMMENT,0@禰宜内人等共,*" />
+      <comment position="5" raw="COMMENT,IP-MAT,1@稱唯,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>禰宜内人等共</kanji>
+        <transcription>negwi utibito domo tomo ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>稱唯</kanji>
+        <transcription>wowo to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <COMMENT>
       <IP-MAT>
         <NP-SBJ>
@@ -200,33 +240,137 @@
       </IP-MAT>
     </COMMENT>
   </block>
-  <block id="3_EN_22" header="sumyera ga opo mikoto ni mase opo mi inoti wo ta naga no opo mi inoti to yu tu ipa mura no goto ku tok ipa ni kak ipa ni ikasi mi yo ni sakipa pe tama pi are masu mi kwo tati wo mo megumi tama pi momo no tukasabito tati ame no sita yomo no kuni no opo mi takara ni itaru made naga ku tapirake ku mamori meguma pi sakipape tamape to mi tu no kopori kuni guni tokoro dokoro ni yose matur eru kamube no pito domo no tune mo tate matu ru yukwi no opo mi ki opo nipe kake dikara ti dikara amari i po tikara wo yoko yama no goto ku oki tarapasi te opo nakatomi putwo tamagusi ni kakuri paberi te kotosi naga dukwi no towo ka mari nanu ka no asa pi no toyosakanobori ni ama tu noritwo no putwo noritwo goto wo tatape mawosu koto wo kamu nusibe monoimi domo moromoro kikosi myese to noru">
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,0@天皇我御命爾坐,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,1@御壽乎手長乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,2@御壽止,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,3@湯津如磐村,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,4@常磐,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,5@堅磐爾,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,6@伊賀志,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,IP-REL,ADJ,ACP-CLS,L000033,NULL,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,7@御世爾幸倍給比,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,8@阿禮坐,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,9@皇子等乎毛惠給比,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,10@百,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,NP,11@官人等天下四方國乃百姓爾至万弖長平久護惠比,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,12@幸給止,*" />
-    <comment raw="IP-MAT,IP-ARG,13@三,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,IP-REL,PP-DAT,NP,14@郡國〻處〻寄奉禮留,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,15@神戸,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,16@人等乃常毛進留,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,17@由紀乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,18@御酒御贄懸税千税餘五百税乎如橫山久置足成弖,*" />
-    <comment raw="IP-MAT,IP-ARG,19@大中臣太玉串爾隱侍弖,*" />
-    <comment raw="IP-MAT,IP-ARG,20@今年九月十七日朝日,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,21@豐榮祭爾,*" />
-    <comment raw="IP-MAT,IP-ARG,22@天津祝詞乃,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,23@太祝詞辭乎稱申,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,24@事乎神主部物忌等諸聞食止宣,*" />
+  <block id="EN.22.3" header="sumyera ga opo mikoto ni mase opo mi inoti wo ta naga no opo mi inoti to yu tu ipa mura no goto ku tok ipa ni kak ipa ni ikasi mi yo ni sakipa pe tama pi are masu mi kwo tati wo mo megumi tama pi momo no tukasabito tati ame no sita yomo no kuni no opo mi takara ni itaru made naga ku tapirake ku mamori meguma pi sakipape tamape to mi tu no kopori kuni guni tokoro dokoro ni yose matur eru kamube no pito domo no tune mo tate matu ru yukwi no opo mi ki opo nipe kake dikara ti dikara amari i po tikara wo yoko yama no goto ku oki tarapasi te opo nakatomi putwo tamagusi ni kakuri paberi te kotosi naga dukwi no towo ka mari nanu ka no asa pi no toyosakanobori ni ama tu noritwo no putwo noritwo goto wo tatape mawosu koto wo kamu nusibe monoimi domo moromoro kikosi myese to noru">
+    <roundtrip-data format="coj-txt" source-id="3_EN_22">
+      <comment position="0" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,0@天皇我御命爾坐,*" />
+      <comment position="6" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,1@御壽乎手長乃,*" />
+      <comment position="13" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,2@御壽止,*" />
+      <comment position="17" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,3@湯津如磐村,*" />
+      <comment position="24" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,4@常磐,*" />
+      <comment position="27" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,5@堅磐爾,*" />
+      <comment position="30" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,6@伊賀志,*" />
+      <comment position="31" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,IP-REL,ADJ,ACP-CLS,L000033,NULL,*" />
+      <comment position="31" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,IP-ADV,NP-PRD,7@御世爾幸倍給比,*" />
+      <comment position="38" raw="IP-MAT,IP-ARG,IP-ADV,8@阿禮坐,*" />
+      <comment position="40" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,PP-OB1,NP,9@皇子等乎毛惠給比,*" />
+      <comment position="48" raw="IP-MAT,IP-ARG,IP-ADV,10@百,*" />
+      <comment position="50" raw="IP-MAT,IP-ARG,IP-ADV,IP-ADV,NP,11@官人等天下四方國乃百姓爾至万弖長平久護惠比,*" />
+      <comment position="72" raw="IP-MAT,IP-ARG,IP-ADV,12@幸給止,*" />
+      <comment position="75" raw="IP-MAT,IP-ARG,13@三,*" />
+      <comment position="78" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,IP-REL,PP-DAT,NP,14@郡國〻處〻寄奉禮留,*" />
+      <comment position="87" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,15@神戸,*" />
+      <comment position="89" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,IP-REL,NP-SBJ,IP-REL,16@人等乃常毛進留,*" />
+      <comment position="97" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,IP-REL,NP-PRD,17@由紀乃,*" />
+      <comment position="99" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,18@御酒御贄懸税千税餘五百税乎如橫山久置足成弖,*" />
+      <comment position="121" raw="IP-MAT,IP-ARG,19@大中臣太玉串爾隱侍弖,*" />
+      <comment position="129" raw="IP-MAT,IP-ARG,20@今年九月十七日朝日,*" />
+      <comment position="142" raw="IP-MAT,IP-ARG,IP-ADV,21@豐榮祭爾,*" />
+      <comment position="144" raw="IP-MAT,IP-ARG,22@天津祝詞乃,*" />
+      <comment position="148" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,PP-OB1,NP,23@太祝詞辭乎稱申,*" />
+      <comment position="154" raw="IP-MAT,IP-ARG,PP-OB1,NP,24@事乎神主部物忌等諸聞食止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>天皇我御命爾坐</kanji>
+        <transcription>sumyera ga opo mikoto ni mase</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>御壽乎手長乃</kanji>
+        <transcription>opo mi inoti wo ta naga no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>御壽止</kanji>
+        <transcription>opo mi inoti to</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>湯津如磐村</kanji>
+        <transcription>yu tu ipa mura no goto ku</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>常磐</kanji>
+        <transcription>tok ipa ni</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>堅磐爾</kanji>
+        <transcription>kak ipa ni</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>伊賀志</kanji>
+        <transcription>ikasi</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>御世爾幸倍給比</kanji>
+        <transcription>mi yo ni sakipa pe tama pi</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>阿禮坐</kanji>
+        <transcription>are masu</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>皇子等乎毛惠給比</kanji>
+        <transcription>mi kwo tati wo mo megumi tama pi</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>百</kanji>
+        <transcription>momo no</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>官人等天下四方國乃百姓爾至万弖長平久護惠比</kanji>
+        <transcription>tukasabito tati ame no sita yomo no kuni no opo mi takara ni itaru made naga ku tapirake ku mamori meguma pi</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>幸給止</kanji>
+        <transcription>sakipape tamape to</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>三</kanji>
+        <transcription>mi tu no</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>郡國〻處〻寄奉禮留</kanji>
+        <transcription>kopori kuni guni tokoro dokoro ni yose matur eru</transcription>
+      </sentence>
+      <sentence n="16">
+        <kanji>神戸</kanji>
+        <transcription>kamube no</transcription>
+      </sentence>
+      <sentence n="17">
+        <kanji>人等乃常毛進留</kanji>
+        <transcription>pito domo no tune mo tate matu ru</transcription>
+      </sentence>
+      <sentence n="18">
+        <kanji>由紀乃</kanji>
+        <transcription>yukwi no</transcription>
+      </sentence>
+      <sentence n="19">
+        <kanji>御酒御贄懸税千税餘五百税乎如橫山久置足成弖</kanji>
+        <transcription>opo mi ki opo nipe kake dikara ti dikara amari i po tikara wo yoko yama no goto ku oki tarapasi te</transcription>
+      </sentence>
+      <sentence n="20">
+        <kanji>大中臣太玉串爾隱侍弖</kanji>
+        <transcription>opo nakatomi putwo tamagusi ni kakuri paberi te</transcription>
+      </sentence>
+      <sentence n="21">
+        <kanji>今年九月十七日朝日</kanji>
+        <transcription>kotosi naga dukwi no towo ka mari nanu ka no asa pi no</transcription>
+      </sentence>
+      <sentence n="22">
+        <kanji>豐榮祭爾</kanji>
+        <transcription>toyosakanobori ni</transcription>
+      </sentence>
+      <sentence n="23">
+        <kanji>天津祝詞乃</kanji>
+        <transcription>ama tu noritwo no</transcription>
+      </sentence>
+      <sentence n="24">
+        <kanji>太祝詞辭乎稱申</kanji>
+        <transcription>putwo noritwo goto wo tatape mawosu</transcription>
+      </sentence>
+      <sentence n="25">
+        <kanji>事乎神主部物忌等諸聞食止宣</kanji>
+        <transcription>koto wo kamu nusibe monoimi domo moromoro kikosi myese to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <IP-ADV>
@@ -673,8 +817,16 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="4_EN_22" header="negwi utibito domo wowo to mawosu">
-    <comment raw="COMMENT,0@禰宜内人等稱唯,*" />
+  <block id="EN.22.4" header="negwi utibito domo wowo to mawosu">
+    <roundtrip-data format="coj-txt" source-id="4_EN_22">
+      <comment position="0" raw="COMMENT,0@禰宜内人等稱唯,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>禰宜内人等稱唯</kanji>
+        <transcription>negwi utibito domo wowo to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <COMMENT>
       <IP-MAT>
         <NP-SBJ>
@@ -700,9 +852,21 @@
       </IP-MAT>
     </COMMENT>
   </block>
-  <block id="5_EN_22" header="aramaturi no miya tuku yomi no miya ni mo ka ku mawosite tate mature to noru">
-    <comment raw="IP-MAT,0@荒祭宮月讀宮爾毛如此久申,*" />
-    <comment raw="IP-MAT,IP-ARG,1@進止宣,*" />
+  <block id="EN.22.5" header="aramaturi no miya tuku yomi no miya ni mo ka ku mawosite tate mature to noru">
+    <roundtrip-data format="coj-txt" source-id="5_EN_22">
+      <comment position="0" raw="IP-MAT,0@荒祭宮月讀宮爾毛如此久申,*" />
+      <comment position="12" raw="IP-MAT,IP-ARG,1@進止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>荒祭宮月讀宮爾毛如此久申</kanji>
+        <transcription>aramaturi no miya tuku yomi no miya ni mo ka ku mawosite</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>進止宣</kanji>
+        <transcription>tate mature to noru</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <PP-DAT>
@@ -750,9 +914,21 @@
       <VB-ADC phon="LOG" form="noru" />
     </IP-MAT>
   </block>
-  <block id="6_EN_22" header="kamunusibe tomo ni wowo to mawosu">
-    <comment raw="COMMENT,0@神主部共,*" />
-    <comment raw="COMMENT,IP-MAT,1@稱唯,*" />
+  <block id="EN.22.6" header="kamunusibe tomo ni wowo to mawosu">
+    <roundtrip-data format="coj-txt" source-id="6_EN_22">
+      <comment position="0" raw="COMMENT,0@神主部共,*" />
+      <comment position="3" raw="COMMENT,IP-MAT,1@稱唯,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>神主部共</kanji>
+        <transcription>kamunusibe tomo ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>稱唯</kanji>
+        <transcription>wowo to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <COMMENT>
       <IP-MAT>
         <NP-SBJ>

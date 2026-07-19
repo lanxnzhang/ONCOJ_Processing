@@ -1,13 +1,45 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_16.txt">
-  <block id="1_EN_16" header="kisaragi no tosigopi mina dukwi sipasu no tukwi nami no maturi sumyera ga opo mi koto moti te watarapi no udi no isuzu no kapa kami no simwo tu ipa ne ni tatapegoto wope matu ru sumye opo mi kamwi no opo mapye ni mawosa ku tune mo tate matu ru kisaragi no tosigopi no tukwinami no maturi ni pa tada minadukwi no tukwinami no koto wo motite api kapeyo opo mitegura wo sore no tukasa kurawi nanigasi wo tukapi to si te sasage mota sime te tate maturi tama pu opo mi koto wo mawosi tamapa ku to mawosu">
-    <comment raw="IP-MAT,0@二月祈年六月十二月〻次祭天皇我御命以弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,1@度會乃宇治乃五十鈴川上乃下津石根爾稱辭竟奉留,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,2@皇大神乃大前爾申久,*" />
-    <comment raw="IP-MAT,3@常毛進留,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,IP-ADV,PP-OB1,NP,4@二月祈年月次祭唯以六月〻次之辭相換大幣帛乎某官位姓名乎爲使天令捧持弖,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,5@進給布,*" />
-    <comment raw="IP-MAT,IP-ARG,PP-OB1,NP,6@御命乎申給久止申,*" />
+  <block id="EN.16.1" header="kisaragi no tosigopi mina dukwi sipasu no tukwi nami no maturi sumyera ga opo mi koto moti te watarapi no udi no isuzu no kapa kami no simwo tu ipa ne ni tatapegoto wope matu ru sumye opo mi kamwi no opo mapye ni mawosa ku tune mo tate matu ru kisaragi no tosigopi no tukwinami no maturi ni pa tada minadukwi no tukwinami no koto wo motite api kapeyo opo mitegura wo sore no tukasa kurawi nanigasi wo tukapi to si te sasage mota sime te tate maturi tama pu opo mi koto wo mawosi tamapa ku to mawosu">
+    <roundtrip-data format="coj-txt" source-id="1_EN_16">
+      <comment position="0" raw="IP-MAT,0@二月祈年六月十二月〻次祭天皇我御命以弖,*" />
+      <comment position="18" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,IP-REL,1@度會乃宇治乃五十鈴川上乃下津石根爾稱辭竟奉留,*" />
+      <comment position="36" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,2@皇大神乃大前爾申久,*" />
+      <comment position="46" raw="IP-MAT,3@常毛進留,*" />
+      <comment position="51" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,IP-ADV,PP-OB1,NP,4@二月祈年月次祭唯以六月〻次之辭相換大幣帛乎某官位姓名乎爲使天令捧持弖,*" />
+      <comment position="87" raw="IP-MAT,IP-ARG,PP-OB1,NP,IP-REL,5@進給布,*" />
+      <comment position="91" raw="IP-MAT,IP-ARG,PP-OB1,NP,6@御命乎申給久止申,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>二月祈年六月十二月〻次祭天皇我御命以弖</kanji>
+        <transcription>kisaragi no tosigopi mina dukwi sipasu no tukwi nami no maturi sumyera ga opo mi koto moti te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>度會乃宇治乃五十鈴川上乃下津石根爾稱辭竟奉留</kanji>
+        <transcription>watarapi no udi no isuzu no kapa kami no simwo tu ipa ne ni tatapegoto wope matu ru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>皇大神乃大前爾申久</kanji>
+        <transcription>sumye opo mi kamwi no opo mapye ni mawosa ku</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>常毛進留</kanji>
+        <transcription>tune mo tate matu ru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>二月祈年月次祭唯以六月〻次之辭相換大幣帛乎某官位姓名乎爲使天令捧持弖</kanji>
+        <transcription>kisaragi no tosigopi no tukwinami no maturi ni pa tada minadukwi no tukwinami no koto wo motite api kapeyo opo mitegura wo sore no tukasa kurawi nanigasi wo tukapi to si te sasage mota sime te</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>進給布</kanji>
+        <transcription>tate maturi tama pu</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>御命乎申給久止申</kanji>
+        <transcription>opo mi koto wo mawosi tamapa ku to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-NMZ-FRM>
         <COMMENT>

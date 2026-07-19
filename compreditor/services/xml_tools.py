@@ -6,6 +6,7 @@ from copy import deepcopy
 from typing import Iterable
 
 TAG_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_.:-]*$")
+METADATA_TAGS = {"roundtrip-data", "comment", "raw-text", "sentence", "kanji", "transcription"}
 
 
 def parse_path(value: str | None) -> tuple[int, ...]:
@@ -49,7 +50,7 @@ def node_payload(elem: ET.Element, path: tuple[int, ...] = ()) -> dict:
     layer = (
         "document" if not path else
         "sentence" if elem.tag == "block" else
-        "annotation" if elem.tag == "comment" else
+        "annotation" if elem.tag in METADATA_TAGS else
         "word" if elem.get("form") is not None else
         "branch"
     )

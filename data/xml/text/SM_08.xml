@@ -1,14 +1,50 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_08.txt">
-  <block id="1_SM_08" header="sumyera ga opo mikoto rama to ima nori tamap yeru mi koto nori pa tune no koto ni pa ara zu mutu goto to omoposi masu ga yuwe ni napo aru be ki mono ni a re ya to omoposi mye site opo mi mono tamapa ku to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,0@天皇詔旨,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,1@今勅,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,2@御事法者常事尓波不有,*" />
-    <comment raw="IP-MAT,IP-ADV,3@武都事止思坐,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,4@故,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,5@猶在倍伎,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,6@物尓有礼夜止思行之氐,*" />
-    <comment raw="IP-MAT,IP-ADV,7@大御物賜久止宣,*" />
+  <block id="SM.8.1" header="sumyera ga opo mikoto rama to ima nori tamap yeru mi koto nori pa tune no koto ni pa ara zu mutu goto to omoposi masu ga yuwe ni napo aru be ki mono ni a re ya to omoposi mye site opo mi mono tamapa ku to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="1_SM_08">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,0@天皇詔旨,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,IP-REL,1@今勅,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,PP-SBJ-TOP,NP,2@御事法者常事尓波不有,*" />
+      <comment position="21" raw="IP-MAT,IP-ADV,3@武都事止思坐,*" />
+      <comment position="26" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,IP-ADV,NP,4@故,*" />
+      <comment position="29" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,5@猶在倍伎,*" />
+      <comment position="33" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,NP,6@物尓有礼夜止思行之氐,*" />
+      <comment position="42" raw="IP-MAT,IP-ADV,7@大御物賜久止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>天皇詔旨</kanji>
+        <transcription>sumyera ga opo mikoto rama to</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>今勅</kanji>
+        <transcription>ima nori tamap yeru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>御事法者常事尓波不有</kanji>
+        <transcription>mi koto nori pa tune no koto ni pa ara zu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>武都事止思坐</kanji>
+        <transcription>mutu goto to omoposi masu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>故</kanji>
+        <transcription>ga yuwe ni</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>猶在倍伎</kanji>
+        <transcription>napo aru be ki</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>物尓有礼夜止思行之氐</kanji>
+        <transcription>mono ni a re ya to omoposi mye site</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>大御物賜久止宣</kanji>
+        <transcription>opo mi mono tamapa ku to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ-TOP>

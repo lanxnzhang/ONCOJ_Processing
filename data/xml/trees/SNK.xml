@@ -1,11 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SNK.txt">
   <block id="SNK.1" header="atarasiki tosi no pazime ni kaku si koso tukapematurame yoroduyo madeni">
-    <comment raw="CP-FINAL,IP-SUB,0@新,*" />
-    <comment raw="CP-FINAL,IP-SUB,PP,NP,1@年始迩,*" />
-    <comment raw="CP-FINAL,IP-SUB,2@何久志社,*" />
-    <comment raw="CP-FINAL,IP-SUB,3@供奉良米,*" />
-    <comment raw="CP-FINAL,4@万代摩提丹,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.1">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@新,*" />
+      <comment position="2" raw="CP-FINAL,IP-SUB,PP,NP,1@年始迩,*" />
+      <comment position="6" raw="CP-FINAL,IP-SUB,2@何久志社,*" />
+      <comment position="9" raw="CP-FINAL,IP-SUB,3@供奉良米,*" />
+      <comment position="12" raw="CP-FINAL,4@万代摩提丹,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>新</kanji>
+        <transcription>atarasi ki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>年始迩</kanji>
+        <transcription>tosi no pazime ni</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>何久志社</kanji>
+        <transcription>kaku si koso</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>供奉良米</kanji>
+        <transcription>tukape matura me</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>万代摩提丹</kanji>
+        <transcription>yorodu yo madeni</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP>
@@ -51,11 +75,35 @@
     </CP-FINAL>
   </block>
   <block id="SNK.2" header="sworamitu yamatonokuni pa kamwi kara si taputwoku aru rasi ko no mapi mireba">
-    <comment raw="CP-FINAL,IP-SUB,0@蘇良美都,*" />
-    <comment raw="CP-FINAL,IP-SUB,PP,NP,1@夜麻止乃久爾波,*" />
-    <comment raw="CP-FINAL,IP-SUB,2@可未可良斯,*" />
-    <comment raw="CP-FINAL,IP-SUB,3@多布度久安流羅之,*" />
-    <comment raw="CP-FINAL,4@許能末比美例波,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.2">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@蘇良美都,*" />
+      <comment position="2" raw="CP-FINAL,IP-SUB,PP,NP,1@夜麻止乃久爾波,*" />
+      <comment position="6" raw="CP-FINAL,IP-SUB,2@可未可良斯,*" />
+      <comment position="9" raw="CP-FINAL,IP-SUB,3@多布度久安流羅之,*" />
+      <comment position="13" raw="CP-FINAL,4@許能末比美例波,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>蘇良美都</kanji>
+        <transcription>swora mitu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>夜麻止乃久爾波</kanji>
+        <transcription>yamato no kuni pa</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>可未可良斯</kanji>
+        <transcription>kamwi kara si</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>多布度久安流羅之</kanji>
+        <transcription>taputwo ku aru rasi</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>許能末比美例波</kanji>
+        <transcription>ko no mapi mireba</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP>
@@ -101,11 +149,35 @@
     </CP-FINAL>
   </block>
   <block id="SNK.3" header="amatukamwi mima no mikoto no torimotite ko no toyomiki wo ika tatematuru">
-    <comment raw="IP-MAT,IP-ADV,0@阿麻豆可未,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@美麻乃弥己止乃,*" />
-    <comment raw="IP-MAT,IP-ADV,2@登理母知弖,*" />
-    <comment raw="IP-MAT,3@許能等与美岐遠,*" />
-    <comment raw="IP-MAT,4@伊可多弖末都流,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.3">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@阿麻豆可未,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@美麻乃弥己止乃,*" />
+      <comment position="7" raw="IP-MAT,IP-ADV,2@登理母知弖,*" />
+      <comment position="9" raw="IP-MAT,3@許能等与美岐遠,*" />
+      <comment position="15" raw="IP-MAT,4@伊可多弖末都流,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿麻豆可未</kanji>
+        <transcription>ama tu kamwi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>美麻乃弥己止乃</kanji>
+        <transcription>mima no mikoto no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>登理母知弖</kanji>
+        <transcription>tori motite</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>許能等与美岐遠</kanji>
+        <transcription>ko no toyo mi ki wo</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>伊可多弖末都流</kanji>
+        <transcription>ika tate maturu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -162,11 +234,35 @@
     </IP-MAT>
   </block>
   <block id="SNK.4" header="yasumisisi wa go opokimi pa tapirakeku nagaku imasite toyomiki maturu">
-    <comment raw="IP-MAT,0@夜須美斯志,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@和己於保支美波,*" />
-    <comment raw="IP-MAT,IP-ADV,2@多比良気久,*" />
-    <comment raw="IP-MAT,IP-ADV,3@那何久伊末之弖,*" />
-    <comment raw="IP-MAT,4@等与美岐麻都流,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.4">
+      <comment position="0" raw="IP-MAT,0@夜須美斯志,*" />
+      <comment position="1" raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@和己於保支美波,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,2@多比良気久,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,3@那何久伊末之弖,*" />
+      <comment position="11" raw="IP-MAT,4@等与美岐麻都流,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>夜須美斯志</kanji>
+        <transcription>yasumisisi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>和己於保支美波</kanji>
+        <transcription>wa go opo kimi pa</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>多比良気久</kanji>
+        <transcription>tapirake ku</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>那何久伊末之弖</kanji>
+        <transcription>naga ku imasite</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>等与美岐麻都流</kanji>
+        <transcription>toyo mi ki maturu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -210,13 +306,45 @@
     </IP-MAT>
   </block>
   <block id="SNK.5" header="umi yukaba miduku kabane yama yukaba kusa musu kabane opokimi no pye ni koso siname nodoni pa sinazi">
-    <comment raw="multi-sentence,IP-MAT,0@海行波,*" />
-    <comment raw="multi-sentence,IP-MAT,1@美豆久屍,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@山行波,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@草牟須屍,*" />
-    <comment raw="multi-sentence,IP-MAT,4@王乃,*" />
-    <comment raw="multi-sentence,IP-MAT,PP,NP,5@幣爾去曾死米,*" />
-    <comment raw="multi-sentence,IP-MAT;@4,6@能杼爾波不死,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.5">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@海行波,*" />
+      <comment position="3" raw="multi-sentence,IP-MAT,1@美豆久屍,*" />
+      <comment position="6" raw="multi-sentence,IP-MAT;@2,2@山行波,*" />
+      <comment position="9" raw="multi-sentence,IP-MAT;@2,3@草牟須屍,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT,4@王乃,*" />
+      <comment position="15" raw="multi-sentence,IP-MAT,PP,NP,5@幣爾去曾死米,*" />
+      <comment position="20" raw="multi-sentence,IP-MAT;@4,6@能杼爾波不死,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>海行波</kanji>
+        <transcription>umi yuka ba</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>美豆久屍</kanji>
+        <transcription>mi duku kabane</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>山行波</kanji>
+        <transcription>yama yuka ba</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>草牟須屍</kanji>
+        <transcription>kusa musu kabane</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>王乃</kanji>
+        <transcription>opo kimi no</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>幣爾去曾死米</kanji>
+        <transcription>pye ni koso sina me</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>能杼爾波不死</kanji>
+        <transcription>nodoni pa sinazi</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
@@ -288,11 +416,35 @@
     </multi-sentence>
   </block>
   <block id="SNK.6" header="wotomyera ni wotokwo tatiswopi puminarasu nisi no miyakwo pa yoroduyo no miya">
-    <comment raw="multi-sentence,IP-MAT,0@乎止賣良爾,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-ADV,1@乎止古多智蘇比,*" />
-    <comment raw="multi-sentence,IP-MAT,2@布美奈良須,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@爾詩乃美夜古波,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,4@与呂豆与乃美夜,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.6">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@乎止賣良爾,*" />
+      <comment position="3" raw="multi-sentence,IP-MAT,IP-ADV,1@乎止古多智蘇比,*" />
+      <comment position="6" raw="multi-sentence,IP-MAT,2@布美奈良須,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT;@2,3@爾詩乃美夜古波,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT;@2,4@与呂豆与乃美夜,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>乎止賣良爾</kanji>
+        <transcription>wotomye ra ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>乎止古多智蘇比</kanji>
+        <transcription>wotokwo tati swopi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>布美奈良須</kanji>
+        <transcription>pumi narasu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>爾詩乃美夜古波</kanji>
+        <transcription>nisi no miyakwo pa</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与呂豆与乃美夜</kanji>
+        <transcription>yorodu yo no miya</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
@@ -347,11 +499,35 @@
     </multi-sentence>
   </block>
   <block id="SNK.7" header="puti mo se mo kiyoku sayakesi pakatagapa titose wo matite sumyeru kapa kamo">
-    <comment raw="multi-sentence,IP-MAT,0@布知毛世毛,*" />
-    <comment raw="multi-sentence,IP-MAT,1@伎与久佐夜気志,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@波可多我波,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,IP-ADV,3@知止世乎麻知弖,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,4@須賣流可波可母,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.7">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@布知毛世毛,*" />
+      <comment position="4" raw="multi-sentence,IP-MAT,1@伎与久佐夜気志,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT;@2,2@波可多我波,*" />
+      <comment position="10" raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,IP-ADV,3@知止世乎麻知弖,*" />
+      <comment position="14" raw="multi-sentence,IP-MAT;@2,NP-PRD,IP-REL,4@須賣流可波可母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>布知毛世毛</kanji>
+        <transcription>puti mo se mo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>伎与久佐夜気志</kanji>
+        <transcription>kiyo ku sayake si</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>波可多我波</kanji>
+        <transcription>pakata gapa</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>知止世乎麻知弖</kanji>
+        <transcription>ti tose wo matite</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>須賣流可波可母</kanji>
+        <transcription>sum yeru kapa kamo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <PP-SBJ>
@@ -414,22 +590,90 @@
     </multi-sentence>
   </block>
   <block id="SNK.8" header="kadurakwi no tera no mapye n aru ya toyora no tera no nisi n aru ya ositodwo twositodwo sakurawi ni sirakabe siduku ya yoki tama siduku ya ositodwo twositodwo sika siteba kuni so sakayuru ya wagipyera so sakayuru ya ositodwo twositodwo">
-    <comment raw="multi-sentence,IP-MAT,0@葛城,*" />
-    <comment raw="multi-sentence,IP-MAT,PP,NP,1@寺乃前在也,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@豊浦寺乃,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,PP,NP,3@西在也,*" />
-    <comment raw="multi-sentence,IP-MAT,4@於志止度,*" />
-    <comment raw="multi-sentence,IP-MAT,NP-ADV,5@刀志止度,*" />
-    <comment raw="multi-sentence,IP-MAT;@4,6@桜井爾,*" />
-    <comment raw="multi-sentence,IP-MAT;@4,7@白壁之豆久也,*" />
-    <comment raw="multi-sentence,IP-MAT,8@好璧之豆久也,*" />
-    <comment raw="multi-sentence,IP-MAT;@6,9@於志止度,*" />
-    <comment raw="multi-sentence,IP-MAT;@6,NP,10@刀志止度,*" />
-    <comment raw="multi-sentence,IP-MAT,11@然為波,*" />
-    <comment raw="multi-sentence,IP-MAT,12@國曾昌由流也,*" />
-    <comment raw="multi-sentence,IP-MAT;@8,13@吾家良曾昌由流也,*" />
-    <comment raw="multi-sentence,IP-MAT,14@於志止度,*" />
-    <comment raw="multi-sentence,IP-MAT,NP-ADV,15@刀志止度,*" />
+    <roundtrip-data format="coj-txt" source-id="SNK.8">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@葛城,*" />
+      <comment position="2" raw="multi-sentence,IP-MAT,PP,NP,1@寺乃前在也,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT;@2,2@豊浦寺乃,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT;@2,PP,NP,3@西在也,*" />
+      <comment position="16" raw="multi-sentence,IP-MAT,4@於志止度,*" />
+      <comment position="17" raw="multi-sentence,IP-MAT,NP-ADV,5@刀志止度,*" />
+      <comment position="18" raw="multi-sentence,IP-MAT;@4,6@桜井爾,*" />
+      <comment position="21" raw="multi-sentence,IP-MAT;@4,7@白壁之豆久也,*" />
+      <comment position="25" raw="multi-sentence,IP-MAT,8@好璧之豆久也,*" />
+      <comment position="30" raw="multi-sentence,IP-MAT;@6,9@於志止度,*" />
+      <comment position="31" raw="multi-sentence,IP-MAT;@6,NP,10@刀志止度,*" />
+      <comment position="32" raw="multi-sentence,IP-MAT,11@然為波,*" />
+      <comment position="36" raw="multi-sentence,IP-MAT,12@國曾昌由流也,*" />
+      <comment position="41" raw="multi-sentence,IP-MAT;@8,13@吾家良曾昌由流也,*" />
+      <comment position="47" raw="multi-sentence,IP-MAT,14@於志止度,*" />
+      <comment position="48" raw="multi-sentence,IP-MAT,NP-ADV,15@刀志止度,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>葛城</kanji>
+        <transcription>kadurakwi no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>寺乃前在也</kanji>
+        <transcription>tera no mapye n aru ya</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>豊浦寺乃</kanji>
+        <transcription>toyora no tera no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>西在也</kanji>
+        <transcription>nisi n aru ya</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>於志止度</kanji>
+        <transcription>ositodwo</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>刀志止度</kanji>
+        <transcription>twositodwo</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>桜井爾</kanji>
+        <transcription>sakura wi ni</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>白壁之豆久也</kanji>
+        <transcription>sira kabe siduku ya</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>好璧之豆久也</kanji>
+        <transcription>yo ki tama siduku ya</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>於志止度</kanji>
+        <transcription>ositodwo</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>刀志止度</kanji>
+        <transcription>twositodwo</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>然為波</kanji>
+        <transcription>sika si te ba</transcription>
+      </sentence>
+      <sentence n="13">
+        <kanji>國曾昌由流也</kanji>
+        <transcription>kuni so saka yuru ya</transcription>
+      </sentence>
+      <sentence n="14">
+        <kanji>吾家良曾昌由流也</kanji>
+        <transcription>wagipye ra so saka yuru ya</transcription>
+      </sentence>
+      <sentence n="15">
+        <kanji>於志止度</kanji>
+        <transcription>ositodwo</transcription>
+      </sentence>
+      <sentence n="16">
+        <kanji>刀志止度</kanji>
+        <transcription>twositodwo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <PP>

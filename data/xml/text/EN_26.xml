@@ -1,17 +1,65 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="EN_26.txt">
-  <block id="1_EN_26" header="sumyemima no mikoto no opo mi koto moti te suminoye ni koto wope matu ru sumye gamwi tati no mapye ni mawosi tamapa ku morokwosi ni tukapi tukapa sa mu to suru ni puna suwe na ki ni yori te parima no kuni yori puna noru to si te tukapi pa tukapa sa mu to omoposi myesu ma ni sumye gamwi no mikoto moti te puna suwe pa ware tukura mu to wosipe satosi tama pi ki">
-    <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,0@皇御孫,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,1@尊乃御命以弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,2@住吉爾辭竟奉留,*" />
-    <comment raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,3@皇神等前爾申賜久,*" />
-    <comment raw="IP-MAT,4@大唐爾使遣佐牟,*" />
-    <comment raw="IP-MAT,IP-ADV,5@止爲爾,*" />
-    <comment raw="IP-MAT,6@依船居无弖,*" />
-    <comment raw="IP-MAT,7@播磨國與利船乘止爲弖,*" />
-    <comment raw="IP-MAT,PP-DAT,NP,IP-EMB,IP-ARG,8@使者遣左牟止所念行,*" />
-    <comment raw="IP-MAT,PP-DAT,NP,9@間爾皇神命以弖,*" />
-    <comment raw="IP-MAT,10@船居波吾作牟止教悟給比支,*" />
+  <block id="EN.26.1" header="sumyemima no mikoto no opo mi koto moti te suminoye ni koto wope matu ru sumye gamwi tati no mapye ni mawosi tamapa ku morokwosi ni tukapi tukapa sa mu to suru ni puna suwe na ki ni yori te parima no kuni yori puna noru to si te tukapi pa tukapa sa mu to omoposi myesu ma ni sumye gamwi no mikoto moti te puna suwe pa ware tukura mu to wosipe satosi tama pi ki">
+    <roundtrip-data format="coj-txt" source-id="1_EN_26">
+      <comment position="0" raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,0@皇御孫,*" />
+      <comment position="2" raw="IP-MAT,IP-NMZ-FRM,IP-ADV,NP,PP-GEN,NP,1@尊乃御命以弖,*" />
+      <comment position="9" raw="IP-MAT,IP-NMZ-FRM,2@住吉爾辭竟奉留,*" />
+      <comment position="15" raw="IP-MAT,IP-NMZ-FRM,PP-DAT,NP,PP-GEN,NP,3@皇神等前爾申賜久,*" />
+      <comment position="24" raw="IP-MAT,4@大唐爾使遣佐牟,*" />
+      <comment position="30" raw="IP-MAT,IP-ADV,5@止爲爾,*" />
+      <comment position="33" raw="IP-MAT,6@依船居无弖,*" />
+      <comment position="40" raw="IP-MAT,7@播磨國與利船乘止爲弖,*" />
+      <comment position="49" raw="IP-MAT,PP-DAT,NP,IP-EMB,IP-ARG,8@使者遣左牟止所念行,*" />
+      <comment position="57" raw="IP-MAT,PP-DAT,NP,9@間爾皇神命以弖,*" />
+      <comment position="65" raw="IP-MAT,10@船居波吾作牟止教悟給比支,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>皇御孫</kanji>
+        <transcription>sumyemima no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>尊乃御命以弖</kanji>
+        <transcription>mikoto no opo mi koto moti te</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>住吉爾辭竟奉留</kanji>
+        <transcription>suminoye ni koto wope matu ru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>皇神等前爾申賜久</kanji>
+        <transcription>sumye gamwi tati no mapye ni mawosi tamapa ku</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>大唐爾使遣佐牟</kanji>
+        <transcription>morokwosi ni tukapi tukapa sa mu</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>止爲爾</kanji>
+        <transcription>to suru ni</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>依船居无弖</kanji>
+        <transcription>puna suwe na ki ni yori te</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>播磨國與利船乘止爲弖</kanji>
+        <transcription>parima no kuni yori puna noru to si te</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>使者遣左牟止所念行</kanji>
+        <transcription>tukapi pa tukapa sa mu to omoposi myesu</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>間爾皇神命以弖</kanji>
+        <transcription>ma ni sumye gamwi no mikoto moti te</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>船居波吾作牟止教悟給比支</kanji>
+        <transcription>puna suwe pa ware tukura mu to wosipe satosi tama pi ki</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-NMZ-FRM>
         <IP-ADV>
@@ -208,12 +256,36 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="2_EN_26" header="wosipe satosi tama pi nagara puna suwe tukuri tama p yereba yoro kobwi yoro si mi wiya ziro no mitegura wo tukasa kurawi nanigasi ni sasage mota sime te tate matura ku to mawosu">
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,0@教悟給比那我良,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,1@船居作給部禮波悦己比嘉之美,*" />
-    <comment raw="IP-MAT,IP-ARG,2@禮代乃,*" />
-    <comment raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,3@幣帛乎官位姓名爾令捧賷弖,*" />
-    <comment raw="IP-MAT,IP-ARG,4@進奉久止申,*" />
+  <block id="EN.26.2" header="wosipe satosi tama pi nagara puna suwe tukuri tama p yereba yoro kobwi yoro si mi wiya ziro no mitegura wo tukasa kurawi nanigasi ni sasage mota sime te tate matura ku to mawosu">
+    <roundtrip-data format="coj-txt" source-id="2_EN_26">
+      <comment position="0" raw="IP-MAT,IP-ARG,IP-ADV,0@教悟給比那我良,*" />
+      <comment position="5" raw="IP-MAT,IP-ARG,IP-ADV,1@船居作給部禮波悦己比嘉之美,*" />
+      <comment position="16" raw="IP-MAT,IP-ARG,2@禮代乃,*" />
+      <comment position="19" raw="IP-MAT,IP-ARG,IP-ADV,PP-OB1,NP,3@幣帛乎官位姓名爾令捧賷弖,*" />
+      <comment position="29" raw="IP-MAT,IP-ARG,4@進奉久止申,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>教悟給比那我良</kanji>
+        <transcription>wosipe satosi tama pi nagara</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>船居作給部禮波悦己比嘉之美</kanji>
+        <transcription>puna suwe tukuri tama p yereba yoro kobwi yoro si mi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>禮代乃</kanji>
+        <transcription>wiya ziro no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>幣帛乎官位姓名爾令捧賷弖</kanji>
+        <transcription>mitegura wo tukasa kurawi nanigasi ni sasage mota sime te</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>進奉久止申</kanji>
+        <transcription>tate matura ku to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <IP-ADV index="1" inferred_index="1">

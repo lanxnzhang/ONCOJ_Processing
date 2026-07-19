@@ -1,10 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_56.txt">
-  <block id="1_SM_56" header="sumyera ga opo mikoto rama to morokwosi ni tukapa su tukapi ni noritamapu opo mikoto wo kiki tamapeyo to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,0@天皇我大命良麻等,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,1@遣唐国,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,PP-DAT,NP,2@使人尔詔,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,3@大命乎聞食止宣,*" />
+  <block id="SM.56.1" header="sumyera ga opo mikoto rama to morokwosi ni tukapa su tukapi ni noritamapu opo mikoto wo kiki tamapeyo to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="1_SM_56">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,0@天皇我大命良麻等,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,1@遣唐国,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,PP-DAT,NP,2@使人尔詔,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV,PP-OB1,NP,3@大命乎聞食止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>天皇我大命良麻等</kanji>
+        <transcription>sumyera ga opo mikoto rama to</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>遣唐国</kanji>
+        <transcription>morokwosi ni tukapa su</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>使人尔詔</kanji>
+        <transcription>tukapi ni noritamapu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>大命乎聞食止宣</kanji>
+        <transcription>opo mikoto wo kiki tamapeyo to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>
@@ -62,14 +82,46 @@
       <VB-ADC lemma="L032093a" phon="LOG" form="noritamapu" />
     </IP-MAT>
   </block>
-  <block id="2_SM_56" header="ima nori tamapaku sapeki no ima emisi no suku ne opo tomo no suku ne masu tatu puta ri ima imasi tati puta ri wo morokwosi ni tukapa su pa ima pazime te tukapa su mono ni pa ara zu moto ywori mikadwo ywori tukapi ka no kuni ni tukapa si ka no kuni yori madasi watasi kyeri">
-    <comment raw="IP-MAT,0@今詔佐伯今毛人宿祢大伴宿祢益立二人,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,1@今汝等二人乎遣唐国者,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,2@今始弖遣,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,NP,3@物尔波不在,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,4@本与利自朝使,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,5@其国尔遣之,*" />
-    <comment raw="IP-MAT,IP-ADV;@3,IP-ADV,6@其国与利進渡祁里,*" />
+  <block id="SM.56.2" header="ima nori tamapaku sapeki no ima emisi no suku ne opo tomo no suku ne masu tatu puta ri ima imasi tati puta ri wo morokwosi ni tukapa su pa ima pazime te tukapa su mono ni pa ara zu moto ywori mikadwo ywori tukapi ka no kuni ni tukapa si ka no kuni yori madasi watasi kyeri">
+    <roundtrip-data format="coj-txt" source-id="2_SM_56">
+      <comment position="0" raw="IP-MAT,0@今詔佐伯今毛人宿祢大伴宿祢益立二人,*" />
+      <comment position="19" raw="IP-MAT,IP-ADV;@3,1@今汝等二人乎遣唐国者,*" />
+      <comment position="30" raw="IP-MAT,IP-ADV;@3,2@今始弖遣,*" />
+      <comment position="35" raw="IP-MAT,IP-ADV;@3,IP-ADV,IP-ADV,NP,3@物尔波不在,*" />
+      <comment position="40" raw="IP-MAT,IP-ADV;@3,IP-ADV,4@本与利自朝使,*" />
+      <comment position="45" raw="IP-MAT,IP-ADV;@3,IP-ADV,5@其国尔遣之,*" />
+      <comment position="51" raw="IP-MAT,IP-ADV;@3,IP-ADV,6@其国与利進渡祁里,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>今詔佐伯今毛人宿祢大伴宿祢益立二人</kanji>
+        <transcription>ima nori tamapaku sapeki no ima emisi no suku ne opo tomo no suku ne masu tatu puta ri</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>今汝等二人乎遣唐国者</kanji>
+        <transcription>ima imasi tati puta ri wo morokwosi ni tukapa su pa</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>今始弖遣</kanji>
+        <transcription>ima pazime te tukapa su</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>物尔波不在</kanji>
+        <transcription>mono ni pa ara zu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>本与利自朝使</kanji>
+        <transcription>moto ywori mikadwo ywori tukapi</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>其国尔遣之</kanji>
+        <transcription>ka no kuni ni tukapa si</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>其国与利進渡祁里</kanji>
+        <transcription>ka no kuni yori madasi watasi kyeri</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV index="1" inferred_index="1">
         <NP>
@@ -219,10 +271,26 @@
       </IP-ADV>
     </IP-MAT>
   </block>
-  <block id="3_SM_56" header="kore ni yori te tukapi no tugite to tukapa su mono so">
-    <comment raw="IP-MAT,NP,IP-REL,IP-ADV,NP,0@依此弖,*" />
-    <comment raw="IP-MAT,NP,IP-REL,IP-ADV,NP,1@使次止遣,*" />
-    <comment raw="IP-MAT,NP,2@物曾,*" />
+  <block id="SM.56.3" header="kore ni yori te tukapi no tugite to tukapa su mono so">
+    <roundtrip-data format="coj-txt" source-id="3_SM_56">
+      <comment position="0" raw="IP-MAT,NP,IP-REL,IP-ADV,NP,0@依此弖,*" />
+      <comment position="4" raw="IP-MAT,NP,IP-REL,IP-ADV,NP,1@使次止遣,*" />
+      <comment position="10" raw="IP-MAT,NP,2@物曾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>依此弖</kanji>
+        <transcription>kore ni yori te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>使次止遣</kanji>
+        <transcription>tukapi no tugite to tukapa su</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>物曾</kanji>
+        <transcription>mono so</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <IP-REL>
@@ -258,9 +326,21 @@
       <P-FOC phon="LOG" form="so" />
     </IP-MAT>
   </block>
-  <block id="4_SM_56" header="ko no kokoro wo satori te ka no pito domo no nikwo mi yasu mi su be ku api i pye">
-    <comment raw="IP-MAT,IP-ADV,0@悟此意弖,*" />
-    <comment raw="IP-MAT,IP-ADV,1@其人等乃和美安美応為久相言部,*" />
+  <block id="SM.56.4" header="ko no kokoro wo satori te ka no pito domo no nikwo mi yasu mi su be ku api i pye">
+    <roundtrip-data format="coj-txt" source-id="4_SM_56">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@悟此意弖,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,1@其人等乃和美安美応為久相言部,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>悟此意弖</kanji>
+        <transcription>ko no kokoro wo satori te</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>其人等乃和美安美応為久相言部</kanji>
+        <transcription>ka no pito domo no nikwo mi yasu mi su be ku api i pye</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <IP-ADV>
@@ -321,9 +401,21 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="5_SM_56" header="odo ro odo rosi ki koto waza na se so">
-    <comment raw="IP-MAT,NP,0@驚呂驚呂之岐,*" />
-    <comment raw="IP-MAT,NP,1@事行奈世曾,*" />
+  <block id="SM.56.5" header="odo ro odo rosi ki koto waza na se so">
+    <roundtrip-data format="coj-txt" source-id="5_SM_56">
+      <comment position="0" raw="IP-MAT,NP,0@驚呂驚呂之岐,*" />
+      <comment position="5" raw="IP-MAT,NP,1@事行奈世曾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>驚呂驚呂之岐</kanji>
+        <transcription>odo ro odo rosi ki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>事行奈世曾</kanji>
+        <transcription>koto waza na se so</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <IP-REL>
@@ -349,16 +441,56 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="6_SM_56" header="mata tukapa su tukapi no maturi goto pito ywori simo tu kata korosu tumi ywori simo wokasu koto araba tumi ni sitagapi te okonapye to site sirusi no tati tamapa ku to noritamapu opo mikoto wo kiki tamapeyo to noritamapu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,0@亦所遣,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,1@使人判官已下,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,2@死,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,3@罪已下有犯者,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,4@順罪弖,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,5@行止之弖,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,6@節刀給久止詔,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,7@大命乎聞食,*" />
-    <comment raw="IP-MAT,8@止宣,*" />
+  <block id="SM.56.6" header="mata tukapa su tukapi no maturi goto pito ywori simo tu kata korosu tumi ywori simo wokasu koto araba tumi ni sitagapi te okonapye to site sirusi no tati tamapa ku to noritamapu opo mikoto wo kiki tamapeyo to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="6_SM_56">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,0@亦所遣,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,1@使人判官已下,*" />
+      <comment position="12" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,2@死,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,NP,3@罪已下有犯者,*" />
+      <comment position="19" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,4@順罪弖,*" />
+      <comment position="23" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,5@行止之弖,*" />
+      <comment position="26" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,6@節刀給久止詔,*" />
+      <comment position="33" raw="IP-MAT,IP-ADV,PP-OB1,NP,7@大命乎聞食,*" />
+      <comment position="38" raw="IP-MAT,8@止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>亦所遣</kanji>
+        <transcription>mata tukapa su</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>使人判官已下</kanji>
+        <transcription>tukapi no maturi goto pito ywori simo tu kata</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>死</kanji>
+        <transcription>korosu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>罪已下有犯者</kanji>
+        <transcription>tumi ywori simo wokasu koto araba</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>順罪弖</kanji>
+        <transcription>tumi ni sitagapi te</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>行止之弖</kanji>
+        <transcription>okonapye to site</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>節刀給久止詔</kanji>
+        <transcription>sirusi no tati tamapa ku to noritamapu</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>大命乎聞食</kanji>
+        <transcription>opo mikoto wo kiki tamapeyo</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>止宣</kanji>
+        <transcription>to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>

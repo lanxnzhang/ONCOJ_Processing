@@ -128,11 +128,12 @@ def ascii_tree(
     lines: list[str] = [title]
 
     if show_comments:
-        for child in block:
-            if child.tag == "comment":
-                lines.append("# " + (child.get("raw") or ""))
+        roundtrip = block.find("roundtrip-data")
+        comments = roundtrip.findall("comment") if roundtrip is not None else block.findall("comment")
+        for child in comments:
+            lines.append("# " + (child.get("raw") or ""))
 
-    tree_children = [c for c in block if c.tag != "comment"]
+    tree_children = [c for c in block if c.tag not in {"comment", "roundtrip-data", "raw-text"}]
     for i, child in enumerate(tree_children):
         _render(child, "", i == len(tree_children) - 1, lines, show_annotations, colour)
 

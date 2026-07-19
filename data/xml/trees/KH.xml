@@ -1,8 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="KH.txt">
   <block id="KH.1" header="simogare no sidariyanagwi no">
-    <comment raw="IP-MAT,0@旨母我礼能,*" />
-    <comment raw="IP-MAT,IP-ADV,NP-PRD,1@旨陀利夜那凝能,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.1">
+      <comment position="0" raw="IP-MAT,0@旨母我礼能,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,NP-PRD,1@旨陀利夜那凝能,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>旨母我礼能</kanji>
+        <transcription>simo gare no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>旨陀利夜那凝能</kanji>
+        <transcription>sidari yanagwi no</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <NP-PRD>
@@ -25,9 +37,25 @@
     </IP-MAT>
   </block>
   <block id="KH.2" header="akikaze no pinikyeni pukeba midukukwino">
-    <comment raw="IP-MAT,0@阿岐可是能,*" />
-    <comment raw="IP-MAT,IP-ADV,1@比爾計爾不気馬,*" />
-    <comment raw="IP-MAT,2@美豆俱基能,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.2">
+      <comment position="0" raw="IP-MAT,0@阿岐可是能,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,1@比爾計爾不気馬,*" />
+      <comment position="7" raw="IP-MAT,2@美豆俱基能,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿岐可是能</kanji>
+        <transcription>aki kaze no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>比爾計爾不気馬</kanji>
+        <transcription>pi ni kyeni pukeba</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>美豆俱基能</kanji>
+        <transcription>midu kukwi no</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -60,9 +88,25 @@
     </IP-MAT>
   </block>
   <block id="KH.3" header="kamukazeno ise no kuni ni mo aramasi wo">
-    <comment raw="IP-MAT,PP,0@何牟何是能,*" />
-    <comment raw="IP-MAT,PP,NP,1@伊勢能俱爾爾母,*" />
-    <comment raw="IP-MAT,2@阿羅摩之乎,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.3">
+      <comment position="0" raw="IP-MAT,PP,0@何牟何是能,*" />
+      <comment position="3" raw="IP-MAT,PP,NP,1@伊勢能俱爾爾母,*" />
+      <comment position="8" raw="IP-MAT,2@阿羅摩之乎,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>何牟何是能</kanji>
+        <transcription>kamu kaze no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>伊勢能俱爾爾母</kanji>
+        <transcription>ise no kuni ni mo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>阿羅摩之乎</kanji>
+        <transcription>ara masi wo</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP>
         <NP>
@@ -92,8 +136,20 @@
     </IP-MAT>
   </block>
   <block id="KH.4" header="siratuyu to aki no pagwi to pa">
-    <comment raw="IP-MAT,0@旨羅都由等,*" />
-    <comment raw="IP-MAT,PP,1@阿岐能婆宜等婆,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.4">
+      <comment position="0" raw="IP-MAT,0@旨羅都由等,*" />
+      <comment position="3" raw="IP-MAT,PP,1@阿岐能婆宜等婆,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>旨羅都由等</kanji>
+        <transcription>sira tuyu to</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>阿岐能婆宜等婆</kanji>
+        <transcription>aki no pagwi to pa</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP>
         <CONJP>
@@ -124,8 +180,20 @@
     </IP-MAT>
   </block>
   <block id="KH.5" header="udikapa wo pune watase wo to">
-    <comment raw="IP-MAT,IP-ARG,0@宇治可婆呼,*" />
-    <comment raw="IP-MAT,IP-ARG,1@不祢和他是呼等,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.5">
+      <comment position="0" raw="IP-MAT,IP-ARG,0@宇治可婆呼,*" />
+      <comment position="3" raw="IP-MAT,IP-ARG,1@不祢和他是呼等,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>宇治可婆呼</kanji>
+        <transcription>udi kapa wo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>不祢和他是呼等</kanji>
+        <transcription>pune watase wo to</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ARG>
         <PP-ADV>
@@ -147,11 +215,35 @@
     </IP-MAT>
   </block>
   <block id="KH.6" header="wa ga yanagwi midori no ito ni naru made ni minaku uretami kakete kumitari">
-    <comment raw="IP-MAT,0@和我夜那疑,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,1@美止利能伊止爾,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,2@那留麻弖爾,*" />
-    <comment raw="IP-MAT,3@美那具宇礼太美,*" />
-    <comment raw="IP-MAT,4@何気弖俱美陀利,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.6">
+      <comment position="0" raw="IP-MAT,0@和我夜那疑,*" />
+      <comment position="3" raw="IP-MAT,PP-ADV,IP-NMZ,1@美止利能伊止爾,*" />
+      <comment position="7" raw="IP-MAT,PP-ADV,IP-NMZ,2@那留麻弖爾,*" />
+      <comment position="9" raw="IP-MAT,3@美那具宇礼太美,*" />
+      <comment position="13" raw="IP-MAT,4@何気弖俱美陀利,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>和我夜那疑</kanji>
+        <transcription>wa ga yanagwi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>美止利能伊止爾</kanji>
+        <transcription>midori no ito ni</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>那留麻弖爾</kanji>
+        <transcription>naru madeni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>美那具宇礼太美</kanji>
+        <transcription>mi naku ureta mi</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>何気弖俱美陀利</kanji>
+        <transcription>kakete kumi tari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-ADV>
         <IP-NMZ>
@@ -200,9 +292,25 @@
     </IP-MAT>
   </block>
   <block id="KH.7" header="akikaze no pinikyeni pukeba midukukwi no">
-    <comment raw="IP-MAT,0@阿岐可是能,*" />
-    <comment raw="IP-MAT,IP-ADV,1@比爾計爾不気馬,*" />
-    <comment raw="IP-MAT,2@美豆俱基能,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.7">
+      <comment position="0" raw="IP-MAT,0@阿岐可是能,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,1@比爾計爾不気馬,*" />
+      <comment position="7" raw="IP-MAT,2@美豆俱基能,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿岐可是能</kanji>
+        <transcription>aki kaze no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>比爾計爾不気馬</kanji>
+        <transcription>pi ni kyeni pukeba</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>美豆俱基能</kanji>
+        <transcription>midu kukwi no</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -235,11 +343,35 @@
     </IP-MAT>
   </block>
   <block id="KH.8" header="yamato nite ware pa kwopwimu na kwi no kuni no sapika no umi no oki tu sima no two">
-    <comment raw="CP-FINAL,IP-SUB,0@夜摩等爾弖,*" />
-    <comment raw="CP-FINAL,IP-SUB,1@和礼婆古非牟那,*" />
-    <comment raw="CP-FINAL,NP-OB1,2@紀能俱爾能,*" />
-    <comment raw="CP-FINAL,NP-OB1,PP,NP,PP,NP,3@佐比可能宇美能,*" />
-    <comment raw="CP-FINAL,NP-OB1,PP,NP,4@於岐都旨麻能吐,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.8">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@夜摩等爾弖,*" />
+      <comment position="2" raw="CP-FINAL,IP-SUB,1@和礼婆古非牟那,*" />
+      <comment position="7" raw="CP-FINAL,NP-OB1,2@紀能俱爾能,*" />
+      <comment position="11" raw="CP-FINAL,NP-OB1,PP,NP,PP,NP,3@佐比可能宇美能,*" />
+      <comment position="15" raw="CP-FINAL,NP-OB1,PP,NP,4@於岐都旨麻能吐,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>夜摩等爾弖</kanji>
+        <transcription>yamato nite</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>和礼婆古非牟那</kanji>
+        <transcription>ware pa kwopwi mu na</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>紀能俱爾能</kanji>
+        <transcription>kwi no kuni no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>佐比可能宇美能</kanji>
+        <transcription>sapika no umi no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>於岐都旨麻能吐</kanji>
+        <transcription>oki tu sima no two</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <IP-ADV>
@@ -304,11 +436,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.9" header="imo ga pimo toku to musubite tatuta yama miwatasu nopye no momiti kyeraku pa">
-    <comment raw="CP-FINAL,IP-SUB,NP-PRD,IP-ADV-ZYO,IP-ADV,NP-OB1,0@伊母我比母,*" />
-    <comment raw="CP-FINAL,IP-SUB,NP-PRD,IP-ADV-ZYO,IP-ADV,1@等俱等牟須婢弖,*" />
-    <comment raw="CP-FINAL,IP-SUB,NP-PRD,2@他都他夜麻,*" />
-    <comment raw="CP-FINAL,3@美和他須能幣能,*" />
-    <comment raw="CP-FINAL,PP-SBJ,IP-NMZ,4@母美知計羅俱婆,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.9">
+      <comment position="0" raw="CP-FINAL,IP-SUB,NP-PRD,IP-ADV-ZYO,IP-ADV,NP-OB1,0@伊母我比母,*" />
+      <comment position="3" raw="CP-FINAL,IP-SUB,NP-PRD,IP-ADV-ZYO,IP-ADV,1@等俱等牟須婢弖,*" />
+      <comment position="6" raw="CP-FINAL,IP-SUB,NP-PRD,2@他都他夜麻,*" />
+      <comment position="8" raw="CP-FINAL,3@美和他須能幣能,*" />
+      <comment position="13" raw="CP-FINAL,PP-SBJ,IP-NMZ,4@母美知計羅俱婆,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊母我比母</kanji>
+        <transcription>imo ga pimo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>等俱等牟須婢弖</kanji>
+        <transcription>toku to musubite</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>他都他夜麻</kanji>
+        <transcription>tatuta yama</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>美和他須能幣能</kanji>
+        <transcription>mi watasu no pye no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>母美知計羅俱婆</kanji>
+        <transcription>momiti k yeraku pa</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <NP-PRD>
@@ -362,11 +518,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.10" header="imo ga na pa tiyo ni nagaremu pimyesima no kwomatu ga yeda ni koke musu madeni">
-    <comment raw="CP-FINAL,IP-SUB,0@伊母我那婆,*" />
-    <comment raw="CP-FINAL,IP-SUB,1@知与爾那我礼牟,*" />
-    <comment raw="CP-FINAL,2@比売旨麻爾,*" />
-    <comment raw="CP-FINAL,PP-ADV,IP-NMZ,PP,NP,PP,NP,3@古麻都我延陀能,*" />
-    <comment raw="CP-FINAL,PP-ADV,IP-NMZ,4@己気牟須麻弖爾,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.10">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@伊母我那婆,*" />
+      <comment position="4" raw="CP-FINAL,IP-SUB,1@知与爾那我礼牟,*" />
+      <comment position="9" raw="CP-FINAL,2@比売旨麻爾,*" />
+      <comment position="11" raw="CP-FINAL,PP-ADV,IP-NMZ,PP,NP,PP,NP,3@古麻都我延陀能,*" />
+      <comment position="16" raw="CP-FINAL,PP-ADV,IP-NMZ,4@己気牟須麻弖爾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊母我那婆</kanji>
+        <transcription>imo ga na pa</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>知与爾那我礼牟</kanji>
+        <transcription>ti yo ni nagare mu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>比売旨麻爾</kanji>
+        <transcription>pimyesima no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>古麻都我延陀能</kanji>
+        <transcription>kwo matu ga yeda ni</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>己気牟須麻弖爾</kanji>
+        <transcription>koke musu madeni</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP-SBJ>
@@ -428,11 +608,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.11" header="miti no pye no itisi no para no sirotape no itisirwoku si mo are kwopwimye ya mo">
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,PP,0@美知能陪能,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,PP,NP,1@伊知旨能婆羅能,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,2@旨侶他閉能,*" />
-    <comment raw="IP-MAT,IP-ADV,3@伊知旨路俱旨母,*" />
-    <comment raw="IP-MAT,4@阿礼胡非咩夜母,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.11">
+      <comment position="0" raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,PP,0@美知能陪能,*" />
+      <comment position="4" raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,PP,NP,1@伊知旨能婆羅能,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,IP-ADV,NP-PRD,2@旨侶他閉能,*" />
+      <comment position="11" raw="IP-MAT,IP-ADV,3@伊知旨路俱旨母,*" />
+      <comment position="15" raw="IP-MAT,4@阿礼胡非咩夜母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美知能陪能</kanji>
+        <transcription>miti no pye no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>伊知旨能婆羅能</kanji>
+        <transcription>itisi no para no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>旨侶他閉能</kanji>
+        <transcription>siro tape no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊知旨路俱旨母</kanji>
+        <transcription>itisirwo ku si mo</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>阿礼胡非咩夜母</kanji>
+        <transcription>are kwopwi mye ya mo</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <IP-ADV>
@@ -489,11 +693,35 @@
     </IP-MAT>
   </block>
   <block id="KH.12" header="pisakata no amayuku tukwi wo ami ni sasi wa ga opokimi pa kinugasa ni seri">
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,0@比佐可他能,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,1@阿麻由俱都紀呼,*" />
-    <comment raw="IP-MAT,IP-ADV,2@阿美爾佐旨,*" />
-    <comment raw="IP-MAT,PP-SBJ,3@和我於保岐美婆,*" />
-    <comment raw="IP-MAT,4@岐努何佐爾是利,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.12">
+      <comment position="0" raw="IP-MAT,PP-OB1,NP,IP-REL,0@比佐可他能,*" />
+      <comment position="3" raw="IP-MAT,PP-OB1,NP,IP-REL,1@阿麻由俱都紀呼,*" />
+      <comment position="7" raw="IP-MAT,IP-ADV,2@阿美爾佐旨,*" />
+      <comment position="10" raw="IP-MAT,PP-SBJ,3@和我於保岐美婆,*" />
+      <comment position="15" raw="IP-MAT,4@岐努何佐爾是利,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>比佐可他能</kanji>
+        <transcription>pisakata no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>阿麻由俱都紀呼</kanji>
+        <transcription>ama yuku tukwi wo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>阿美爾佐旨</kanji>
+        <transcription>ami ni sasi</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>和我於保岐美婆</kanji>
+        <transcription>wa ga opo kimi pa</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>岐努何佐爾是利</kanji>
+        <transcription>kinugasa ni s eri</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-OB1>
         <NP>
@@ -553,9 +781,25 @@
     </IP-MAT>
   </block>
   <block id="KH.13" header="ka ni kaku ni mono pa omopazi pwidapito no">
-    <comment raw="CP-FINAL,IP-SUB,0@何爾可俱爾,*" />
-    <comment raw="CP-FINAL,IP-SUB,1@母能婆於母婆自,*" />
-    <comment raw="CP-FINAL,2@非隄比等能,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.13">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@何爾可俱爾,*" />
+      <comment position="4" raw="CP-FINAL,IP-SUB,1@母能婆於母婆自,*" />
+      <comment position="7" raw="CP-FINAL,2@非隄比等能,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>何爾可俱爾</kanji>
+        <transcription>ka ni kaku ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>母能婆於母婆自</kanji>
+        <transcription>mono pa omopazi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>非隄比等能</kanji>
+        <transcription>pwida pito no</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <NP-ADV>
@@ -584,11 +828,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.14" header="mimaku pori wa ga mopu kimi mo aranaku ni nani ni ka kikyemu uma tukarasi ni">
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,PP-SBJ,NP,IP-REL,0@美麻俱保利,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,PP-SBJ,NP,IP-REL,1@和我母不岐美母,*" />
-    <comment raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,2@阿羅那俱爾,*" />
-    <comment raw="CP-FINAL,IP-SUB,3@那爾爾可岐計牟,*" />
-    <comment raw="CP-FINAL,IP-PRP,4@宇麻都可羅旨爾,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.14">
+      <comment position="0" raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,PP-SBJ,NP,IP-REL,0@美麻俱保利,*" />
+      <comment position="3" raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,PP-SBJ,NP,IP-REL,1@和我母不岐美母,*" />
+      <comment position="8" raw="CP-FINAL,IP-SUB,IP-ADV,IP-NMZ-PRD,2@阿羅那俱爾,*" />
+      <comment position="11" raw="CP-FINAL,IP-SUB,3@那爾爾可岐計牟,*" />
+      <comment position="17" raw="CP-FINAL,IP-PRP,4@宇麻都可羅旨爾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美麻俱保利</kanji>
+        <transcription>mi maku pori</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>和我母不岐美母</kanji>
+        <transcription>wa ga mopu kimi mo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>阿羅那俱爾</kanji>
+        <transcription>ara naku ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>那爾爾可岐計牟</kanji>
+        <transcription>nani ni ka ki kye mu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>宇麻都可羅旨爾</kanji>
+        <transcription>uma tukarasi ni</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <IP-ADV>
@@ -645,11 +913,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.15" header="mimaku pori a ga mopu kimi mo sugwinikyeri nani ni ka kikyemu uma tukarasi ni">
-    <comment raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-REL,0@美麻俱保利,*" />
-    <comment raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-REL,1@阿我母不岐美母,*" />
-    <comment raw="multi-sentence,IP-MAT,2@須宜爾計利,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-SUB,3@那爾爾可岐計牟,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-PRP,4@宇麻都可羅旨爾,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.15">
+      <comment position="0" raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-REL,0@美麻俱保利,*" />
+      <comment position="3" raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-REL,1@阿我母不岐美母,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT,2@須宜爾計利,*" />
+      <comment position="11" raw="multi-sentence,CP-FINAL,IP-SUB,3@那爾爾可岐計牟,*" />
+      <comment position="17" raw="multi-sentence,CP-FINAL,IP-PRP,4@宇麻都可羅旨爾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美麻俱保利</kanji>
+        <transcription>mi maku pori</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>阿我母不岐美母</kanji>
+        <transcription>a ga mopu kimi mo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>須宜爾計利</kanji>
+        <transcription>sugwi ni kyeri</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>那爾爾可岐計牟</kanji>
+        <transcription>nani ni ka ki kye mu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>宇麻都可羅旨爾</kanji>
+        <transcription>uma tukarasi ni</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT>
         <PP-SBJ>
@@ -708,11 +1000,35 @@
     </multi-sentence>
   </block>
   <block id="KH.16" header="imasara ni nani ka omopamu ukanabiku kokoro pa kimi ni yorinisi monowo">
-    <comment raw="multi-sentence,IP-MAT,0@伊麻佐羅爾,*" />
-    <comment raw="multi-sentence,IP-MAT,1@那爾可於母波牟,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@宇可那婢俱,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@己己侶婆岐美爾,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,4@与利爾旨母能呼,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.16">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@伊麻佐羅爾,*" />
+      <comment position="1" raw="multi-sentence,IP-MAT,1@那爾可於母波牟,*" />
+      <comment position="5" raw="multi-sentence,IP-MAT;@2,2@宇可那婢俱,*" />
+      <comment position="6" raw="multi-sentence,IP-MAT;@2,3@己己侶婆岐美爾,*" />
+      <comment position="10" raw="multi-sentence,IP-MAT;@2,4@与利爾旨母能呼,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊麻佐羅爾</kanji>
+        <transcription>imasarani</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>那爾可於母波牟</kanji>
+        <transcription>nani ka omopa mu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>宇可那婢俱</kanji>
+        <transcription>ukanabiku</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>己己侶婆岐美爾</kanji>
+        <transcription>kokoro pa kimi ni</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与利爾旨母能呼</kanji>
+        <transcription>yori ni si monowo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <NP-ADV>
@@ -753,11 +1069,35 @@
     </multi-sentence>
   </block>
   <block id="KH.17" header="kasugayama mine kogu pune no yakusitera apadinosima no karasuki no pyera">
-    <comment raw="multi-sentence,IP-MAT,NP,IP-REL,NP-PRD,IP-REL,NP,0@何須我夜麻,*" />
-    <comment raw="multi-sentence,IP-MAT,NP,IP-REL,NP-PRD,IP-REL,1@美祢己具不祢能,*" />
-    <comment raw="multi-sentence,IP-MAT,NP,2@夜俱旨弖羅,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@阿婆遅能旨麻能,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,NP,4@何羅須岐能幣羅,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.17">
+      <comment position="0" raw="multi-sentence,IP-MAT,NP,IP-REL,NP-PRD,IP-REL,NP,0@何須我夜麻,*" />
+      <comment position="2" raw="multi-sentence,IP-MAT,NP,IP-REL,NP-PRD,IP-REL,1@美祢己具不祢能,*" />
+      <comment position="6" raw="multi-sentence,IP-MAT,NP,2@夜俱旨弖羅,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT;@2,3@阿婆遅能旨麻能,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT;@2,NP,4@何羅須岐能幣羅,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>何須我夜麻</kanji>
+        <transcription>kasuga yama</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>美祢己具不祢能</kanji>
+        <transcription>mine kogu pune no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>夜俱旨弖羅</kanji>
+        <transcription>yakusi tera</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>阿婆遅能旨麻能</kanji>
+        <transcription>apadi no sima no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>何羅須岐能幣羅</kanji>
+        <transcription>kara suki no pyera</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <NP>
@@ -814,11 +1154,35 @@
     </multi-sentence>
   </block>
   <block id="KH.18" header="patapoko ni swopite noboreru napa no goto swopite noboreru patapoko no">
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,0@婆他保己爾,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,1@蘇比弖能保礼留,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,2@那婆能其等,*" />
-    <comment raw="IP-MAT,3@蘇比弖能保礼留,*" />
-    <comment raw="IP-MAT,IP-ADV,NP-PRD,4@婆他保己能,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.18">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,0@婆他保己爾,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,1@蘇比弖能保礼留,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,PP-SBJ,NP,2@那婆能其等,*" />
+      <comment position="9" raw="IP-MAT,3@蘇比弖能保礼留,*" />
+      <comment position="12" raw="IP-MAT,IP-ADV,NP-PRD,4@婆他保己能,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>婆他保己爾</kanji>
+        <transcription>pata poko ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>蘇比弖能保礼留</kanji>
+        <transcription>swopite nobor eru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>那婆能其等</kanji>
+        <transcription>napa no goto</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>蘇比弖能保礼留</kanji>
+        <transcription>swopite nobor eru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>婆他保己能</kanji>
+        <transcription>pata poko no</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -866,11 +1230,35 @@
     </IP-MAT>
   </block>
   <block id="KH.19" header="patapoko ni swopite noboreru napa no goto swopite noboreru patapoko no goto">
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,0@婆他保己爾,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,1@蘇比弖能保礼留,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,2@那婆能其等,*" />
-    <comment raw="IP-MAT,3@蘇比弖能保礼留,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,4@婆他保己能御等,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.19">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,0@婆他保己爾,*" />
+      <comment position="3" raw="IP-MAT,IP-ADV,PP-SBJ,NP,IP-REL,1@蘇比弖能保礼留,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,PP-SBJ,NP,2@那婆能其等,*" />
+      <comment position="9" raw="IP-MAT,3@蘇比弖能保礼留,*" />
+      <comment position="12" raw="IP-MAT,IP-ADV,PP-SBJ,NP,4@婆他保己能御等,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>婆他保己爾</kanji>
+        <transcription>pata poko ni</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>蘇比弖能保礼留</kanji>
+        <transcription>swopite nobor eru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>那婆能其等</kanji>
+        <transcription>napa no goto</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>蘇比弖能保礼留</kanji>
+        <transcription>swopite nobor eru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>婆他保己能御等</kanji>
+        <transcription>pata poko no goto</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -921,10 +1309,30 @@
     </IP-MAT>
   </block>
   <block id="KH.20" header="emisi wo pidari momo na pito pito pa ipedomo tamukapi mo sezu">
-    <comment raw="IP-MAT,IP-ADV,0@爱弥詩烏比隄利,*" />
-    <comment raw="IP-MAT,IP-ADV,1@毛毛那比都,*" />
-    <comment raw="IP-MAT,IP-ADV,2@比苔破伊倍登毛,*" />
-    <comment raw="IP-MAT,3@多牟伽比毛勢受,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.20">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@爱弥詩烏比隄利,*" />
+      <comment position="4" raw="IP-MAT,IP-ADV,1@毛毛那比都,*" />
+      <comment position="7" raw="IP-MAT,IP-ADV,2@比苔破伊倍登毛,*" />
+      <comment position="10" raw="IP-MAT,3@多牟伽比毛勢受,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>爱弥詩烏比隄利</kanji>
+        <transcription>emisi wo pida ri</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>毛毛那比都</kanji>
+        <transcription>momo na pito</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>比苔破伊倍登毛</kanji>
+        <transcription>pito pa ipedomo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>多牟伽比毛勢受</kanji>
+        <transcription>ta mukapi mo se zu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1-MPT>
@@ -970,11 +1378,35 @@
     </IP-MAT>
   </block>
   <block id="KH.21" header="osaka naru emisi wo pidari momo na pito pito pa ipedomo tamukapi mo sezu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1-HST-MPT,NP,IP-REL,0@於佐伽那流,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1-HST-MPT,NP,1@爱弥詩烏比隄利,*" />
-    <comment raw="IP-MAT,IP-ADV,2@毛毛那比都,*" />
-    <comment raw="IP-MAT,IP-ADV,3@比苔破伊倍登毛,*" />
-    <comment raw="IP-MAT,4@多牟伽比毛勢受,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.21">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1-HST-MPT,NP,IP-REL,0@於佐伽那流,*" />
+      <comment position="2" raw="IP-MAT,IP-ADV,PP-OB1-HST-MPT,NP,1@爱弥詩烏比隄利,*" />
+      <comment position="6" raw="IP-MAT,IP-ADV,2@毛毛那比都,*" />
+      <comment position="9" raw="IP-MAT,IP-ADV,3@比苔破伊倍登毛,*" />
+      <comment position="12" raw="IP-MAT,4@多牟伽比毛勢受,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>於佐伽那流</kanji>
+        <transcription>osaka naru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>爱弥詩烏比隄利</kanji>
+        <transcription>emisi wo pida ri</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>毛毛那比都</kanji>
+        <transcription>momo na pito</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>比苔破伊倍登毛</kanji>
+        <transcription>pito pa ipedomo</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>多牟伽比毛勢受</kanji>
+        <transcription>ta mukapi mo se zu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1-HST-MPT>
@@ -1026,11 +1458,35 @@
     </IP-MAT>
   </block>
   <block id="KH.22" header="akatoki to tori mo naku nari teratera no kane mo toyominu ake idenu ko no ywo">
-    <comment raw="multi-sentence,IP-MAT,0@阿何等岐等,*" />
-    <comment raw="multi-sentence,IP-MAT,1@止利母那俱那利,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@弖羅弖羅能,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,PP-SBJ,NP,3@可祢母等与美努,*" />
-    <comment raw="multi-sentence,CP-FINAL,4@阿気伊弖努己能𠰩,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.22">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@阿何等岐等,*" />
+      <comment position="3" raw="multi-sentence,IP-MAT,1@止利母那俱那利,*" />
+      <comment position="7" raw="multi-sentence,IP-MAT;@2,2@弖羅弖羅能,*" />
+      <comment position="10" raw="multi-sentence,IP-MAT;@2,PP-SBJ,NP,3@可祢母等与美努,*" />
+      <comment position="14" raw="multi-sentence,CP-FINAL,4@阿気伊弖努己能𠰩,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿何等岐等</kanji>
+        <transcription>aka toki to</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>止利母那俱那利</kanji>
+        <transcription>tori mo naku nari</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>弖羅弖羅能</kanji>
+        <transcription>tera tera no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>可祢母等与美努</kanji>
+        <transcription>kane mo toyomi nu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>阿気伊弖努己能𠰩</kanji>
+        <transcription>ake ide nu ko no ywo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <IP-ARG>
@@ -1093,9 +1549,25 @@
     </multi-sentence>
   </block>
   <block id="KH.23" header="ko no nasi wo uwete oposaba kasikokemu">
-    <comment raw="IP-MAT,0@己能那之乎,*" />
-    <comment raw="IP-MAT,IP-ADV,1@宇恵天於保佐馬,*" />
-    <comment raw="IP-MAT,2@可志己気无,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.23">
+      <comment position="0" raw="IP-MAT,0@己能那之乎,*" />
+      <comment position="4" raw="IP-MAT,IP-ADV,1@宇恵天於保佐馬,*" />
+      <comment position="6" raw="IP-MAT,2@可志己気无,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>己能那之乎</kanji>
+        <transcription>ko no nasi wo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>宇恵天於保佐馬</kanji>
+        <transcription>uwete oposaba</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>可志己気无</kanji>
+        <transcription>kasiko ke mu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>
@@ -1123,11 +1595,35 @@
     </IP-MAT>
   </block>
   <block id="KH.24" header="mimasi suru woka ni kage nasi ko no nasi wo uwete oposite kage ni yokyemu mo">
-    <comment raw="multi-sentence,IP-MAT,PP-ADV,NP,IP-REL,0@美麻旨須留,*" />
-    <comment raw="multi-sentence,IP-MAT,PP-ADV,NP,1@呼可爾可気那旨,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,2@己能那旨呼,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,IP-ADV,3@宇恵弖於保旨弖,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,4@可気爾与計牟母,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.24">
+      <comment position="0" raw="multi-sentence,IP-MAT,PP-ADV,NP,IP-REL,0@美麻旨須留,*" />
+      <comment position="3" raw="multi-sentence,IP-MAT,PP-ADV,NP,1@呼可爾可気那旨,*" />
+      <comment position="8" raw="multi-sentence,IP-MAT;@2,2@己能那旨呼,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT;@2,IP-ADV,3@宇恵弖於保旨弖,*" />
+      <comment position="14" raw="multi-sentence,IP-MAT;@2,4@可気爾与計牟母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美麻旨須留</kanji>
+        <transcription>mi masi suru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>呼可爾可気那旨</kanji>
+        <transcription>woka ni kage na si</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>己能那旨呼</kanji>
+        <transcription>ko no nasi wo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>宇恵弖於保旨弖</kanji>
+        <transcription>uwete oposite</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>可気爾与計牟母</kanji>
+        <transcription>kage ni yo kye mu mo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <PP-ADV>
@@ -1184,11 +1680,35 @@
     </multi-sentence>
   </block>
   <block id="KH.25" header="siranamino pamamatu ga ye no tamukekusa ikuyo madeni ka tosi no penikyemu">
-    <comment raw="IP-MAT,0@旨羅那美能,*" />
-    <comment raw="IP-MAT,NP-HST,PP,NP,PP,NP,1@婆麻麻都我延能,*" />
-    <comment raw="IP-MAT,NP-HST,2@他牟気俱佐,*" />
-    <comment raw="IP-MAT,3@伊俱与麻弖爾可,*" />
-    <comment raw="IP-MAT,4@等旨能倍爾計牟,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.25">
+      <comment position="0" raw="IP-MAT,0@旨羅那美能,*" />
+      <comment position="3" raw="IP-MAT,NP-HST,PP,NP,PP,NP,1@婆麻麻都我延能,*" />
+      <comment position="8" raw="IP-MAT,NP-HST,2@他牟気俱佐,*" />
+      <comment position="11" raw="IP-MAT,3@伊俱与麻弖爾可,*" />
+      <comment position="15" raw="IP-MAT,4@等旨能倍爾計牟,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>旨羅那美能</kanji>
+        <transcription>sira nami no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>婆麻麻都我延能</kanji>
+        <transcription>pama matu ga ye no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>他牟気俱佐</kanji>
+        <transcription>ta muke kusa</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊俱与麻弖爾可</kanji>
+        <transcription>iku yo madeni ka</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>等旨能倍爾計牟</kanji>
+        <transcription>tosi no pe ni kye mu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP-HST>
         <PP>
@@ -1248,11 +1768,35 @@
     </IP-MAT>
   </block>
   <block id="KH.26" header="miyosino wo yosi to yoku mite yosi to ipisi yoki pito yosino yoki pito yoku mi">
-    <comment raw="IP-MAT,NP-VOC,IP-REL,IP-ADV,0@美与旨能呼,*" />
-    <comment raw="IP-MAT,NP-VOC,IP-REL,IP-ADV,1@与旨止与俱美弖,*" />
-    <comment raw="IP-MAT,NP-VOC,IP-REL,2@与旨等伊比旨,*" />
-    <comment raw="IP-MAT,NP-VOC,3@与岐比等与旨能,*" />
-    <comment raw="IP-MAT,4@与岐比等与俱美,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.26">
+      <comment position="0" raw="IP-MAT,NP-VOC,IP-REL,IP-ADV,0@美与旨能呼,*" />
+      <comment position="3" raw="IP-MAT,NP-VOC,IP-REL,IP-ADV,1@与旨止与俱美弖,*" />
+      <comment position="9" raw="IP-MAT,NP-VOC,IP-REL,2@与旨等伊比旨,*" />
+      <comment position="14" raw="IP-MAT,NP-VOC,3@与岐比等与旨能,*" />
+      <comment position="18" raw="IP-MAT,4@与岐比等与俱美,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美与旨能呼</kanji>
+        <transcription>mi yosino wo</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>与旨止与俱美弖</kanji>
+        <transcription>yo si to yo ku mite</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>与旨等伊比旨</kanji>
+        <transcription>yo si to ipi si</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>与岐比等与旨能</kanji>
+        <transcription>yo ki pito yosino</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与岐比等与俱美</kanji>
+        <transcription>yo ki pito yo ku mi</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP-VOC>
         <IP-REL>
@@ -1321,11 +1865,35 @@
     </IP-MAT>
   </block>
   <block id="KH.27" header="nezumi no ipye yone tuki purupi kwi wo kirite piki kiri idasu yotu to ipu ka swore">
-    <comment raw="multi-clause,IP-MAT,IP-ADV,IP-ADV,0@祢須弥能伊弊,*" />
-    <comment raw="multi-clause,IP-MAT,IP-ADV,IP-ADV,1@与祢都岐不留比,*" />
-    <comment raw="multi-clause,IP-MAT,IP-ADV,2@紀呼岐利弖,*" />
-    <comment raw="multi-clause,IP-MAT,3@比岐岐利伊隄須,*" />
-    <comment raw="multi-clause,4@与都等伊不可蘇礼,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.27">
+      <comment position="0" raw="multi-clause,IP-MAT,IP-ADV,IP-ADV,0@祢須弥能伊弊,*" />
+      <comment position="3" raw="multi-clause,IP-MAT,IP-ADV,IP-ADV,1@与祢都岐不留比,*" />
+      <comment position="6" raw="multi-clause,IP-MAT,IP-ADV,2@紀呼岐利弖,*" />
+      <comment position="9" raw="multi-clause,IP-MAT,3@比岐岐利伊隄須,*" />
+      <comment position="12" raw="multi-clause,4@与都等伊不可蘇礼,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>祢須弥能伊弊</kanji>
+        <transcription>nezumi no ipye</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>与祢都岐不留比</kanji>
+        <transcription>yone tuki purupi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>紀呼岐利弖</kanji>
+        <transcription>kwi wo kirite</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>比岐岐利伊隄須</kanji>
+        <transcription>piki kiri idasu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与都等伊不可蘇礼</kanji>
+        <transcription>yo tu to ipu ka swore</transcription>
+      </sentence>
+    </raw-text>
     <multi-clause>
       <IP-MAT>
         <IP-ADV>
@@ -1380,12 +1948,40 @@
     </multi-clause>
   </block>
   <block id="KH.28" header="sirakumo no tanabiku yama pa miredo akanu kamo tadu naraba asa tobikwoyete yupubye komasi wo">
-    <comment raw="multi-sentence,IP-MAT,0@旨羅俱母能,*" />
-    <comment raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-EMB,1@他那婢俱夜麻婆,*" />
-    <comment raw="multi-sentence,IP-MAT,2@美礼等阿可奴可母,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@他都那羅婆,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,4@阿佐等婢古延弖,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,5@由不弊己麻旨呼,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.28">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@旨羅俱母能,*" />
+      <comment position="4" raw="multi-sentence,IP-MAT,PP-SBJ,NP,IP-EMB,1@他那婢俱夜麻婆,*" />
+      <comment position="7" raw="multi-sentence,IP-MAT,2@美礼等阿可奴可母,*" />
+      <comment position="11" raw="multi-sentence,IP-MAT;@2,3@他都那羅婆,*" />
+      <comment position="13" raw="multi-sentence,IP-MAT;@2,4@阿佐等婢古延弖,*" />
+      <comment position="16" raw="multi-sentence,IP-MAT;@2,5@由不弊己麻旨呼,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>旨羅俱母能</kanji>
+        <transcription>sira kumo no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>他那婢俱夜麻婆</kanji>
+        <transcription>tanabiku yama pa</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>美礼等阿可奴可母</kanji>
+        <transcription>miredo aka nu kamo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>他都那羅婆</kanji>
+        <transcription>tadu naraba</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>阿佐等婢古延弖</kanji>
+        <transcription>asa tobi kwoyete</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>由不弊己麻旨呼</kanji>
+        <transcription>yupu bye ko masi wo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <PP-SBJ>
@@ -1447,11 +2043,35 @@
     </multi-sentence>
   </block>
   <block id="KH.29" header="okitutori kamo tuku sima ni wa ga winesi imo pa wasurezi yo no kotogoto ni">
-    <comment raw="CP-FINAL,IP-SUB,0@於岐都等利,*" />
-    <comment raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,IP-REL,PP-ADV,NP,IP-REL,1@可母都俱旨麻爾,*" />
-    <comment raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,IP-REL,2@和我為祢旨,*" />
-    <comment raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,3@伊母婆和須礼自,*" />
-    <comment raw="CP-FINAL,4@与能己等己等耳,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.29">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@於岐都等利,*" />
+      <comment position="5" raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,IP-REL,PP-ADV,NP,IP-REL,1@可母都俱旨麻爾,*" />
+      <comment position="9" raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,IP-REL,2@和我為祢旨,*" />
+      <comment position="14" raw="CP-FINAL,IP-SUB,PP-OB1,NP-OB1,3@伊母婆和須礼自,*" />
+      <comment position="17" raw="CP-FINAL,4@与能己等己等耳,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>於岐都等利</kanji>
+        <transcription>oki tu tori</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>可母都俱旨麻爾</kanji>
+        <transcription>kamo tuku sima ni</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>和我為祢旨</kanji>
+        <transcription>wa ga wi ne si</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊母婆和須礼自</kanji>
+        <transcription>imo pa wasurezi</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与能己等己等耳</kanji>
+        <transcription>yo no kotogoto ni</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP-OB1>
@@ -1519,14 +2139,50 @@
     </CP-FINAL>
   </block>
   <block id="KH.30" header="amye naru ya ototanabata no unagaseru tama no misumaro misumaro no anatama pa yami tani putawataru adisuki no kamwi">
-    <comment raw="multi-sentence,IP-MAT,NP,IP-REL,0@阿売那留夜,*" />
-    <comment raw="multi-sentence,IP-MAT,NP,IP-REL,PP-SBJ,NP,1@於等他那馬他能,*" />
-    <comment raw="multi-sentence,IP-MAT,NP,IP-REL,2@宇那可勢留,*" />
-    <comment raw="multi-sentence,IP-MAT,NP,3@他麻能美須麻侶,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,4@美須麻呂能,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,PP-ARG,NP,5@阿那他麻婆夜美,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-NMZ-SBJ,6@他爾不他和他留,*" />
-    <comment raw="multi-sentence,IP-MAT,NP-PRD,7@阿遅須能岐可味,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.30">
+      <comment position="0" raw="multi-sentence,IP-MAT,NP,IP-REL,0@阿売那留夜,*" />
+      <comment position="5" raw="multi-sentence,IP-MAT,NP,IP-REL,PP-SBJ,NP,1@於等他那馬他能,*" />
+      <comment position="9" raw="multi-sentence,IP-MAT,NP,IP-REL,2@宇那可勢留,*" />
+      <comment position="12" raw="multi-sentence,IP-MAT,NP,3@他麻能美須麻侶,*" />
+      <comment position="15" raw="multi-sentence,IP-MAT;@2,4@美須麻呂能,*" />
+      <comment position="17" raw="multi-sentence,IP-MAT;@2,PP-ARG,NP,5@阿那他麻婆夜美,*" />
+      <comment position="22" raw="multi-sentence,IP-MAT,IP-NMZ-SBJ,6@他爾不他和他留,*" />
+      <comment position="25" raw="multi-sentence,IP-MAT,NP-PRD,7@阿遅須能岐可味,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿売那留夜</kanji>
+        <transcription>amye n aru ya</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>於等他那馬他能</kanji>
+        <transcription>oto tana bata no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>宇那可勢留</kanji>
+        <transcription>unaga s eru</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>他麻能美須麻侶</kanji>
+        <transcription>tama no misumaro</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>美須麻呂能</kanji>
+        <transcription>misumaro no</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>阿那他麻婆夜美</kanji>
+        <transcription>ana tama pa ya mi</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>他爾不他和他留</kanji>
+        <transcription>tani puta wataru</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>阿遅須能岐可味</kanji>
+        <transcription>adisuki no kamwi</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <NP>
@@ -1609,14 +2265,50 @@
     </multi-sentence>
   </block>
   <block id="KH.31" header="amakumo no kage sape miyuru komoriku no patuse no kapa nwo uranami ka pune no yorikonu iswonami ka ama mo turi senu yosi we ya si ura pa naku tomo yosi we ya si iswo pa naku tomo oki tu nami kiyoku kogiriko ama no turipune">
-    <comment raw="multi-sentence,IP-MAT,0@阿麻俱母能可気佐倍美由留,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,PP,NP,1@己母利俱能婆都勢能可婆努,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,2@宇羅那美可不祢能与利己努,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@伊蘇那美可阿麻母都利勢努,*" />
-    <comment raw="multi-sentence,CP-FINAL,4@与旨恵夜旨宇羅婆那俱等母,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-SUB,5@与旨恵夜旨伊蘇婆那俱等母,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-SUB,6@於岐都那美岐与俱己岐利己,*" />
-    <comment raw="multi-sentence,CP-FINAL,7@阿麻能都利不祢,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.31">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@阿麻俱母能可気佐倍美由留,*" />
+      <comment position="7" raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,PP,NP,1@己母利俱能婆都勢能可婆努,*" />
+      <comment position="14" raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,2@宇羅那美可不祢能与利己努,*" />
+      <comment position="23" raw="multi-sentence,IP-MAT;@2,3@伊蘇那美可阿麻母都利勢努,*" />
+      <comment position="32" raw="multi-sentence,CP-FINAL,4@与旨恵夜旨宇羅婆那俱等母,*" />
+      <comment position="41" raw="multi-sentence,CP-FINAL,IP-SUB,5@与旨恵夜旨伊蘇婆那俱等母,*" />
+      <comment position="50" raw="multi-sentence,CP-FINAL,IP-SUB,6@於岐都那美岐与俱己岐利己,*" />
+      <comment position="58" raw="multi-sentence,CP-FINAL,7@阿麻能都利不祢,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿麻俱母能可気佐倍美由留</kanji>
+        <transcription>ama kumo no kage sape mi yuru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>己母利俱能婆都勢能可婆努</kanji>
+        <transcription>komori ku no patuse no kapa nwo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>宇羅那美可不祢能与利己努</kanji>
+        <transcription>ura na mi ka pune no yori ko nu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊蘇那美可阿麻母都利勢努</kanji>
+        <transcription>iswo na mi ka ama mo turi se nu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与旨恵夜旨宇羅婆那俱等母</kanji>
+        <transcription>yosi we ya si ura pa na ku tomo</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>与旨恵夜旨伊蘇婆那俱等母</kanji>
+        <transcription>yosi we ya si iswo pa na ku tomo</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>於岐都那美岐与俱己岐利己</kanji>
+        <transcription>oki tu nami kiyo ku kog iri ko</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>阿麻能都利不祢</kanji>
+        <transcription>ama no turi pune</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
@@ -1781,14 +2473,50 @@
     </multi-sentence>
   </block>
   <block id="KH.32" header="amakumo no kage sape miyuru komoriku no patuse no kapa nwo uranami ka pune no yorikonu iswonami ka ama mo turi senu yosi we ya si ura pa naku tomo yosi we ya si iswo pa naku tomo oki tu nami kiyoku kogiriko amapune no tomo">
-    <comment raw="multi-sentence,IP-MAT,0@阿麻俱母能可気佐倍美由留,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,PP,NP,1@己母利俱能婆都勢能可婆努,*" />
-    <comment raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,2@宇羅那美可不祢能与利己努,*" />
-    <comment raw="multi-sentence,IP-MAT;@2,3@伊蘇那美可阿麻母都利勢努,*" />
-    <comment raw="multi-sentence,CP-FINAL,4@与旨恵夜旨宇羅婆那俱等母,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-SUB,5@与旨恵夜旨伊蘇婆那俱等母,*" />
-    <comment raw="multi-sentence,CP-FINAL,IP-SUB,6@於岐都那美岐与俱己岐利己,*" />
-    <comment raw="multi-sentence,CP-FINAL,7@阿麻不祢能等母,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.32">
+      <comment position="0" raw="multi-sentence,IP-MAT,0@阿麻俱母能可気佐倍美由留,*" />
+      <comment position="7" raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,PP,NP,1@己母利俱能婆都勢能可婆努,*" />
+      <comment position="14" raw="multi-sentence,IP-MAT,IP-ADV,NP-SBJ,2@宇羅那美可不祢能与利己努,*" />
+      <comment position="23" raw="multi-sentence,IP-MAT;@2,3@伊蘇那美可阿麻母都利勢努,*" />
+      <comment position="32" raw="multi-sentence,CP-FINAL,4@与旨恵夜旨宇羅婆那俱等母,*" />
+      <comment position="41" raw="multi-sentence,CP-FINAL,IP-SUB,5@与旨恵夜旨伊蘇婆那俱等母,*" />
+      <comment position="50" raw="multi-sentence,CP-FINAL,IP-SUB,6@於岐都那美岐与俱己岐利己,*" />
+      <comment position="58" raw="multi-sentence,CP-FINAL,7@阿麻不祢能等母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿麻俱母能可気佐倍美由留</kanji>
+        <transcription>ama kumo no kage sape mi yuru</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>己母利俱能婆都勢能可婆努</kanji>
+        <transcription>komori ku no patuse no kapa nwo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>宇羅那美可不祢能与利己努</kanji>
+        <transcription>ura na mi ka pune no yori ko nu</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊蘇那美可阿麻母都利勢努</kanji>
+        <transcription>iswo na mi ka ama mo turi se nu</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>与旨恵夜旨宇羅婆那俱等母</kanji>
+        <transcription>yosi we ya si ura pa na ku tomo</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>与旨恵夜旨伊蘇婆那俱等母</kanji>
+        <transcription>yosi we ya si iswo pa na ku tomo</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>於岐都那美岐与俱己岐利己</kanji>
+        <transcription>oki tu nami kiyo ku kog iri ko</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>阿麻不祢能等母</kanji>
+        <transcription>ama pune no tomo</transcription>
+      </sentence>
+    </raw-text>
     <multi-sentence>
       <IP-MAT index="1" inferred_index="1">
         <IP-ADV>
@@ -1953,11 +2681,35 @@
     </multi-sentence>
   </block>
   <block id="KH.33" header="adusayumi pikitu no pe n aru nanoriswo mo pana pa saku made imo apanu kamo">
-    <comment raw="IP-MAT,0@阿豆佐由美,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,PP-HST,NP,IP-REL,PP-OB1,NP,PP,NP,1@比岐都能倍那留,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,PP-HST,NP,2@那能利蘇母,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,3@婆那婆佐俱麻弖,*" />
-    <comment raw="IP-MAT,4@伊母阿婆奴可母,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.33">
+      <comment position="0" raw="IP-MAT,0@阿豆佐由美,*" />
+      <comment position="2" raw="IP-MAT,PP-ADV,IP-NMZ,PP-HST,NP,IP-REL,PP-OB1,NP,PP,NP,1@比岐都能倍那留,*" />
+      <comment position="7" raw="IP-MAT,PP-ADV,IP-NMZ,PP-HST,NP,2@那能利蘇母,*" />
+      <comment position="9" raw="IP-MAT,PP-ADV,IP-NMZ,3@婆那婆佐俱麻弖,*" />
+      <comment position="13" raw="IP-MAT,4@伊母阿婆奴可母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿豆佐由美</kanji>
+        <transcription>adusa yumi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>比岐都能倍那留</kanji>
+        <transcription>pikitu no pe n aru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>那能利蘇母</kanji>
+        <transcription>nanoriswo mo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>婆那婆佐俱麻弖</kanji>
+        <transcription>pana pa saku made</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>伊母阿婆奴可母</kanji>
+        <transcription>imo apa nu kamo</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-ADV>
         <IP-NMZ>
@@ -2011,11 +2763,35 @@
     </IP-MAT>
   </block>
   <block id="KH.34" header="adusayumi pikitu no pe n aru nanoriswo ga pana no saku made imo ni apanu ka">
-    <comment raw="IP-MAT,0@阿豆佐由美,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,PP,NP,IP-REL,PP-OB1,NP,PP,NP,1@比岐都能倍那留,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,PP,NP,2@那能利蘇我,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,3@婆那能佐俱麻弖,*" />
-    <comment raw="IP-MAT,4@伊母爾阿婆努何,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.34">
+      <comment position="0" raw="IP-MAT,0@阿豆佐由美,*" />
+      <comment position="2" raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,PP,NP,IP-REL,PP-OB1,NP,PP,NP,1@比岐都能倍那留,*" />
+      <comment position="7" raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,PP,NP,2@那能利蘇我,*" />
+      <comment position="9" raw="IP-MAT,PP-ADV,IP-NMZ,PP-SBJ,NP,3@婆那能佐俱麻弖,*" />
+      <comment position="13" raw="IP-MAT,4@伊母爾阿婆努何,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿豆佐由美</kanji>
+        <transcription>adusa yumi</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>比岐都能倍那留</kanji>
+        <transcription>pikitu no pe n aru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>那能利蘇我</kanji>
+        <transcription>nanoriswo ga</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>婆那能佐俱麻弖</kanji>
+        <transcription>pana no saku made</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>伊母爾阿婆努何</kanji>
+        <transcription>imo ni apa nu ka</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-ADV>
         <IP-NMZ>
@@ -2072,11 +2848,35 @@
     </IP-MAT>
   </block>
   <block id="KH.35" header="akiyama no momiti pazimuru siratuyu no itisiroki made imo ni apanu kamo">
-    <comment raw="IP-MAT,0@阿岐夜麻能,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,IP-ADV,NP-PRD,IP-EMB,1@母美知婆自牟留,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,IP-ADV,NP-PRD,2@旨羅都由能,*" />
-    <comment raw="IP-MAT,PP-ADV,IP-NMZ,3@伊知旨侶岐麻弖,*" />
-    <comment raw="IP-MAT,4@伊母爾阿婆奴可母,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.35">
+      <comment position="0" raw="IP-MAT,0@阿岐夜麻能,*" />
+      <comment position="3" raw="IP-MAT,PP-ADV,IP-NMZ,IP-ADV,NP-PRD,IP-EMB,1@母美知婆自牟留,*" />
+      <comment position="5" raw="IP-MAT,PP-ADV,IP-NMZ,IP-ADV,NP-PRD,2@旨羅都由能,*" />
+      <comment position="8" raw="IP-MAT,PP-ADV,IP-NMZ,3@伊知旨侶岐麻弖,*" />
+      <comment position="11" raw="IP-MAT,4@伊母爾阿婆奴可母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿岐夜麻能</kanji>
+        <transcription>aki yama no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>母美知婆自牟留</kanji>
+        <transcription>momiti pazimuru</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>旨羅都由能</kanji>
+        <transcription>sira tuyu no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊知旨侶岐麻弖</kanji>
+        <transcription>itisiro ki made</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>伊母爾阿婆奴可母</kanji>
+        <transcription>imo ni apa nu kamo</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-ADV>
         <IP-NMZ>
@@ -2123,11 +2923,35 @@
     </IP-MAT>
   </block>
   <block id="KH.36" header="awoniyosi narayamagapi yo sirotape ni ko no tanabiku pa parukasumi nari">
-    <comment raw="IP-MAT,0@阿呼爾与旨,*" />
-    <comment raw="IP-MAT,PP-SBJ,IP-NMZ,PP-ADV,NP,1@那羅夜麻我比与,*" />
-    <comment raw="IP-MAT,PP-SBJ,IP-NMZ,2@旨侶他倍爾,*" />
-    <comment raw="IP-MAT,PP-SBJ,IP-NMZ,3@己能他那比俱婆,*" />
-    <comment raw="IP-MAT,4@婆留可須美那利,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.36">
+      <comment position="0" raw="IP-MAT,0@阿呼爾与旨,*" />
+      <comment position="4" raw="IP-MAT,PP-SBJ,IP-NMZ,PP-ADV,NP,1@那羅夜麻我比与,*" />
+      <comment position="8" raw="IP-MAT,PP-SBJ,IP-NMZ,2@旨侶他倍爾,*" />
+      <comment position="11" raw="IP-MAT,PP-SBJ,IP-NMZ,3@己能他那比俱婆,*" />
+      <comment position="15" raw="IP-MAT,4@婆留可須美那利,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿呼爾与旨</kanji>
+        <transcription>awo ni yo si</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>那羅夜麻我比与</kanji>
+        <transcription>nara yama gapi yo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>旨侶他倍爾</kanji>
+        <transcription>siro tape ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>己能他那比俱婆</kanji>
+        <transcription>ko no tanabiku pa</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>婆留可須美那利</kanji>
+        <transcription>paru kasumi nari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-SBJ>
         <IP-NMZ>
@@ -2184,11 +3008,35 @@
     </IP-MAT>
   </block>
   <block id="KH.37" header="kaze pukeba kumo no kinugasa tatutayama ito nipopaseru asagapo ga pana">
-    <comment raw="IP-MAT,0@可是不気婆,*" />
-    <comment raw="IP-MAT,NP,IP-REL,NP-OB1,IP-ZYO,1@俱母能岐努我佐,*" />
-    <comment raw="IP-MAT,NP,IP-REL,NP-OB1,2@他都他夜麻,*" />
-    <comment raw="IP-MAT,NP,IP-REL,3@伊等爾保婆勢留,*" />
-    <comment raw="IP-MAT,NP,4@阿佐我保我婆那,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.37">
+      <comment position="0" raw="IP-MAT,0@可是不気婆,*" />
+      <comment position="3" raw="IP-MAT,NP,IP-REL,NP-OB1,IP-ZYO,1@俱母能岐努我佐,*" />
+      <comment position="7" raw="IP-MAT,NP,IP-REL,NP-OB1,2@他都他夜麻,*" />
+      <comment position="9" raw="IP-MAT,NP,IP-REL,3@伊等爾保婆勢留,*" />
+      <comment position="11" raw="IP-MAT,NP,4@阿佐我保我婆那,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>可是不気婆</kanji>
+        <transcription>kaze pukeba</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>俱母能岐努我佐</kanji>
+        <transcription>kumo no kinu gasa</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>他都他夜麻</kanji>
+        <transcription>tatuta yama</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>伊等爾保婆勢留</kanji>
+        <transcription>ito nipopaseru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>阿佐我保我婆那</kanji>
+        <transcription>asa gapo ga pana</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <IP-REL>
@@ -2242,11 +3090,35 @@
     </IP-MAT>
   </block>
   <block id="KH.38" header="sipo miteba irinuru iswo no kusa na rasi miru pi sukunaku kwopuru yo opomi">
-    <comment raw="CP-FINAL,0@旨保美弖婆,*" />
-    <comment raw="CP-FINAL,IP-SUB,NP-PRD,PP,NP,IP-REL,1@伊利努留伊蘇能,*" />
-    <comment raw="CP-FINAL,IP-SUB,NP-PRD,2@俱佐那羅旨,*" />
-    <comment raw="CP-FINAL,3@美留比須俱那俱,*" />
-    <comment raw="CP-FINAL,IP-ADV;@2,4@古不留与於保美,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.38">
+      <comment position="0" raw="CP-FINAL,0@旨保美弖婆,*" />
+      <comment position="2" raw="CP-FINAL,IP-SUB,NP-PRD,PP,NP,IP-REL,1@伊利努留伊蘇能,*" />
+      <comment position="6" raw="CP-FINAL,IP-SUB,NP-PRD,2@俱佐那羅旨,*" />
+      <comment position="9" raw="CP-FINAL,3@美留比須俱那俱,*" />
+      <comment position="13" raw="CP-FINAL,IP-ADV;@2,4@古不留与於保美,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>旨保美弖婆</kanji>
+        <transcription>sipo miteba</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>伊利努留伊蘇能</kanji>
+        <transcription>iri nuru iswo no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>俱佐那羅旨</kanji>
+        <transcription>kusa na rasi</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>美留比須俱那俱</kanji>
+        <transcription>miru pi sukuna ku</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>古不留与於保美</kanji>
+        <transcription>kwopuru yo opo mi</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <NP-PRD>
@@ -2300,11 +3172,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.39" header="akipagwi pa sakite tiru rasi kasugano ni naku naru sika no kowe wo kanasimi">
-    <comment raw="CP-FINAL,IP-SUB,0@阿岐婆疑婆,*" />
-    <comment raw="CP-FINAL,IP-SUB,1@佐岐弖知留羅旨,*" />
-    <comment raw="CP-FINAL,IP-ADV,2@可須我能爾,*" />
-    <comment raw="CP-FINAL,IP-ADV,PP-SBJ,NP,PP,NP,IP-REL,3@那俱那留旨可能,*" />
-    <comment raw="CP-FINAL,IP-ADV,PP-SBJ,NP,4@己恵呼可那旨美,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.39">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@阿岐婆疑婆,*" />
+      <comment position="3" raw="CP-FINAL,IP-SUB,1@佐岐弖知留羅旨,*" />
+      <comment position="6" raw="CP-FINAL,IP-ADV,2@可須我能爾,*" />
+      <comment position="10" raw="CP-FINAL,IP-ADV,PP-SBJ,NP,PP,NP,IP-REL,3@那俱那留旨可能,*" />
+      <comment position="14" raw="CP-FINAL,IP-ADV,PP-SBJ,NP,4@己恵呼可那旨美,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>阿岐婆疑婆</kanji>
+        <transcription>aki pagwi pa</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>佐岐弖知留羅旨</kanji>
+        <transcription>sakite tiru rasi</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>可須我能爾</kanji>
+        <transcription>kasuga no ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>那俱那留旨可能</kanji>
+        <transcription>naku naru sika no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>己恵呼可那旨美</kanji>
+        <transcription>kowe wo kanasi mi</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP-SBJ>
@@ -2359,11 +3255,35 @@
     </CP-FINAL>
   </block>
   <block id="KH.40" header="minasoko pye siduku siratama ta ga yuwe ni kokoro tukusite wa ga omopanaku ni">
-    <comment raw="IP-MAT,0@美那曽己弊,*" />
-    <comment raw="IP-MAT,NP-VOC,IP-REL,1@旨都俱旨羅他麻,*" />
-    <comment raw="IP-MAT,2@他我由恵爾,*" />
-    <comment raw="IP-MAT,IP-NMZ-PRD,IP-ADV,3@己己侶都俱旨弖,*" />
-    <comment raw="IP-MAT,IP-NMZ-PRD,4@和我於母婆那俱爾,*" />
+    <roundtrip-data format="coj-txt" source-id="KH.40">
+      <comment position="0" raw="IP-MAT,0@美那曽己弊,*" />
+      <comment position="3" raw="IP-MAT,NP-VOC,IP-REL,1@旨都俱旨羅他麻,*" />
+      <comment position="6" raw="IP-MAT,2@他我由恵爾,*" />
+      <comment position="10" raw="IP-MAT,IP-NMZ-PRD,IP-ADV,3@己己侶都俱旨弖,*" />
+      <comment position="12" raw="IP-MAT,IP-NMZ-PRD,4@和我於母婆那俱爾,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美那曽己弊</kanji>
+        <transcription>mina soko pye</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>旨都俱旨羅他麻</kanji>
+        <transcription>siduku sira tama</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>他我由恵爾</kanji>
+        <transcription>ta ga yuwe ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>己己侶都俱旨弖</kanji>
+        <transcription>kokoro tukusite</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>和我於母婆那俱爾</kanji>
+        <transcription>wa ga omopa naku ni</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP-VOC>
         <IP-REL>

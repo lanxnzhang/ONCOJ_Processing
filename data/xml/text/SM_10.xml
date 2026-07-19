@@ -1,18 +1,70 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_10.txt">
-  <block id="1_SM_10" header="aki tu mi kamwi to opo ya sima sira si myesu wa ga kwo sumyera mikoto no kake maku mo kasikwo ki sumyera ga mikadwo no pazime tama pi tukuri tama p yeru takara wo kuni no takara to site ko no opokimi wo tukape matura sime tamape ba ame no sita ni tate tama pi okonapi tama p yeru nori pa tayu be ki koto pa na ku ari kyeri to mi kiki yorokobwi paberi to mawosi tamapye to noritamapu opo mikoto wo mawosu">
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,0@現神,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,1@御大八洲,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,2@我子天皇乃掛母畏伎,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,PP-SBJ-GEN,NP,3@天皇朝廷乃始賜比造賜弊留,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,4@宝国宝等之弖,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,5@此王乎令供奉賜波,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,6@天下尓立賜比行賜部流,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP-TOP,NP,7@法波可絶伎,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP-TOP;@4,NP,8@事波無久有家利止,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,9@見聞喜侍止,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,10@奏賜等詔,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,11@大命乎奏,*" />
+  <block id="SM.10.1" header="aki tu mi kamwi to opo ya sima sira si myesu wa ga kwo sumyera mikoto no kake maku mo kasikwo ki sumyera ga mikadwo no pazime tama pi tukuri tama p yeru takara wo kuni no takara to site ko no opokimi wo tukape matura sime tamape ba ame no sita ni tate tama pi okonapi tama p yeru nori pa tayu be ki koto pa na ku ari kyeri to mi kiki yorokobwi paberi to mawosi tamapye to noritamapu opo mikoto wo mawosu">
+    <roundtrip-data format="coj-txt" source-id="1_SM_10">
+      <comment position="0" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,0@現神,*" />
+      <comment position="5" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,IP-REL,1@御大八洲,*" />
+      <comment position="11" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-SBJ-GEN,NP,2@我子天皇乃掛母畏伎,*" />
+      <comment position="22" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,IP-REL,PP-SBJ-GEN,NP,3@天皇朝廷乃始賜比造賜弊留,*" />
+      <comment position="33" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,PP-OB1,NP,4@宝国宝等之弖,*" />
+      <comment position="40" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,5@此王乎令供奉賜波,*" />
+      <comment position="49" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,6@天下尓立賜比行賜部流,*" />
+      <comment position="60" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP-TOP,NP,7@法波可絶伎,*" />
+      <comment position="65" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,PP-TOP;@4,NP,8@事波無久有家利止,*" />
+      <comment position="72" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,9@見聞喜侍止,*" />
+      <comment position="77" raw="IP-MAT,PP-OB1,NP,IP-REL,IP-ADV,10@奏賜等詔,*" />
+      <comment position="81" raw="IP-MAT,PP-OB1,NP,11@大命乎奏,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>現神</kanji>
+        <transcription>aki tu mi kamwi to</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>御大八洲</kanji>
+        <transcription>opo ya sima sira si myesu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>我子天皇乃掛母畏伎</kanji>
+        <transcription>wa ga kwo sumyera mikoto no kake maku mo kasikwo ki</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>天皇朝廷乃始賜比造賜弊留</kanji>
+        <transcription>sumyera ga mikadwo no pazime tama pi tukuri tama p yeru</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>宝国宝等之弖</kanji>
+        <transcription>takara wo kuni no takara to site</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>此王乎令供奉賜波</kanji>
+        <transcription>ko no opokimi wo tukape matura sime tamape ba</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>天下尓立賜比行賜部流</kanji>
+        <transcription>ame no sita ni tate tama pi okonapi tama p yeru</transcription>
+      </sentence>
+      <sentence n="8">
+        <kanji>法波可絶伎</kanji>
+        <transcription>nori pa tayu be ki</transcription>
+      </sentence>
+      <sentence n="9">
+        <kanji>事波無久有家利止</kanji>
+        <transcription>koto pa na ku ari kyeri to</transcription>
+      </sentence>
+      <sentence n="10">
+        <kanji>見聞喜侍止</kanji>
+        <transcription>mi kiki yorokobwi paberi to</transcription>
+      </sentence>
+      <sentence n="11">
+        <kanji>奏賜等詔</kanji>
+        <transcription>mawosi tamapye to noritamapu</transcription>
+      </sentence>
+      <sentence n="12">
+        <kanji>大命乎奏</kanji>
+        <transcription>opo mikoto wo mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-OB1>
         <NP>
@@ -233,14 +285,46 @@
       <VB-ADC lemma="L031678a" phon="LOG" form="mawosu" />
     </IP-MAT>
   </block>
-  <block id="2_SM_10" header="mata kyepu okonapi tama pu waza wo misonapaseba tada ni aswobi to nomwi ni pa ara zu site ame no sita no pito ni kimi omi oya kwo no kotowari wo wosipe tama pi omobuke tama pu to ni aru rasi to namo omoposi mye su">
-    <comment raw="IP-MAT,0@又今日行賜布,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,PP-OB1,NP,1@態乎見行波,*" />
-    <comment raw="IP-MAT,IP-ADV,2@直遊止乃味,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,3@尓波不在之弖,*" />
-    <comment raw="IP-MAT,IP-ADV,4@天下人尓君臣祖子乃理乎教賜比,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,5@趣賜布等,*" />
-    <comment raw="IP-MAT,IP-ADV,6@尓有良志止奈母所思須,*" />
+  <block id="SM.10.2" header="mata kyepu okonapi tama pu waza wo misonapaseba tada ni aswobi to nomwi ni pa ara zu site ame no sita no pito ni kimi omi oya kwo no kotowari wo wosipe tama pi omobuke tama pu to ni aru rasi to namo omoposi mye su">
+    <roundtrip-data format="coj-txt" source-id="2_SM_10">
+      <comment position="0" raw="IP-MAT,0@又今日行賜布,*" />
+      <comment position="5" raw="IP-MAT,IP-ADV,IP-ADV,PP-OB1,NP,1@態乎見行波,*" />
+      <comment position="8" raw="IP-MAT,IP-ADV,2@直遊止乃味,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV,IP-ADV,3@尓波不在之弖,*" />
+      <comment position="18" raw="IP-MAT,IP-ADV,4@天下人尓君臣祖子乃理乎教賜比,*" />
+      <comment position="34" raw="IP-MAT,IP-ADV,IP-ADV,5@趣賜布等,*" />
+      <comment position="38" raw="IP-MAT,IP-ADV,6@尓有良志止奈母所思須,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>又今日行賜布</kanji>
+        <transcription>mata kyepu okonapi tama pu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>態乎見行波</kanji>
+        <transcription>waza wo misonapaseba</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>直遊止乃味</kanji>
+        <transcription>tada ni aswobi to nomwi</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>尓波不在之弖</kanji>
+        <transcription>ni pa ara zu site</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>天下人尓君臣祖子乃理乎教賜比</kanji>
+        <transcription>ame no sita no pito ni kimi omi oya kwo no kotowari wo wosipe tama pi</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>趣賜布等</kanji>
+        <transcription>omobuke tama pu to</transcription>
+      </sentence>
+      <sentence n="7">
+        <kanji>尓有良志止奈母所思須</kanji>
+        <transcription>ni aru rasi to namo omoposi mye su</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP>
         <N phon="LOG" form="mata" />
@@ -352,13 +436,41 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="3_SM_10" header="koko wo motite wosipe tama pi omobuke tama pi nagara uke tamapari moti te wasure zu usinapa zu aru be ki sirusi tosite pito ri puta ri wo wosame tama pana to namo omoposi mye su to mawosi tamapye to noritamapu opo mikoto wo mawosi tama paku to mawosu">
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,0@是以教賜比趣賜比奈何良受被賜持弖不忘,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,1@不失可有伎表等之弖,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,2@一二人乎治賜波奈止那毛,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,3@所思行須等,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,4@奏賜止詔,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-OB1,NP,5@大命乎奏賜波久止奏,*" />
+  <block id="SM.10.3" header="koko wo motite wosipe tama pi omobuke tama pi nagara uke tamapari moti te wasure zu usinapa zu aru be ki sirusi tosite pito ri puta ri wo wosame tama pana to namo omoposi mye su to mawosi tamapye to noritamapu opo mikoto wo mawosi tama paku to mawosu">
+    <roundtrip-data format="coj-txt" source-id="3_SM_10">
+      <comment position="0" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,IP-ADV,0@是以教賜比趣賜比奈何良受被賜持弖不忘,*" />
+      <comment position="16" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,IP-ADV,1@不失可有伎表等之弖,*" />
+      <comment position="23" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,IP-ADV,2@一二人乎治賜波奈止那毛,*" />
+      <comment position="33" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,IP-ADV,3@所思行須等,*" />
+      <comment position="37" raw="IP-MAT,IP-ADV,PP-OB1,NP,IP-REL,IP-ADV,4@奏賜止詔,*" />
+      <comment position="41" raw="IP-MAT,IP-ADV,PP-OB1,NP,5@大命乎奏賜波久止奏,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>是以教賜比趣賜比奈何良受被賜持弖不忘</kanji>
+        <transcription>koko wo motite wosipe tama pi omobuke tama pi nagara uke tamapari moti te wasure zu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>不失可有伎表等之弖</kanji>
+        <transcription>usinapa zu aru be ki sirusi tosite</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>一二人乎治賜波奈止那毛</kanji>
+        <transcription>pito ri puta ri wo wosame tama pana to namo</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>所思行須等</kanji>
+        <transcription>omoposi mye su to</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>奏賜止詔</kanji>
+        <transcription>mawosi tamapye to noritamapu</transcription>
+      </sentence>
+      <sentence n="6">
+        <kanji>大命乎奏賜波久止奏</kanji>
+        <transcription>opo mikoto wo mawosi tama paku to mawosu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-OB1>

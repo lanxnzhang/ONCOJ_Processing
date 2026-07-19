@@ -114,6 +114,86 @@ The single candidate output do not have the option to add new entry (Multiple ca
 For scripteditor app:
 The user need to see the context of a word. Please add a function, when the user click a word, it will be shown in the whole passage and highlighted to facilitate the read and search. The whole passage only need to have the transcriptions and kanji texts. The context should be shown at the right part of this app - do not mess up the editing area.
 
+### After commit 354bfd9
+The xml data need to be revised.
+For a block, for example:
+ <block id="1_EN_01" header="ugonapar eru kamu nusi papuri ra moromoro kikosi myese to noru">
+    <comment raw="IP-MAT,IP-ARG,0@侍,*" />
+    <comment raw="IP-MAT,IP-ARG,1@神主祝部等諸聞食登,*" />
+    <comment raw="IP-MAT,2@宣,*" />
+    <IP-MAT>
+      <IP-ARG>
+        <IP-REL>
+          <VB>
+            <VB-STM phon="LOG" form="ugonapar" />
+            <VAX-STV-ADN phon="LOG" form="eru" />
+          </VB>
+        </IP-REL>
+        <C-NP index="1" inferred_index="1">
+          <N>
+            <N phon="LOG" form="kamu" index="1" inferred_index="1" />
+            <N index="2" phon="LOG" form="nusi" />
+          </N>
+        </C-NP>
+        <C-NP index="5">
+          <N>
+            <N phon="LOG" form="papuri" index="1" inferred_index="1" />
+            <N index="2" phon="LOG" form="ra" />
+          </N>
+        </C-NP>
+        <NP>
+          <N phon="LOG" form="moromoro" />
+        </NP>
+        <VB>
+          <VB-STM phon="LOG" form="kikosi" />
+          <VB-IMP phon="LOG" form="myese" />
+        </VB>
+        <P-COMP lemma="L000530" phon="PHON" form="to" />
+      </IP-ARG>
+      <VB-ADC phon="LOG" form="noru" />
+    </IP-MAT>
+  </block>
+
+The part below is only kept for round trips to txt:
+    <comment raw="IP-MAT,IP-ARG,0@侍,*" />
+    <comment raw="IP-MAT,IP-ARG,1@神主祝部等諸聞食登,*" />
+    <comment raw="IP-MAT,2@宣,*" />
+
+However, the kanji text (raw text) should be encoded in every block as below logic:
+  1. Let see the txt file at first:
+    =N(" ugonapar eru kamu nusi papuri ra moromoro kikosi myese to noru ")
+    IP-MAT,IP-ARG,0@侍,*
+    IP-MAT,IP-ARG,IP-REL,VB,VB-STM,LOG,ugonapar
+    IP-MAT,IP-ARG,IP-REL,VB,VAX-STV-ADN,LOG,eru
+    IP-MAT,IP-ARG,1@神主祝部等諸聞食登,*
+    IP-MAT,IP-ARG,C-NP,N,N,LOG,kamu
+    IP-MAT,IP-ARG,C-NP,N,N;@2,LOG,nusi
+    IP-MAT,IP-ARG,C-NP;@5,N,N,LOG,papuri
+    IP-MAT,IP-ARG,C-NP;@5,N,N;@2,LOG,ra
+    IP-MAT,IP-ARG,NP,N,LOG,moromoro
+    IP-MAT,IP-ARG,VB,VB-STM,LOG,kikosi
+    IP-MAT,IP-ARG,VB,VB-IMP,LOG,myese
+    IP-MAT,IP-ARG,P-COMP,L000530,PHON,to
+    IP-MAT,2@宣,*
+    IP-MAT,VB-ADC,LOG,noru
+    ID,1_EN_01
+  2. The explaination for the kanji in the txt file:
+  0@侍: 0@ means it is the first sentence (line) in this block (poem). 1@ means it is the second. Use numbers starting from 1 (not 0 as in txt) when encoding xml to avoid ambiguity.
+  The part below 0@侍 before 1@神主祝部等諸聞食登 is the transcription for it. Ignore tags before 0@侍 and 1@神主祝部等諸聞食登 - they are meaningless and do not contribute to the syntax tree's hierarchy.
+  3. As a result, the kanji should be encoded with it transcriptions as the raw text for this block as the logic:
+    sentence 1
+      kanji: 侍
+      transcription: ugonapar eru
+    sentence 2
+      kanji: 神主祝部等諸聞食登
+      transcription: kamu nusi papuri ra moromoro kikosi myese to
+    sentence 3
+      kanji: 宣
+      transcription: noru
+  4. ID,1_EN_01 should be encoded as EN.1.1 in xml (like MYS.1.1, because it is best to keep the ID format consistent.). 1_EN_01 can be kept somewhere if round trips need.
+
+Make sure you clearly mark and distinguish data only used for round trips with txt and data used for processing and encoding xml data.
+
 ## Build interactive editor
 
 An essential purpose for this repository is to facilitate research for linguists. The conventional text-declarative way of uploading and editing data poses a significant hurdle.

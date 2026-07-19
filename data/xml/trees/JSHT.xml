@@ -1,11 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="JSHT.txt">
   <block id="JSHT.1" header="ikaruga no tomi no wi no midu ikanaku ni tagetemasi mono tomi no wi no midu">
-    <comment raw="CP-FINAL,IP-SUB,0@伊我留我乃,*" />
-    <comment raw="CP-FINAL,IP-SUB,NP-OB1,PP,NP,1@止美能井乃美豆,*" />
-    <comment raw="CP-FINAL,IP-SUB,2@伊加奈久爾,*" />
-    <comment raw="CP-FINAL,IP-SUB,3@多義弖麻之母乃,*" />
-    <comment raw="CP-FINAL,4@止美能井乃美豆,*" />
+    <roundtrip-data format="coj-txt" source-id="JSHT.1">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@伊我留我乃,*" />
+      <comment position="2" raw="CP-FINAL,IP-SUB,NP-OB1,PP,NP,1@止美能井乃美豆,*" />
+      <comment position="7" raw="CP-FINAL,IP-SUB,2@伊加奈久爾,*" />
+      <comment position="10" raw="CP-FINAL,IP-SUB,3@多義弖麻之母乃,*" />
+      <comment position="14" raw="CP-FINAL,4@止美能井乃美豆,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊我留我乃</kanji>
+        <transcription>ikaruga no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>止美能井乃美豆</kanji>
+        <transcription>tomi no wi no midu</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>伊加奈久爾</kanji>
+        <transcription>ika naku ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>多義弖麻之母乃</kanji>
+        <transcription>tage te masi mono</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>止美能井乃美豆</kanji>
+        <transcription>tomi no wi no midu</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <NP-OB1>
@@ -61,11 +85,35 @@
     </CP-FINAL>
   </block>
   <block id="JSHT.2" header="ikaruga no tomi no wogapa no tayeba koso wa ga opokimi no mina wasurayeme">
-    <comment raw="IP-MAT,0@伊我留我乃,*" />
-    <comment raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@止美能乎何波乃,*" />
-    <comment raw="IP-MAT,IP-ADV,2@多叡婆許曾,*" />
-    <comment raw="IP-MAT,3@和何於保支美乃,*" />
-    <comment raw="IP-MAT,NP-SBJ,4@弥奈和須良叡米,*" />
+    <roundtrip-data format="coj-txt" source-id="JSHT.2">
+      <comment position="0" raw="IP-MAT,0@伊我留我乃,*" />
+      <comment position="2" raw="IP-MAT,IP-ADV,PP-SBJ,NP,1@止美能乎何波乃,*" />
+      <comment position="7" raw="IP-MAT,IP-ADV,2@多叡婆許曾,*" />
+      <comment position="9" raw="IP-MAT,3@和何於保支美乃,*" />
+      <comment position="14" raw="IP-MAT,NP-SBJ,4@弥奈和須良叡米,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊我留我乃</kanji>
+        <transcription>ikaruga no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>止美能乎何波乃</kanji>
+        <transcription>tomi no wo gapa no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>多叡婆許曾</kanji>
+        <transcription>tayeba koso</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>和何於保支美乃</kanji>
+        <transcription>wa ga opo kimi no</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>弥奈和須良叡米</kanji>
+        <transcription>mi na wasura ye me</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <PP-SBJ>
@@ -119,11 +167,35 @@
     </IP-MAT>
   </block>
   <block id="JSHT.3" header="mikami wosu tabasamiyama no adikage ni pito no mawosisi wa ga opokimi pa mo">
-    <comment raw="IP-MAT,0@美加弥乎須,*" />
-    <comment raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,PP,NP,1@多婆佐美夜麻乃,*" />
-    <comment raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,2@阿遅加気爾,*" />
-    <comment raw="IP-MAT,PP,NP,IP-EMB,3@比止乃麻乎之志,*" />
-    <comment raw="IP-MAT,PP,NP,4@和何於保支美波母,*" />
+    <roundtrip-data format="coj-txt" source-id="JSHT.3">
+      <comment position="0" raw="IP-MAT,0@美加弥乎須,*" />
+      <comment position="4" raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,PP,NP,1@多婆佐美夜麻乃,*" />
+      <comment position="7" raw="IP-MAT,PP,NP,IP-EMB,IP-ARG,PP,NP,2@阿遅加気爾,*" />
+      <comment position="9" raw="IP-MAT,PP,NP,IP-EMB,3@比止乃麻乎之志,*" />
+      <comment position="13" raw="IP-MAT,PP,NP,4@和何於保支美波母,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>美加弥乎須</kanji>
+        <transcription>mi kami wosu</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>多婆佐美夜麻乃</kanji>
+        <transcription>tabasami yama no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>阿遅加気爾</kanji>
+        <transcription>adikage ni</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>比止乃麻乎之志</kanji>
+        <transcription>pito no mawosi si</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>和何於保支美波母</kanji>
+        <transcription>wa ga opo kimi pa mo</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP>
         <NP>
@@ -185,11 +257,35 @@
     </IP-MAT>
   </block>
   <block id="JSHT.4" header="ikaruga no ko no kakiyama no sagaru kwi no swora naru koto wo kimi ni mawosana">
-    <comment raw="IP-MAT,0@伊我留我乃,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,PP,NP,1@己能加支夜麻乃,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,2@佐可留木乃,*" />
-    <comment raw="IP-MAT,PP-OB1,NP,IP-EMB,3@蘇良奈留許等乎,*" />
-    <comment raw="IP-MAT,4@支美爾麻乎佐奈,*" />
+    <roundtrip-data format="coj-txt" source-id="JSHT.4">
+      <comment position="0" raw="IP-MAT,0@伊我留我乃,*" />
+      <comment position="2" raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,PP,NP,1@己能加支夜麻乃,*" />
+      <comment position="7" raw="IP-MAT,PP-OB1,NP,IP-EMB,IP-ADV,NP-PRD,2@佐可留木乃,*" />
+      <comment position="11" raw="IP-MAT,PP-OB1,NP,IP-EMB,3@蘇良奈留許等乎,*" />
+      <comment position="15" raw="IP-MAT,4@支美爾麻乎佐奈,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>伊我留我乃</kanji>
+        <transcription>ikaruga no</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>己能加支夜麻乃</kanji>
+        <transcription>ko no kaki yama no</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>佐可留木乃</kanji>
+        <transcription>sagaru kwi no</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>蘇良奈留許等乎</kanji>
+        <transcription>swora naru koto wo</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>支美爾麻乎佐奈</kanji>
+        <transcription>kimi ni mawosana</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-OB1>
         <NP>

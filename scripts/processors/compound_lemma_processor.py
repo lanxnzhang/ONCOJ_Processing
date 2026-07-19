@@ -68,8 +68,8 @@ def _is_lemma(token: str) -> bool:
 
 
 def _elem_children(elem: ET.Element) -> list[ET.Element]:
-    """Return direct element children, skipping <comment> nodes."""
-    return [c for c in elem if c.tag != "comment"]
+    """Return syntactic children, skipping block metadata nodes."""
+    return [c for c in elem if c.tag not in {"comment", "roundtrip-data", "raw-text"}]
 
 
 # ══════════════════════════════════════════════════════════════════════════════

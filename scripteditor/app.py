@@ -250,12 +250,18 @@ def run_context(run_id: str):
     if position < 1 or position > len(lines):
         abort(400, description="The selected word is outside this passage")
 
-    kanji_parts: list[tuple[int, str]] = []
-    for comment in utterance.comment_lines():
-        match = re.search(r"(?:^|,)(\d+)@(.*),\*$", comment.raw)
-        if match:
-            kanji_parts.append((int(match.group(1)), match.group(2)))
-    kanji_parts.sort(key=lambda item: item[0])
+    raw_text = utterance._block_elem.find("raw-text") if utterance._block_elem is not None else None
+    kanji = ""
+    if raw_text is not None:
+        kanji = "".join(sentence.findtext("kanji", "") for sentence in raw_text.findall("sentence"))
+    else:
+        kanji_parts: list[tuple[int, str]] = []
+        for comment in utterance.comment_lines():
+            match = re.search(r"(?:^|,)(\d+)@(.*),\*$", comment.raw)
+            if match:
+                kanji_parts.append((int(match.group(1)), match.group(2)))
+        kanji_parts.sort(key=lambda item: item[0])
+        kanji = "".join(text for _, text in kanji_parts)
     return jsonify({
         "file": filename,
         "utterance": utterance.sentence_id or utterance_id,
@@ -264,7 +270,7 @@ def run_context(run_id: str):
             for index, line in enumerate(lines, 1)
             if line.word_form
         ],
-        "kanji": "".join(text for _, text in kanji_parts),
+        "kanji": kanji,
     })
 
 

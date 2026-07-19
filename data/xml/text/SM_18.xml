@@ -1,7 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <document filename="SM_18.txt">
-  <block id="1_SM_18" header="sipo yaki ra ituta ri wo pito mupon su to tuge tari">
-    <comment raw="IP-MAT,0@塩焼等五人乎人告謀反,*" />
+  <block id="SM.18.1" header="sipo yaki ra ituta ri wo pito mupon su to tuge tari">
+    <roundtrip-data format="coj-txt" source-id="1_SM_18">
+      <comment position="0" raw="IP-MAT,0@塩焼等五人乎人告謀反,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>塩焼等五人乎人告謀反</kanji>
+        <transcription>sipo yaki ra ituta ri wo pito mupon su to tuge tari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-OB1>
         <NP>
@@ -31,9 +39,21 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="2_SM_18" header="imasi tati wa ga tika ki pito n ari">
-    <comment raw="IP-MAT,0@汝等為吾近,*" />
-    <comment raw="IP-MAT,NP,1@人,*" />
+  <block id="SM.18.2" header="imasi tati wa ga tika ki pito n ari">
+    <roundtrip-data format="coj-txt" source-id="2_SM_18">
+      <comment position="0" raw="IP-MAT,0@汝等為吾近,*" />
+      <comment position="6" raw="IP-MAT,NP,1@人,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>汝等為吾近</kanji>
+        <transcription>imasi tati wa ga tika ki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>人</kanji>
+        <transcription>pito nari</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <NP-SBJ>
         <N>
@@ -59,9 +79,21 @@
       <COP-IFC lemma="L031966" phon="PHON" form="nari" />
     </IP-MAT>
   </block>
-  <block id="3_SM_18" header="pito tu mo ware wo ura mu be ki koto pa omopo e zu">
-    <comment raw="IP-MAT,0@一毛吾乎可怨,*" />
-    <comment raw="IP-MAT,PP-TOP;@3,NP,1@事者不所念,*" />
+  <block id="SM.18.3" header="pito tu mo ware wo ura mu be ki koto pa omopo e zu">
+    <roundtrip-data format="coj-txt" source-id="3_SM_18">
+      <comment position="0" raw="IP-MAT,0@一毛吾乎可怨,*" />
+      <comment position="9" raw="IP-MAT,PP-TOP;@3,NP,1@事者不所念,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>一毛吾乎可怨</kanji>
+        <transcription>pito tu mo ware wo ura mu be ki</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>事者不所念</kanji>
+        <transcription>koto pa omopo e zu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <PP-TOP index="1" inferred_index="1">
         <NP>
@@ -101,12 +133,36 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="4_SM_18" header="imasi tati wo sumyera ga mikadwo pa kokodaku taka ku wosame tamapu wo nani wo uramye si ki koto to site ka sika se mu">
-    <comment raw="IP-MAT,IP-ADV,0@汝等乎皇朝者己己太久高,*" />
-    <comment raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,1@治賜乎,*" />
-    <comment raw="IP-MAT,IP-ADV,2@何乎怨志岐,*" />
-    <comment raw="IP-MAT,IP-ADV,NP,3@所止志弖加,*" />
-    <comment raw="IP-MAT,4@然将為,*" />
+  <block id="SM.18.4" header="imasi tati wo sumyera ga mikadwo pa kokodaku taka ku wosame tamapu wo nani wo uramye si ki koto to site ka sika se mu">
+    <roundtrip-data format="coj-txt" source-id="4_SM_18">
+      <comment position="0" raw="IP-MAT,IP-ADV,0@汝等乎皇朝者己己太久高,*" />
+      <comment position="10" raw="IP-MAT,IP-ADV,IP-ADV,IP-ADV,1@治賜乎,*" />
+      <comment position="13" raw="IP-MAT,IP-ADV,2@何乎怨志岐,*" />
+      <comment position="18" raw="IP-MAT,IP-ADV,NP,3@所止志弖加,*" />
+      <comment position="22" raw="IP-MAT,4@然将為,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>汝等乎皇朝者己己太久高</kanji>
+        <transcription>imasi tati wo sumyera ga mikadwo pa kokodaku taka ku</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>治賜乎</kanji>
+        <transcription>wosame tamapu wo</transcription>
+      </sentence>
+      <sentence n="3">
+        <kanji>何乎怨志岐</kanji>
+        <transcription>nani wo uramye si ki</transcription>
+      </sentence>
+      <sentence n="4">
+        <kanji>所止志弖加</kanji>
+        <transcription>koto to site ka</transcription>
+      </sentence>
+      <sentence n="5">
+        <kanji>然将為</kanji>
+        <transcription>sika se mu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <IP-ADV>
@@ -177,8 +233,16 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="5_SM_18" header="arazi ka to namo omoposi myesu">
-    <comment raw="IP-MAT,0@不有加止奈母所念,*" />
+  <block id="SM.18.5" header="arazi ka to namo omoposi myesu">
+    <roundtrip-data format="coj-txt" source-id="5_SM_18">
+      <comment position="0" raw="IP-MAT,0@不有加止奈母所念,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>不有加止奈母所念</kanji>
+        <transcription>arazi ka to namo omoposi myesu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <VB-NGC lemma="L030125a" phon="LOG" form="arazi" />
@@ -196,9 +260,21 @@
       </VB>
     </IP-MAT>
   </block>
-  <block id="6_SM_18" header="koko wo motite imasi tati no tumi pa yurusi tamapu">
-    <comment raw="CP-FINAL,IP-SUB,0@是以,*" />
-    <comment raw="CP-FINAL,1@汝等罪者免賜,*" />
+  <block id="SM.18.6" header="koko wo motite imasi tati no tumi pa yurusi tamapu">
+    <roundtrip-data format="coj-txt" source-id="6_SM_18">
+      <comment position="0" raw="CP-FINAL,IP-SUB,0@是以,*" />
+      <comment position="3" raw="CP-FINAL,1@汝等罪者免賜,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>是以</kanji>
+        <transcription>koko wo motite</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>汝等罪者免賜</kanji>
+        <transcription>imasi tati no tumi pa yurusi tamapu</transcription>
+      </sentence>
+    </raw-text>
     <CP-FINAL>
       <IP-SUB>
         <PP-OB1>
@@ -232,9 +308,21 @@
       </IP-ADV>
     </CP-FINAL>
   </block>
-  <block id="7_SM_18" header="ima yuku saki sika na se so to noritamapu">
-    <comment raw="IP-MAT,0@今徃,*" />
-    <comment raw="IP-MAT,IP-ADV,NP,1@前然莫為止宣,*" />
+  <block id="SM.18.7" header="ima yuku saki sika na se so to noritamapu">
+    <roundtrip-data format="coj-txt" source-id="7_SM_18">
+      <comment position="0" raw="IP-MAT,0@今徃,*" />
+      <comment position="2" raw="IP-MAT,IP-ADV,NP,1@前然莫為止宣,*" />
+    </roundtrip-data>
+    <raw-text role="processing">
+      <sentence n="1">
+        <kanji>今徃</kanji>
+        <transcription>ima yuku</transcription>
+      </sentence>
+      <sentence n="2">
+        <kanji>前然莫為止宣</kanji>
+        <transcription>saki sika na se so to noritamapu</transcription>
+      </sentence>
+    </raw-text>
     <IP-MAT>
       <IP-ADV>
         <NP index="1" inferred_index="1">

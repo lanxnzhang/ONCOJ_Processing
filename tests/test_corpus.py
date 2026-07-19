@@ -280,7 +280,8 @@ class TestCorpusDocument:
     def test_find_utterance(self, doc):
         utt = doc.find_utterance("1_EN_01")
         assert utt is not None
-        assert utt.sentence_id == "1_EN_01"
+        assert utt.sentence_id == "EN.1.1"
+        assert doc.find_utterance("EN.1.1") is not None
 
     def test_find_utterance_missing(self, doc):
         assert doc.find_utterance("MISSING") is None
